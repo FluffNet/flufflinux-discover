@@ -113,7 +113,7 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
     KirigamiAppDefaults::apply(&app);
 
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("plasmadiscover")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("flufflinuxplasmadiscover")));
     app.setQuitLockEnabled(false);
     KLocalizedString::setApplicationDomain("plasma-discover");
     KAboutData about(QStringLiteral("discover"),

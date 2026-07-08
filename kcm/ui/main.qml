@@ -37,7 +37,7 @@ SimpleKCM {
         width: parent.width
 
         QQC2.RadioButton {
-            Kirigami.FormData.label: i18n("Update software:")
+            Kirigami.FormData.label: i18n("Update Flatpak:")
             text: i18n("Manually")
 
             QQC2.ButtonGroup.group: autoUpdatesGroup
@@ -55,7 +55,7 @@ SimpleKCM {
             }
 
             Kirigami.ContextualHelpButton {
-                toolTipText: xi18nc("@info", "Software updates will be downloaded automatically when they become available. Updates for applications will be installed immediately, while updates for the system will be installed the next time it’s restarted.")
+                toolTipText: xi18nc("@info", "Flatpak updates will be downloaded automatically when they become available. Updates will be installed immediately.")
             }
         }
 
@@ -116,14 +116,14 @@ SimpleKCM {
 
         ColumnLayout {
             spacing: 0
-            Kirigami.FormData.label: i18n("Apply system updates:")
+            Kirigami.FormData.label: i18n("Apply Flatpak updates:")
             Kirigami.FormData.buddyFor: offlineUpdatesOption
             visible: !kcm.mandatoryRebootAfterUpdate
             enabled: !kcm.discoverSettings.isUseOfflineUpdatesImmutable
 
             QQC2.RadioButton {
                 id: offlineUpdatesOption
-                text: i18nc("@option:radio part of the logical sentence 'Apply system updates after rebooting'", "After rebooting")
+                text: i18nc("@option:radio part of the logical sentence 'Apply Flatpak updates after rebooting'", "After rebooting")
 
                 QQC2.ButtonGroup.group: offlineUpdatesGroup
                 checked: kcm.discoverSettings.useOfflineUpdates
@@ -136,7 +136,7 @@ SimpleKCM {
             }
 
             QQC2.RadioButton {
-                text: i18nc("@option:radio part of the logical sentence 'Apply system updates immediately'", "Immediately")
+                text: i18nc("@option:radio part of the logical sentence 'Apply Flatpak updates immediately'", "Immediately")
 
                 QQC2.ButtonGroup.group: offlineUpdatesGroup
                 enabled: !kcm.discoverSettings.isUseOfflineUpdatesImmutable
