@@ -165,6 +165,7 @@
   <developer_name xml:lang="zh-TW">Aleix Pol Gonzalez</developer_name>
   <icon type="stock">system-software-install</icon>
   <releases>
+    <release version="2026.07" date="2026-07-26"/>
     <release version="6.7.2" date="2026-06-30"/>
     <release version="6.7.1" date="2026-06-23"/>
     <release version="6.7.0" date="2026-06-16"/>
