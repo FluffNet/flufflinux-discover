@@ -83,6 +83,24 @@ public:
         connect(m_backend->m_updater, &StandardBackendUpdater::settingUpChanged, this, &ProgressCollector::progressChanged);
     }
 
+    ~ProgressCollector() override
+    {
+        for (auto job : std::as_const(m_jobs)) {
+            job->cancel();
+        }
+
+        for (auto job : std::as_const(m_jobs)) {
+            if (job->wait(2000)) {
+                delete job;
+            } else {
+                // Deleting a running QThread is unsafe. At process shutdown it is
+                // better to let the operating system reclaim this short-lived job.
+                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Flatpak metadata refresh did not stop before shutdown";
+            }
+        }
+        m_jobs.clear();
+    }
+
     void add(FlatpakRefreshAppstreamMetadataJob *job)
     {
         m_lastProgress = 0;

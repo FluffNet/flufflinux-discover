@@ -60,12 +60,13 @@ public:
                 flatpak_remote_set_disabled(m_remote, requestedDisabled);
                 g_autoptr(GError) error = nullptr;
                 if (!flatpak_installation_modify_remote(m_installation, m_remote, nullptr, &error)) {
-                    qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "set disabled failed" << error->message;
+                    qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                        << "set disabled failed" << (error ? QString::fromUtf8(error->message) : QStringLiteral("unknown error"));
                     flatpak_remote_set_disabled(m_remote, disabled);
                     return;
                 }
 
-                setRemoteLoaded(requestedDisabled);
+                setRemoteLoaded(!requestedDisabled);
             }
         }
         QStandardItem::setData(value, role);
@@ -180,7 +181,7 @@ bool FlatpakSourcesBackend::addSource(const QString &id)
         auto stream = new ResultsStream(QStringLiteral("FlatpakSource-") + flatpakrepoUrl.toDisplayString());
         backend->addSourceFromFlatpakRepo(flatpakrepoUrl, stream);
         connect(stream, &ResultsStream::resourcesFound, this, [addSource](const QVector<StreamResult> &res) {
-            addSource(res.constFirst());
+            addSource(res.value(0));
         });
     } else {
         AbstractResourcesBackend::Filters filter;
@@ -244,13 +245,13 @@ bool FlatpakSourcesBackend::removeSource(const QString &disambiguatedSourceId)
                 FlatpakRef *ref = FLATPAK_REF(g_ptr_array_index(refs, i));
 
                 g_autoptr(GError) error = nullptr;
-                FlatpakInstalledRef *installedRef = flatpak_installation_get_installed_ref(installation,
-                                                                                           flatpak_ref_get_kind(ref),
-                                                                                           flatpak_ref_get_name(ref),
-                                                                                           flatpak_ref_get_arch(ref),
-                                                                                           flatpak_ref_get_branch(ref),
-                                                                                           cancellable,
-                                                                                           &error);
+                g_autoptr(FlatpakInstalledRef) installedRef = flatpak_installation_get_installed_ref(installation,
+                                                                                                     flatpak_ref_get_kind(ref),
+                                                                                                     flatpak_ref_get_name(ref),
+                                                                                                     flatpak_ref_get_arch(ref),
+                                                                                                     flatpak_ref_get_branch(ref),
+                                                                                                     cancellable,
+                                                                                                     &error);
                 if (installedRef) {
                     auto res = backend->getAppForInstalledRef(installation, installedRef);
                     const auto name = QString::fromUtf8(flatpak_ref_get_name(ref));
@@ -281,6 +282,10 @@ bool FlatpakSourcesBackend::removeSource(const QString &disambiguatedSourceId)
                     g_autoptr(GError) localError = nullptr;
                     g_autoptr(GCancellable) cancellable = g_cancellable_new();
                     g_autoptr(FlatpakTransaction) transaction = flatpak_transaction_new_for_installation(installation, cancellable, &localError);
+                    if (!transaction) {
+                        Q_EMIT passiveMessage(i18n("Could not create the Flatpak transaction needed to remove %1.", id));
+                        return;
+                    }
                     for (const QString &instRef : std::as_const(toRemoveRefs)) {
                         const QByteArray refString = instRef.toUtf8();
                         flatpak_transaction_add_uninstall(transaction, refString.constData(), &localError);
@@ -300,7 +305,8 @@ bool FlatpakSourcesBackend::removeSource(const QString &disambiguatedSourceId)
                 return false;
             }
         } else {
-            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "could not list refs in repo" << id << error->message;
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                << "could not list refs in repo" << id << (error ? QString::fromUtf8(error->message) : QStringLiteral("unknown error"));
         }
 
         g_autoptr(GError) errorRemoveRemote = nullptr;
@@ -313,7 +319,9 @@ bool FlatpakSourcesBackend::removeSource(const QString &disambiguatedSourceId)
             }
             return true;
         } else {
-            Q_EMIT passiveMessage(i18n("Failed to remove %1 remote repository: %2", id, QString::fromUtf8(errorRemoveRemote->message)));
+            const QString message =
+                errorRemoveRemote ? QString::fromUtf8(errorRemoveRemote->message) : i18n("An unknown Flatpak error occurred.");
+            Q_EMIT passiveMessage(i18n("Failed to remove %1 remote repository: %2", id, message));
             return false;
         }
     } else {

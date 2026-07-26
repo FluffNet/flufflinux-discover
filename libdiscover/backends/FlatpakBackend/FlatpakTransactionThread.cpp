@@ -49,8 +49,12 @@ void FlatpakTransactionThread::progress_changed_cb(FlatpakTransactionProgress *p
 
     g_autolist(GObject) ops = flatpak_transaction_get_operations(obj->m_transaction);
     g_autoptr(FlatpakTransactionOperation) op = flatpak_transaction_get_current_operation(obj->m_transaction);
+    const int operationCount = g_list_length(ops);
     const int idx = g_list_index(ops, op);
-    obj->setProgress(qMin<int>(99, (100 * idx + flatpak_transaction_progress_get_progress(progress)) / g_list_length(ops)));
+    if (operationCount <= 0 || idx < 0) {
+        return;
+    }
+    obj->setProgress(qMin<int>(99, (100 * idx + flatpak_transaction_progress_get_progress(progress)) / operationCount));
 
 #ifdef FLATPAK_VERBOSE_PROGRESS
     guint64 start_time = flatpak_transaction_progress_get_start_time(progress);
@@ -100,7 +104,7 @@ void FlatpakTransactionThread::webflowDoneCallback(FlatpakTransaction *transacti
     Q_UNUSED(transaction);
     Q_UNUSED(options);
     auto obj = static_cast<FlatpakTransactionThread *>(user_data);
-    obj->m_webflows << id;
+    obj->m_webflows.removeAll(id);
     Q_EMIT obj->webflowDone(id);
     qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "webflow done" << id;
 }
@@ -206,8 +210,9 @@ bool FlatpakTransactionThread::setupTransaction()
     g_autoptr(GError) localError = nullptr;
     g_cancellable_reset(m_cancellable);
     m_transaction = flatpak_transaction_new_for_installation(m_installation, m_cancellable, &localError);
-    if (localError) {
-        m_initializationErrorMessage = QString::fromUtf8(localError->message);
+    if (!m_transaction) {
+        m_initializationErrorMessage =
+            localError ? QString::fromUtf8(localError->message) : i18n("Could not create a Flatpak transaction.");
         qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to create transaction" << m_initializationErrorMessage;
         return false;
     }
@@ -235,8 +240,12 @@ bool FlatpakTransactionThread::setupTransaction()
 
 FlatpakTransactionThread::~FlatpakTransactionThread()
 {
-    g_object_unref(m_transaction);
-    g_object_unref(m_cancellable);
+    if (m_transaction) {
+        g_object_unref(m_transaction);
+    }
+    if (m_cancellable) {
+        g_object_unref(m_cancellable);
+    }
 }
 
 void FlatpakTransactionThread::cancel()
@@ -246,8 +255,10 @@ void FlatpakTransactionThread::cancel()
     m_proceed = false;
     m_proceedCondition.wakeAll();
 
-    for (int id : std::as_const(m_webflows)) {
-        flatpak_transaction_abort_webflow(m_transaction, id);
+    if (m_transaction) {
+        for (int id : std::as_const(m_webflows)) {
+            flatpak_transaction_abort_webflow(m_transaction, id);
+        }
     }
     g_cancellable_cancel(m_cancellable);
 }
@@ -308,11 +319,7 @@ void FlatpakTransactionThread::run()
             }
         } else if (m_role == Transaction::Role::RemoveRole) {
             if (!flatpak_transaction_add_uninstall(m_transaction, refName.toUtf8().constData(), &localError)) {
-                m_operationSuccess = false;
-                m_errorMessage = QString::fromUtf8(localError->message);
-                // We are done so we can set the progress to 100
-                setProgress(100);
-                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to uninstall" << refName << ':' << m_errorMessage;
+                fail(qUtf8Printable(refName), localError);
                 return;
             }
         }
@@ -321,7 +328,8 @@ void FlatpakTransactionThread::run()
     g_autoptr(GError) localError = nullptr;
     m_operationSuccess = flatpak_transaction_run(m_transaction, m_cancellable, &localError);
     if (!m_operationSuccess) {
-        m_errorMessage = QString::fromUtf8(localError->message);
+        m_errorMessage = localError ? QString::fromUtf8(localError->message)
+                                    : i18n("The Flatpak transaction failed without providing an error.");
 #if defined(FLATPAK_LIST_UNUSED_REFS)
     } else {
         const auto installation = flatpak_transaction_get_installation(m_transaction);
@@ -444,7 +452,8 @@ bool FlatpakTransactionThread::end_of_lifed_with_rebase(const char *remote,
         target = Execute::Uninstall;
     }
 
-    if (QString::fromUtf8(ref).startsWith("runtime/"_L1) || QString::fromUtf8(rebased_to_ref).startsWith("runtime/"_L1)) {
+    const bool isRuntimeReplacement = rebased_to_ref && QString::fromUtf8(rebased_to_ref).startsWith("runtime/"_L1);
+    if (QString::fromUtf8(ref).startsWith("runtime/"_L1) || isRuntimeReplacement) {
         qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Automatically transitioning runtime";
         m_proceed = true;
 
