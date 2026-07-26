@@ -16,6 +16,7 @@
 #include <KWindowSystem>
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
 #include <QTextStream>
@@ -44,13 +45,14 @@ std::unique_ptr<QCommandLineParser> createParser()
     parser->addOption(QCommandLineOption(QStringLiteral("test"), QStringLiteral("Test file"), QStringLiteral("file.qml")));
     parser->addPositionalArgument(QStringLiteral("urls"), i18n("Supports appstream: url scheme"));
     // clang-format on
-    DiscoverBackendsFactory::setupCommandLine(parser.get());
     KAboutData::applicationData().setupCommandLine(parser.get());
     return parser;
 }
 
-void processArgs(QCommandLineParser *parser, DiscoverObject *discoverObject)
+void processArgs(QCommandLineParser *parser, DiscoverObject *discoverObject, const QString &workingDirectory = QDir::currentPath())
 {
+    const QString baseDirectory = workingDirectory.isEmpty() ? QDir::currentPath() : workingDirectory;
+
     if (parser->isSet(QStringLiteral("application"))) {
         discoverObject->openApplication(QUrl(parser->value(QStringLiteral("application"))));
     } else if (parser->isSet(QStringLiteral("mime"))) {
@@ -66,7 +68,8 @@ void processArgs(QCommandLineParser *parser, DiscoverObject *discoverObject)
     }
 
     if (parser->isSet(QStringLiteral("local-filename"))) {
-        discoverObject->openLocalPackage(QUrl::fromUserInput(parser->value(QStringLiteral("local-filename")), QDir::currentPath(), QUrl::AssumeLocalFile));
+        discoverObject->openLocalPackage(
+            QUrl::fromUserInput(parser->value(QStringLiteral("local-filename")), baseDirectory, QUrl::AssumeLocalFile));
     }
 
     if (parser->isSet(QStringLiteral("headless-update"))) {
@@ -75,7 +78,7 @@ void processArgs(QCommandLineParser *parser, DiscoverObject *discoverObject)
 
     const auto positionalArguments = parser->positionalArguments();
     for (const QString &arg : positionalArguments) {
-        const QUrl url = QUrl::fromUserInput(arg, QDir::currentPath(), QUrl::AssumeLocalFile);
+        const QUrl url = QUrl::fromUserInput(arg, baseDirectory, QUrl::AssumeLocalFile);
         if (url.isLocalFile()) {
             discoverObject->openLocalPackage(url);
         } else if (url.scheme() == QLatin1String("apt")) {
@@ -86,7 +89,8 @@ void processArgs(QCommandLineParser *parser, DiscoverObject *discoverObject)
     }
 
     if (auto window = discoverObject->mainWindow()) {
-        if (window->property("pageStack").value<QObject *>()->property("depth").toInt() == 0) {
+        auto pageStack = window->property("pageStack").value<QObject *>();
+        if (pageStack && pageStack->property("depth").toInt() == 0) {
             discoverObject->openMode(QStringLiteral("Browsing"));
         }
     }
@@ -151,14 +155,13 @@ int main(int argc, char **argv)
         std::unique_ptr<QCommandLineParser> parser(createParser());
         parser->process(app);
         about.processCommandLine(parser.get());
-        DiscoverBackendsFactory::processCommandLine(parser.get());
         const bool feedback = parser->isSet(QStringLiteral("feedback"));
         const bool headlessUpdate = parser->isSet(QStringLiteral("headless-update"));
 
         if (parser->isSet(QStringLiteral("listbackends"))) {
             QTextStream(stdout) << i18n("Available backends:\n");
             DiscoverBackendsFactory f;
-            const auto backendNames = f.allBackendNames(false);
+            const auto backendNames = f.allBackendNames();
             for (const QString &name : backendNames)
                 QTextStream(stdout) << " * " << name << '\n';
             return 0;
@@ -168,11 +171,15 @@ int main(int argc, char **argv)
             QStandardPaths::setTestModeEnabled(true);
         }
 
-        KDBusService *service = !feedback ? new KDBusService(KDBusService::Unique, &app) : nullptr;
+        KDBusService *service =
+            !feedback ? new KDBusService(KDBusService::Unique | KDBusService::NoExitOnFailure, &app) : nullptr;
+        if (service && !service->isRegistered()) {
+            qWarning() << "Could not register Discover's D-Bus service; continuing without single-instance integration:"
+                       << service->errorMessage();
+        }
 
         {
             auto options = parser->optionNames();
-            options.removeAll(QStringLiteral("backends"));
             options.removeAll(QStringLiteral("test"));
             QVariantMap initialProperties;
             if (!options.isEmpty() || !parser->positionalArguments().isEmpty())
@@ -190,7 +197,7 @@ int main(int argc, char **argv)
             QObject::connect(service,
                              &KDBusService::activateRequested,
                              discoverObject,
-                             [discoverObject](const QStringList &arguments, const QString & /*workingDirectory*/) {
+                             [discoverObject](const QStringList &arguments, const QString &workingDirectory) {
                                  discoverObject->restore();
                                  if (auto window = discoverObject->mainWindow()) {
                                      raiseWindow(window);
@@ -198,8 +205,11 @@ int main(int argc, char **argv)
                                          return;
                                      }
                                      std::unique_ptr<QCommandLineParser> parser(createParser());
-                                     parser->parse(arguments);
-                                     processArgs(parser.get(), discoverObject);
+                                     if (!parser->parse(arguments)) {
+                                         qWarning() << "Ignoring invalid activation arguments:" << parser->errorText();
+                                         return;
+                                     }
+                                     processArgs(parser.get(), discoverObject, workingDirectory);
                                  }
                              });
         }

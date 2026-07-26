@@ -9,23 +9,14 @@
 #include "discovercommon_export.h"
 #include <QList>
 #include <QStringList>
-class QCommandLineParser;
 class AbstractResourcesBackend;
 
 class DISCOVERCOMMON_EXPORT DiscoverBackendsFactory
 {
 public:
-    DiscoverBackendsFactory();
-
     QVector<AbstractResourcesBackend *> backend(const QString &name) const;
     QVector<AbstractResourcesBackend *> allBackends() const;
-    QStringList allBackendNames(bool whitelist = true) const;
-    int backendsCount() const;
-
-    static void setupCommandLine(QCommandLineParser *parser);
-    static void processCommandLine(QCommandLineParser *parser);
-    static void setRequestedBackends(const QStringList &backends);
-    static bool hasRequestedBackends();
+    QStringList allBackendNames() const;
 
 private:
     QVector<AbstractResourcesBackend *> backendForFile(const QString &path, const QString &name) const;

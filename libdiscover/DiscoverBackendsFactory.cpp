@@ -9,35 +9,13 @@
 #include "resources/AbstractResourcesBackend.h"
 #include "resources/ResourcesModel.h"
 #include "utils.h"
-#include <KConfigGroup>
-#include <KDesktopFile>
-#include <KLocalizedString>
-#include <KSharedConfig>
-#include <QCommandLineParser>
 #include <QDir>
-#include <QDirIterator>
+#include <QElapsedTimer>
+#include <QFileInfo>
 #include <QPluginLoader>
 #include <QStandardPaths>
-#include <chrono>
 
 using namespace Qt::StringLiterals;
-
-Q_GLOBAL_STATIC(QStringList, s_requestedBackends)
-static bool s_isFeedback = false;
-
-void DiscoverBackendsFactory::setRequestedBackends(const QStringList &backends)
-{
-    *s_requestedBackends = backends;
-}
-
-bool DiscoverBackendsFactory::hasRequestedBackends()
-{
-    return !s_requestedBackends->isEmpty();
-}
-
-DiscoverBackendsFactory::DiscoverBackendsFactory()
-{
-}
 
 QVector<AbstractResourcesBackend *> DiscoverBackendsFactory::backend(const QString &name) const
 {
@@ -54,6 +32,7 @@ QVector<AbstractResourcesBackend *> DiscoverBackendsFactory::backendForFile(cons
 
     if (const auto iid = loader->metaData().value("IID"_L1).toString(); iid != QLatin1StringView(DISCOVER_PLUGIN_IID)) {
         qCWarning(LIBDISCOVER_LOG) << "Plugin" << libname << "doesn't have the right IID" << iid << "expected" << DISCOVER_PLUGIN_IID;
+        delete loader;
         return {};
     }
 
@@ -61,13 +40,15 @@ QVector<AbstractResourcesBackend *> DiscoverBackendsFactory::backendForFile(cons
     AbstractResourcesBackendFactory *f = qobject_cast<AbstractResourcesBackendFactory *>(loader->instance());
     if (!f) {
         qCWarning(LIBDISCOVER_LOG) << "error loading" << libname << loader->errorString() << loader->metaData();
+        delete loader;
         return {};
     }
     QElapsedTimer backendInitTime;
     backendInitTime.start();
     auto instances = f->newInstance(QCoreApplication::instance(), name);
     if (instances.isEmpty()) {
-        qCWarning(LIBDISCOVER_LOG) << "Couldn't find the backend: " << libname << "among" << allBackendNames(false);
+        qCWarning(LIBDISCOVER_LOG) << "Couldn't initialize the Flatpak backend:" << libname;
+        delete loader;
         return instances;
     }
 
@@ -78,28 +59,9 @@ QVector<AbstractResourcesBackend *> DiscoverBackendsFactory::backendForFile(cons
     return instances;
 }
 
-QStringList DiscoverBackendsFactory::allBackendNames(bool whitelist) const
+QStringList DiscoverBackendsFactory::allBackendNames() const
 {
-    if (whitelist) {
-        QStringList whitelistNames = *s_requestedBackends;
-        if (s_isFeedback || !whitelistNames.isEmpty())
-            return whitelistNames;
-    }
-
-    QStringList pluginNames;
-    const auto libraryPaths = QCoreApplication::libraryPaths();
-    for (const QString &dir : libraryPaths) {
-        QDirIterator it(dir + QStringLiteral("/discover"), QDir::Files);
-        while (it.hasNext()) {
-            it.next();
-            if (QLibrary::isLibrary(it.fileName())) {
-                pluginNames += it.fileInfo().baseName();
-            }
-        }
-    }
-
-    pluginNames.removeDuplicates(); // will happen when discover is installed twice on the system
-    return pluginNames;
+    return {QStringLiteral("flatpak-backend")};
 }
 
 QVector<AbstractResourcesBackend *> DiscoverBackendsFactory::allBackends() const
@@ -114,33 +76,4 @@ QVector<AbstractResourcesBackend *> DiscoverBackendsFactory::allBackends() const
         qCWarning(LIBDISCOVER_LOG) << "Didn't find any Discover backend!";
     }
     return ret;
-}
-
-int DiscoverBackendsFactory::backendsCount() const
-{
-    return allBackendNames().count();
-}
-
-void DiscoverBackendsFactory::setupCommandLine(QCommandLineParser *parser)
-{
-    parser->addOption(QCommandLineOption(QStringLiteral("backends"),
-                                         i18n("List all the backends we'll want to have loaded, separated by comma ','."),
-                                         QStringLiteral("names")));
-}
-
-void DiscoverBackendsFactory::processCommandLine(QCommandLineParser *parser)
-{
-    if (parser->isSet(QStringLiteral("feedback"))) {
-        s_isFeedback = true;
-        s_requestedBackends->clear();
-        return;
-    }
-
-    QStringList backends = parser->value(QStringLiteral("backends")).split(QLatin1Char(','), Qt::SkipEmptyParts);
-    for (auto &backend : backends) {
-        if (!backend.endsWith(QLatin1String("-backend"))) {
-            backend.append(QLatin1String("-backend"));
-        }
-    }
-    *s_requestedBackends = backends;
 }

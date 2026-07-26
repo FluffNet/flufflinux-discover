@@ -179,7 +179,7 @@ DiscoverObject::DiscoverObject(const QVariantMap &initialProperties)
 
     auto action = new OneTimeAction(
         [this]() {
-            bool found = DiscoverBackendsFactory::hasRequestedBackends();
+            bool found = false;
             const auto backends = ResourcesModel::global()->backends();
             for (auto b : backends) {
                 found |= b->hasApplications();
@@ -219,7 +219,6 @@ DiscoverObject::DiscoverObject(const QVariantMap &initialProperties)
 DiscoverObject::~DiscoverObject()
 {
     m_isDeleting = true;
-    m_engine->deleteLater();
 }
 
 bool DiscoverObject::isRoot()
@@ -231,6 +230,9 @@ QStringList DiscoverObject::modes() const
 {
     QStringList ret;
     QObject *obj = mainWindow();
+    if (!obj) {
+        return ret;
+    }
     for (int i = obj->metaObject()->propertyOffset(); i < obj->metaObject()->propertyCount(); i++) {
         QMetaProperty p = obj->metaObject()->property(i);
         QByteArray compName = p.name();
@@ -245,6 +247,10 @@ void DiscoverObject::openMode(const QString &_mode)
 {
     if (!m_mainWindow) {
         qCWarning(DISCOVER_LOG) << "could not get the main object";
+        return;
+    }
+    if (_mode.isEmpty()) {
+        qCWarning(DISCOVER_LOG) << "cannot open an empty mode";
         return;
     }
 
@@ -512,15 +518,12 @@ void DiscoverObject::restore()
         disconnect(TransactionModel::global(), &TransactionModel::countChanged, this, &DiscoverObject::reconsiderQuit);
         disconnect(m_sni.get(), &KStatusNotifierItem::activateRequested, this, &DiscoverObject::restore);
         m_sni.reset();
-        // Set window to topmost one when using SNI
-        if (m_mainWindow) {
-            m_mainWindow->show();
-            m_mainWindow->raise();
-            return;
-        }
     }
-    // Otherwise, just alert the user
+
     if (m_mainWindow) {
+        m_mainWindow->show();
+        m_mainWindow->raise();
+        m_mainWindow->requestActivate();
         m_mainWindow->alert(0);
     }
 }

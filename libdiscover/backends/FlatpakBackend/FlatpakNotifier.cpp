@@ -23,13 +23,14 @@ static void installationChanged(GFileMonitor *monitor, GFile *child, GFile *othe
     Q_UNUSED(other_file);
     Q_UNUSED(event_type);
 
-    FlatpakNotifier *notifier = (FlatpakNotifier *)data;
+    auto notifier = static_cast<FlatpakNotifier *>(data);
     if (!notifier)
         return;
 
     for (const auto &installation : notifier->m_installations) {
         if (installation->m_monitor == monitor) {
             notifier->loadRemoteUpdates(installation);
+            break;
         }
     }
 }
@@ -41,19 +42,24 @@ FlatpakNotifier::FlatpakNotifier(QObject *parent)
     QTimer *dailyCheck = new QTimer(this);
     dailyCheck->setInterval(24h); // refresh at least once every day
     connect(dailyCheck, &QTimer::timeout, this, &FlatpakNotifier::recheckSystemUpdateNeeded);
+    dailyCheck->start();
 
     g_autoptr(GError) error = nullptr;
     g_autoptr(GPtrArray) installations = flatpak_get_system_installations(m_cancellable, &error);
     if (error) {
         qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to call flatpak_get_system_installations:" << error->message;
+        g_clear_error(&error);
     }
     for (uint i = 0; installations && i < installations->len; i++) {
         auto installation = FLATPAK_INSTALLATION(g_ptr_array_index(installations, i));
         m_installations << std::make_shared<Installation>(this, installation);
     }
 
-    if (auto user = flatpak_installation_new_user(m_cancellable, &error)) {
+    g_autoptr(FlatpakInstallation) user = flatpak_installation_new_user(m_cancellable, &error);
+    if (user) {
         m_installations << std::make_shared<Installation>(this, user);
+    } else if (error) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to initialize the user Flatpak installation:" << error->message;
     }
 }
 
@@ -103,10 +109,21 @@ void FlatpakNotifier::onFetchUpdatesFinished(const std::shared_ptr<Installation>
 void FlatpakNotifier::loadRemoteUpdates(const std::shared_ptr<Installation> &installation)
 {
     Q_ASSERT(installation->m_installation);
+    if (installation->m_checkInProgress) {
+        installation->m_recheckPending = true;
+        return;
+    }
+
+    installation->m_checkInProgress = true;
     auto fw = new QFutureWatcher<bool>(this);
     connect(fw, &QFutureWatcher<bool>::finished, this, [this, installation, fw]() {
+        installation->m_checkInProgress = false;
         onFetchUpdatesFinished(installation, fw->result());
         fw->deleteLater();
+        if (installation->m_recheckPending) {
+            installation->m_recheckPending = false;
+            loadRemoteUpdates(installation);
+        }
     });
     fw->setFuture(QtConcurrent::run([installation]() -> bool {
         g_autoptr(GCancellable) cancellable = g_cancellable_new();
@@ -115,7 +132,9 @@ void FlatpakNotifier::loadRemoteUpdates(const std::shared_ptr<Installation> &ins
         bool hasUpdates = false;
 
         if (!fetchedUpdates) {
-            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to get list of installed refs for listing updates: " << localError->message;
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                << "Failed to get list of installed refs for listing updates:"
+                << (localError ? localError->message : "unknown Flatpak error");
             return false;
         }
         for (uint i = 0; !hasUpdates && i < fetchedUpdates->len; i++) {

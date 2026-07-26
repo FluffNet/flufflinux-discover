@@ -158,7 +158,6 @@ private:
 
     bool m_isInitializing = true;
     QVector<AbstractResourcesBackend *> m_backends;
-    bool m_holdBackends = false;
     DiscoverAction *m_updateAction = nullptr;
     AbstractResourcesBackend *m_currentApplicationBackend;
 

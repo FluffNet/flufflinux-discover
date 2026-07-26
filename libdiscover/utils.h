@@ -37,7 +37,9 @@ public:
             return;
         }
         m_done = m_function();
-        deleteLater();
+        if (m_done) {
+            deleteLater();
+        }
     }
 
 private:

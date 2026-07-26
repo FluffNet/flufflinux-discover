@@ -32,6 +32,8 @@ public:
 
         FlatpakNotifier *const m_notifier;
         bool m_hasUpdates = false;
+        bool m_checkInProgress = false;
+        bool m_recheckPending = false;
         GFileMonitor *m_monitor = nullptr;
         FlatpakInstallation *const m_installation;
     };

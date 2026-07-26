@@ -352,12 +352,15 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
 
     // Load flatpak installation
     if (!setupFlatpakInstallations(&error)) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to setup flatpak installations:" << error->message;
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+            << "Failed to setup Flatpak installations:"
+            << (error ? error->message : "no Flatpak installations are available");
     } else {
         m_sources = new FlatpakSourcesBackend(m_installations, this);
-        loadAppsFromAppstreamData();
-
         SourcesModel::global()->addSourcesBackend(m_sources);
+        QTimer::singleShot(0, this, [this] {
+            loadAppsFromAppstreamData();
+        });
     }
 
     connect(m_reviews.data(), &OdrsReviewsBackend::ratingsReady, this, [this] {
@@ -1082,7 +1085,7 @@ bool FlatpakBackend::loadAppsFromAppstreamData(FlatpakInstallation *flatpakInsta
     g_autoptr(GError) error = nullptr;
     g_autoptr(GPtrArray) remotes = flatpak_installation_list_remotes(flatpakInstallation, m_cancellable, &error);
     if (!remotes) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "failed to list remotes" << error->message;
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "failed to list remotes" << (error ? error->message : "unknown Flatpak error");
         return false;
     }
 
@@ -1265,13 +1268,18 @@ bool FlatpakBackend::setupFlatpakInstallations(GError **error)
         const QString path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1String("/discover-flatpak-test");
         qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "running flatpak backend on test mode" << path;
         g_autoptr(GFile) file = g_file_new_for_path(QFile::encodeName(path).constData());
-        m_installations << flatpak_installation_new_for_path(file, true, m_cancellable, error);
-        return m_installations.constLast() != nullptr;
+        auto installation = flatpak_installation_new_for_path(file, true, m_cancellable, error);
+        if (installation) {
+            m_installations << installation;
+            return true;
+        }
+        return false;
     }
 
     g_autoptr(GPtrArray) installations = flatpak_get_system_installations(m_cancellable, error);
-    if (*error) {
+    if (error && *error) {
         qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to call flatpak_get_system_installations:" << (*error)->message;
+        g_clear_error(error);
     }
     for (uint i = 0; installations && i < installations->len; i++) {
         auto installation = FLATPAK_INSTALLATION(g_ptr_array_index(installations, i));
@@ -1281,6 +1289,8 @@ bool FlatpakBackend::setupFlatpakInstallations(GError **error)
 
     if (auto user = flatpak_installation_new_user(m_cancellable, error)) {
         m_installations << user;
+    } else if (error && *error) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to initialize the user Flatpak installation:" << (*error)->message;
     }
 
     return !m_installations.isEmpty();
@@ -1475,6 +1485,11 @@ void FlatpakBackend::acquireFetching(bool f)
     if (f) {
         m_isFetching++;
     } else {
+        Q_ASSERT(m_isFetching > 0);
+        if (m_isFetching == 0) {
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Unbalanced Flatpak fetching state";
+            return;
+        }
         m_isFetching--;
     }
 
