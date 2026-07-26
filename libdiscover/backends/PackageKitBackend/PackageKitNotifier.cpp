@@ -179,7 +179,7 @@ void PackageKitNotifier::checkOfflineUpdates()
         // indicating success when a system update succeeded
         if (isMobile) {
             KNotification *notification = new KNotification(QStringLiteral("OfflineUpdateSuccessful"));
-            notification->setIconName(QStringLiteral("system-software-update"));
+            notification->setIconName(QStringLiteral("flufflinuxplasmadiscover"));
             notification->setTitle(i18n("Offline Updates"));
             notification->setText(i18np("Successfully updated %1 package", "Successfully updated %1 packages", packages.count()));
             notification->setComponentName(QStringLiteral("discoverabstractnotifier"));

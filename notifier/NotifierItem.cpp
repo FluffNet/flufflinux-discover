@@ -32,7 +32,7 @@ void NotifierItem::setupNotifierItem()
 
     QMenu *menu = new QMenu;
     connect(m_item, &QObject::destroyed, menu, &QObject::deleteLater);
-    auto discoverAction = menu->addAction(QIcon::fromTheme(QStringLiteral("plasmadiscover")),
+    auto discoverAction = menu->addAction(QIcon::fromTheme(QStringLiteral("flufflinuxplasmadiscover")),
                                           i18nc("@action:button Opens Discover's main UI to analyze the updates", "Open Discover…"));
     connect(discoverAction, &QAction::triggered, &m_notifier, [this] {
         // If there's updates open directly on the updates page, otherwise show the main page
@@ -63,7 +63,7 @@ void NotifierItem::setupNotifierItem()
     auto f = [this]() {
         m_item->setTitle(i18n("Restart to apply installed updates"));
         m_item->setToolTipTitle(i18n("Click to restart the system"));
-        m_item->setIconByName(QStringLiteral("system-reboot-update"));
+        m_item->setIconByName(QStringLiteral("flufflinuxplasmadiscover"));
     };
     if (m_notifier.needsReboot())
         f();

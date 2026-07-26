@@ -505,7 +505,7 @@ bool DiscoverObject::quitWhenIdle()
     if (!m_sni) {
         m_sni.reset(new KStatusNotifierItem);
         m_sni->setStatus(KStatusNotifierItem::Active);
-        m_sni->setIconByName(QStringLiteral("plasmadiscover"));
+        m_sni->setIconByName(QStringLiteral("flufflinuxplasmadiscover"));
         m_sni->setTitle(i18n("Discover"));
         m_sni->setToolTip(QStringLiteral("process-working-symbolic"),
                           i18n("Discover"),

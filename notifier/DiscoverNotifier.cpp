@@ -339,21 +339,7 @@ DiscoverNotifier::State DiscoverNotifier::state() const
 
 QString DiscoverNotifier::iconName() const
 {
-    switch (state()) {
-    case SecurityUpdates:
-        return QStringLiteral("update-high");
-    case NormalUpdates:
-        return QStringLiteral("update-low");
-    case NoUpdates:
-        return QStringLiteral("update-none");
-    case RebootRequired:
-        return QStringLiteral("system-reboot-update");
-    case Offline:
-        return QStringLiteral("offline");
-    case Busy:
-        return QStringLiteral("update-busy");
-    }
-    return QString();
+    return QStringLiteral("flufflinuxplasmadiscover");
 }
 
 QString DiscoverNotifier::message() const
@@ -445,7 +431,7 @@ void DiscoverNotifier::foundUpgradeAction(UpgradeAction *action)
     }
 
     KNotification *notification = new KNotification(QStringLiteral("DistUpgrade"), KNotification::Persistent);
-    notification->setIconName(QStringLiteral("system-software-update"));
+    notification->setIconName(QStringLiteral("flufflinuxplasmadiscover"));
     notification->setTitle(i18n("Upgrade available"));
     notification->setText(i18nc("A new distro release (name and version) is available for upgrade", "%1 is now available.", action->description()));
     notification->setComponentName(QStringLiteral("discoverabstractnotifier"));
