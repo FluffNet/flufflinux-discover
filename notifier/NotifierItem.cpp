@@ -19,8 +19,8 @@ void NotifierItem::setupNotifierItem()
 {
     Q_ASSERT(!m_item);
     m_item = new KStatusNotifierItem(QStringLiteral("org.kde.DiscoverNotifier"), this);
-    m_item->setTitle(i18n("Updates"));
-    m_item->setToolTipTitle(i18n("Updates"));
+    m_item->setTitle(i18n("App updates"));
+    m_item->setToolTipTitle(i18n("App updates"));
 
     connect(m_item, &KStatusNotifierItem::activateRequested, &m_notifier, [this]() {
         if (m_notifier.needsReboot()) {

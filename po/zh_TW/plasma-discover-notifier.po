@@ -33,8 +33,8 @@ msgstr "有可用的安全性更新"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "有可用的更新"
+msgid "App updates available"
+msgstr "有可用的應用程式更新"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -139,8 +139,8 @@ msgstr "隱藏"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "應用程式更新"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

@@ -30,8 +30,8 @@ msgstr "Tersedia pembaruan keamanan"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Tersedia pembaruan"
+msgid "App updates available"
+msgstr "Pembaruan aplikasi tersedia"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "tersembunyi"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Pembaruan"
+msgid "App updates"
+msgstr "Pembaruan aplikasi"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

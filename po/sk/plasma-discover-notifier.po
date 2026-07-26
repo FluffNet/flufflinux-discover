@@ -30,8 +30,8 @@ msgstr "Sú dostupné bezpečnostné aktualizácie"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Sú dostupné aktualizácie"
+msgid "App updates available"
+msgstr "Sú dostupné aktualizácie aplikácií"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -136,8 +136,8 @@ msgstr "skryté"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Aktualizácie"
+msgid "App updates"
+msgstr "Aktualizácie aplikácií"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

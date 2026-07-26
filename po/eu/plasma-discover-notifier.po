@@ -32,8 +32,8 @@ msgstr "Segurtasun eguneratzeak erabilgarri"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Eguneratzeak erabilgarri"
+msgid "App updates available"
+msgstr "Aplikazioen eguneraketak eskuragarri"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "ezkutuan"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Eguneratzeak"
+msgid "App updates"
+msgstr "Aplikazioen eguneraketak"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

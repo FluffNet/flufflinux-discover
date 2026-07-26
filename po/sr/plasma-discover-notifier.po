@@ -30,8 +30,8 @@ msgstr "Доступне су безбедносне допуне"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Доступне су допуне"
+msgid "App updates available"
+msgstr "Доступна су ажурирања програма"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr ""
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr ""
+msgid "App updates"
+msgstr "Ажурирања програма"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

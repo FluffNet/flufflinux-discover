@@ -29,8 +29,8 @@ msgstr "Security updates available"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Updates available"
+msgid "App updates available"
+msgstr "App updates available"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -137,8 +137,8 @@ msgstr "hidden"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Updates"
+msgid "App updates"
+msgstr "App updates"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

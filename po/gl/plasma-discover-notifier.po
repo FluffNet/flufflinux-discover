@@ -30,8 +30,8 @@ msgstr "Hai dispoñíbeis actualizacións de seguridade."
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Hai actualizacións dispoñíbeis."
+msgid "App updates available"
+msgstr "Hai actualizacións de aplicacións dispoñíbeis"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -137,8 +137,8 @@ msgstr "agochado"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Actualizacións"
+msgid "App updates"
+msgstr "Actualizacións de aplicacións"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

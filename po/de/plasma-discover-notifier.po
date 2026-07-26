@@ -31,8 +31,8 @@ msgstr "Sicherheitskritische Aktualisierungen sind verfügbar"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Verfügbare Aktualisierungen"
+msgid "App updates available"
+msgstr "App-Aktualisierungen verfügbar"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -140,8 +140,8 @@ msgstr "Ausgeblendet"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Aktualisierungen"
+msgid "App updates"
+msgstr "App-Aktualisierungen"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

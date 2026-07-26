@@ -31,8 +31,8 @@ msgstr "Jsou dostupné bezpečnostní aktualizace"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Jsou dostupné aktualizace"
+msgid "App updates available"
+msgstr "Jsou dostupné aktualizace aplikací"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -139,8 +139,8 @@ msgstr "skryté"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Aktualizace"
+msgid "App updates"
+msgstr "Aktualizace aplikací"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

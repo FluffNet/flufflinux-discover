@@ -30,8 +30,8 @@ msgstr "လုံခြုံရေးအပ်ဒိတ်များရရှ
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "အပ်ဒိတ်များရရှိနေပါပြီ"
+msgid "App updates available"
+msgstr "အက်ပ်အပ်ဒိတ်များ ရနိုင်ပါသည်"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "ဖွက်ထား"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "အပ်ဒိတ်များ"
+msgid "App updates"
+msgstr "အက်ပ်အပ်ဒိတ်များ"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

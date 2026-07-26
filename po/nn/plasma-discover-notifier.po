@@ -31,8 +31,8 @@ msgstr "Tryggleiksoppdateringar er tilgjengelege"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Oppdateringar er tilgjengelege"
+msgid "App updates available"
+msgstr "Appoppdateringar er tilgjengelege"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "gøymd"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Oppdateringar"
+msgid "App updates"
+msgstr "Appoppdateringar"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

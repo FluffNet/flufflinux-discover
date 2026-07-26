@@ -362,7 +362,7 @@ QString DiscoverNotifier::message() const
     case SecurityUpdates:
         return i18n("Security updates available");
     case NormalUpdates:
-        return i18n("Updates available");
+        return i18n("App updates available");
     case NoUpdates:
         return i18n("System up to date");
     case RebootRequired:

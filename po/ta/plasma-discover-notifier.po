@@ -29,8 +29,8 @@ msgstr "பாதுகாப்பு புதுப்பிப்புக�
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "புதுப்பிப்புகள் உள்ளன"
+msgid "App updates available"
+msgstr "செயலி புதுப்பிப்புகள் கிடைக்கின்றன"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -135,8 +135,8 @@ msgstr "மறைந்தது"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "புதுப்பிப்புகள்"
+msgid "App updates"
+msgstr "செயலி புதுப்பிப்புகள்"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

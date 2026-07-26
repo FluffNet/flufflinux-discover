@@ -30,8 +30,8 @@ msgstr "Actualisationes de securitate disponibile"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Actualisationes disponibile"
+msgid "App updates available"
+msgstr "Actualisationes de applicationes disponibile"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -137,8 +137,8 @@ msgstr "celate"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Actualisationes"
+msgid "App updates"
+msgstr "Actualisationes de applicationes"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

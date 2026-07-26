@@ -30,8 +30,8 @@ msgstr "Öryggisuppfærslur í boði"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Uppfærslur í boði"
+msgid "App updates available"
+msgstr "Forritauppfærslur í boði"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -136,8 +136,8 @@ msgstr "falið"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Uppfærslur"
+msgid "App updates"
+msgstr "Forritauppfærslur"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

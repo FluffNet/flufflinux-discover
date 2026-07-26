@@ -31,8 +31,8 @@ msgstr "സുരക്ഷാ അപ്ഡേറ്റുകൾ ലഭ്യമ�
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "അപ്ഡേറ്റുകൾ ലഭ്യമാണ്"
+msgid "App updates available"
+msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ ലഭ്യമാണ്"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -139,8 +139,8 @@ msgstr "മറച്ചിരിക്കുന്നു"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "അപ്ഡേറ്റുകൾ"
+msgid "App updates"
+msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

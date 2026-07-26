@@ -29,8 +29,8 @@ msgstr "به‌روزسانی‌های امنیتی در دسترس هستند"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "به‌روزسانی موجود است"
+msgid "App updates available"
+msgstr "به‌روزرسانی‌های برنامه‌ها در دسترس است"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -136,8 +136,8 @@ msgstr "مخفی"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "به‌روزسانی‌ها"
+msgid "App updates"
+msgstr "به‌روزرسانی‌های برنامه‌ها"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format
