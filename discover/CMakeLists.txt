@@ -1,7 +1,4 @@
 add_subdirectory(icons)
-if(BUILD_TESTING)
-    add_subdirectory(autotests)
-endif()
 
 include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/..)
 
@@ -78,10 +75,6 @@ if (TARGET KF6::UserFeedbackCore)
 endif()
 
 install(TARGETS plasma-discover ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-# if (BUILD_DummyBackend)
-#     target_compile_definitions(plasma-discover PRIVATE $<$<CONFIG:Debug>:QT_QML_DEBUG=1>)
-# endif()
 
 # Standard desktop file accepts Flatpak files as input.
 set(DesktopNoDisplay "false")

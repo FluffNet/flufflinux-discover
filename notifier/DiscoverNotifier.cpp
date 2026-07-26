@@ -13,7 +13,6 @@
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusMessage>
-#include <QDBusPendingCall>
 #include <QDebug>
 #include <QNetworkInformation>
 #include <QProcess>
@@ -74,17 +73,6 @@ DiscoverNotifier::DiscoverNotifier(const std::chrono::seconds &checkDelay, QObje
     m_backends = BackendNotifierFactory().allBackends();
     for (BackendNotifierModule *module : std::as_const(m_backends)) {
         connect(module, &BackendNotifierModule::foundUpdates, this, &DiscoverNotifier::updateStatusNotifier);
-        connect(module, &BackendNotifierModule::needsRebootChanged, this, [this]() {
-            // If we are using offline updates, there is no need to badger the user to
-            // reboot since it is safe to continue using the system in its current state
-            if (!m_needsReboot && !m_settings->useUnattendedUpdates()) {
-                m_needsReboot = true;
-                showRebootNotification();
-                Q_EMIT stateChanged();
-                Q_EMIT needsRebootChanged(true);
-            }
-        });
-
         connect(module, &BackendNotifierModule::foundUpgradeAction, this, &DiscoverNotifier::foundUpgradeAction);
     }
     connect(&m_timer, &QTimer::timeout, this, &DiscoverNotifier::showUpdatesNotification);
@@ -144,7 +132,7 @@ void DiscoverNotifier::showDiscoverUpdates(const QString &xdgActivationToken)
 
 bool DiscoverNotifier::checkTriggerTimes(const QDateTime &lastTriggerTime) const
 {
-    if (state() != NormalUpdates && state() != SecurityUpdates) {
+    if (state() != NormalUpdates) {
         // it's not very helpful to notify that everything is in order
         qCDebug(NOTIFIER) << "Not triggering, state is" << state();
         return false;
@@ -230,19 +218,15 @@ void DiscoverNotifier::showUpdatesNotification()
 
 void DiscoverNotifier::updateStatusNotifier()
 {
-    const bool hasSecurityUpdates = kContains(m_backends, [](BackendNotifierModule *module) {
-        return module->hasSecurityUpdates();
+    const bool hasUpdates = kContains(m_backends, [](BackendNotifierModule *module) {
+        return module->hasUpdates();
     });
-    const bool hasUpdates = hasSecurityUpdates || kContains(m_backends, [](BackendNotifierModule *module) {
-                                return module->hasUpdates();
-                            });
 
-    qCDebug(NOTIFIER) << "updateStatusNotifier: hasUpdates" << hasUpdates << "hasSecurityUpdates" << hasSecurityUpdates;
+    qCDebug(NOTIFIER) << "updateStatusNotifier: hasUpdates" << hasUpdates;
 
-    if (m_hasUpdates == hasUpdates && m_hasSecurityUpdates == hasSecurityUpdates)
+    if (m_hasUpdates == hasUpdates)
         return;
 
-    m_hasSecurityUpdates = hasSecurityUpdates;
     m_hasUpdates = hasUpdates;
 
     if (state() != NoUpdates) {
@@ -272,9 +256,8 @@ static bool isConnectionAdequate()
 
 bool DiscoverNotifier::isSystemUpdateable() const
 {
-    const bool updateable = !m_isBusy && isOnline() && (m_hasSecurityUpdates || m_hasUpdates);
-    qCDebug(NOTIFIER) << "isSystemUpdateable:" << updateable << "isBusy:" << m_isBusy << "isOnline:" << isOnline() << "securityUpdates:" << m_hasSecurityUpdates
-                      << "otherUpdates:" << m_hasUpdates;
+    const bool updateable = !m_isBusy && isOnline() && m_hasUpdates;
+    qCDebug(NOTIFIER) << "isSystemUpdateable:" << updateable << "isBusy:" << m_isBusy << "isOnline:" << isOnline() << "updates:" << m_hasUpdates;
     return updateable;
 }
 
@@ -323,14 +306,10 @@ void DiscoverNotifier::refreshUnattended()
 
 DiscoverNotifier::State DiscoverNotifier::state() const
 {
-    if (m_needsReboot)
-        return RebootRequired;
-    else if (m_isBusy)
+    if (m_isBusy)
         return Busy;
     else if (!isOnline())
         return Offline;
-    else if (m_hasSecurityUpdates)
-        return SecurityUpdates;
     else if (m_hasUpdates)
         return NormalUpdates;
     else
@@ -345,14 +324,10 @@ QString DiscoverNotifier::iconName() const
 QString DiscoverNotifier::message() const
 {
     switch (state()) {
-    case SecurityUpdates:
-        return i18n("Security updates available");
     case NormalUpdates:
         return i18n("App updates available");
     case NoUpdates:
         return i18n("System up to date");
-    case RebootRequired:
-        return i18n("System will install updates when restarted");
     case Offline:
         return i18n("Offline");
     case Busy:
@@ -376,41 +351,6 @@ QStringList DiscoverNotifier::loadedModules() const
     for (BackendNotifierModule *module : m_backends)
         ret += QString::fromLatin1(module->metaObject()->className());
     return ret;
-}
-
-void DiscoverNotifier::showRebootNotification()
-{
-    KNotification *notification = KNotification::event(QStringLiteral("UpdateRestart"),
-                                                       i18n("Restart is required"),
-                                                       i18n("The system needs to be restarted for the updates to take effect."),
-                                                       QStringLiteral("system-software-update"),
-                                                       KNotification::Persistent | KNotification::DefaultEvent,
-                                                       QStringLiteral("discoverabstractnotifier"));
-
-    auto restartAction = notification->addAction(i18nc("@action:button", "Update and Restart"));
-    auto shutdownAction = notification->addAction(i18nc("@action:button", "Update and Shut Down"));
-    connect(restartAction, &KNotificationAction::activated, this, &DiscoverNotifier::rebootPrompt);
-    connect(shutdownAction, &KNotificationAction::activated, this, &DiscoverNotifier::shutdownPrompt);
-
-    notification->sendEvent();
-}
-
-void DiscoverNotifier::rebootPrompt()
-{
-    auto method = QDBusMessage::createMethodCall(QStringLiteral("org.kde.LogoutPrompt"),
-                                                 QStringLiteral("/LogoutPrompt"),
-                                                 QStringLiteral("org.kde.LogoutPrompt"),
-                                                 QStringLiteral("promptReboot"));
-    QDBusConnection::sessionBus().asyncCall(method);
-}
-
-void DiscoverNotifier::shutdownPrompt()
-{
-    auto method = QDBusMessage::createMethodCall(QStringLiteral("org.kde.LogoutPrompt"),
-                                                 QStringLiteral("/LogoutPrompt"),
-                                                 QStringLiteral("org.kde.LogoutPrompt"),
-                                                 QStringLiteral("promptShutDown"));
-    QDBusConnection::sessionBus().asyncCall(method);
 }
 
 void DiscoverNotifier::promptAll()

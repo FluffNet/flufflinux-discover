@@ -56,24 +56,6 @@ msgstr ""
 "دیدگاه کنید <link url='https://archlinux.org/packages/extra/x86_64/"
 "discover/'>.</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"پشتیبانی از مدیریت بسته‌های %1 ناقص است؛ ممکن است هر تعداد مشکلی را تجربه "
-"کنید. اشکالات را به کی‌دی‌ای گزارش نکنید. بسیار پیشنهاد می‌شود بسته "
-"<resource>packagekit-qt6</resource> را پاک کنید و از فروشگاه تنها برای "
-"مدیریت فلت‌پک‌ها، اسنپ‌ها و افزونه‌ها استفاده کنید.<para>نگه‌دارندگان %1 به‌جای آن "
-"کار با ابزار خط فرمانی <command>pacman</command> را برای مدیریت بسته‌ها "
-"پیشنهاد می‌کنند.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -97,11 +79,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "نمی‌توان %1 را باز کرد"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "اطمینان حاصل کنید که پشتیبانی اسنپ نصب شده است"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -221,11 +198,6 @@ msgstr "اطمینان از کیفیت، طراحی و کاربردپذیری"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format

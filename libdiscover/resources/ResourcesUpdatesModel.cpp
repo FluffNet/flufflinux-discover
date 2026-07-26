@@ -142,7 +142,6 @@ void ResourcesUpdatesModel::init()
             connect(updater, &AbstractBackendUpdater::downloadSpeedChanged, this, &ResourcesUpdatesModel::downloadSpeedChanged);
             connect(updater, &AbstractBackendUpdater::resourceProgressed, this, &ResourcesUpdatesModel::resourceProgressed);
             connect(updater, &AbstractBackendUpdater::passiveMessage, this, &ResourcesUpdatesModel::passiveMessage);
-            connect(updater, &AbstractBackendUpdater::needsRebootChanged, this, &ResourcesUpdatesModel::needsRebootChanged);
             connect(updater, &AbstractBackendUpdater::destroyed, this, &ResourcesUpdatesModel::updaterDestroyed);
             connect(updater, &AbstractBackendUpdater::errorMessageChanged, this, &ResourcesUpdatesModel::errorMessagesChanged);
             connect(updater, &AbstractBackendUpdater::fetchingChanged, this, &ResourcesUpdatesModel::refreshFetching);
@@ -333,15 +332,6 @@ Transaction *ResourcesUpdatesModel::transaction() const
     return m_transaction.data();
 }
 
-bool ResourcesUpdatesModel::needsReboot() const
-{
-    for (auto upd : m_updaters) {
-        if (upd->needsReboot())
-            return true;
-    }
-    return false;
-}
-
 void ResourcesUpdatesModel::refreshFetching()
 {
     bool fetching = false;
@@ -361,13 +351,6 @@ void ResourcesUpdatesModel::refreshFetching()
 bool ResourcesUpdatesModel::isFetching() const
 {
     return m_fetching;
-}
-
-bool ResourcesUpdatesModel::readyToReboot() const
-{
-    return kContains(m_updaters, [](AbstractBackendUpdater *updater) {
-        return !updater->needsReboot() || updater->isReadyToReboot();
-    });
 }
 
 bool ResourcesUpdatesModel::useUnattendedUpdates() const

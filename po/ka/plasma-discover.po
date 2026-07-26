@@ -56,24 +56,6 @@ msgstr ""
 "გადაავლეთ თვალი ბმულს <link url='https://archlinux.org/packages/extra/x86_64/"
 "discover/'>%1-ის პაკეტებისთვის Discover-ისთვის</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"%1-დან პაკეტების მართვის მხარდაჭერა დაუსრულებელია და შეიძლება, პრობლემებს "
-"წააწყდეთ. ნუ მისწერთ პრობლემების შესახებ KDE-ს. გირჩევთ, წაშალოთ პაკეტი "
-"<resource>packagekit-qt6</resource> და გამოიყენოთ Discover, რომ მართოთ "
-"Flatpak, Snap და დამატების პაკეტები.<para>%1-ის პროგრამისტები გირჩევენ, "
-"<command>pacman</command>-ის ბრძანების სტრქონის ბრძანებების გამოყენებას "
-"პაკეტების სამართავად.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -97,11 +79,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1-ის გახსნა შეუძლებელია"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "დარწმუნდით, რომ Snap-ის მხარდაჭერა დაყენებულია"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -221,11 +198,6 @@ msgstr "დიზაინი და ხარისხის დამოწმ
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "დან ლაინირ თუთა იენსენი"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format

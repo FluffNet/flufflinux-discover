@@ -21,15 +21,7 @@ public:
     ~FlatpakNotifier() override;
 
     bool hasUpdates() override;
-    bool hasSecurityUpdates() override
-    {
-        return false;
-    }
     void recheckSystemUpdateNeeded() override;
-    bool needsReboot() const override
-    {
-        return false;
-    }
 
     struct Installation {
         explicit Installation(FlatpakNotifier *notifier, FlatpakInstallation *installation);

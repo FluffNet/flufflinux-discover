@@ -54,7 +54,7 @@ public:
     int fetchingUpdatesProgress() const override;
     uint fetchingUpdatesProgressWeight() const override
     {
-        return 50; // Same as packagekit
+        return 50;
     }
 
     Transaction *installApplication(AbstractResource *app) override;

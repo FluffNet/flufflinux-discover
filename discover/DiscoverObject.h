@@ -66,9 +66,6 @@ public Q_SLOTS:
     void openLocalPackage(const QUrl &localfile);
     void startHeadlessUpdate();
 
-    void promptReboot();
-    void rebootNow();
-    void shutdownNow();
     void reconsiderQuit();
 
 private Q_SLOTS:

@@ -56,24 +56,6 @@ msgstr ""
 "url='https://archlinux.org/packages/extra/x86_64/discover/'>pakka fyrir "
 "Discover á %1</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"Stuðningur við umsjón með pökkum frá %1 er takmarkaður, hugsanlega lendir þú "
-"í ýmsum vandræðum. Ekki senda villuskýrslur til KDE. Það er sterklega mælt "
-"með þeí að fjarlægja pakkann <resource>packagekit-qt6</resource> og nota "
-"Discover eingöngu til að meðhöndla Flatpaks-pakka, Snaps-pakka og viðbætur."
-"<para> Umsjónaraðilar %1 mæla með því í staðinn að nota <command>pacman</"
-"command> á skipanalínunni til að hafa umsjón með pökkum.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -97,11 +79,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "Gat ekki opnað %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Gakktu úr skugga um að stuðningur við Snap sé uppsettur"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -219,11 +196,6 @@ msgstr "Gæðaprófun, hönnun og nothæfi"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format

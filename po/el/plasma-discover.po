@@ -69,25 +69,6 @@ msgstr ""
 "Κοιτάξτε το <link url='https://archlinux.org/packages/extra/x86_64/"
 "discover/'>%1 για δημιουργία πακέτων για το Discover.</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"Η υποστήριξη για τη διαχείριση πακέτων από το %1 δεν είναι ολοκληρωμένη. "
-"μπορεί να αντιμετωπίσετε κάποιο αριθμό προβλημάτων. Μην αναφέρετε σφάλματα "
-"στο KDE. Συνιστάται ιδιαίτερα να απεγκαταστήσετε το πακέτο "
-"<resource>packagekit-qt6</resource> και να χρησιμοποιήστε το Discover μόνο "
-"για τη διαχείριση Flatpaks, Snaps και Add-Ons.<para>%1 συνιστώνται οι "
-"συντηρητές να χρησιμοποιήσετε το εργαλείο γραμμής εντολών <command>pacman</"
-"command> για διαχείριση πακέτων.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -111,11 +92,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "Αδυναμία ανοίγματος του %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Παρακαλώ βεβαιωθείτε ότι η υποστήριξη για Snap είναι εγκατεστημένη"
 
 #: discover/DiscoverObject.cpp:422
 #, fuzzy, kde-format
@@ -243,11 +219,6 @@ msgstr "Διασφάλιση Ποιότητας, Σχεδιασμός και Χ�
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "Πακέτο KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format

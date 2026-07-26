@@ -96,9 +96,7 @@ Kirigami.ApplicationWindow {
     TopLevelPageData {
         id: updateAction
 
-        icon.name: Discover.ResourcesModel.updatesCount <= 0
-            ? "update-none"
-            : (Discover.ResourcesModel.hasSecurityUpdates ? "update-high" : "update-low")
+        icon.name: Discover.ResourcesModel.updatesCount <= 0 ? "update-none" : "update-low"
 
         text: Discover.ResourcesModel.fetchingUpdatesProgress !== 100
             ? i18n("&App updates (Fetching…)")

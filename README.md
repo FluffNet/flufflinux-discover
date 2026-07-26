@@ -11,7 +11,7 @@ Version `2026.07` is intentionally focused on Flatpak:
 - System package updates are handled by Fluff Linux Update.
 - Firmware updates are not part of Discover.
 - PackageKit, Snap, KNewStuff, rpm-ostree, systemd-sysupdate, Alpine APK, and
-  other software backends are not built.
+  other software backends are not included.
 
 The interface follows the Plasma theme, uses Fluff Linux branding, and supports
 right-to-left layouts.

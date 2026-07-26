@@ -6,7 +6,6 @@
 
 #include "updates.h"
 
-#include <QFile>
 #include <qqml.h>
 
 #include <KAboutData>
@@ -41,13 +40,7 @@ DiscoverSettings *Updates::discoverSettings() const
 
 bool Updates::mandatoryRebootAfterUpdate() const
 {
-#if defined(WITH_SYSUPDATE_BACKEND) || defined(WITH_HOLO_BACKEND)
-    return true;
-#elif defined WITH_OSTREE_BACKEND
-    return QFile::exists(QStringLiteral("/run/ostree-booted"));
-#else
     return false;
-#endif
 }
 
 #include "moc_updates.cpp"

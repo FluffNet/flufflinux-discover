@@ -196,13 +196,6 @@ QVector<AbstractResourcesBackend *> ResourcesModel::backends() const
     return m_backends;
 }
 
-bool ResourcesModel::hasSecurityUpdates() const
-{
-    return std::any_of(m_backends.constBegin(), m_backends.constEnd(), [](const AbstractResourcesBackend *backend) {
-        return backend->hasSecurityUpdates();
-    });
-}
-
 void ResourcesModel::installApplication(AbstractResource *app)
 {
     TransactionModel::global()->addTransaction(app->backend()->installApplication(app));
@@ -374,7 +367,7 @@ void ResourcesModel::initApplicationsBackend()
 QString ResourcesModel::applicationSourceName() const
 {
     KConfigGroup settings(KSharedConfig::openConfig(), u"ResourcesModel"_s);
-    return settings.readEntry<QString>("currentApplicationBackend", QStringLiteral("packagekit-backend"));
+    return settings.readEntry<QString>("currentApplicationBackend", QStringLiteral("flatpak-backend"));
 }
 
 QString ResourcesModel::distroName() const

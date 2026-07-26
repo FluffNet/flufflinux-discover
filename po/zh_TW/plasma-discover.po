@@ -58,23 +58,6 @@ msgstr ""
 "archlinux.org/packages/extra/x86_64/discover/'>%1 的 Discover 軟體包打包細節"
 "</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"對於來自 %1 的軟體包的管理的支援是不完整的，因此您可能會遇到一些問題。這個情"
-"況下請不要回報問題給 KDE。強烈建議解除安裝 <resource>packagekit-qt6</"
-"resource> 軟體包並只用 Discover 來管理 Flatpak、Snap 與附加功能軟體包。<para>"
-"%1 的維護者建議使用 <command>pacman</command> 命令列工具來管理軟體包，而不是"
-"使用 Discover。</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -96,11 +79,6 @@ msgstr "無法在無 Flatpak 後端 %1 情況下與 Flatpak 資源互動。請�
 #, kde-format
 msgid "Could not open %1"
 msgstr "無法開啟 %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "請再度確認已安裝 Snap 支援。"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -215,11 +193,6 @@ msgstr "品質保證、設計與可用性"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format

@@ -129,7 +129,7 @@ int main(int argc, char **argv)
                     QStringLiteral("https://pointieststick.com/"),
                     QStringLiteral("ngraham"));
     about.addAuthor(i18n("Dan Leinir Turthra Jensen"),
-                    i18n("KNewStuff"),
+                    QString(),
                     QStringLiteral("admin@leinir.dk"),
                     QStringLiteral("https://leinir.dk/"),
                     QStringLiteral("leinir"));
@@ -151,14 +151,14 @@ int main(int argc, char **argv)
         std::unique_ptr<QCommandLineParser> parser(createParser());
         parser->process(app);
         about.processCommandLine(parser.get());
-        DiscoverBackendsFactory::processCommandLine(parser.get(), parser->isSet(QStringLiteral("test")));
+        DiscoverBackendsFactory::processCommandLine(parser.get());
         const bool feedback = parser->isSet(QStringLiteral("feedback"));
         const bool headlessUpdate = parser->isSet(QStringLiteral("headless-update"));
 
         if (parser->isSet(QStringLiteral("listbackends"))) {
             QTextStream(stdout) << i18n("Available backends:\n");
             DiscoverBackendsFactory f;
-            const auto backendNames = f.allBackendNames(false, true);
+            const auto backendNames = f.allBackendNames(false);
             for (const QString &name : backendNames)
                 QTextStream(stdout) << " * " << name << '\n';
             return 0;

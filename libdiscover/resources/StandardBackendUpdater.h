@@ -74,5 +74,4 @@ private:
     QDateTime m_lastUpdate;
     QTimer m_timer;
     bool m_canCancel = false;
-    bool m_anyTransactionFailed = false;
 };

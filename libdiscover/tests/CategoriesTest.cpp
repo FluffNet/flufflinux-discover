@@ -22,9 +22,7 @@ public:
     QList<std::shared_ptr<Category>> populateCategories()
     {
         const QVector<QString> categoryFiles = {
-            QFINDTESTDATA("../backends/PackageKitBackend/packagekit-backend-categories.xml"),
             QFINDTESTDATA("../backends/FlatpakBackend/flatpak-backend-categories.xml"),
-            QFINDTESTDATA("../backends/DummyBackend/dummy-backend-categories.xml"),
         };
 
         QList<std::shared_ptr<Category>> ret;
@@ -50,14 +48,9 @@ private Q_SLOTS:
         auto categories = populateCategories();
         QVERIFY(!categories.isEmpty());
 
-        for (const std::shared_ptr<Category> &c : categories) {
-            if (c->name() != QLatin1String("Dummy Category"))
-                continue;
-
-            auto filter = c->filter();
-            QVERIFY(filter.type == CategoryFilter::CategoryNameFilter);
-            QVERIFY(std::get<QString>(filter.value) == QLatin1String("dummy"));
-        }
+        QVERIFY(std::ranges::any_of(categories, [](const std::shared_ptr<Category> &category) {
+            return category->name() == QLatin1String("Applications");
+        }));
     }
 
     void testTranslations_data()

@@ -59,23 +59,6 @@ msgstr ""
 "url='https://archlinux.org/packages/extra/x86_64/discover/'>%1 Discover "
 "csomagját</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"A(z) %1 csomagjai kezelésének támogatása nem teljes; számos problémát "
-"tapasztalhat. Ne jelentsen hibákat a KDE felé. Erősen ajánlott a "
-"<resource>packagekit-qt6</resource> csomag eltávolítása és a Discoverrel "
-"csak Flatpakot, Snapet és bővítményeket kezelni.<para>A(z) %1 karbantartók "
-"inkább a <command>pacman</command> csomagkezelő használatát ajánlják.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -99,11 +82,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "A(z) %1 nem nyitható meg"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Ellenőrizze, hogy a Snap támogatás telepítve van-e"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -226,11 +204,6 @@ msgstr "Minőségbiztosítás, design és használhatóság"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format

@@ -163,11 +163,7 @@ DiscoverPage {
                 if (!backend) {
                     return [];
                 }
-                // TODO: Add packagekit-backend of rolling distros
-                return [
-                    "flatpak-backend",
-                    "snap-backend",
-                ].includes(backend.name);
+                return backend.name === "flatpak-backend";
             }
 
             DiscoverApp.LimitedRowCountProxyModel {

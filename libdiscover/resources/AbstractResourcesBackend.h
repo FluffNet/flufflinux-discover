@@ -126,7 +126,6 @@ class DISCOVERCOMMON_EXPORT AbstractResourcesBackend : public QObject
     Q_PROPERTY(AbstractReviewsBackend *reviewsBackend READ reviewsBackend CONSTANT)
     Q_PROPERTY(int updatesCount READ updatesCount NOTIFY updatesCountChanged)
     Q_PROPERTY(int fetchingUpdatesProgress READ fetchingUpdatesProgress NOTIFY fetchingUpdatesProgressChanged)
-    Q_PROPERTY(bool hasSecurityUpdates READ hasSecurityUpdates NOTIFY updatesCountChanged)
     Q_PROPERTY(bool hasApplications READ hasApplications CONSTANT)
 
     Q_MOC_INCLUDE("ReviewsBackend/AbstractReviewsBackend.h")
@@ -189,14 +188,6 @@ public:
     virtual int updatesCount() const = 0; // FIXME: Probably provide a standard implementation?!
 
     /**
-     * @returns whether either of the updates contains a security fix
-     */
-    virtual bool hasSecurityUpdates() const
-    {
-        return false;
-    }
-
-    /**
      * @returns the appstream ids that this backend extends
      */
     virtual bool extends(const QString &id) const;
@@ -235,23 +226,6 @@ public:
      */
     virtual uint fetchingUpdatesProgressWeight() const;
 
-    enum AboutToAction { Reboot, PowerOff };
-
-    /**
-     * Notifies the backend to prepare for a certain power action.
-     * Currently only used in the PackageKit backend.
-     * @param action the action that will occur
-     */
-    virtual void aboutTo(AboutToAction action) { Q_UNUSED(action); };
-
-    /**
-     * @returns if the backend needs a reboot even when the PowerOff action is chosen,
-     * which would occur if the PowerOff happens after a reboot happens first
-     */
-    virtual bool needsRebootForPowerOffAction() const
-    {
-        return false;
-    }
 public Q_SLOTS:
     /**
      * This gets called when the backend should install an application.

@@ -17,10 +17,6 @@
 // Qt includes
 #include "discover_debug.h"
 #include <QClipboard>
-#include <QDBusConnection>
-#include <QDBusMessage>
-#include <QDBusPendingCall>
-#include <QDBusPendingReply>
 #include <QDesktopServices>
 #include <QFile>
 #include <QGuiApplication>
@@ -184,21 +180,18 @@ DiscoverObject::DiscoverObject(const QVariantMap &initialProperties)
     auto action = new OneTimeAction(
         [this]() {
             bool found = DiscoverBackendsFactory::hasRequestedBackends();
-            bool hasPackageKit = false;
             const auto backends = ResourcesModel::global()->backends();
             for (auto b : backends) {
                 found |= b->hasApplications();
-                hasPackageKit = hasPackageKit || (b->name() == "packagekit-backend"_L1 && b->isValid());
             }
 
             const KOSRelease osRelease;
             const QString distroName = osRelease.name();
             const bool isArch = osRelease.id() == u"arch"_s || osRelease.idLike().contains(u"arch"_s);
             if (!found) {
-                QString errorText = i18nc("@title %1 is the name", "%1 is not configured for installing apps through Discover—only app add-ons", distroName);
+                QString errorText = i18nc("@title %1 is the name", "Flatpak is not configured on %1", distroName);
                 QString errorExplanation = xi18nc("@info:usagetip %2 is the name of the operating system",
-                                                  "To use Discover for apps, install your preferred module on the <interface>Settings"
-                                                  "</interface> page, under <interface>Missing Backends</interface>."
+                                                  "Discover supports Flatpak apps only. Install and configure Flatpak to browse and update apps."
                                                   "<nl/><nl/>Please <link url='%1'>report this issue to %2.</link>",
                                                   osRelease.bugReportUrl(),
                                                   distroName);
@@ -212,17 +205,6 @@ DiscoverObject::DiscoverObject(const QVariantMap &initialProperties)
                 }
 
                 Q_EMIT openErrorPage(errorText, errorExplanation, QString(), QString(), QString());
-            } else if (hasPackageKit && isArch) {
-                const QString errorText = xi18nc("@info:usagetip %1 is the distro name",
-                                                 "Support for managing packages from %1 is incomplete; you may experience any number of problems."
-                                                 " Do not report bugs to KDE. It is highly recommended to uninstall the"
-                                                 " <resource>packagekit-qt6</resource> package and use Discover only to manage Flatpaks, Snaps,"
-                                                 " and Add-Ons."
-                                                 "<para>%1 maintainers recommended instead using the <command>pacman</command> command-line tool"
-                                                 " to manage packages.</para>",
-                                                 distroName);
-                m_homePageMessage = std::make_unique<InlineMessage>(InlineMessage::Warning, QString(), errorText);
-                Q_EMIT homeMessageChanged();
             }
         },
         this);
@@ -414,9 +396,6 @@ void DiscoverObject::openApplication(const QUrl &url)
                     } else {
                         delete timeout;
                     }
-                } else if (url.scheme() == QLatin1String("snap")) {
-                    openApplication(QUrl(QStringLiteral("appstream://org.kde.discover.snap")));
-                    showError(i18n("Please make sure Snap support is installed"));
                 } else {
                     const QString errorText = i18n(
                         "The requested application could not be found "
@@ -700,74 +679,6 @@ QString DiscoverObject::mimeTypeComment(const QString &mimeTypeName)
         return mimeType.comment();
     }
     return mimeTypeName;
-}
-
-Q_GLOBAL_STATIC_WITH_ARGS(const bool, s_weAreOnPlasma, (qgetenv("XDG_CURRENT_DESKTOP") == "KDE"))
-
-void DiscoverObject::promptReboot()
-{
-    if (!s_weAreOnPlasma) {
-        qCWarning(DISCOVER_LOG) << "Cannot prompt for reboot outside of Plasma";
-    }
-    auto method = QDBusMessage::createMethodCall(QStringLiteral("org.kde.LogoutPrompt"),
-                                                 QStringLiteral("/LogoutPrompt"),
-                                                 QStringLiteral("org.kde.LogoutPrompt"),
-                                                 QStringLiteral("promptReboot"));
-    QDBusConnection::sessionBus().asyncCall(method);
-}
-
-void DiscoverObject::rebootNow()
-{
-    const auto backends = ResourcesModel::global()->backends();
-    for (auto backend : backends) {
-        backend->aboutTo(AbstractResourcesBackend::Reboot);
-    }
-
-    QDBusMessage method;
-    if (*s_weAreOnPlasma) {
-        method = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Shutdown"),
-                                                QStringLiteral("/Shutdown"),
-                                                QStringLiteral("org.kde.Shutdown"),
-                                                QStringLiteral("logoutAndReboot"));
-    } else {
-        method = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.login1"),
-                                                QStringLiteral("/org/freedesktop/login1"),
-                                                QStringLiteral("org.freedesktop.login1.Manager"),
-                                                QStringLiteral("Reboot"));
-        method.setArguments({true /*interactive*/});
-    }
-    QDBusConnection::sessionBus().asyncCall(method);
-}
-
-void DiscoverObject::shutdownNow()
-{
-    bool shouldRebootFirst = false;
-    const auto backends = ResourcesModel::global()->backends();
-    for (auto backend : backends) {
-        if (backend->needsRebootForPowerOffAction()) {
-            shouldRebootFirst = true;
-            break;
-        }
-    }
-
-    for (auto backend : backends) {
-        backend->aboutTo(AbstractResourcesBackend::PowerOff);
-    }
-
-    QDBusMessage method;
-    if (*s_weAreOnPlasma) {
-        method = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Shutdown"),
-                                                QStringLiteral("/Shutdown"),
-                                                QStringLiteral("org.kde.Shutdown"),
-                                                shouldRebootFirst ? QStringLiteral("logoutAndReboot") : QStringLiteral("logoutAndShutdown"));
-    } else {
-        method = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.login1"),
-                                                QStringLiteral("/org/freedesktop/login1"),
-                                                QStringLiteral("org.freedesktop.login1.Manager"),
-                                                shouldRebootFirst ? QStringLiteral("Reboot") : QStringLiteral("PowerOff"));
-        method.setArguments({true /*interactive*/});
-    }
-    QDBusConnection::sessionBus().asyncCall(method);
 }
 
 QString DiscoverObject::describeSources() const

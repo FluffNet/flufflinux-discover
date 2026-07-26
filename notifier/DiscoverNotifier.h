@@ -25,16 +25,13 @@ class DiscoverNotifier : public QObject
     Q_PROPERTY(QString iconName READ iconName NOTIFY stateChanged)
     Q_PROPERTY(QString message READ message NOTIFY stateChanged)
     Q_PROPERTY(State state READ state NOTIFY stateChanged)
-    Q_PROPERTY(bool needsReboot READ needsReboot NOTIFY needsRebootChanged)
     Q_PROPERTY(bool busy READ isBusy NOTIFY busyChanged)
     Q_PROPERTY(bool isSystemUpdateable READ isSystemUpdateable NOTIFY stateChanged)
 public:
     enum State {
         NoUpdates,
         NormalUpdates,
-        SecurityUpdates,
         Busy,
-        RebootRequired,
         Offline,
     };
     Q_ENUM(State)
@@ -49,18 +46,9 @@ public:
     {
         return m_hasUpdates;
     }
-    bool hasSecurityUpdates() const
-    {
-        return m_hasSecurityUpdates;
-    }
     bool isSystemUpdateable() const;
 
     QStringList loadedModules() const;
-    bool needsReboot() const
-    {
-        return m_needsReboot;
-    }
-
     void setBusy(bool isBusy);
     bool isBusy() const
     {
@@ -80,19 +68,15 @@ public Q_SLOTS:
     void showDiscover(const QString &xdgActivationToken);
     void showDiscoverUpdates(const QString &xdgActivationToken);
     void showUpdatesNotification();
-    void rebootPrompt();
-    void shutdownPrompt();
     void promptAll();
     void foundUpgradeAction(UpgradeAction *action);
 
 Q_SIGNALS:
     void stateChanged();
-    bool needsRebootChanged(bool needsReboot);
     void newUpgradeAction(UpgradeAction *action);
     bool busyChanged();
 
 private:
-    void showRebootNotification();
     void updateStatusNotifier();
     void refreshUnattended();
 
@@ -102,9 +86,7 @@ private:
 
     QList<BackendNotifierModule *> m_backends;
     QTimer m_timer;
-    bool m_hasSecurityUpdates = false;
     bool m_hasUpdates = false;
-    bool m_needsReboot = false;
     bool m_isBusy = false;
     QPointer<KNotification> m_updatesAvailableNotification;
     std::unique_ptr<UnattendedUpdates> m_unattended;

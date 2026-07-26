@@ -54,18 +54,6 @@ msgstr ""
 "மேலாளியால் நிறுவ‍வும்.<nl/><nl/><link url='https://archlinux.org/packages/extra/"
 "x86_64/discover/'>டிஸ்கவருக்கு %1 வழங்கும் தொகுப்பை</link> பார்க்கவும்."
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -89,11 +77,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1 தனை திறக்க முடியவில்லை"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Snap ஆதரவு நிறுவப்பட்டுள்ளதா என்பதை சரிபாருங்கள்"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -212,11 +195,6 @@ msgstr "தரச்சோதனை, வடிவமைப்பு, மற்�
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "டான் லெய்னிர் டுர்துரா ஜென்சன்"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr ""
 
 #: discover/main.cpp:139
 #, kde-format

@@ -62,23 +62,6 @@ msgstr ""
 "command> संकुलप्रबन्धकस्य उपयोगेन ।<nl/><nl/> <link url='https://archlinux.org/"
 "packages/extra/x86_64/discover/'> डिस्कोवर् कृते %1 इत्यस्य पॅकेजिंग् समीक्ष्यताम्</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"%1 तः संकुलप्रबन्धनस्य समर्थनम् अपूर्णम् अस्ति; भवन्तः यत्किमपि संख्यायां समस्याः अनुभवितुं "
-"शक्नुवन्ति। KDE कृते दोषान् न निवेदयन्तु । <resource>packagekit-qt6</resource> संकुलं "
-"विस्थापयितुं केवलं Flatpaks, Snaps, Add-Ons च प्रबन्धयितुं Discover इत्यस्य उपयोगं कर्तुं "
-"अत्यन्तं अनुशंसितम् ।<para>%1 परिपालकाः <command>pacman</command> इत्यस्य उपयोगेन तस्य "
-"स्थाने अनुशंसन्ति > संकुलप्रबन्धनार्थं आदेशपङ्क्तिसाधनम् ।</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -102,11 +85,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1 उद्घाटयितुं न शक्तवान्"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "कृपया सुनिश्चितं कुर्वन्तु यत् स्नैप समर्थनं संस्थापितम् अस्ति"
 
 #: discover/DiscoverObject.cpp:422
 #, fuzzy, kde-format
@@ -227,11 +205,6 @@ msgstr "गुणवत्ता आश्वासन, परिकल्पन
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "दान लेनिर् तुर्थ्रा जेन्सेन्"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format

@@ -151,15 +151,11 @@ Kirigami.GlobalDrawer {
                 Kirigami.Badge {
                     visible: Discover.ResourcesModel.updatesCount > 0
 
-                    type: Discover.ResourcesModel.hasSecurityUpdates
-                        ? Kirigami.Badge.Type.Warning
-                        : Kirigami.Badge.Type.Information
+                    type: Kirigami.Badge.Type.Information
 
                     text: Discover.ResourcesModel.updatesCount
 
-                    QQC2.ToolTip.text: Discover.ResourcesModel.hasSecurityUpdates
-                        ? i18n("Security updates available")
-                        : i18n("App updates available")
+                    QQC2.ToolTip.text: i18n("App updates available")
                     QQC2.ToolTip.visible: activeFocus || hovered
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 

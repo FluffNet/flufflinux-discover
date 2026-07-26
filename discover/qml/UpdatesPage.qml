@@ -182,14 +182,6 @@ DiscoverPage {
             inlineMessage: Discover.ResourcesModel.inlineMessage
         }
 
-        Kirigami.InlineMessage {
-            Layout.fillWidth: true
-            position: Kirigami.InlineMessage.Position.Header
-            visible: resourcesUpdatesModel.needsReboot && page.state !== "fetching" && page.state !== "reboot"
-            text: i18nc("@info", "A pending update will be installed when restarting the system.")
-            icon.name: "system-reboot-update"
-        }
-
         Repeater {
             model: resourcesUpdatesModel.errorMessages
             delegate: Kirigami.InlineMessage {
@@ -284,15 +276,13 @@ DiscoverPage {
                         Layout.fillWidth: true
 
                         QQC2.Label {
-                            text: i18nc("@info After updates complete, shut down/restart/quit", "After updates complete:")
+                            text: i18nc("@info After updates complete, quit", "After updates complete:")
                         }
 
                         QQC2.ComboBox {
                             id: actionAfterUpdateCombo
                             model: [
                                 i18nc("@item:inlistbox after updates complete, do nothing", "Do nothing"),
-                                i18nc("@item:inlistbox after updates complete, restart", "Restart"),
-                                i18nc("@item:inlistbox after updates complete, shut down", "Shut down"),
                                 i18nc("@item:inlistbox after updates complete, quit", "Quit")
                             ]
                         }
@@ -329,14 +319,6 @@ DiscoverPage {
     readonly property Item report: Item {
         parent: page
         anchors.fill: parent
-
-        Kirigami.Action {
-            id: promptRestartAction
-            icon.name: "system-reboot-update"
-            text: i18nc("@action:button", "Restart and Install Updates")
-            visible: false
-            onTriggered: app.promptReboot()
-        }
 
         Kirigami.LoadingPlaceholder {
             id: statusLabel
@@ -608,7 +590,6 @@ DiscoverPage {
     state:  ( resourcesUpdatesModel.isProgressing        ? "progressing"
             : resourcesUpdatesModel.isFetching           ? "fetching"
             : updateModel.hasUpdates                     ? "has-updates"
-            : resourcesUpdatesModel.needsReboot          ? "reboot"
             : secSinceUpdate < 0                         ? "unknown"
             : secSinceUpdate === 0                       ? "now-uptodate"
             : secSinceUpdate < 1000 * 60 * 60 * 24       ? "uptodate"
@@ -623,18 +604,7 @@ DiscoverPage {
             updateTriggered = true
         }
 
-        const option = actionAfterUpdateCombo.currentIndex
-        if (state === "reboot") {
-            if (resourcesUpdatesModel.readyToReboot) {
-                if (option === 1) {
-                    app.rebootNow()
-                } else if (option === 2) {
-                    app.shutdownNow()
-                } else if (option === 3) {
-                    app.reconsiderQuit()
-                }
-            }
-        } else if (updateTriggered && option === 3) {
+        if (updateTriggered && actionAfterUpdateCombo.currentIndex === 1) {
             app.reconsiderQuit()
         }
     }
@@ -663,14 +633,6 @@ DiscoverPage {
             // be better to have "Update" be the right-most action
             PropertyChanges { page.actions: [ updateAction, refreshAction ] }
             PropertyChanges { statusLabel.visible: false }
-        },
-        State {
-            name: "reboot"
-            PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { page.footerLabel: i18nc("@info", "Updates will be installed after the system is restarted") }
-            PropertyChanges { statusLabel.helpfulAction: promptRestartAction }
-            PropertyChanges { statusLabel.explanation: i18nc("@info", "You can keep using the system if you're not ready to restart yet.") }
-            PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "now-uptodate"

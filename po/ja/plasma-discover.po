@@ -59,24 +59,6 @@ msgstr ""
 "archlinux.org/packages/extra/x86_64/discover/'>%1 の Discover パッケージをレ"
 "ビュー</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"%1 のパッケージを管理するためのサポートは不完全であり、様々な問題が発生する可"
-"能性があります。これらの問題についての KDE への報告はお控えください。"
-"<resource>packagekit-qt6</resource> パッケージをアンインストールして、"
-"Discover を Flatpak, Snap やアドオンの管理のみに使用することを強くおすすめし"
-"ます。<para>%1 のメンテナは <command>pacman</command> を使用したパッケージの"
-"管理を推奨しています。</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -100,11 +82,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1 を開けませんでした。"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Snap サポートがインストールされていることを確認してください"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -226,11 +203,6 @@ msgstr "品質保証、デザインとユーザビリティ"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
