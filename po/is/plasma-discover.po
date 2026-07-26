@@ -882,8 +882,8 @@ msgstr "Öryggisuppfærslur í boði"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Uppfærslur eru tiltækar"
+msgid "App updates available"
+msgstr "Forritauppfærslur í boði"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -907,13 +907,13 @@ msgstr "&Uppsett"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Uppfærslur (sæki…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Forritauppfærslur (sæki…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Uppfærslur"
+msgid "&App updates"
+msgstr "&Forritauppfærslur"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1448,8 +1448,8 @@ msgstr "Bakendar sem vantar"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Uppfærslur"
+msgid "App updates"
+msgstr "Forritauppfærslur"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1598,8 +1598,8 @@ msgstr "Sæki uppfærslur..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Uppfærslur"
+msgid "App updates"
+msgstr "Forritauppfærslur"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

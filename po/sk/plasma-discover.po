@@ -892,8 +892,8 @@ msgstr "Sú dostupné bezpečnostné aktualizácie"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Sú dostupné aktualizácie"
+msgid "App updates available"
+msgstr "Sú dostupné aktualizácie aplikácií"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -917,13 +917,13 @@ msgstr "Nainštalované"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Updates (Fetching…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Aktualizácie aplikácií (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "Updaty"
+msgid "&App updates"
+msgstr "Aktualizácie aplikácií"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1460,8 +1460,8 @@ msgstr "Chýbajúce podporné programy"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Aktualizácie"
+msgid "App updates"
+msgstr "Aktualizácie aplikácií"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1610,8 +1610,8 @@ msgstr "Získavajú sa aktualizácie..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Aktualizácie"
+msgid "App updates"
+msgstr "Aktualizácie aplikácií"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

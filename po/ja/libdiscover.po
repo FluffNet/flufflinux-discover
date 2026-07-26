@@ -2735,8 +2735,8 @@ msgstr "%1以上"
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "アプリのアップデート"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

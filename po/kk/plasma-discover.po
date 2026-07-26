@@ -837,8 +837,8 @@ msgstr ""
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Update All"
-msgid "Updates available"
-msgstr "Бүкілін жаңарту"
+msgid "App updates available"
+msgstr "Қолданба жаңартулары қолжетімді"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -865,14 +865,14 @@ msgstr "Орнатылған"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Қолданба жаңартулары (Алынуда…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Update"
-msgid "&Updates"
-msgstr "Жаңарту"
+msgid "&App updates"
+msgstr "Қолданба жаңартулары"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1413,8 +1413,8 @@ msgstr ""
 #: discover/qml/UpdatesPage.qml:14
 #, fuzzy, kde-format
 #| msgid "Update"
-msgid "Updates"
-msgstr "Жаңарту"
+msgid "App updates"
+msgstr "Қолданба жаңартулары"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1564,8 +1564,8 @@ msgstr "Жаңарту"
 #, fuzzy, kde-format
 #| msgid "Update"
 msgctxt "@info"
-msgid "Updates"
-msgstr "Жаңарту"
+msgid "App updates"
+msgstr "Қолданба жаңартулары"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

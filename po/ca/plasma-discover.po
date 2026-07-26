@@ -896,8 +896,8 @@ msgstr "Actualitzacions de seguretat disponibles"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Actualitzacions disponibles"
+msgid "App updates available"
+msgstr "Hi ha actualitzacions d'aplicacions disponibles"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -921,13 +921,13 @@ msgstr "&Instal·lat"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Actualitzacions (Obtenció…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Actualitzacions d'aplicacions (Obtenció…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Actualitzacions"
+msgid "&App updates"
+msgstr "&Actualitzacions d'aplicacions"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1466,8 +1466,8 @@ msgstr "Dorsals que manquen"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Actualitzacions"
+msgid "App updates"
+msgstr "Actualitzacions d'aplicacions"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1617,8 +1617,8 @@ msgstr "S'estan recuperant les actualitzacions…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Actualitzacions"
+msgid "App updates"
+msgstr "Actualitzacions d'aplicacions"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

@@ -854,8 +854,8 @@ msgstr ""
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Update All"
-msgid "Updates available"
-msgstr "Ажурирај све"
+msgid "App updates available"
+msgstr "Доступна су ажурирања програма"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -883,14 +883,14 @@ msgstr "Инсталирано"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Ажурирања програма (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Допуне"
+msgid "&App updates"
+msgstr "Ажурирања програма"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1433,8 +1433,8 @@ msgstr ""
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Допуне"
+msgid "App updates"
+msgstr "Ажурирања програма"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1585,8 +1585,8 @@ msgstr "Добављам допуне..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Допуне"
+msgid "App updates"
+msgstr "Ажурирања програма"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

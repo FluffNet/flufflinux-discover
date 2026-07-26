@@ -851,8 +851,8 @@ msgstr "系统有可以安装的安全更新"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "系统有可以安装的更新"
+msgid "App updates available"
+msgstr "有可用的应用更新"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -876,13 +876,13 @@ msgstr "已安装的软件包(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "更新(&U) (正在获取…)"
+msgid "&App updates (Fetching…)"
+msgstr "应用更新(&U) (正在获取…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "更新(&U)"
+msgid "&App updates"
+msgstr "应用更新(&U)"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1410,8 +1410,8 @@ msgstr "缺少后端程序"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "应用更新"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1558,8 +1558,8 @@ msgstr "正在获取更新…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "应用更新"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

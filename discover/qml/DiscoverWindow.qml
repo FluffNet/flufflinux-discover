@@ -13,6 +13,9 @@ import org.kde.config as KConfig
 Kirigami.ApplicationWindow {
     id: window
 
+    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.childrenInherit: true
+
     property string currentTopLevel
 
     readonly property string topBrowsingComp: "BrowsingPage.qml"
@@ -98,8 +101,8 @@ Kirigami.ApplicationWindow {
             : (Discover.ResourcesModel.hasSecurityUpdates ? "update-high" : "update-low")
 
         text: Discover.ResourcesModel.fetchingUpdatesProgress !== 100
-            ? i18n("&Updates (Fetching…)")
-            : i18n("&Updates")
+            ? i18n("&App updates (Fetching…)")
+            : i18n("&App updates")
 
         component: topUpdateComp
         objectName: "update"

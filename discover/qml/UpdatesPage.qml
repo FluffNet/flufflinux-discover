@@ -11,7 +11,7 @@ import org.kde.kitemmodels as KItemModels
 DiscoverPage {
     id: page
 
-    title: i18n("Updates")
+    title: i18n("App updates")
 
     property string footerLabel: ""
     property int footerProgress: 0
@@ -657,7 +657,7 @@ DiscoverPage {
         },
         State {
             name: "has-updates"
-            PropertyChanges { page.title: i18nc("@info", "Updates") }
+            PropertyChanges { page.title: i18nc("@info", "App updates") }
             // On mobile, we want "Update" to be the primary action so it's in
             // the center, but on desktop this feels a bit awkward and it would
             // be better to have "Update" be the right-most action

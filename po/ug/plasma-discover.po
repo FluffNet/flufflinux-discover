@@ -905,8 +905,8 @@ msgstr "بىخەتەرلىك يېڭىلانمىسى بار"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "يېڭىلانما بار"
+msgid "App updates available"
+msgstr "ئەپ يېڭىلانمىلىرى بار"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -930,13 +930,13 @@ msgstr "ئورنىتىلغان(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "يېڭىلانما(&U)(ئېرىشىۋاتىدۇ…)"
+msgid "&App updates (Fetching…)"
+msgstr "ئەپ يېڭىلانمىلىرى(&U) (ئېرىشىۋاتىدۇ…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "يېڭىلانما(&U)"
+msgid "&App updates"
+msgstr "ئەپ يېڭىلانمىلىرى(&U)"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1474,8 +1474,8 @@ msgstr "ئارقا ئۇچ كەم"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "يېڭىلانما"
+msgid "App updates"
+msgstr "ئەپ يېڭىلانمىلىرى"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1636,8 +1636,8 @@ msgstr "يېڭىلانمىغا ئېرىشىۋاتىدۇ…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "يېڭىلانما"
+msgid "App updates"
+msgstr "ئەپ يېڭىلانمىلىرى"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

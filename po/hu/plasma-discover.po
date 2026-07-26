@@ -888,8 +888,8 @@ msgstr "Biztonsági frissítések érhetők el"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Frissítések érhetők el"
+msgid "App updates available"
+msgstr "Alkalmazásfrissítések érhetők el"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -913,13 +913,13 @@ msgstr "&Telepített"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Fr&issítések (lekérés…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Alkalmazásfrissítések (lekérés…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Frissítések"
+msgid "&App updates"
+msgstr "&Alkalmazásfrissítések"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1457,8 +1457,8 @@ msgstr "Hiányzó háttérprogramok"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Frissítések"
+msgid "App updates"
+msgstr "Alkalmazásfrissítések"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1610,8 +1610,8 @@ msgstr "Frissítések letöltése…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Frissítések"
+msgid "App updates"
+msgstr "Alkalmazásfrissítések"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

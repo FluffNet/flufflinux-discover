@@ -839,8 +839,8 @@ msgstr "ਅੱਪਡੇਟ ਮੌਜੂਦ ਹਨ"
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Updates are available"
-msgid "Updates available"
-msgstr "ਅੱਪਡੇਟ ਮੌਜੂਦ ਹਨ"
+msgid "App updates available"
+msgstr "ਐਪ ਅੱਪਡੇਟ ਉਪਲਬਧ ਹਨ"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -864,14 +864,14 @@ msgstr "ਇੰਸਟਾਲ ਹਨ(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "ਐਪ ਅੱਪਡੇਟ (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "ਅੱਪਡੇਟ"
+msgid "&App updates"
+msgstr "ਐਪ ਅੱਪਡੇਟ"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1395,8 +1395,8 @@ msgstr "ਗੁੰਮ ਬੈਕਐਂਡ"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "ਅੱਪਡੇਟ"
+msgid "App updates"
+msgstr "ਐਪ ਅੱਪਡੇਟ"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1547,8 +1547,8 @@ msgstr "…ਅੱਪਡੇਟ ਲਏ ਜਾ ਰਹੇ ਹਨ"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "ਅੱਪਡੇਟ"
+msgid "App updates"
+msgstr "ਐਪ ਅੱਪਡੇਟ"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

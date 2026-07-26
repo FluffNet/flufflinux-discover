@@ -896,8 +896,8 @@ msgstr "Actualizări de securitate disponibile"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Actualizări disponibile"
+msgid "App updates available"
+msgstr "Sunt disponibile actualizări de aplicații"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -921,13 +921,13 @@ msgstr "&Instalat"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Act&ualizări (se preiau…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Actualizări de aplicații (se preiau…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "Act&ualizări"
+msgid "&App updates"
+msgstr "&Actualizări de aplicații"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1466,8 +1466,8 @@ msgstr "Platforme lipsă"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Actualizări"
+msgid "App updates"
+msgstr "Actualizări de aplicații"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1616,8 +1616,8 @@ msgstr "Se preiau actualizări…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Actualizări"
+msgid "App updates"
+msgstr "Actualizări de aplicații"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

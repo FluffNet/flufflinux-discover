@@ -843,8 +843,8 @@ msgstr ""
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Update All"
-msgid "Updates available"
-msgstr "सर्व अद्ययावत करा"
+msgid "App updates available"
+msgstr "ॲप अद्यतने उपलब्ध आहेत"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -871,14 +871,14 @@ msgstr "प्रतिष्ठापीत केलेले"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "ॲप अद्यतने (आणत आहे…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Update"
-msgid "&Updates"
-msgstr "अद्ययावत करा"
+msgid "&App updates"
+msgstr "ॲप अद्यतने"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1419,8 +1419,8 @@ msgstr ""
 #: discover/qml/UpdatesPage.qml:14
 #, fuzzy, kde-format
 #| msgid "Update"
-msgid "Updates"
-msgstr "अद्ययावत करा"
+msgid "App updates"
+msgstr "ॲप अद्यतने"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1570,8 +1570,8 @@ msgstr "अद्ययावत करा"
 #, fuzzy, kde-format
 #| msgid "Update"
 msgctxt "@info"
-msgid "Updates"
-msgstr "अद्ययावत करा"
+msgid "App updates"
+msgstr "ॲप अद्यतने"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

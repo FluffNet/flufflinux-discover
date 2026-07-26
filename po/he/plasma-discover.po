@@ -876,8 +876,8 @@ msgstr "יש עדכוני אבטחה"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "יש עדכונים"
+msgid "App updates available"
+msgstr "עדכוני יישומים זמינים"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -901,13 +901,13 @@ msgstr "מו&תקן"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&עדכונים (מתקבלים…)"
+msgid "&App updates (Fetching…)"
+msgstr "&עדכוני יישומים (מתקבלים…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&עדכונים"
+msgid "&App updates"
+msgstr "&עדכוני יישומים"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1440,8 +1440,8 @@ msgstr "מנגנונים חסרים"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "עדכונים"
+msgid "App updates"
+msgstr "עדכוני יישומים"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1588,8 +1588,8 @@ msgstr "העדכונים מתקבלים…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "עדכונים"
+msgid "App updates"
+msgstr "עדכוני יישומים"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

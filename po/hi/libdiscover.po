@@ -2640,8 +2640,8 @@ msgstr ""
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr "अद्यतन"
+msgid "App updates"
+msgstr "ऐप अपडेट"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

@@ -886,8 +886,8 @@ msgstr "Налични актуализации за сигурност"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Налични актуализации"
+msgid "App updates available"
+msgstr "Налични са актуализации на приложения"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -911,13 +911,13 @@ msgstr "&Инсталирани"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Актуализации (Извличане...)"
+msgid "&App updates (Fetching…)"
+msgstr "&Актуализации на приложения (Извличане...)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Актуализации"
+msgid "&App updates"
+msgstr "&Актуализации на приложения"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1456,8 +1456,8 @@ msgstr "Липсващ бекенд"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Обновяване"
+msgid "App updates"
+msgstr "Актуализации на приложения"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1607,8 +1607,8 @@ msgstr "Извличане на актуализации…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Актуализации"
+msgid "App updates"
+msgstr "Актуализации на приложения"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

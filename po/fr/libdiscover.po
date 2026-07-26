@@ -2809,8 +2809,8 @@ msgstr "%1+"
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr "Mises à jour"
+msgid "App updates"
+msgstr "Mises à jour des applications"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

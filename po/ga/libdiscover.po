@@ -2620,8 +2620,8 @@ msgstr ""
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr ""
+msgid "App updates"
+msgstr "Nuashonruithe aipeanna"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

@@ -864,8 +864,8 @@ msgstr "보안 업데이트 사용 가능"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "업데이트 사용 가능"
+msgid "App updates available"
+msgstr "앱 업데이트 사용 가능"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -890,13 +890,13 @@ msgstr "설치됨(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "업데이트(가져오는 중…)(&U)"
+msgid "&App updates (Fetching…)"
+msgstr "앱 업데이트(가져오는 중…)(&U)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "업데이트(&U)"
+msgid "&App updates"
+msgstr "앱 업데이트(&U)"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1427,8 +1427,8 @@ msgstr "사용할 수 없는 백엔드"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "업데이트"
+msgid "App updates"
+msgstr "앱 업데이트"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1576,8 +1576,8 @@ msgstr "업데이트 가져오는 중…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "업데이트"
+msgid "App updates"
+msgstr "앱 업데이트"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

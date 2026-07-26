@@ -828,8 +828,8 @@ msgstr "Aktualizowanja steja k dispoziciji"
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Updates are available"
-msgid "Updates available"
-msgstr "Aktualizowanja steja k dispoziciji"
+msgid "App updates available"
+msgstr "Aktualizacije nałoženjow su k dispoziciji"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -853,14 +853,14 @@ msgstr "&Instalowane"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Aktualizacije nałoženjow (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Aktualizowanja"
+msgid "&App updates"
+msgstr "Aktualizacije nałoženjow"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1383,8 +1383,8 @@ msgstr "Backends faluja"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Aktualizowanja"
+msgid "App updates"
+msgstr "Aktualizacije nałoženjow"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1535,8 +1535,8 @@ msgstr "Wobstaram aktualizowanja..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Aktualizowanja"
+msgid "App updates"
+msgstr "Aktualizacije nałoženjow"
 
 #: discover/qml/UpdatesPage.qml:670
 #, fuzzy, kde-format

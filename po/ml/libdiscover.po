@@ -2667,8 +2667,8 @@ msgstr ""
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr "അപ്ഡേറ്റുകൾ"
+msgid "App updates"
+msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

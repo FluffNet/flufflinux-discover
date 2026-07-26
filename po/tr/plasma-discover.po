@@ -890,8 +890,8 @@ msgstr "Güvenlik güncellemeleri kullanılabilir"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Kullanılabilir güncelleştirmeler var"
+msgid "App updates available"
+msgstr "Uygulama güncellemeleri var"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -915,13 +915,13 @@ msgstr "&Kurulu"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Güncellemeler (Getiriliyor…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Uygulama güncellemeleri (Getiriliyor…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Güncellemeler"
+msgid "&App updates"
+msgstr "&Uygulama güncellemeleri"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1458,8 +1458,8 @@ msgstr "Eksik Arka Uçlar"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Güncellemeler"
+msgid "App updates"
+msgstr "Uygulama güncellemeleri"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1609,8 +1609,8 @@ msgstr "Güncellemeler alınıyor…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Güncellemeler"
+msgid "App updates"
+msgstr "Uygulama güncellemeleri"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

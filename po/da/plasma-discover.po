@@ -850,8 +850,8 @@ msgstr "Ingen opdateringer er tilgængelige"
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "No updates are available"
-msgid "Updates available"
-msgstr "Ingen opdateringer er tilgængelige"
+msgid "App updates available"
+msgstr "Programopdateringer er tilgængelige"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -875,14 +875,14 @@ msgstr "&Installeret"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Opdateringer (Henter…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Programopdateringer (Henter…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Opdateringer"
+msgid "&App updates"
+msgstr "Programopdateringer"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1405,8 +1405,8 @@ msgstr "Manglende motorer"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Opdateringer"
+msgid "App updates"
+msgstr "Programopdateringer"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1565,8 +1565,8 @@ msgstr "Henter opdateringer…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Opdateringer"
+msgid "App updates"
+msgstr "Programopdateringer"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

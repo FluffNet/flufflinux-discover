@@ -896,8 +896,8 @@ msgstr "Na voljo so varnostne posodobitve"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Na voljo so posodobitve"
+msgid "App updates available"
+msgstr "Na voljo so posodobitve programov"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -921,13 +921,13 @@ msgstr "Nameščeno"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Posodobitve (Pridobivanje…)"
+msgid "&App updates (Fetching…)"
+msgstr "Posodobitve programov (Pridobivanje…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "Posodobitve"
+msgid "&App updates"
+msgstr "Posodobitve programov"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1462,8 +1462,8 @@ msgstr "Manjkajo programi v ozadju"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Posodobitve"
+msgid "App updates"
+msgstr "Posodobitve programov"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1612,8 +1612,8 @@ msgstr "Pridobivanje posodobitev …"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Posodobitve"
+msgid "App updates"
+msgstr "Posodobitve programov"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

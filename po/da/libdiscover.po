@@ -2841,8 +2841,8 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@label Column label"
 #| msgid "Updates"
-msgid "Updates"
-msgstr "Opdateringer"
+msgid "App updates"
+msgstr "Programopdateringer"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

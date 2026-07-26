@@ -905,8 +905,8 @@ msgstr "Ir pieejami drošības atjauninājumi"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Ir pieejami atjauninājumi"
+msgid "App updates available"
+msgstr "Pieejami lietotņu atjauninājumi"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -930,13 +930,13 @@ msgstr "&Instalētās"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Atjauninājumi (ielādē)"
+msgid "&App updates (Fetching…)"
+msgstr "&Lietotņu atjauninājumi (ielādē)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Atjauninājumi"
+msgid "&App updates"
+msgstr "&Lietotņu atjauninājumi"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1472,8 +1472,8 @@ msgstr "Trūkst aizmugursistēmu"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Atjauninājumi"
+msgid "App updates"
+msgstr "Lietotņu atjauninājumi"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1629,8 +1629,8 @@ msgstr "Meklē atjauninājumus…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Atjauninājumi"
+msgid "App updates"
+msgstr "Lietotņu atjauninājumi"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

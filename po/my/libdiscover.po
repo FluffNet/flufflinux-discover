@@ -2695,8 +2695,8 @@ msgstr ""
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr "အပ်ဒိတ်များ"
+msgid "App updates"
+msgstr "အက်ပ်အပ်ဒိတ်များ"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

@@ -878,8 +878,8 @@ msgstr "セキュリティの更新が利用可能です"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "更新が利用可能です"
+msgid "App updates available"
+msgstr "アプリのアップデートがあります"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -905,13 +905,13 @@ msgstr "インストール済(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "更新(&U) (取得中...)"
+msgid "&App updates (Fetching…)"
+msgstr "アプリのアップデート(&U) (取得中...)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "更新(&U)"
+msgid "&App updates"
+msgstr "アプリのアップデート(&U)"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1449,8 +1449,8 @@ msgstr "欠けているバックエンド"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "アプリのアップデート"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1601,8 +1601,8 @@ msgstr "更新を取得中..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "アプリのアップデート"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

@@ -815,8 +815,8 @@ msgstr ""
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr ""
+msgid "App updates available"
+msgstr "Nuashonruithe aipeanna ar fáil"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -840,13 +840,13 @@ msgstr ""
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Nuashonruithe aipeanna (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr ""
+msgid "&App updates"
+msgstr "Nuashonruithe aipeanna"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1362,8 +1362,8 @@ msgstr ""
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr ""
+msgid "App updates"
+msgstr "Nuashonruithe aipeanna"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1508,8 +1508,8 @@ msgstr ""
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr ""
+msgid "App updates"
+msgstr "Nuashonruithe aipeanna"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

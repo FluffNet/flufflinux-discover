@@ -829,8 +829,8 @@ msgstr ""
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr ""
+msgid "App updates available"
+msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ ലഭ്യമാണ്"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -857,13 +857,13 @@ msgstr "ഇൻസ്റ്റാളുചെയ്‌തു"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
-msgid "&Updates"
-msgstr "കാലികമാണ്"
+msgid "&App updates"
+msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, fuzzy, kde-format
@@ -1390,8 +1390,8 @@ msgstr ""
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr ""
+msgid "App updates"
+msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1536,8 +1536,8 @@ msgstr "അപ്‌ഡേറ്റുകൾ നേടുന്നു..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr ""
+msgid "App updates"
+msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

@@ -879,8 +879,8 @@ msgstr "ხელმისაწვდომია უსაფრთოხე�
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "ხელმისაწვდომი განახლებები"
+msgid "App updates available"
+msgstr "აპების განახლებები ხელმისაწვდომია"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -904,13 +904,13 @@ msgstr "&დაყენებული"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&განახლებები (გამოთხოვა…)"
+msgid "&App updates (Fetching…)"
+msgstr "&აპების განახლებები (გამოთხოვა…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "განა&ხლებები"
+msgid "&App updates"
+msgstr "&აპების განახლებები"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1444,8 +1444,8 @@ msgstr "უკანაბოლოები ხელმიუწვდომ�
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "განახლებები"
+msgid "App updates"
+msgstr "აპების განახლებები"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1593,8 +1593,8 @@ msgstr "განახლებების გამოთხოვა…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "განახლებები"
+msgid "App updates"
+msgstr "აპების განახლებები"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

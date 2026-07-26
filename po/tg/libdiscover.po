@@ -2680,8 +2680,8 @@ msgstr ""
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, fuzzy, kde-format
 #| msgid "Update"
-msgid "Updates"
-msgstr "Навсозӣ кардан"
+msgid "App updates"
+msgstr "Навсозиҳои барномаҳо"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

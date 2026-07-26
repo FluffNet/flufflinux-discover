@@ -883,8 +883,8 @@ msgstr "Säkerhetsuppdateringar är tillgängliga"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Uppdateringar tillgängliga"
+msgid "App updates available"
+msgstr "Programuppdateringar tillgängliga"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -908,13 +908,13 @@ msgstr "&Installerat"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Uppdateringar (hämtar…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Programuppdateringar (hämtar…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Uppdateringar"
+msgid "&App updates"
+msgstr "&Programuppdateringar"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1452,8 +1452,8 @@ msgstr "Saknar gränssnitt"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Uppdateringar"
+msgid "App updates"
+msgstr "Programuppdateringar"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1603,8 +1603,8 @@ msgstr "Hämtar uppdateringar…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Uppdateringar"
+msgid "App updates"
+msgstr "Programuppdateringar"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

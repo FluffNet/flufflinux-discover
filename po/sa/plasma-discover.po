@@ -900,8 +900,8 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@action:button as in, 'update all items'"
 #| msgid "Update All"
-msgid "Updates available"
-msgstr "सर्वं अद्यतनं कुर्वन्तु"
+msgid "App updates available"
+msgstr "अनुप्रयोग-अद्यतनानि उपलब्धानि सन्ति"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -925,14 +925,14 @@ msgstr "&स्थापित्"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Updates (आनयति…)"
+msgid "&App updates (Fetching…)"
+msgstr "&अनुप्रयोग-अद्यतनानि (आनयति…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "अद्यतनाः"
+msgid "&App updates"
+msgstr "अनुप्रयोग-अद्यतनानि"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1468,8 +1468,8 @@ msgstr "अनुपलब्धः पृष्ठभागाः"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "अद्यतनाः"
+msgid "App updates"
+msgstr "अनुप्रयोग-अद्यतनानि"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1627,8 +1627,8 @@ msgstr "अद्यतनं आनयन्…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "अद्यतनाः"
+msgid "App updates"
+msgstr "अनुप्रयोग-अद्यतनानि"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

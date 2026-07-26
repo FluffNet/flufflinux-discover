@@ -13,6 +13,9 @@ import org.kde.kcmutils
 SimpleKCM {
     id: root
 
+    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.childrenInherit: true
+
     ConfigModule.buttons: ConfigModule.Default | ConfigModule.Apply
 
     QQC2.ButtonGroup {

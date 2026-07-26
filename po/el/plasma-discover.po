@@ -918,8 +918,8 @@ msgstr "Δεν υπάρχουν διαθέσιμες ενημερώσεις"
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "No updates are available"
-msgid "Updates available"
-msgstr "Δεν υπάρχουν διαθέσιμες ενημερώσεις"
+msgid "App updates available"
+msgstr "Διαθέσιμες ενημερώσεις εφαρμογών"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -943,14 +943,14 @@ msgstr "&Εγκατεστημένο"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Ενημερώσεις εφαρμογών (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Ενημερώσεις"
+msgid "&App updates"
+msgstr "Ενημερώσεις εφαρμογών"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1475,8 +1475,8 @@ msgstr "Έλλειψη Backends"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Ενημερώσεις"
+msgid "App updates"
+msgstr "Ενημερώσεις εφαρμογών"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1635,8 +1635,8 @@ msgstr "Ανάκτηση ενημερώσεων..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Ενημερώσεις"
+msgid "App updates"
+msgstr "Ενημερώσεις εφαρμογών"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

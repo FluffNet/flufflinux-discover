@@ -916,8 +916,8 @@ msgstr "Non hai actualizacións dispoñíbeis"
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "No updates are available"
-msgid "Updates available"
-msgstr "Non hai actualizacións dispoñíbeis"
+msgid "App updates available"
+msgstr "Hai actualizacións de aplicacións dispoñíbeis"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -941,14 +941,14 @@ msgstr "&Instalada"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Actualizacións (obtendo…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Actualizacións de aplicacións (obtendo…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Actualizacións"
+msgid "&App updates"
+msgstr "Actualizacións de aplicacións"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1494,8 +1494,8 @@ msgstr "Infraestruturas que faltan"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Actualizacións"
+msgid "App updates"
+msgstr "Actualizacións de aplicacións"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1656,8 +1656,8 @@ msgstr "Obtendo as actualizacións…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Actualizacións"
+msgid "App updates"
+msgstr "Actualizacións de aplicacións"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

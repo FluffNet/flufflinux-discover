@@ -891,8 +891,8 @@ msgstr "Beveiligingsupdates beschikbaar"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Bijwerkitems zijn beschikbaar"
+msgid "App updates available"
+msgstr "App-updates beschikbaar"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -916,13 +916,13 @@ msgstr "&Geïnstalleerd"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Updates (ophalen…)"
+msgid "&App updates (Fetching…)"
+msgstr "&App-updates (ophalen…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Updates"
+msgid "&App updates"
+msgstr "&App-updates"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1462,8 +1462,8 @@ msgstr "Ontbrekende backends"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Updates"
+msgid "App updates"
+msgstr "App-updates"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1615,8 +1615,8 @@ msgstr "Ophalen…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Updates"
+msgid "App updates"
+msgstr "App-updates"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

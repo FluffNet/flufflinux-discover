@@ -891,8 +891,8 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@action:button as in, 'update all items'"
 #| msgid "Update All"
-msgid "Updates available"
-msgstr "به‌روزرسانی همه"
+msgid "App updates available"
+msgstr "به‌روزرسانی‌های برنامه‌ها در دسترس است"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -916,14 +916,14 @@ msgstr "&نصب‌شده"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&به‌روزرسانی‌ها (در حال دریافت…)"
+msgid "&App updates (Fetching…)"
+msgstr "&به‌روزرسانی‌های برنامه‌ها (در حال دریافت…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "به‌روزرسانی‌ها"
+msgid "&App updates"
+msgstr "به‌روزرسانی‌های برنامه‌ها"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1455,8 +1455,8 @@ msgstr "پشتوانه‌های گم‌شده"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "به‌روزرسانی‌ها"
+msgid "App updates"
+msgstr "به‌روزرسانی‌های برنامه‌ها"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1615,8 +1615,8 @@ msgstr "دریافت به‌روزرسانی‌ها…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "به‌روزرسانی‌ها"
+msgid "App updates"
+msgstr "به‌روزرسانی‌های برنامه‌ها"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

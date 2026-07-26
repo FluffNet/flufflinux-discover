@@ -892,8 +892,8 @@ msgstr "Sono disponibili aggiornamenti di sicurezza"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Aggiornamenti disponibili"
+msgid "App updates available"
+msgstr "Aggiornamenti delle applicazioni disponibili"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -917,13 +917,13 @@ msgstr "&Installati"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Aggiornamenti (Rec&upero...)"
+msgid "&App updates (Fetching…)"
+msgstr "&Aggiornamenti delle applicazioni (Rec&upero...)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Aggiornamenti"
+msgid "&App updates"
+msgstr "&Aggiornamenti delle applicazioni"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1464,8 +1464,8 @@ msgstr "Motori mancanti"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Aggiornamenti"
+msgid "App updates"
+msgstr "Aggiornamenti delle applicazioni"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1614,8 +1614,8 @@ msgstr "Recupero degli aggiornamenti..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Aggiornamenti"
+msgid "App updates"
+msgstr "Aggiornamenti delle applicazioni"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

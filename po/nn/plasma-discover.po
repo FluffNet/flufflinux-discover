@@ -889,8 +889,8 @@ msgstr "Tryggleiksoppdateringar er tilgjengelege"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Oppdateringar er tilgjengelege"
+msgid "App updates available"
+msgstr "Appoppdateringar er tilgjengelege"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -914,13 +914,13 @@ msgstr "&Installerte"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Oppdateringar (hentar …)"
+msgid "&App updates (Fetching…)"
+msgstr "&Appoppdateringar (hentar …)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Oppdateringar"
+msgid "&App updates"
+msgstr "&Appoppdateringar"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1460,8 +1460,8 @@ msgstr "Manglande pakkemotorar"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Oppdateringar"
+msgid "App updates"
+msgstr "Appoppdateringar"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1611,8 +1611,8 @@ msgstr "Hentar oppdateringar …"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Oppdateringar"
+msgid "App updates"
+msgstr "Appoppdateringar"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

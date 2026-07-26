@@ -922,8 +922,8 @@ msgstr "Pembaruan yang tersedia"
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Updates are available"
-msgid "Updates available"
-msgstr "Pembaruan yang tersedia"
+msgid "App updates available"
+msgstr "Pembaruan aplikasi tersedia"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -947,14 +947,14 @@ msgstr "&Terinstal"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Menghela &Pembaruan..."
+msgid "&App updates (Fetching…)"
+msgstr "&Pembaruan aplikasi (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Pembaruan"
+msgid "&App updates"
+msgstr "Pembaruan aplikasi"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1492,8 +1492,8 @@ msgstr "Backend Terselip"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Pembaruan"
+msgid "App updates"
+msgstr "Pembaruan aplikasi"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1652,8 +1652,8 @@ msgstr "Menghela pembaruan…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Pembaruan"
+msgid "App updates"
+msgstr "Pembaruan aplikasi"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

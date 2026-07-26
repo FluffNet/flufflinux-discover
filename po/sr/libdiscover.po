@@ -2844,8 +2844,8 @@ msgstr ""
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, fuzzy, kde-format
 #| msgid "Offline Updates"
-msgid "Updates"
-msgstr "Допуне ван везе"
+msgid "App updates"
+msgstr "Ажурирања програма"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

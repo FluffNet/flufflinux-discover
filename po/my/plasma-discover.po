@@ -836,8 +836,8 @@ msgstr "အပ်ဒိတ်များ ရရှိနေပါပြီ"
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Updates are available"
-msgid "Updates available"
-msgstr "အပ်ဒိတ်များ ရရှိနေပါပြီ"
+msgid "App updates available"
+msgstr "အက်ပ်အပ်ဒိတ်များ ရနိုင်ပါသည်"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -861,14 +861,14 @@ msgstr "&Iတပ်ဆင်ပြီး"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "အက်ပ်အပ်ဒိတ်များ (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "အပ်ဒိတ်များ"
+msgid "&App updates"
+msgstr "အက်ပ်အပ်ဒိတ်များ"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1399,8 +1399,8 @@ msgstr "အုတ်မြစ်ပရိုဂရမ်များ မရှ�
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "အပ်ဒိတ်များ"
+msgid "App updates"
+msgstr "အက်ပ်အပ်ဒိတ်များ"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1551,8 +1551,8 @@ msgstr "အပ်ဒိတ်များရယူနေသည်…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "အပ်ဒိတ်များ"
+msgid "App updates"
+msgstr "အက်ပ်အပ်ဒိတ်များ"
 
 #: discover/qml/UpdatesPage.qml:670
 #, fuzzy, kde-format

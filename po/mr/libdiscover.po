@@ -2794,8 +2794,8 @@ msgstr ""
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, fuzzy, kde-format
 #| msgid "Applications"
-msgid "Updates"
-msgstr "अनुप्रयोग"
+msgid "App updates"
+msgstr "ॲप अद्यतने"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

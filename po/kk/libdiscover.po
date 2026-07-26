@@ -2911,8 +2911,8 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox Filters updates in the history view"
 #| msgid "Updates"
-msgid "Updates"
-msgstr "Жаңартулар"
+msgid "App updates"
+msgstr "Қолданба жаңартулары"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

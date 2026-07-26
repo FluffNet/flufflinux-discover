@@ -2753,8 +2753,8 @@ msgstr "%1+"
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr "يېڭىلانما"
+msgid "App updates"
+msgstr "ئەپ يېڭىلانمىلىرى"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

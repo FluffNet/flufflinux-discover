@@ -904,8 +904,8 @@ msgstr "Yra prieinami saugumo atnaujinimai"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Yra prieinami atnaujinimai"
+msgid "App updates available"
+msgstr "Yra programėlių atnaujinimų"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -931,13 +931,13 @@ msgstr "Į&diegta"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Atn&aujinimai (Gaunami…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Programėlių atnaujinimai (Gaunami…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "Atna&ujinimai"
+msgid "&App updates"
+msgstr "&Programėlių atnaujinimai"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1478,8 +1478,8 @@ msgstr "Trūkstamos vidinės pusės"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Atnaujinimai"
+msgid "App updates"
+msgstr "Programėlių atnaujinimai"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1627,8 +1627,8 @@ msgstr "Gaunami atnaujinimai…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Atnaujinimai"
+msgid "App updates"
+msgstr "Programėlių atnaujinimai"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format

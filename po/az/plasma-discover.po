@@ -945,8 +945,8 @@ msgstr "Yenilənmələr mövcuddur"
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Updates are available"
-msgid "Updates available"
-msgstr "Yenilənmələr mövcuddur"
+msgid "App updates available"
+msgstr "Tətbiq yeniləmələri mövcuddur"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -971,14 +971,14 @@ msgstr "&Quraşdırılan"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Tətbiq yeniləmələri (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Yeniləmələr"
+msgid "&App updates"
+msgstr "Tətbiq yeniləmələri"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1504,8 +1504,8 @@ msgstr "Çatışmayan modullar"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Yeniləmələr"
+msgid "App updates"
+msgstr "Tətbiq yeniləmələri"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1663,8 +1663,8 @@ msgstr "Yenilənmələr alınır..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Yeniləmələr"
+msgid "App updates"
+msgstr "Tətbiq yeniləmələri"
 
 #: discover/qml/UpdatesPage.qml:670
 #, fuzzy, kde-format

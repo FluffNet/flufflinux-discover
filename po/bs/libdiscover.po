@@ -2806,8 +2806,8 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox Filters updates in the history view"
 #| msgid "Updates"
-msgid "Updates"
-msgstr "Nadogradnje"
+msgid "App updates"
+msgstr "Ažuriranja aplikacija"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

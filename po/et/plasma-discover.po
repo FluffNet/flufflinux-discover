@@ -850,8 +850,8 @@ msgstr "Uuendusi pole"
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "No updates are available"
-msgid "Updates available"
-msgstr "Uuendusi pole"
+msgid "App updates available"
+msgstr "Rakenduste uuendused on saadaval"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -880,14 +880,14 @@ msgstr "Paigaldatud"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Rakenduste uuendused (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Uuendused"
+msgid "&App updates"
+msgstr "Rakenduste uuendused"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, fuzzy, kde-format
@@ -1436,8 +1436,8 @@ msgstr "Puuduvad taustaprogrammid"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Uuendused"
+msgid "App updates"
+msgstr "Rakenduste uuendused"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1591,8 +1591,8 @@ msgstr "Uuenduste tõmbamine ..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Uuendused"
+msgid "App updates"
+msgstr "Rakenduste uuendused"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
