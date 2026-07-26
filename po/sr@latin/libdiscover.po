@@ -1087,36 +1087,6 @@ msgstr ""
 msgid "Configure permissions…"
 msgstr ""
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, fuzzy, kde-format
-#| msgid "Offline Updates"
-msgid "Firmware Updates"
-msgstr "Dopune van veze"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "The package %1 and its vendor %2 require that you accept their license:\n"
-#| " %3"
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"Paket %1 i njegov izdavač %2 traže da prihvatite sledeću licencu:\n"
-" %3"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr ""
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, fuzzy, kde-format
-#| msgid "Could not add the source %1"
-msgid "Could not enable remote %1: %2"
-msgstr "Ne mogu da dodam izvor %1"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"

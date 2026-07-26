@@ -1090,31 +1090,6 @@ msgstr "Tilgang for %1"
 msgid "Configure permissions…"
 msgstr "Sett opp tilgang …"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, fuzzy, kde-format
-msgid "Firmware Updates"
-msgstr "Oppdateringer frakoblet"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"%1 krever at du godtar lisensvilkårene:\n"
-"%2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "Les sluttbrukeravtalen (EULA)"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Klarte ikke slå på ekstern %1: %2"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"

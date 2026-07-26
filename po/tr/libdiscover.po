@@ -1086,31 +1086,6 @@ msgstr "İzinler"
 msgid "Configure permissions…"
 msgstr "İzinleri Yapılandır…"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "Donanım Yazılımı Güncellemeleri"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"%1 uzak kaynağı, lisanslarını kabul etmenizi gerektiriyor:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "EULA’yı gözden geçir"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "%1 uzak kaynağı etkinleştirilemedi: %2"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"

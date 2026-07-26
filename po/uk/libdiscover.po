@@ -1089,32 +1089,6 @@ msgstr "Права доступу"
 msgid "Configure permissions…"
 msgstr "Налаштувати права доступу…"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "Оновлення мікропрограми"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"Для доступу до віддаленого сховища %1 вам слід погодитися із умовами "
-"ліцензування:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "Переглянути EULA"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Не вдалося увімкнути віддалене сховище %1: %2"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"
@@ -3108,24 +3082,6 @@ msgstr "Додатки"
 
 #~ msgid "Upgrade available"
 #~ msgstr "Доступне оновлення дистрибутива"
-
-#~ msgid "FWUPD ERROR ALREADY PENDING!"
-#~ msgstr "ПОМИЛКА FWUPD: ВЖЕ У ЧЕРЗІ ОБРОБКИ!"
-
-#~ msgid "FWUPD ERROR INVALID FILE"
-#~ msgstr "ПОМИЛКА FWUPD: НЕКОРЕКТНИЙ ФАЙЛ"
-
-#~ msgid "FWUPD ERROR NOT SUPPORTED"
-#~ msgstr "ПОМИЛКА FWUPD: НЕМАЄ ПІДТРИМКИ"
-
-#~ msgid "FWUPD ERROR AUTH FAILED"
-#~ msgstr "ПОМИЛКА FWUPD: НЕ ВДАЛОСЯ ПРОЙТИ РОЗПІЗНАВАННЯ"
-
-#~ msgid "FWUPD ERROR SIGNATURE INVALID"
-#~ msgstr "ПОМИЛКА FWUPD: НЕКОРЕКТНИЙ ПІДПИС"
-
-#~ msgid "FWUPD ERROR AC POWER REQUIRED"
-#~ msgstr "ПОМИЛКА FWUPD: ПОТРІБНЕ ЖИВЛЕННЯ ВІД ЕЛЕКТРОМЕРЕЖІ"
 
 #~ msgid "Restart is required"
 #~ msgstr "Потрібне перезавантаження"

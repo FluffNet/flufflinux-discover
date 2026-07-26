@@ -1,41 +1,132 @@
-# Discover
+# Discover for Fluff Linux
 
-Discover helps you find and install applications, games, and tools. You can search or browse by category, and look at screenshots and read reviews to help you pick the perfect app.
+Discover is the Fluff Linux application manager, based on KDE Discover. It
+provides a native Plasma 6 experience for finding, installing, removing, and
+updating applications.
 
-![Discover window](https://cdn.kde.org/screenshots/plasma-discover/plasma-discover.png)
+Version `2026.07` is intentionally focused on Flatpak:
 
-## Features
+- Flatpak is the only application backend built by this repository.
+- App updates are provided only through Flatpak.
+- System package updates are handled by Fluff Linux Update.
+- Firmware updates are not part of Discover.
+- PackageKit, Snap, KNewStuff, rpm-ostree, systemd-sysupdate, Alpine APK, and
+  other software backends are not built.
 
-* Install and download software.
-* Manage software sources, e.g. Flatpak repositories.
-* Upgrade operating system software through PackageKit.
-* Find and install add-ons for Plasma.
+The interface follows the Plasma theme, uses Fluff Linux branding, and supports
+right-to-left layouts.
 
-## Support
+## Build on Fluff Linux or Arch Linux
 
-If you have an issue with Discover, please [open a support thread on KDE Discuss](https://discuss.kde.org/c/help/6).
+Install the build requirements:
 
-## Building
-
-The easiest way to make changes and test Discover during development is to [build it with kde-builder](https://community.kde.org/Get_Involved/development).
-
-## Vendor Customization
-
-Want to change the apps featured in the Editor's Choice section? Add a configuration file named `/usr/share/discover/featuredurlrc` that points to a JSON file patterned off the default one present at https://autoconfig.kde.org/discover/featured-5.9.json:
-```toml
-[Software]
-FeaturedListingURL="https://your-url-here/file.json"
+```sh
+sudo pacman -S --needed base-devel cmake extra-cmake-modules ninja \
+    appstream-qt discount flatpak \
+    karchive kcmutils kconfig kcoreaddons kcrash kdbusaddons ki18n \
+    kiconthemes kidletime kio kirigami kirigami-addons kjobwidgets \
+    knotifications kservice kstatusnotifieritem kuserfeedback \
+    kwidgetsaddons kwindowsystem purpose qcoro qqc2-desktop-style \
+    qt6-base qt6-declarative qt6-webview
 ```
 
-## Contributing
+Configure and compile:
 
-Like other projects in the KDE ecosystem, contributions are welcome from all. This repository is managed in [KDE Invent](https://invent.kde.org/plasma/discover), our GitLab instance.
+```sh
+cmake -S . -B build -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DBUILD_TESTING=OFF
+cmake --build build
+```
 
-* Want to contribute code? See the [GitLab wiki page](https://community.kde.org/Infrastructure/GitLab) for a tutorial on how to send a merge request.
-* Reporting a bug? Please submit it on the [KDE Bugtracking System](https://bugs.kde.org/enter_bug.cgi?format=guided&product=Discover). Please do not use the Issues
-  tab to report bugs.
-* Is there a part of Discover that's not translated? See the [Getting Involved in Translation wiki page](https://community.kde.org/Get_Involved/translation) to see how
-  you can help translate!
+Flatpak and AppStream are required. Configuration stops with an error if the
+Flatpak development files are unavailable.
 
-If you get stuck or need help with anything at all, head over to the [KDE New Contributors room](https://go.kde.org/matrix/#/#kde-welcome:kde.org) on Matrix. For questions about Discover, please ask in the [Plasma Discover room](https://go.kde.org/matrix/#/#plasma-discover:kde.org). See [Matrix](https://community.kde.org/Matrix) for more details.
+If an older copy was built in the same directory, remove `build/` first. This
+is especially important after changing backend or translation resources.
 
+## Stage for packaging
+
+Fluff Linux packages are assembled from a fake install root instead of being
+installed directly onto the build machine:
+
+```sh
+mkdir -p "$HOME/Documents/flufflinux-discover"
+DESTDIR="$HOME/Documents/flufflinux-discover" cmake --install build
+```
+
+Everything that belongs in the package will be placed under:
+
+```text
+~/Documents/flufflinux-discover/
+├── etc/
+└── usr/
+```
+
+The exact directories present depend on the enabled components. This staging
+directory is only a packaging workspace; installing into it does not modify the
+host system.
+
+Use an empty staging directory for every package build so files removed by a
+newer version cannot remain in the finished package.
+
+## Verify the Flatpak-only build
+
+The staged backend directory should contain the Flatpak backend and no firmware,
+PackageKit, or Snap backend:
+
+```sh
+find "$HOME/Documents/flufflinux-discover/usr" \
+    \( -iname '*flatpak*' -o -iname '*fwupd*' -o -iname '*packagekit*' -o -iname '*snap*' \) \
+    -print
+```
+
+The output may include Flatpak files only. Any fwupd, PackageKit, or Snap file
+indicates that the staging directory was not cleaned before installation.
+
+## Test locally
+
+The application can be launched from the build tree:
+
+```sh
+./build/bin/plasma-discover
+```
+
+To test the staged files as a system installation, use a disposable development
+system and install the build:
+
+```sh
+sudo cmake --install build
+kbuildsycoca6
+plasma-discover
+```
+
+Do not install development builds directly on production systems.
+
+## Translations
+
+Translations are stored below `po/<language>/` and installed automatically by
+the packaging step. The primary catalogs are:
+
+- `plasma-discover.po` for the application interface.
+- `plasma-discover-notifier.po` for taskbar notifications.
+- `libdiscover.po` for shared application-management text.
+- `kcm_updates.po` for Discover Settings.
+
+To verify the staged catalogs:
+
+```sh
+find "$HOME/Documents/flufflinux-discover/usr/share/locale" \
+    -path '*/LC_MESSAGES/*.mo' -print
+```
+
+## Upstream
+
+This project is derived from [KDE Discover](https://invent.kde.org/plasma/discover).
+The upstream release history and copyright notices are preserved.
+
+## License
+
+Discover is available under the license terms recorded in
+[`LICENSES/`](LICENSES/).

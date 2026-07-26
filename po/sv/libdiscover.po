@@ -1082,31 +1082,6 @@ msgstr "Rättigheter"
 msgid "Configure permissions…"
 msgstr "Anpassa rättigheter…"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "Uppdateringar av fast programvara"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"Leverantören %1 kräver att du accepterar deras licens:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "Granska slutanvändarlicensavtal"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Kunde inte aktivera fjärresurs %1: %2"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"
@@ -3043,24 +3018,6 @@ msgstr "Tillägg"
 
 #~ msgid "Upgrade available"
 #~ msgstr "Uppgradering tillgänglig"
-
-#~ msgid "FWUPD ERROR ALREADY PENDING!"
-#~ msgstr "FWUPD FEL AVVAKTAR REDAN."
-
-#~ msgid "FWUPD ERROR INVALID FILE"
-#~ msgstr "FWUPD FEL OGILTIG FIL"
-
-#~ msgid "FWUPD ERROR NOT SUPPORTED"
-#~ msgstr "FWUPD FEL STÖDS EJ"
-
-#~ msgid "FWUPD ERROR AUTH FAILED"
-#~ msgstr "FWUPD FEL BEHÖRIGHETSKONTROLL MISSLYCKADES"
-
-#~ msgid "FWUPD ERROR SIGNATURE INVALID"
-#~ msgstr "FWUPD FEL SIGNATUR OGILTIG"
-
-#~ msgid "FWUPD ERROR AC POWER REQUIRED"
-#~ msgstr "FWUPD FEL NÄTSTRÖM KRÄVS"
 
 #~ msgid "Restart is required"
 #~ msgstr "Omstart krävs"

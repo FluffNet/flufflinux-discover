@@ -1065,31 +1065,6 @@ msgstr "அனுமதிகள்"
 msgid "Configure permissions…"
 msgstr "அனுமதிகளை அமை…"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "சாதனநிரல் புதுப்பிகள்"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"%1 என்ற களஞ்சியம், அதன் உரிமத்தை நீங்கள் ஏற்குமாறு கோருகிறது:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "நிபந்தனைகளை (EULA-வை) காட்டு"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "%1 என்ற களஞ்சியத்தைச் சேர்க்க முடியவில்லை: %2"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"

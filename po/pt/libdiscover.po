@@ -18,7 +18,7 @@ msgstr ""
 "X-POFile-SpellExtra: MakePlayLive Appelhans Lukas GPG PackageID PackageKit\n"
 "X-POFile-SpellExtra: Chakra Akabei free PPA EULA non apt repositorio Apt\n"
 "X-POFile-SpellExtra: stable deb main ppa Appstream Kate AppStream Flatpak\n"
-"X-POFile-SpellExtra: flatpakrepo Flathub Snap FWUPD Discover ostree Smart\n"
+"X-POFile-SpellExtra: flatpakrepo Flathub Snap Discover ostree Smart\n"
 "X-POFile-IgnoreConsistency: Snap\n"
 "X-POFile-SpellExtra: Cards smart card ptrace SteamOS atomupd\n"
 "X-POFile-IgnoreConsistency: Broken\n"
@@ -1092,31 +1092,6 @@ msgstr "Permissões"
 #, kde-format
 msgid "Configure permissions…"
 msgstr "Configurar permissões…"
-
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "Atualizações de Firmware"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"O remoto %1 requer que aceite a respetiva licença:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "Rever a EULA"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Não foi possível ativar a fonte %1: %2"
 
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format

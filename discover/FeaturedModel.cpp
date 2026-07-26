@@ -76,7 +76,7 @@ FeaturedModel::FeaturedModel()
 
 void FeaturedModel::refresh()
 {
-    // usually only useful if launching just fwupd or kns backends
+    // Usually only useful when launching with a backend that has no featured apps.
     if (!currentApplicationBackend())
         return;
 

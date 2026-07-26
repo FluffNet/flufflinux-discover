@@ -1092,31 +1092,6 @@ msgstr "Baimenak"
 msgid "Configure permissions…"
 msgstr "Konfiguratu baimenak…"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "«Firmware»aren eguneratzeak"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"Urruneko %1(e)k beraien lizentzia onartzea eskatzen du:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "Berrikusi EULA"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Ezin izan du urruneko %1 gaitu: %2"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"
@@ -3101,24 +3076,6 @@ msgstr "Gehigarriak"
 
 #~ msgid "Upgrade available"
 #~ msgstr "Bertsio-berritzea erabilgarri"
-
-#~ msgid "FWUPD ERROR ALREADY PENDING!"
-#~ msgstr "FWUPD ERROREA DAGOENEKO ZAIN!"
-
-#~ msgid "FWUPD ERROR INVALID FILE"
-#~ msgstr "FWUPD ERROREA FITXATEGI BALIOGABEA"
-
-#~ msgid "FWUPD ERROR NOT SUPPORTED"
-#~ msgstr "FWUPD ERROREA EZ DA ONARTZEN"
-
-#~ msgid "FWUPD ERROR AUTH FAILED"
-#~ msgstr "FWUPD ERROREA AUTENTIKATZEA HUTS EGIN DU"
-
-#~ msgid "FWUPD ERROR SIGNATURE INVALID"
-#~ msgstr "FWUPD ERROREA SINADURA BALIOGABEA"
-
-#~ msgid "FWUPD ERROR AC POWER REQUIRED"
-#~ msgstr "FWUPD ERROREA AC INDARRA BEHARREZKOA"
 
 #~ msgid "Restart is required"
 #~ msgstr "Berrabiatzea beharrezkoa da"

@@ -1087,31 +1087,6 @@ msgstr "Permessi"
 msgid "Configure permissions…"
 msgstr "Configura i permessi..."
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "Aggiornamenti firmware"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"Il pacchetto %1 richiede l'accettazione della licenza:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "Rivedi l'EULA"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Impossibile abilitare %1 remoto: %2"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"
@@ -3071,24 +3046,6 @@ msgstr "Aggiunte"
 
 #~ msgid "Upgrade available"
 #~ msgstr "Aggiornamento disponibile"
-
-#~ msgid "FWUPD ERROR ALREADY PENDING!"
-#~ msgstr "FWUPD ERRORE GIÀ IN CORSO!"
-
-#~ msgid "FWUPD ERROR INVALID FILE"
-#~ msgstr "FWUPD ERRORE FILE NON VALIDO"
-
-#~ msgid "FWUPD ERROR NOT SUPPORTED"
-#~ msgstr "FWUPD ERRORE NON SUPPORTATO"
-
-#~ msgid "FWUPD ERROR AUTH FAILED"
-#~ msgstr "FWUPD ERRORE AUTENTICAZIONE NON RIUSCITA"
-
-#~ msgid "FWUPD ERROR SIGNATURE INVALID"
-#~ msgstr "FWUPD ERRORE FIRMA NON VALIDA"
-
-#~ msgid "FWUPD ERROR AC POWER REQUIRED"
-#~ msgstr "FWUPD ERRORE ALIMENTAZIONE RICHIESTA"
 
 #~ msgid "Restart is required"
 #~ msgstr "Il riavvio è richiesto"

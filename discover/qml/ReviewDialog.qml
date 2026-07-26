@@ -58,8 +58,7 @@ Kirigami.Dialog {
             readonly property bool packagedByDistro: ![
                 "flatpak-backend",
                 "snap-backend",
-                "kns-backend",
-                "fwupd-backend"
+                "kns-backend"
             ].includes(reviewDialog.application.backend.name);
             readonly property string appBugReportUrl: reviewDialog.application.bugURL.toString()
 

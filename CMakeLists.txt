@@ -36,10 +36,7 @@ find_package(PkgConfig REQUIRED)
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED Kirigami CoreAddons Config Crash DBusAddons I18n Archive XmlGui KIO KCMUtils IdleTime Notifications Purpose StatusNotifierItem IconThemes)
 find_package(KF6 ${KF6_MIN_VERSION} OPTIONAL_COMPONENTS UserFeedback)
 
-find_package(packagekitqt6 1.0.1 CONFIG)
 find_package(AppStreamQt 1.0.4 CONFIG REQUIRED)
-find_package(KF6Attica ${KF6_MIN_VERSION} CONFIG)
-find_package(KF6NewStuff ${KF6_MIN_VERSION} CONFIG)
 
 find_package(KF6KirigamiAddons 1.10.0 REQUIRED)
 set_package_properties(KF6KirigamiAddons PROPERTIES
@@ -47,15 +44,11 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
     PURPOSE "Provides additional visual components"
 )
 
-pkg_check_modules(Flatpak IMPORTED_TARGET flatpak>=0.11.8)
-pkg_check_modules(Fwupd IMPORTED_TARGET fwupd>=1.9.4)
+pkg_check_modules(Flatpak REQUIRED IMPORTED_TARGET flatpak>=0.11.8)
 pkg_check_modules(Markdown IMPORTED_TARGET libmarkdown)
 if(Markdown_FOUND AND Markdown_VERSION VERSION_GREATER_EQUAL 3)
     add_definitions(-DMARKDOWN3)
 endif()
-pkg_check_modules(Ostree IMPORTED_TARGET ostree-1)
-pkg_check_modules(RpmOstree IMPORTED_TARGET rpm-ostree-1)
-
 find_package(QCoro6 REQUIRED COMPONENTS Core DBus Network)
 
 qcoro_enable_coroutines()
@@ -105,43 +98,23 @@ if(WITH_NOTIFIER)
     add_subdirectory(notifier)
 endif()
 
-set_package_properties(KF6Attica PROPERTIES
-    DESCRIPTION "KDE Framework that implements the Open Collaboration Services API"
-    PURPOSE "Required to build the KNewStuff3 backend"
-    TYPE OPTIONAL)
 set_package_properties(KF6Kirigami2 PROPERTIES
     DESCRIPTION "KDE's lightweight user interface framework for mobile and convergent applications"
     URL "https://techbase.kde.org/Kirigami"
     PURPOSE "Required by discover qml components"
     TYPE RUNTIME)
-set_package_properties(KF6NewStuff PROPERTIES
-    DESCRIPTION "Qt library that allows to interact with KNewStuff implementations"
-    PURPOSE "Required to build the KNS backend"
-    TYPE OPTIONAL)
 set_package_properties(KF6UserFeedback PROPERTIES
     DESCRIPTION "Framework for collecting feedback from application users via telemetry and targeted surveys"
     URL "https://invent.kde.org/frameworks/kuserfeedback"
     PURPOSE "Required for submission of telemetry data"
     TYPE OPTIONAL)
-set_package_properties(packagekitqt6 PROPERTIES
-    DESCRIPTION "Library that exposes PackageKit resources"
-    URL "https://www.freedesktop.org/software/PackageKit/"
-    PURPOSE "Required to build the PackageKit backend"
-    TYPE OPTIONAL)
 set_package_properties(AppStreamQt PROPERTIES
     DESCRIPTION "Library that lists Appstream resources"
     URL "https://www.freedesktop.org"
-    PURPOSE "Required to build the PackageKit, Flatpak and Snap backends"
-    TYPE OPTIONAL)
+    PURPOSE "Required to build the Flatpak backend"
+    TYPE REQUIRED)
 add_feature_info(Flatpak Flatpak_FOUND
                 "Library that exposes flatpak repositories. Required to build the Flatpak backend"
-)
-add_feature_info(Fwupd Fwupd_FOUND "Exposes fwupd")
-add_feature_info(Ostree Ostree_FOUND
-                "Library to manage ostree repository. Required to build the rpm-ostree backend"
-)
-add_feature_info(RpmOstree RpmOstree_FOUND
-                "rpm-ostree binary to manage the system. Required to build the rpm-ostree backend"
 )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

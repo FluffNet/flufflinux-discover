@@ -1088,31 +1088,6 @@ msgstr "Uprawnienia"
 msgid "Configure permissions…"
 msgstr "Ustawienia uprawnień…"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "Uaktualnienia oprogramowania układowego"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"Strona trzecia %1 wymaga zgody na ich licencję:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "EULA oceny"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Nie można dodać źródła %1: %2"
-
 #: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
 #, kde-format
 msgid "SteamOS"
@@ -3081,24 +3056,6 @@ msgstr "Dodatki"
 
 #~ msgid "Upgrade available"
 #~ msgstr "Dostępne uaktualnienie"
-
-#~ msgid "FWUPD ERROR ALREADY PENDING!"
-#~ msgstr "BŁĄD FWUPD: W TRAKCIE!"
-
-#~ msgid "FWUPD ERROR INVALID FILE"
-#~ msgstr "BŁĄD FWUPD: NIEPRAWIDŁOWY PLIK"
-
-#~ msgid "FWUPD ERROR NOT SUPPORTED"
-#~ msgstr "BŁĄD FWUPD: NIEOBSŁUGIWANE"
-
-#~ msgid "FWUPD ERROR AUTH FAILED"
-#~ msgstr "BŁĄD FWUPD: NIEPOWODZENIE UWIERZYTELNIENIA"
-
-#~ msgid "FWUPD ERROR SIGNATURE INVALID"
-#~ msgstr "BŁĄD FWUPD: NIEPRAWIDŁOWY PODPIS"
-
-#~ msgid "FWUPD ERROR AC POWER REQUIRED"
-#~ msgstr "BŁĄD FWUPD: WYMAGANE ZASILANIE Z SIECI"
 
 #~ msgid "Restart is required"
 #~ msgstr "Wymagane ponowne uruchomienie"
