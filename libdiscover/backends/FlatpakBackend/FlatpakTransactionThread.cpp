@@ -304,6 +304,10 @@ void FlatpakTransactionThread::run()
                     return;
                 }
                 g_autoptr(GBytes) bytes = g_file_load_bytes(file, m_cancellable, nullptr, &localError);
+                if (!bytes) {
+                    fail(qUtf8Printable(refName), localError);
+                    return;
+                }
                 correct = flatpak_transaction_add_install_flatpakref(m_transaction, bytes, &localError);
             } else {
                 correct = flatpak_transaction_add_install(m_transaction, //

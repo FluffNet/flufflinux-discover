@@ -144,7 +144,8 @@ void FlatpakSourcesBackend::save()
             flatpak_remote_set_prio(sourceItem->remote(), ++last);
             g_autoptr(GError) error = nullptr;
             if (!flatpak_installation_modify_remote(sourceItem->flatpakInstallation(), sourceItem->remote(), nullptr, &error)) {
-                qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "failed setting priorities" << error->message;
+                qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                    << "failed setting priorities" << (error ? error->message : "unknown Flatpak error");
             }
 
             it->setData(last, PrioRole);

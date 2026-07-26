@@ -81,8 +81,6 @@ void processArgs(QCommandLineParser *parser, DiscoverObject *discoverObject, con
         const QUrl url = QUrl::fromUserInput(arg, baseDirectory, QUrl::AssumeLocalFile);
         if (url.isLocalFile()) {
             discoverObject->openLocalPackage(url);
-        } else if (url.scheme() == QLatin1String("apt")) {
-            Q_EMIT discoverObject->openSearch(url.host());
         } else {
             discoverObject->openApplication(url);
         }

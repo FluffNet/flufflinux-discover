@@ -43,5 +43,4 @@ public:
     void setupFlatpakInstallations();
     QList<std::shared_ptr<Installation>> m_installations;
     GCancellable *const m_cancellable;
-    bool m_lastHasUpdates = false;
 };

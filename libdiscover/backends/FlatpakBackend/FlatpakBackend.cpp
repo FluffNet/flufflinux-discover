@@ -50,6 +50,7 @@
 #include <QtConcurrentRun>
 
 #include <QRegularExpression>
+#include <QScopeGuard>
 #include <glib.h>
 
 #include <Category/Category.h>
@@ -338,7 +339,8 @@ static std::optional<AppStream::Metadata> metadataFromBytes(GBytes *appstreamGz,
 
     appstream = g_input_stream_read_bytes(streamData, 0x100000, cancellable, &localError);
     if (!appstream) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to extract appstream metadata from bundle:" << localError->message;
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+            << "Failed to extract appstream metadata from bundle:" << (localError ? localError->message : "unknown Flatpak error");
         return {};
     }
 
@@ -402,10 +404,10 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
 FlatpakBackend::~FlatpakBackend()
 {
     g_cancellable_cancel(m_cancellable);
-    if (!m_threadPool.waitForDone(200)) {
-        qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "could not kill them all" << m_threadPool.activeThreadCount();
-    }
     m_threadPool.clear();
+    // Running jobs use installation objects and the shared cancellable. Wait
+    // until cancellation has propagated before releasing those dependencies.
+    m_threadPool.waitForDone();
 
     for (auto installation : std::as_const(m_installations)) {
         g_object_unref(installation);
@@ -1121,6 +1123,12 @@ void FlatpakBackend::loadRemote(FlatpakInstallation *installation, FlatpakRemote
     Q_ASSERT(!m_refreshAppstreamMetadataJobs.contains(remote));
     m_refreshAppstreamMetadataJobs.insert(remote);
 
+    if (!fileTimestamp) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "No AppStream timestamp available for" << flatpak_remote_get_name(remote);
+        checkForRemoteUpdates(installation, remote);
+        return;
+    }
+
     g_autofree char *path_str = g_file_get_path(fileTimestamp);
     QFileInfo fileInfo(QFile::decodeName(path_str));
     if (!fileInfo.exists() || fileInfo.lastModified().toUTC().secsTo(QDateTime::currentDateTimeUtc()) > 21600) {
@@ -1738,6 +1746,14 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 FLATPAK_BACKEND_GUARD
 
                 const auto ret = co_await self->listInstalledRefsForUpdate();
+                auto refsCleanup = qScopeGuard([&ret] {
+                    for (const auto &[installation, refs] : ret.asKeyValueRange()) {
+                        g_object_unref(installation);
+                        for (const auto ref : refs) {
+                            g_object_unref(ref);
+                        }
+                    }
+                });
 
                 FLATPAK_BACKEND_CHECK
 
@@ -1782,9 +1798,10 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                                     continue;
                                 }
                             } else {
-                                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to get parent ref" << parentId << "for subref" << id //
-                                                                           << "\n  AppError:" << appError->message //
-                                                                           << "\n  RuntimeError:" << runtimeError->message;
+                                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                                    << "Failed to get parent ref" << parentId << "for subref" << id //
+                                    << "\n  AppError:" << (appError ? appError->message : "not available") //
+                                    << "\n  RuntimeError:" << (runtimeError ? runtimeError->message : "not available");
                             }
                         }
                         auto resource = self->getAppForInstalledRef(installation, ref, &fresh);
@@ -1801,10 +1818,6 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                         FLATPAK_BACKEND_YIELD
                     }
 
-                    g_object_unref(installation);
-                    for (const auto &ref : refs) {
-                        g_object_unref(ref);
-                    }
                 }
 
                 FLATPAK_BACKEND_CHECK
@@ -1944,29 +1957,45 @@ QCoro::Task<QHash<FlatpakInstallation *, QList<FlatpakInstalledRef *>>> FlatpakB
         &m_threadPool,
         [](GCancellable *cancellable, QList<FlatpakInstallation *> installations) {
             QHash<FlatpakInstallation *, QVector<FlatpakInstalledRef *>> ret;
+            bool ownershipTransferred = false;
+            auto cleanup = qScopeGuard([&] {
+                if (ownershipTransferred) {
+                    return;
+                }
+                for (auto installation : std::as_const(installations)) {
+                    g_object_unref(installation);
+                }
+                for (const auto &refs : std::as_const(ret)) {
+                    for (auto ref : refs) {
+                        g_object_unref(ref);
+                    }
+                }
+            });
+
             if (g_cancellable_is_cancelled(cancellable)) {
                 qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Job cancelled";
                 return ret;
             }
 
             for (auto installation : std::as_const(installations)) {
+                auto &current = ret[installation];
                 g_autoptr(GError) localError = nullptr;
                 g_autoptr(GPtrArray) refs = flatpak_installation_list_installed_refs_for_update(installation, cancellable, &localError);
                 if (!refs) {
-                    qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to get list of installed refs for listing updates:" << localError->message;
+                    qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                        << "Failed to get list of installed refs for listing updates:"
+                        << (localError ? localError->message : "unknown Flatpak error");
                     continue;
                 }
                 if (g_cancellable_is_cancelled(cancellable)) {
                     qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Job cancelled";
-                    ret.clear();
-                    break;
+                    return {};
                 }
 
                 if (refs->len == 0) {
                     continue;
                 }
 
-                auto &current = ret[installation];
                 current.reserve(refs->len);
                 for (uint i = 0; i < refs->len; i++) {
                     FlatpakInstalledRef *ref = FLATPAK_INSTALLED_REF(g_ptr_array_index(refs, i));
@@ -1974,6 +2003,7 @@ QCoro::Task<QHash<FlatpakInstallation *, QList<FlatpakInstalledRef *>>> FlatpakB
                     current.append(ref);
                 }
             }
+            ownershipTransferred = true;
             return ret;
         },
         cancellable,
@@ -2090,6 +2120,10 @@ void FlatpakBackend::checkRepositories(const FlatpakJobTransaction::Repositories
     g_autoptr(GError) localError = nullptr;
     for (const auto &[installationPath, names] : repositories.asKeyValueRange()) {
         auto installation = flatpakInstallationByPath(installationPath);
+        if (!installation) {
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Could not find Flatpak installation" << installationPath;
+            continue;
+        }
         for (const auto &name : names) {
             if (g_autoptr(FlatpakRemote) remote =
                     flatpak_installation_get_remote_by_name(installation, name.toUtf8().constData(), m_cancellable, &localError)) {
@@ -2123,8 +2157,9 @@ FlatpakRemote *FlatpakBackend::installSource(FlatpakResource *resource)
 
     g_autoptr(GError) error = nullptr;
     if (!flatpak_installation_add_remote(preferredInstallation(), remote, false, cancellable, &error)) {
-        Q_EMIT passiveMessage(i18n("Failed to add source '%1': %2", resource->flatpakName(), QString::fromUtf8(error->message)));
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to add source" << resource->flatpakName() << error->message;
+        const QString errorMessage = error ? QString::fromUtf8(error->message) : i18n("An unknown Flatpak error occurred.");
+        Q_EMIT passiveMessage(i18n("Failed to add source '%1': %2", resource->flatpakName(), errorMessage));
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to add source" << resource->flatpakName() << errorMessage;
         return nullptr;
     }
     return remote;

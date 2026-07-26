@@ -167,7 +167,8 @@ bool FlatpakNotifier::Installation::ensureInitialized(GCancellable *cancellable)
         if (m_monitor) {
             g_signal_connect(m_monitor, "changed", G_CALLBACK(installationChanged), m_notifier);
         } else {
-            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to setup flatpak installation: " << error->message;
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                << "Failed to setup flatpak installation: " << (error ? error->message : "unknown Flatpak error");
         }
     }
     return m_installation && m_monitor;
