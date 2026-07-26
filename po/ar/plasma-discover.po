@@ -913,12 +913,12 @@ msgstr "ال&مثبّتة"
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
 msgid "&App updates (Fetching…)"
-msgstr "&تحديثات التطبيقات (يجلب…)"
+msgstr "تحديثات ال&تطبيقات (جارٍ جلبها…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
 msgid "&App updates"
-msgstr "&تحديثات التطبيقات"
+msgstr "تحديثات ال&تطبيقات"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
