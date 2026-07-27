@@ -160,11 +160,6 @@ msgstr "उपलब्धानि सर्वाणि पृष्ठभा�
 msgid "Search string."
 msgstr "अन्वेषण अक्षरावलि।."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "उपयोक्तृप्रतिक्रियायाः कृते उपलब्धविकल्पान् सूचीबद्धं करोति"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -994,62 +989,6 @@ msgstr "तकनीकीविवरणं पश्यन्तु"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "अंशफलकं प्रति प्रतिलिख्यताम्"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "उपयोगस्य सूचनां प्रस्तौतु"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"अनामिकाप्रयोगसूचनाः KDE प्रति प्रेषयन्तु येन वयं अस्माकं उपयोक्तृन् अधिकतया अवगन्तुं शक्नुमः। "
-"अधिकविवरणार्थं https://kde.org/privacypolicy-apps.php पश्यन्तु ।."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "उपयोगसूचनाः प्रस्तूय…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "विन्यस्यताम्"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "प्रतिक्रियां विन्यस्यताम्…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "अद्यतनं विन्यस्यताम्…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "योगदानं ददातुम्…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "भवतः प्रतिक्रियायाः प्रतीक्षामहे!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "अनुभुज्…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

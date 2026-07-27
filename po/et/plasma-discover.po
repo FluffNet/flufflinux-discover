@@ -142,11 +142,6 @@ msgstr "Kõigi saadaolevate taustaprogrammide loetlemine."
 msgid "Search string."
 msgstr "Stringi otsimine."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Kasutaja tagasiside saadaolevate valikute loend"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -490,7 +485,6 @@ msgstr "Anna hinnang"
 
 #: discover/qml/ApplicationPage.qml:716
 #, fuzzy, kde-format
-#| msgid "Submit usage information"
 msgctxt "@title:window"
 msgid "License Information"
 msgstr "Kasutusteabe edastamine"
@@ -955,69 +949,6 @@ msgstr "Tehniliste pakettide näitamine"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr ""
-
-#: discover/qml/Feedback.qml:14
-#, fuzzy, kde-format
-#| msgid "Submit usage information"
-msgid "Submit Usage Information"
-msgstr "Kasutusteabe edastamine"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Anonüümseks muudetud kasutusteabe saatmine KDE-le, et me mõistaksime "
-"paremini oma kasutajaid. Täpsemat teavet leiab aadressilt https://kde.org/"
-"privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, fuzzy, kde-format
-#| msgid "Submitting usage information..."
-msgid "Submitting usage information…"
-msgstr "Kasutusteabe edastamine ..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Seadista "
-
-#: discover/qml/Feedback.qml:24
-#, fuzzy, kde-format
-#| msgid "Configure feedback..."
-msgid "Configure Feedback…"
-msgstr "Seadista tagasisidet ..."
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Configure feedback..."
-msgid "Configure app updates…"
-msgstr "Seadista tagasisidet ..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, fuzzy, kde-format
-#| msgid "Contribute..."
-msgid "Contribute…"
-msgstr "Panusta ..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Me ootame sinu tagasisidet!"
-
-#: discover/qml/Feedback.qml:65
-#, fuzzy, kde-format
-#| msgid "Participate..."
-msgid "Participate…"
-msgstr "Osale ..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, fuzzy, kde-format

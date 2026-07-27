@@ -149,11 +149,6 @@ msgstr "列出所有可用的後端介面。"
 msgid "Search string."
 msgstr "搜尋字串。"
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "列出能用於使用者回饋的選項"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -941,62 +936,6 @@ msgstr "檢視技術細節"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "複製到剪貼簿"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "提交使用量資訊"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"傳送匿名使用資訊給 KDE 團隊，以讓我們更貼近使用者的需求。請瀏覽 https://kde."
-"org/privacypolicy-apps.php 了解更多。"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "上傳使用量資訊…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "設定"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "設定回饋…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "設定更新…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr "您可以分享匿名使用資訊給 KDE 來幫助我們改善 Discover。"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "貢獻…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "我們期待您的回饋！"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "參與…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

@@ -159,11 +159,6 @@ msgstr "利用可能なすべてのバックエンドを一覧表示します。
 msgid "Search string."
 msgstr "文字列を検索"
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "ユーザフィードバックのために利用可能なオプションをリスト"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -972,65 +967,6 @@ msgstr "技術的な詳細を表示"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "クリップボードにコピー"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "使用状況に関する情報を提出する"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"匿名化された使用情報を KDE に送信します。これにより、私たちがユーザの皆様をよ"
-"りよく理解できるようになります。さらなる情報については、https://kde.org/"
-"privacypolicy-apps.php をご覧ください。"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "使用状況に関する情報を提出..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "設定"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "フィードバックを設定..."
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "更新を設定..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"使用状況に関する匿名の情報を共有していただくことで、KDE による Discover の改"
-"善に協力できます。"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "貢献する！"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "あなたからのフィードバックをお待ちしております！"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "参加..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

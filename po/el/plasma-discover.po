@@ -173,12 +173,6 @@ msgstr "Εμφάνιση όλων των διαθέσιμων συστημάτω
 msgid "Search string."
 msgstr "Αναζήτηση συμβολοσειράς."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-"Παρουσιάζει τη λίστα των διαθέσιμων επιλογών για την απόκριση του χρήστη"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -556,7 +550,6 @@ msgstr "Αξιολόγηση περιεχομένου"
 
 #: discover/qml/ApplicationPage.qml:716
 #, fuzzy, kde-format
-#| msgid "Submit Usage Information"
 msgctxt "@title:window"
 msgid "License Information"
 msgstr "Υποβολή πληροφοριών χρήσης"
@@ -1011,63 +1004,6 @@ msgstr "Δείτε Τεχνικές Λεπτομέρειες"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Υποβολή πληροφοριών χρήσης"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Στείλτε ανώνυμες πληροφορίες χρήσης στο KDE ώστε να μπορέσουμε να "
-"καταλάβουμε καλύτερα τους χρήστες. Για περισσότερες πληροφορίες δείτε "
-"https://kde.org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Υποβολή πληροφοριών χρήσης..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Διαμόρφωση"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Διαμόρφωση σχολίων..."
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "Ρύθμιση ενημερώσεων..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Συνεισφορά…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Περιμένουμε τα σχόλιά σας!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Συμμετοχή..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

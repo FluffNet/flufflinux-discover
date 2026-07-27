@@ -152,11 +152,6 @@ msgstr "Telja upp alla tiltæka bakenda."
 msgid "Search string."
 msgstr "Leita að streng."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Birtir lista yfir tiltæka valkosti fyrir umsagnir notenda"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -971,63 +966,6 @@ msgstr "Sjá Tæknilegar upplýsingar"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Afrita á klippispjald"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Senda inn notkunarupplýsingar"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Sendir nafnlausar notkunarupplýsingar til KDE svo við fáum betri skilning á "
-"notendum okkar. Frekari upplýsingar er að finna á https://kde.org/"
-"privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Sendi inn notkunarupplýsingar..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Grunnstilla"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Grunnstilla umsagnir…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "Grunnstilla uppfærslur..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Leggja þitt af mörkum..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Við óskum eftir umsögnum frá þér!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Taka þátt..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

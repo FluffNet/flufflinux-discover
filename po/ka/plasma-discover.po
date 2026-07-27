@@ -154,11 +154,6 @@ msgstr "ხელმისაწვდომი უკანაბოლოე�
 msgid "Search string."
 msgstr "საძებნი სტრიქონი."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "მომხმარებლის უკუკავშირის ხელმისაწვდომი ვარიანტები"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -968,65 +963,6 @@ msgstr "იხილეთ ტექნიკური დეტალები"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "ბუფერში კოპირება"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "გამოყენების მონაცემების გადაცემა"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"KDE-სთვის მოხმარების ანონიმური მონაცემების გაგზავნა, რათა ჩვენი "
-"მომხმარებლების უკეთ გვესმოდეს. მეტი ინფორმაციისთვის იხილეთ https://kde.org/"
-"privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "გამოყენების ინფორმაციის გადაცემა…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "მორგება"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "უკუპასუხის მორგება…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "განახლებების მორგება…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"შეგიძლიათ, დაეხმაროთ KDE-ს Discover-ის გაუმჯობესებაში ანონიმური ინფორმაციის "
-"გაზიარებით, თუ როგორ იყენებთ მას."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "შემოწირულობა…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "ჩვენ ველოდებით თქვენს გამოხმაურებას!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "მონაწილეობის მიღება…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

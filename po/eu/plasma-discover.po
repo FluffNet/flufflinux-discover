@@ -157,12 +157,6 @@ msgstr "Zerrendatu bizkarraldeko erabilgarri guztiak."
 msgid "Search string."
 msgstr "Bilatu beharreko katea."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-"Erabiltzailearen atzera-elikaduraren aukera erabilgarriak zerrendatzen ditu"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -980,65 +974,6 @@ msgstr "Ikusi xehetasun teknikoak"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Kopiatu arbelera"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Bidali erabilerari buruzko informazioa"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Anonimo bilakatutako erabilerari buruzko informazioa bidaltzen du KDEra gure "
-"erabiltzaileak hobeto ulertze aldera. Informazio zabalagoa hemen, https://"
-"kde.org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Erabilerari buruzko informazioa bidaltzen…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Konfiguratu"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Konfiguratu atzeraelikadura…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "Konfiguratu eguneratzeak…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"KDEri Discover hobetzen lagun diezaiokezu haren erabilerari buruzko "
-"informazio anonimoa partekatuz."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Lagundu…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Zure atzeraelikadura jaso nahi genuke!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Parte hartu…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

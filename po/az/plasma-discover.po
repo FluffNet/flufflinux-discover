@@ -197,11 +197,6 @@ msgstr "Bütün mövcud geri izlərin siyahısı."
 msgid "Search string."
 msgstr "Axtarış sətiri."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "İstifadəçi rəyi üçün bütün mövcud seçimlərin siyahısı"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -583,7 +578,6 @@ msgstr "Məzmun üçün yaş həddi"
 
 #: discover/qml/ApplicationPage.qml:716
 #, fuzzy, kde-format
-#| msgid "Submit Usage Information"
 msgctxt "@title:window"
 msgid "License Information"
 msgstr "İstifadəçi məlumatlarını göndərmək"
@@ -1038,63 +1032,6 @@ msgstr "Texniki təfərrüatlara baxın"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Mübadilə yaddaşına kopyalamaq"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "İstifadəçi məlumatlarını göndərmək"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"İstifadəçi məlumatlarını anonim olaraq KDE-yə göndərir və bununla da biz "
-"istifadəçilərimizi daha yaxşı başa düşürük. Daha çox məlumat üçün bax: "
-"https://kde.org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "İstifadəçi məlumatlarını göndərilir..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Tənzimləmək"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "İstifadəçi rəyini tənzimləmək..."
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "Yenilənmələri tənzimləyin..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Töhvə vermək..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Biz sizin rəyinizə gözləyirik!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "İştirak etmək..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

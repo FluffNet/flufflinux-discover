@@ -144,11 +144,6 @@ msgstr "ਸਾਰੇ ਉਪਲਬਧ ਬੈਕਐਂਡਾਂ ਦੀ ਸੂਚ�
 msgid "Search string."
 msgstr "ਖੋਜ ਸਤਰ।"
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -488,7 +483,6 @@ msgstr "ਸਮੱਗਰੀ ਰੇਟਿੰਗ"
 
 #: discover/qml/ApplicationPage.qml:716
 #, fuzzy, kde-format
-#| msgid "Submit usage information"
 msgctxt "@title:window"
 msgid "License Information"
 msgstr "ਵਰਤੋਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਭੇਜੋ"
@@ -937,62 +931,6 @@ msgstr "ਤਕਨੀਕੀ ਵੇਰਵੇ ਵੇਖੋ"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
-
-#: discover/qml/Feedback.qml:14
-#, fuzzy, kde-format
-#| msgid "Submit usage information"
-msgid "Submit Usage Information"
-msgstr "ਵਰਤੋਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਭੇਜੋ"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "…ਵਰਤੋਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਭੇਜੀ ਜਾ ਰਹੀ ਹੈ"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "ਸੰਰਚਨਾ"
-
-#: discover/qml/Feedback.qml:24
-#, fuzzy, kde-format
-#| msgid "Configure feedback…"
-msgid "Configure Feedback…"
-msgstr "…ਫੀਡਬੈਕ ਦੀ ਸੰਰਚਨਾ"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "…ਅੱਪਡੇਟਾਂ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "…ਯੋਗਦਾਨ"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "ਅਸੀਂ ਤੁਹਾਡੇ ਸੁਝਾਅ ਦੀ ਉਡੀਕ ਵਿੱਚ ਹਾਂ!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "…ਹਿੱਸਾ ਲਵੋ"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

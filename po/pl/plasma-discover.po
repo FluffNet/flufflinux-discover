@@ -159,11 +159,6 @@ msgstr "Wyszczególnij wszystkie dostępne silniki."
 msgid "Search string."
 msgstr "Szukaj ciągu znaków."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Wymień dostępne możliwości informacji zwrotnej"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -987,65 +982,6 @@ msgstr "Obejrzyj szczegóły techniczne"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Skopiuj do schowka"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Podeślij dane o użytkowaniu"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Wysyła anonimowe dane o użytkowaniu do KDE, tak abyśmy mogli lepiej "
-"zrozumień naszych użytkowników. Więcej można dowiedzieć się na https://kde."
-"org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Podeślij dane o użytkowaniu..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Ustawienia"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Ustawienia informacji zwrotnej…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "Ustawienia uaktualnień…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"Możesz pomóc KDE ulepszyć Discovera udostępniając anonimowe dane z jego "
-"użytkowania."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Zacznij współtworzyć…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Czekamy na twoją informację zwrotną!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Weź udział…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

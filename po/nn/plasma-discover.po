@@ -158,11 +158,6 @@ msgstr "Vis alle tilgjengelege pakkemotorar."
 msgid "Search string."
 msgstr "Søkjetekst."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Vis tilgjengelege val for tilbakemeldingar"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -978,64 +973,6 @@ msgstr "Vis tekniske detaljar"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Kopier til utklippstavla"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Send inn bruksinformasjon"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Sender anonymisert bruksinformasjon til KDE, slik at me kan forstå brukarane "
-"våre betre. For meir informasjon, sjå https://kde.org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Sender inn bruksinformasjon …"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Set opp"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Set opp tilbakemeldingar …"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "Set opp oppdateringar …"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"Du kan hjelpa KDE å forbetra Discover ved å dela anonym informasjon om "
-"korleis du brukar programmet."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Bidra …"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Me ønskjer tilbakemelding frå deg!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Delta …"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

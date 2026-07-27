@@ -152,11 +152,6 @@ msgstr "اسرد كل الأسناد المتوفّرة."
 msgid "Search string."
 msgstr "جملة البحث."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "يسرد الخيارات المتاحة لمشاركة بياناتك"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -978,64 +973,6 @@ msgstr "أظهر التفاصيل التقنية"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "انسخ إلى الحافظة"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "أرسل معلومات الاستخدام"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"يرسل معلومات استخدام مجهولة المصدر إلى كِيدِي حتى نتمكن من فهم مستخدمينا بشكل "
-"أفضل. لمزيد من المعلومات، راجع https://kde.org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "يرسل معلومات الاستخدام…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "اضبط"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "اضبط مشاركة المعلومات…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "اضبط تحديثات التطبيقات…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"يمكنك مساعدة كيدي على تحسين تطبيق المستكشف من خلال مشاركة معلومات مجهولة "
-"المصدر حول كيفية استخدامك له."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "ساهم..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "نحن نتطلع لمشاركتك!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "شارك..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format

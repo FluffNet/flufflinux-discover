@@ -151,11 +151,6 @@ msgstr "பயன்படுத்தக்கூடிய பின்னி�
 msgid "Search string."
 msgstr "தேடல் சரம்."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "பயனர் பின்னூட்டத்துக்கு உள்ள விருப்பத்தேர்வுகளை பட்டியலிடும்"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -935,63 +930,6 @@ msgstr "தொழிற்நுட்ப விவரங்களை காட�
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "பிடிப்புப்பலகைக்கு நகலெடு"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "பயன்பாட்டு விவரங்களை சமர்ப்பி"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"தன் பயனர்களை கே.டீ.யீ. நன்கு புரிந்துகொள்ள உதவும் (அடையாளங்காண பயன்படாத) விவரங்களை "
-"இத்தேர்வு அனுப்பும். மேலும் விவரங்களுக்கு https://kde.org/privacypolicy-apps.php "
-"என்ற இணையதளத்தை பார்க்கவும்."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "பயன்பாட்டு விவரங்கள் அனுப்பப்படுகின்றன…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "அமை"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "பின்னூட்டத்தை அமை…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure app updates…"
-msgstr "புதுப்பிப்புகளை அமையுங்கள்..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "பங்களி…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "உங்கள் கருத்துகளுக்காக காத்திருக்கிறோம்!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "பங்கேற்றுக்கொள்…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
