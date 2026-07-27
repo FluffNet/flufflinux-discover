@@ -52,14 +52,6 @@ FormCard.FormCardPage {
                         text: page.aboutData.displayName + " " + page.aboutData.version
                         wrapMode: Text.WordWrap
                     }
-
-                    Kirigami.Heading {
-                        Layout.fillWidth: true
-                        level: 3
-                        type: Kirigami.Heading.Type.Secondary
-                        text: page.aboutData.shortDescription
-                        wrapMode: Text.WordWrap
-                    }
                 }
             }
         }
