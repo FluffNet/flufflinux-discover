@@ -90,6 +90,16 @@ The package must use `fakeroot/usr/lib`, not `fakeroot/usr/lib64`.
 `/usr/lib64` is owned by `flufflinux-filesystem` and must not be included in
 this package.
 
+## License
+
+Fluff Linux Discover retains KDE Discover's upstream licensing. Each source
+file remains governed by its SPDX license identifier; the repository includes
+both GPL and LGPL components. Complete license texts are available in
+[`LICENSES/`](LICENSES/).
+
+The Fluff Linux package metadata identifies the package as
+`LGPL-2.0-or-later`, matching the official Arch Linux Discover package.
+
 ## Test locally
 
 The application can be launched from the build tree:
