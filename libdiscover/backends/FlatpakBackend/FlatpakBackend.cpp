@@ -1989,7 +1989,7 @@ QCoro::Task<QHash<FlatpakInstallation *, QList<FlatpakInstalledRef *>>> FlatpakB
                 }
                 if (g_cancellable_is_cancelled(cancellable)) {
                     qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Job cancelled";
-                    return {};
+                    return decltype(ret){};
                 }
 
                 if (refs->len == 0) {
