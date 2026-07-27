@@ -1469,3 +1469,7 @@ msgstr "Se etter oppdateringer"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Tid for sist oppdatering er ukjent"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Opprinnelige forfattere"

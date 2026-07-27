@@ -99,13 +99,15 @@ FormCard.FormCardPage {
 
                     QQC2.ToolButton {
                         text: i18n("Original Authors")
-                        icon.name: "system-users-symbolic"
-                        display: QQC2.AbstractButton.TextBesideIcon
+                        icon.name: "information-symbolic"
+                        display: QQC2.AbstractButton.IconOnly
                         onClicked: authorsDialog.open()
 
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         QQC2.ToolTip.visible: hovered
                         QQC2.ToolTip.text: text
+
+                        Accessible.name: text
                     }
                 }
             }

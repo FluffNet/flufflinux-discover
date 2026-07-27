@@ -1520,3 +1520,7 @@ msgstr "Трябва да проверите за актуализации"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Неизвестно време от последното актуализиране"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Първоначални автори"

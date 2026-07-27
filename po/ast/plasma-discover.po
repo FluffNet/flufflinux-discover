@@ -1442,6 +1442,10 @@ msgid "Time of last update unknown"
 msgstr ""
 
 #, fuzzy
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Autores orixinales"
+
 #~| msgid "See more…"
 #~| msgid_plural "See more…"
 #~ msgctxt "Show all licenses of the package"

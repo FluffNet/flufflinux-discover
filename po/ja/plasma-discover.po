@@ -1512,3 +1512,7 @@ msgstr "更新の確認が必要です"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "最後の更新時刻は不明です"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "原作者"

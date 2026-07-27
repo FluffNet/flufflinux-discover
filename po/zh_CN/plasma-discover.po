@@ -1473,3 +1473,7 @@ msgstr "建议检查更新"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "上次更新时间未知"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "原作者"

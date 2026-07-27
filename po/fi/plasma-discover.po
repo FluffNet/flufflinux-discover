@@ -1536,6 +1536,10 @@ msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Viimeisin päivitysaika ei ole tiedossa"
 
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Alkuperäiset tekijät"
+
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "
 #~ "participate in surveys."

@@ -1527,6 +1527,10 @@ msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Ora dell'ultimo aggiornamento sconosciuta"
 
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Autori originali"
+
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "
 #~ "participate in surveys."

@@ -1507,6 +1507,10 @@ msgid "Time of last update unknown"
 msgstr ""
 
 #, fuzzy
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Originalni autori"
+
 #~| msgid "Update All"
 #~ msgid "Update from:"
 #~ msgstr "Ažuriraj sve"

@@ -1458,6 +1458,10 @@ msgid "Time of last update unknown"
 msgstr ""
 
 #, fuzzy
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "യഥാർത്ഥ രചയിതാക്കൾ"
+
 #~| msgid "Donate:"
 #~ msgid "Donate"
 #~ msgstr "സംഭാവനചെയ്യുക:"

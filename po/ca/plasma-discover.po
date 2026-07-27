@@ -1530,3 +1530,7 @@ msgstr "Cal comprovar si hi ha actualitzacions"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Es desconeix l'hora de l'última actualització"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Autors originals"

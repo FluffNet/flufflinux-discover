@@ -1492,6 +1492,10 @@ msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr ""
 
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "मूळ लेखक"
+
 #~ msgid "Popularity"
 #~ msgstr "लोकप्रियता"
 

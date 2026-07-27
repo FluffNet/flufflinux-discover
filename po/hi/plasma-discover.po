@@ -1419,3 +1419,7 @@ msgstr ""
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr ""
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "मूल लेखक"

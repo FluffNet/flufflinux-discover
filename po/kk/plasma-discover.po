@@ -1486,6 +1486,10 @@ msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr ""
 
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Бастапқы авторлар"
+
 #~ msgid "Popularity"
 #~ msgstr "Әйгілігі"
 

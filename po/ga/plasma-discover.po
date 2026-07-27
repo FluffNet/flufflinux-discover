@@ -1431,6 +1431,10 @@ msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr ""
 
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Údair bhunaidh"
+
 #~ msgctxt "Separator between license labels e.g. 'GPL-3.0, Proprietary'"
 #~ msgid ","
 #~ msgstr ","
