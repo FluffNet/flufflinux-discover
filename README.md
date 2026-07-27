@@ -13,6 +13,10 @@ Version `26.8.1` is intentionally focused on Flatpak:
 - PackageKit, Snap, KNewStuff, rpm-ostree, systemd-sysupdate, Alpine APK, and
   other software backends are not included.
 
+Fluff Linux Discover uses `YY.M.REVISION` versioning. For example, `26.8.1`
+is the first revision released in August 2026. Revisions increase within the
+same month, and a new month starts again at revision `1`.
+
 The interface follows the Plasma theme, uses Fluff Linux branding, and supports
 right-to-left layouts.
 
