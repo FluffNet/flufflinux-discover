@@ -4,7 +4,7 @@ Discover is the Fluff Linux application manager, based on KDE Discover. It
 provides a native Plasma 6 experience for finding, installing, removing, and
 updating applications.
 
-Version `2026.07` is intentionally focused on Flatpak:
+Version `26.8.1` is intentionally focused on Flatpak:
 
 - Flatpak is the only application backend built by this repository.
 - App updates are provided only through Flatpak.

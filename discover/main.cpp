@@ -118,7 +118,7 @@ int main(int argc, char **argv)
     app.setQuitLockEnabled(false);
     KLocalizedString::setApplicationDomain("plasma-discover");
     KAboutData about(QStringLiteral("discover"),
-                     i18n("Discover"),
+                     QStringLiteral("Fluff Linux Discover"),
                      version,
                      i18n("An application explorer"),
                      KAboutLicense::GPL,
@@ -136,6 +136,7 @@ int main(int argc, char **argv)
                     QStringLiteral("leinir"));
     about.setProductName("discover/discover");
     about.setProgramLogo(app.windowIcon());
+    about.setBugAddress("https://github.com/FluffNet/flufflinux-discover/issues");
 
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 

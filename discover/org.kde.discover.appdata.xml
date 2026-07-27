@@ -159,8 +159,7 @@
     <p xml:lang="zh-TW">利用 Discover 來尋找及安裝應用程式、遊戲及工具。您可以直接搜尋，或者從分類目錄開始瀏覽，預覽螢幕截圖和閱讀評論，以發現最佳的 App。</p>
   </description>
   <url type="homepage">https://apps.kde.org/discover</url>
-  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=Discover</url>
-  <url type="donation">https://www.kde.org/community/donations/?app=discover&amp;source=appdata</url>
+  <url type="bugtracker">https://github.com/FluffNet/flufflinux-discover/issues</url>
   <screenshots>
     <screenshot type="default">
       <caption>Plasma Discover</caption>
@@ -225,7 +224,7 @@
   </provides>
   <compulsory_for_desktop>KDE</compulsory_for_desktop>
   <releases>
-    <release version="2026.07" date="2026-07-26"/>
+    <release version="26.8.1" date="2026-07-26"/>
     <release version="6.7.2" date="2026-06-30"/>
     <release version="6.7.1" date="2026-06-23"/>
     <release version="6.7.0" date="2026-06-16"/>

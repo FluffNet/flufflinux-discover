@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(discover)
-set(PROJECT_VERSION "2026.07")
+set(PROJECT_VERSION "26.8.1")
 
 set(QT_MIN_VERSION "6.10.0")
 set(KF6_MIN_VERSION "6.26.0")
