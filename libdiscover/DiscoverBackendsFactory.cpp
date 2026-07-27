@@ -9,6 +9,7 @@
 #include "resources/AbstractResourcesBackend.h"
 #include "resources/ResourcesModel.h"
 #include "utils.h"
+#include <QCoreApplication>
 #include <QDir>
 #include <QElapsedTimer>
 #include <QFileInfo>
