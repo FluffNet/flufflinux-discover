@@ -1030,8 +1030,8 @@ msgstr "Configure Feedback…"
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
-msgstr "Configure Updates…"
+msgid "Configure app updates…"
+msgstr "Configure app updates…"
 
 #: discover/qml/Feedback.qml:60
 #, kde-format

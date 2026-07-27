@@ -1010,8 +1010,8 @@ msgstr "اضبط مشاركة المعلومات…"
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
-msgstr "اضبط التحديثات..."
+msgid "Configure app updates…"
+msgstr "اضبط تحديثات التطبيقات…"
 
 #: discover/qml/Feedback.qml:60
 #, kde-format

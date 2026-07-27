@@ -35,7 +35,6 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG OPTIONAL_COMPONENTS WebView)
 find_package(PkgConfig REQUIRED)
 
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED Kirigami CoreAddons Config Crash DBusAddons I18n Archive XmlGui KIO KCMUtils IdleTime Notifications Purpose StatusNotifierItem IconThemes)
-find_package(KF6 ${KF6_MIN_VERSION} OPTIONAL_COMPONENTS UserFeedback)
 
 find_package(AppStreamQt 1.0.4 CONFIG REQUIRED)
 
@@ -104,11 +103,6 @@ set_package_properties(KF6Kirigami2 PROPERTIES
     URL "https://techbase.kde.org/Kirigami"
     PURPOSE "Required by discover qml components"
     TYPE RUNTIME)
-set_package_properties(KF6UserFeedback PROPERTIES
-    DESCRIPTION "Framework for collecting feedback from application users via telemetry and targeted surveys"
-    URL "https://invent.kde.org/frameworks/kuserfeedback"
-    PURPOSE "Required for submission of telemetry data"
-    TYPE OPTIONAL)
 set_package_properties(AppStreamQt PROPERTIES
     DESCRIPTION "Library that lists Appstream resources"
     URL "https://www.freedesktop.org"

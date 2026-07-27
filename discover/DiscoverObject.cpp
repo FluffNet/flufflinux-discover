@@ -59,9 +59,6 @@
 #include <unistd.h>
 #include <utils.h>
 
-#ifdef WITH_FEEDBACK
-#include "plasmauserfeedback.h"
-#endif
 #include "PowerManagementInterface.h"
 #include "RefreshNotifier.h"
 #include "discoversettings.h"
@@ -119,13 +116,6 @@ DiscoverObject::DiscoverObject(const QVariantMap &initialProperties)
     qmlRegisterType<FeaturedModel>(uriApp, 1, 0, "FeaturedModel");
     qmlRegisterType<OdrsAppsModel>(uriApp, 1, 0, "OdrsAppsModel");
     qmlRegisterType<PowerManagementInterface>(uriApp, 1, 0, "PowerManagementInterface");
-#ifdef WITH_FEEDBACK
-    qmlRegisterSingletonType<PlasmaUserFeedback>(uriApp, 1, 0, "UserFeedbackSettings", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        auto r = new PlasmaUserFeedback(KSharedConfig::openConfig(QStringLiteral("PlasmaUserFeedback"), KConfig::NoGlobals));
-        r->setParent(engine);
-        return r;
-    });
-#endif
     qmlRegisterSingletonType<DiscoverSettings>(uriApp, 1, 0, "DiscoverSettings", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
         auto r = new DiscoverSettings;
         r->setParent(engine);
@@ -682,11 +672,6 @@ QString DiscoverObject::mimeTypeComment(const QString &mimeTypeName)
         return mimeType.comment();
     }
     return mimeTypeName;
-}
-
-QString DiscoverObject::describeSources() const
-{
-    return mainWindow()->property("describeSources").toString();
 }
 
 InlineMessage *DiscoverObject::homePageMessage() const

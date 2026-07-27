@@ -1014,7 +1014,7 @@ msgstr "Configurar los comentarios del usuario…"
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
+msgid "Configure app updates…"
 msgstr "Configurar actualizaciones…"
 
 #: discover/qml/Feedback.qml:60

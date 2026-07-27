@@ -1039,8 +1039,8 @@ msgstr "Configurer le retour d'utilisateur…"
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
-msgstr "Configurer les mises à jour…"
+msgid "Configure app updates…"
+msgstr "Configurer les mises à jour des applications…"
 
 #: discover/qml/Feedback.qml:60
 #, kde-format

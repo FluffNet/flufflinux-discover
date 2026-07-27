@@ -46,7 +46,6 @@
     <file>qml/LoadingPage.qml</file>
     <file>qml/SearchField.qml</file>
     <file>qml/AboutPage.qml</file>
-    <file>qml/Feedback.qml</file>
     <file>qml/ConvertDiscoverAction.qml</file>
     <file>qml/WebflowDialog.qml</file>
 

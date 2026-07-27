@@ -1009,7 +1009,7 @@ msgstr "Configura responsa de usator ..."
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
+msgid "Configure app updates…"
 msgstr "Configura actualisationes ..."
 
 #: discover/qml/Feedback.qml:60

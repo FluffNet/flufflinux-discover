@@ -972,7 +972,7 @@ msgstr "配置反馈…"
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
+msgid "Configure app updates…"
 msgstr "配置更新…"
 
 #: discover/qml/Feedback.qml:60

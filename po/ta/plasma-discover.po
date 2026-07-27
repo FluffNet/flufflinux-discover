@@ -968,7 +968,7 @@ msgstr "பின்னூட்டத்தை அமை…"
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
+msgid "Configure app updates…"
 msgstr "புதுப்பிப்புகளை அமையுங்கள்..."
 
 #: discover/qml/Feedback.qml:60

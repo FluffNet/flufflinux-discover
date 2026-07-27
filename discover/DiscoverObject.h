@@ -49,7 +49,6 @@ public:
     Q_INVOKABLE QUrl searchUrl(const QString &searchText);
     Q_INVOKABLE QString mimeTypeComment(const QString &mimeTypeName);
 
-    QString describeSources() const;
     Q_SCRIPTABLE void restore();
     [[nodiscard]] InlineMessage *homePageMessage() const;
 

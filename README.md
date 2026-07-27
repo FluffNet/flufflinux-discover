@@ -25,7 +25,7 @@ sudo pacman -S --needed base-devel cmake extra-cmake-modules ninja \
     appstream-qt discount flatpak \
     karchive kcmutils kconfig kcoreaddons kcrash kdbusaddons ki18n \
     kiconthemes kidletime kio kirigami kirigami-addons kjobwidgets \
-    knotifications kservice kstatusnotifieritem kuserfeedback \
+    knotifications kservice kstatusnotifieritem \
     kwidgetsaddons kwindowsystem purpose qcoro qqc2-desktop-style \
     qt6-base qt6-declarative qt6-webview vulkan-headers
 ```

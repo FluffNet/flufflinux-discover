@@ -977,7 +977,7 @@ msgstr "Sett opp tilbakemeldinger …"
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
+msgid "Configure app updates…"
 msgstr "Sett opp oppdateringer …"
 
 #: discover/qml/Feedback.qml:60

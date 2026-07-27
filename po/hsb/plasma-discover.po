@@ -957,7 +957,7 @@ msgstr "Připrawić"
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Configure"
-msgid "Configure Updates…"
+msgid "Configure app updates…"
 msgstr "Připrawić"
 
 #: discover/qml/Feedback.qml:60

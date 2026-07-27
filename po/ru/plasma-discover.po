@@ -1038,8 +1038,8 @@ msgstr "Настроить параметры обратной связи..."
 
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, kde-format
-msgid "Configure Updates…"
-msgstr "Настроить параметры обновлений…"
+msgid "Configure app updates…"
+msgstr "Настроить обновления приложений…"
 
 #: discover/qml/Feedback.qml:60
 #, kde-format

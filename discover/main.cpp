@@ -40,7 +40,6 @@ std::unique_ptr<QCommandLineParser> createParser()
     parser->addOption(QCommandLineOption(QStringLiteral("local-filename"), i18n("Local package file to install"), QStringLiteral("package")));
     parser->addOption(QCommandLineOption(QStringLiteral("listbackends"), i18n("List all the available backends.")));
     parser->addOption(QCommandLineOption(QStringLiteral("search"), i18n("Search string."), QStringLiteral("text")));
-    parser->addOption(QCommandLineOption(QStringLiteral("feedback"), i18n("Lists the available options for user feedback")));
     parser->addOption(QCommandLineOption(QStringLiteral("headless-update"), i18n("Starts an update automatically, headless")));
     parser->addOption(QCommandLineOption(QStringLiteral("test"), QStringLiteral("Test file"), QStringLiteral("file.qml")));
     parser->addPositionalArgument(QStringLiteral("urls"), i18n("Supports appstream: url scheme"));
@@ -153,7 +152,6 @@ int main(int argc, char **argv)
         std::unique_ptr<QCommandLineParser> parser(createParser());
         parser->process(app);
         about.processCommandLine(parser.get());
-        const bool feedback = parser->isSet(QStringLiteral("feedback"));
         const bool headlessUpdate = parser->isSet(QStringLiteral("headless-update"));
 
         if (parser->isSet(QStringLiteral("listbackends"))) {
@@ -169,8 +167,7 @@ int main(int argc, char **argv)
             QStandardPaths::setTestModeEnabled(true);
         }
 
-        KDBusService *service =
-            !feedback ? new KDBusService(KDBusService::Unique | KDBusService::NoExitOnFailure, &app) : nullptr;
+        auto service = new KDBusService(KDBusService::Unique | KDBusService::NoExitOnFailure, &app);
         if (service && !service->isRegistered()) {
             qWarning() << "Could not register Discover's D-Bus service; continuing without single-instance integration:"
                        << service->errorMessage();
@@ -182,35 +179,29 @@ int main(int argc, char **argv)
             QVariantMap initialProperties;
             if (!options.isEmpty() || !parser->positionalArguments().isEmpty())
                 initialProperties = {{QStringLiteral("currentTopLevel"), QStringLiteral(DISCOVER_BASE_URL "/LoadingPage.qml")}};
-            if (feedback || headlessUpdate) {
+            if (headlessUpdate) {
                 initialProperties.insert(QStringLiteral("visible"), false);
             }
             discoverObject = new DiscoverObject(initialProperties);
         }
-        if (feedback) {
-            QTextStream(stdout) << discoverObject->describeSources() << '\n';
-            delete discoverObject;
-            return 0;
-        } else {
-            QObject::connect(service,
-                             &KDBusService::activateRequested,
-                             discoverObject,
-                             [discoverObject](const QStringList &arguments, const QString &workingDirectory) {
-                                 discoverObject->restore();
-                                 if (auto window = discoverObject->mainWindow()) {
-                                     raiseWindow(window);
-                                     if (arguments.isEmpty()) {
-                                         return;
-                                     }
-                                     std::unique_ptr<QCommandLineParser> parser(createParser());
-                                     if (!parser->parse(arguments)) {
-                                         qWarning() << "Ignoring invalid activation arguments:" << parser->errorText();
-                                         return;
-                                     }
-                                     processArgs(parser.get(), discoverObject, workingDirectory);
+        QObject::connect(service,
+                         &KDBusService::activateRequested,
+                         discoverObject,
+                         [discoverObject](const QStringList &arguments, const QString &workingDirectory) {
+                             discoverObject->restore();
+                             if (auto window = discoverObject->mainWindow()) {
+                                 raiseWindow(window);
+                                 if (arguments.isEmpty()) {
+                                     return;
                                  }
-                             });
-        }
+                                 std::unique_ptr<QCommandLineParser> parser(createParser());
+                                 if (!parser->parse(arguments)) {
+                                     qWarning() << "Ignoring invalid activation arguments:" << parser->errorText();
+                                     return;
+                                 }
+                                 processArgs(parser.get(), discoverObject, workingDirectory);
+                             }
+                         });
 
         QObject::connect(&app, &QCoreApplication::aboutToQuit, discoverObject, &DiscoverObject::deleteLater);
 

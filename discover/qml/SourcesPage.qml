@@ -19,14 +19,15 @@ DiscoverPage {
 
     Kirigami.Action {
         id: configureUpdatesAction
-        text: i18n("Configure Updates…")
-        displayHint: Kirigami.DisplayHint.AlwaysHide
+        text: i18n("Configure app updates…")
+        icon.name: "configure"
+        displayHint: Kirigami.DisplayHint.KeepVisible
         onTriggered: {
             KCMUtils.KCMLauncher.openSystemSettings("kcm_updates");
         }
     }
 
-    actions: feedbackLoader.item?.actions ?? [configureUpdatesAction]
+    actions: [configureUpdatesAction]
 
     header: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing

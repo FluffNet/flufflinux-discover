@@ -968,7 +968,7 @@ msgstr "တုံ့ပြန်ချက်ပြင်ဆင်မည်…"
 #: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Configure feedback…"
-msgid "Configure Updates…"
+msgid "Configure app updates…"
 msgstr "တုံ့ပြန်ချက်ပြင်ဆင်မည်…"
 
 #: discover/qml/Feedback.qml:60

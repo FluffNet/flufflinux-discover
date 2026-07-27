@@ -5,10 +5,6 @@ include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/..)
 ecm_qt_declare_logging_category(plasma_discover_SRCS HEADER discover_debug.h IDENTIFIER DISCOVER_LOG CATEGORY_NAME org.kde.plasma.discover DESCRIPTION "discover" EXPORT DISCOVER)
 kconfig_add_kcfg_files(plasma_discover_SRCS discoversettings.kcfgc GENERATE_MOC)
 
-if (TARGET KF6::UserFeedbackCore)
-    kconfig_add_kcfg_files(plasma_discover_SRCS plasmauserfeedback.kcfgc GENERATE_MOC)
-endif()
-
 # Avoid problems with sign conversion by warning about them. Selectively in this file because we know there's been
 # problems in the past. Ideally we'd move towards applying this everywhere.
 # ES.100: Don’t mix signed and unsigned arithmetic
@@ -67,11 +63,6 @@ if (TARGET Qt::WebView)
     target_compile_definitions(plasma-discover PUBLIC -DWITH_QTWEBVIEW=1)
 else()
     target_compile_definitions(plasma-discover PUBLIC -DWITH_QTWEBVIEW=0)
-endif()
-
-if (TARGET KF6::UserFeedbackCore)
-    target_link_libraries(plasma-discover PRIVATE KF6::UserFeedbackCore)
-    target_compile_definitions(plasma-discover PRIVATE WITH_FEEDBACK=1)
 endif()
 
 install(TARGETS plasma-discover ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
