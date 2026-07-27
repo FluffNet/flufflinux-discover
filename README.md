@@ -36,6 +36,7 @@ Configure and compile:
 cmake -S . -B build -G Ninja \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
     -DBUILD_TESTING=OFF
 cmake --build build
 ```
@@ -84,6 +85,10 @@ find "$PWD/fakeroot/usr" \
 
 The output may include Flatpak files only. Any fwupd, PackageKit, or Snap file
 indicates that the staging directory was not cleaned before installation.
+
+The package must use `fakeroot/usr/lib`, not `fakeroot/usr/lib64`.
+`/usr/lib64` is owned by `flufflinux-filesystem` and must not be included in
+this package.
 
 ## Test locally
 
