@@ -122,7 +122,7 @@ int main(int argc, char **argv)
                      version,
                      i18n("An application explorer"),
                      KAboutLicense::GPL,
-                     i18n("© 2010-2026 Plasma Development Team"));
+                     QStringLiteral("© 2026 FluffNet LLC\n© 2010-2026 Plasma Development Team"));
     about.addAuthor(i18n("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org"), QStringLiteral("https://proli.net"), QStringLiteral("apol"));
     about.addAuthor(i18n("Nate Graham"),
                     i18n("Quality Assurance, Design and Usability"),

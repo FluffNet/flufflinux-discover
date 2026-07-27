@@ -99,6 +99,8 @@ both GPL and LGPL components. Complete license texts are available in
 
 The Fluff Linux package metadata identifies the package as
 `LGPL-2.0-or-later`, matching the official Arch Linux Discover package.
+Packaging installs the complete license set to
+`/usr/share/licenses/flufflinux-discover/`.
 
 ## Test locally
 

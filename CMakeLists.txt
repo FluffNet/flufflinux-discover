@@ -29,6 +29,12 @@ include(ECMFindQmlModule)
 include(ECMDeprecationSettings)
 include(ECMSourceVersionControl)
 
+install(
+    DIRECTORY LICENSES/
+    DESTINATION ${KDE_INSTALL_DATADIR}/licenses/flufflinux-discover
+    FILES_MATCHING PATTERN "*.txt"
+)
+
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED CONFIG COMPONENTS Widgets Test Network Concurrent DBus Quick QuickControls2)
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG OPTIONAL_COMPONENTS WebView)
 
