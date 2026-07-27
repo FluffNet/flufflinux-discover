@@ -14,6 +14,7 @@ find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH}  "${CMAKE_SOURCE_DIR}/cmake")
 
+set(KDE_INSTALL_LIBDIR "lib" CACHE STRING "Install directory for libraries and Qt plugins")
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)

@@ -36,7 +36,7 @@ Configure and compile:
 cmake -S . -B build -G Ninja \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DKDE_INSTALL_LIBDIR=lib \
     -DBUILD_TESTING=OFF
 cmake --build build
 ```
