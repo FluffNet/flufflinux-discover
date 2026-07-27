@@ -261,34 +261,6 @@ DiscoverPage {
                     onClicked: { updateModel.uncheckAll(); }
                 }
 
-                RowLayout {
-                    visible: resourcesUpdatesModel.isProgressing
-                    spacing: Kirigami.Units.smallSpacing
-
-                    Layout.fillWidth: true
-
-                    Layout.leftMargin: Kirigami.Units.largeSpacing
-                    Layout.rightMargin: Kirigami.Units.largeSpacing
-
-                    RowLayout {
-                        visible: resourcesUpdatesModel.isProgressing
-                        spacing: Kirigami.Units.smallSpacing
-                        Layout.fillWidth: true
-
-                        QQC2.Label {
-                            text: i18nc("@info After updates complete, quit", "After updates complete:")
-                        }
-
-                        QQC2.ComboBox {
-                            id: actionAfterUpdateCombo
-                            model: [
-                                i18nc("@item:inlistbox after updates complete, do nothing", "Do nothing"),
-                                i18nc("@item:inlistbox after updates complete, quit", "Quit")
-                            ]
-                        }
-                    }
-                }
-
                 QQC2.Label {
                     Layout.fillWidth: true
                     Layout.rightMargin: Kirigami.Units.largeSpacing
@@ -584,8 +556,6 @@ DiscoverPage {
     }
 
     readonly property alias secSinceUpdate: resourcesUpdatesModel.secsToLastUpdate
-    property string previousState: ""
-    property bool updateTriggered: false
 
     state:  ( resourcesUpdatesModel.isProgressing        ? "progressing"
             : resourcesUpdatesModel.isFetching           ? "fetching"
@@ -596,18 +566,6 @@ DiscoverPage {
             : secSinceUpdate < 1000 * 60 * 60 * 24 * 7   ? "medium"
             :                                              "low"
             )
-
-    onStateChanged: {
-        const prev = previousState
-        previousState = state
-        if (prev === "progressing") {
-            updateTriggered = true
-        }
-
-        if (updateTriggered && actionAfterUpdateCombo.currentIndex === 1) {
-            app.reconsiderQuit()
-        }
-    }
 
     states: [
         State {
