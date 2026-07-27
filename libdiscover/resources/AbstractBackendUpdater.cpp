@@ -26,11 +26,6 @@ void AbstractBackendUpdater::fetchChangelog() const
     }
 }
 
-void AbstractBackendUpdater::setOfflineUpdates(bool useOfflineUpdates)
-{
-    Q_UNUSED(useOfflineUpdates);
-}
-
 void AbstractBackendUpdater::setErrorMessage(const QString &errorMessage)
 {
     if (errorMessage == m_errorMessage) {

@@ -784,7 +784,7 @@ msgstr "%1 (notandi)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
 msgstr "Sláðu inn slóð fyrir Flatpak-safn (*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35

@@ -785,8 +785,8 @@ msgstr "%1 (uzanto)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "Enigu Flatpak-deponejon URI (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "Enigu Flatpak-deponejon URL (*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format

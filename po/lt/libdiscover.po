@@ -796,8 +796,8 @@ msgstr "%1 (naudotojas)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "Įveskite Flatpak saugyklos URI (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "Įveskite Flatpak saugyklos URL (*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format

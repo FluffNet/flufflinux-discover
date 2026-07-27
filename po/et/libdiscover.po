@@ -809,8 +809,8 @@ msgstr "%1 (%2)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "Flatpaki hoidla URI (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "Flatpaki hoidla URL (*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format

@@ -771,7 +771,7 @@ msgstr "%1 (משתמש)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
 msgstr "נא למלא כתובת מאגר Flatpak מלאה (‎*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35

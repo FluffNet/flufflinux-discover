@@ -60,6 +60,7 @@
 #include <utils.h>
 
 #include "PowerManagementInterface.h"
+#include "AppUpdateSettings.h"
 #include "RefreshNotifier.h"
 #include "discoversettings.h"
 #include <resources/ResourcesUpdatesModel.h>
@@ -116,6 +117,9 @@ DiscoverObject::DiscoverObject(const QVariantMap &initialProperties)
     qmlRegisterType<FeaturedModel>(uriApp, 1, 0, "FeaturedModel");
     qmlRegisterType<OdrsAppsModel>(uriApp, 1, 0, "OdrsAppsModel");
     qmlRegisterType<PowerManagementInterface>(uriApp, 1, 0, "PowerManagementInterface");
+    qmlRegisterSingletonType<AppUpdateSettings>(uriApp, 1, 0, "AppUpdateSettings", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        return new AppUpdateSettings(engine);
+    });
     qmlRegisterSingletonType<DiscoverSettings>(uriApp, 1, 0, "DiscoverSettings", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
         auto r = new DiscoverSettings;
         r->setParent(engine);

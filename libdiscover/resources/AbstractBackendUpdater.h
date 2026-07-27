@@ -131,7 +131,6 @@ public:
         return m_errorMessage;
     }
 
-    virtual void setOfflineUpdates(bool useOfflineUpdates);
     virtual bool isFetchingUpdates() const = 0;
 
 public Q_SLOTS:

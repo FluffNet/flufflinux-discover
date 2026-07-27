@@ -814,8 +814,8 @@ msgstr "%1 (Χρήστης)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "Δώστε το URI ενός αποθετηρίου Flatpak (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "Δώστε το URL ενός αποθετηρίου Flatpak (*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format

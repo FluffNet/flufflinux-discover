@@ -423,7 +423,7 @@ void FlatpakSourcesBackend::addRemote(FlatpakRemote *remote, FlatpakInstallation
 
 QString FlatpakSourcesBackend::idDescription()
 {
-    return i18n("Enter a Flatpak repository URI (*.flatpakrepo):");
+    return i18n("Enter a Flatpak repository URL (*.flatpakrepo):");
 }
 
 bool FlatpakSourcesBackend::moveSource(const QString &sourceId, int delta)

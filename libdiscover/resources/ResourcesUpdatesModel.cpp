@@ -13,11 +13,8 @@
 #include <Transaction/Transaction.h>
 #include <Transaction/TransactionModel.h>
 
-#include <KConfigGroup>
-#include <KConfigWatcher>
 #include <KFormat>
 #include <KLocalizedString>
-#include <KSharedConfig>
 
 using namespace Qt::StringLiterals;
 
@@ -152,27 +149,6 @@ void ResourcesUpdatesModel::init()
     }
     refreshFetching();
 
-    // To enable from command line use:
-    // kwriteconfig6 --file discoverrc --group Software --key UseOfflineUpdates true
-    auto sharedConfig = KSharedConfig::openConfig();
-    KConfigGroup group(sharedConfig, u"Software"_s);
-    m_offlineUpdates = group.readEntry<bool>("UseOfflineUpdates", false);
-
-    KConfigWatcher::Ptr watcher = KConfigWatcher::create(sharedConfig);
-    connect(watcher.data(), &KConfigWatcher::configChanged, this, [this](const KConfigGroup &group, const QByteArrayList &names) {
-        // Ensure it is for the right file
-        if (!names.contains("UseOfflineUpdates") || group.name() != QLatin1String("Software")) {
-            return;
-        }
-
-        const bool offlineUpdates = group.readEntry<bool>("UseOfflineUpdates", false);
-        if (m_offlineUpdates == offlineUpdates) {
-            return;
-        }
-        m_offlineUpdates = offlineUpdates;
-        Q_EMIT useUnattendedUpdatesChanged();
-    });
-
     auto tm = TransactionModel::global();
     const auto transactions = tm->transactions();
     for (auto t : transactions) {
@@ -211,7 +187,6 @@ void ResourcesUpdatesModel::prepare()
     }
 
     for (AbstractBackendUpdater *upd : std::as_const(m_updaters)) {
-        upd->setOfflineUpdates(m_offlineUpdates);
         upd->prepare();
     }
 }
@@ -351,11 +326,6 @@ void ResourcesUpdatesModel::refreshFetching()
 bool ResourcesUpdatesModel::isFetching() const
 {
     return m_fetching;
-}
-
-bool ResourcesUpdatesModel::useUnattendedUpdates() const
-{
-    return m_offlineUpdates;
 }
 
 QStringList ResourcesUpdatesModel::errorMessages() const

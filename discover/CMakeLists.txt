@@ -24,9 +24,11 @@ add_executable(plasma-discover ${plasma_discover_SRCS}
     UnityLauncher.cpp
     ReadFile.cpp
     PowerManagementInterface.cpp
+    AppUpdateSettings.cpp
 
     DiscoverObject.h
     DiscoverDeclarativePlugin.h
+    AppUpdateSettings.h
 
     FeaturedModel.h
     UnityLauncher.h

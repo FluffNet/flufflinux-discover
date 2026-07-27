@@ -117,7 +117,7 @@ the packaging step. The primary catalogs are:
 - `plasma-discover.po` for the application interface.
 - `plasma-discover-notifier.po` for taskbar notifications.
 - `libdiscover.po` for shared application-management text.
-- `kcm_updates.po` for Discover Settings.
+- `kcm_updates.po` for the app-update controls integrated into Discover Settings.
 
 To verify the staged catalogs:
 

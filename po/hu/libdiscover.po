@@ -791,8 +791,8 @@ msgstr "%1 (felhasználó)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "Adjon meg egy Flatpak tároló URI-t (*.flatpakrepo)"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "Adjon meg egy Flatpak tároló URL-t (*.flatpakrepo)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format

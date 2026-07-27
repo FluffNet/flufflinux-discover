@@ -783,8 +783,8 @@ msgstr "%1 (ئىشلەتكۈچى)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "Flatpak خەزىنە URI (*.flatpakrepo) كىرگۈزۈلىدۇ:"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "Flatpak خەزىنە URL (*.flatpakrepo) كىرگۈزۈلىدۇ:"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format

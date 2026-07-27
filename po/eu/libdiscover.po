@@ -794,8 +794,8 @@ msgstr "%1 (erabiltzailea)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "Sartu Flatpak gordetegi baten URI (*.flatpakrepo)"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "Sartu Flatpak gordetegi baten URL (*.flatpakrepo)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format

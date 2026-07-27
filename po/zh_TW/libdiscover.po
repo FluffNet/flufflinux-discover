@@ -763,8 +763,8 @@ msgstr "%1 (使用者)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "輸入 Flatpak 軟體庫連結 URI (*.flatpakrepo)："
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "輸入 Flatpak 軟體庫連結 URL (*.flatpakrepo)："
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format

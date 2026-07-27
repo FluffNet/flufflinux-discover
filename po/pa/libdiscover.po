@@ -782,8 +782,8 @@ msgstr "%1 (ਵਰਤੋਂਕਾਰ)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "ਫਲੈਟਪੈਕ ਰਿਪੋਜ਼ਟਰੀ URI ਦਿਓ (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "ਫਲੈਟਪੈਕ ਰਿਪੋਜ਼ਟਰੀ URL ਦਿਓ (*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format
