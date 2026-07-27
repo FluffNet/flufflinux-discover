@@ -48,18 +48,18 @@ is especially important after changing backend or translation resources.
 
 ## Stage for packaging
 
-Fluff Linux packages are assembled from a fake install root instead of being
-installed directly onto the build machine:
+Fluff Linux packages are assembled from a repository-local fake install root
+instead of being installed directly onto the build machine:
 
 ```sh
-mkdir -p "$HOME/Documents/flufflinux-discover"
-DESTDIR="$HOME/Documents/flufflinux-discover" cmake --install build
+# fakeroot/ becomes the package filesystem and can be passed to the Fluff Linux packaging tools.
+DESTDIR="$PWD/fakeroot/" cmake --install build
 ```
 
 Everything that belongs in the package will be placed under:
 
 ```text
-~/Documents/flufflinux-discover/
+fakeroot/
 ├── etc/
 └── usr/
 ```
@@ -77,7 +77,7 @@ The staged backend directory should contain the Flatpak backend and no firmware,
 PackageKit, or Snap backend:
 
 ```sh
-find "$HOME/Documents/flufflinux-discover/usr" \
+find "$PWD/fakeroot/usr" \
     \( -iname '*flatpak*' -o -iname '*fwupd*' -o -iname '*packagekit*' -o -iname '*snap*' \) \
     -print
 ```
@@ -117,7 +117,7 @@ the packaging step. The primary catalogs are:
 To verify the staged catalogs:
 
 ```sh
-find "$HOME/Documents/flufflinux-discover/usr/share/locale" \
+find "$PWD/fakeroot/usr/share/locale" \
     -path '*/LC_MESSAGES/*.mo' -print
 ```
 
