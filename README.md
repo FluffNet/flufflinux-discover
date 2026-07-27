@@ -140,8 +140,3 @@ find "$PWD/fakeroot/usr/share/locale" \
 
 This project is derived from [KDE Discover](https://invent.kde.org/plasma/discover).
 The upstream release history and copyright notices are preserved.
-
-## License
-
-Discover is available under the license terms recorded in
-[`LICENSES/`](LICENSES/).
