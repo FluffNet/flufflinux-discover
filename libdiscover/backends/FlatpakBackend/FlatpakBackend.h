@@ -42,6 +42,7 @@ class FlatpakBackend : public AbstractResourcesBackend
 {
     Q_OBJECT
     Q_PROPERTY(bool isFetching READ isFetching NOTIFY fetchingChanged)
+    Q_PROPERTY(bool isInitialized READ isInitialized NOTIFY initialized)
 public:
     explicit FlatpakBackend(QObject *parent = nullptr);
     ~FlatpakBackend();
@@ -99,6 +100,10 @@ public:
     bool isFetching() const
     {
         return m_isFetching != 0;
+    }
+    bool isInitialized() const
+    {
+        return m_isInitialized;
     }
 
 private Q_SLOTS:
@@ -161,6 +166,8 @@ private:
     QVector<QSharedPointer<FlatpakSource>> m_flatpakSources;
     QVector<QSharedPointer<FlatpakSource>> m_flatpakLoadingSources;
     QSharedPointer<FlatpakSource> m_localSource;
+    bool m_isInitialized = false;
+    bool m_refreshStaleAppstream = false;
     QTimer *const m_checkForUpdatesTimer;
 
     friend class Utils::ProgressCollector;

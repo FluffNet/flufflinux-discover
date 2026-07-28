@@ -37,8 +37,9 @@ DiscoverPage {
         id: featuredModel
     }
 
-    readonly property bool backendIsFetching: featuredModel.currentApplicationBackend?.isFetching ?? true
-    readonly property bool isLoading: Discover.ResourcesModel.isInitializing || backendIsFetching || featuredModel.isFetching
+    readonly property bool backendIsInitializing: featuredModel.currentApplicationBackend !== null
+        && !featuredModel.currentApplicationBackend.isInitialized
+    readonly property bool isLoading: Discover.ResourcesModel.isInitializing || backendIsInitializing || featuredModel.isFetching
 
     Kirigami.LoadingPlaceholder {
         visible: page.isLoading

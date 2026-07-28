@@ -384,6 +384,12 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
         acquireFetching(true);
         QTimer::singleShot(0, this, [this] {
             loadAppsFromAppstreamData();
+            if (m_refreshStaleAppstream) {
+                // Cached metadata is enough to populate the UI. Refresh stale
+                // catalogs only after the initial pools have finished loading
+                // so network access never delays the Home page.
+                connect(this, &FlatpakBackend::initialized, m_checkForUpdatesTimer, qOverload<>(&QTimer::start), Qt::UniqueConnection);
+            }
             acquireFetching(false);
         });
     }
@@ -1136,12 +1142,16 @@ void FlatpakBackend::loadRemote(FlatpakInstallation *installation, FlatpakRemote
 
     g_autofree char *path_str = g_file_get_path(fileTimestamp);
     QFileInfo fileInfo(QFile::decodeName(path_str));
-    if (!fileInfo.exists() || fileInfo.lastModified().toUTC().secsTo(QDateTime::currentDateTimeUtc()) > 21600) {
-        // Refresh appstream metadata in case they have never been refreshed or the cache is older than 6 hours
+    if (!fileInfo.exists()) {
+        // There is no local catalog to display, so the initial refresh must
+        // finish before this source can be used.
         checkForRemoteUpdates(installation, remote);
     } else {
         auto source = integrateRemote(installation, remote);
         Q_ASSERT(findSource(installation, QString::fromUtf8(flatpak_remote_get_name(remote))) == source);
+        if (fileInfo.lastModified().toUTC().secsTo(QDateTime::currentDateTimeUtc()) > 21600) {
+            m_refreshStaleAppstream = true;
+        }
     }
 }
 
@@ -1531,6 +1541,7 @@ void FlatpakBackend::acquireFetching(bool f)
     }
 
     if (!f && m_isFetching == 0) {
+        m_isInitialized = true;
         Q_EMIT contentsChanged();
         Q_EMIT initialized();
     }
