@@ -345,7 +345,7 @@ DiscoverPage {
                 visible: text.length > 0
                 opacity: 0.75
 
-                text: Discover.ResourcesModel.remainingDescription
+                text: page.busy ? Discover.ResourcesModel.remainingDescription : page.lastUpdateSummary
 
                 horizontalAlignment: Qt.AlignHCenter
                 wrapMode: Text.WordWrap
@@ -622,35 +622,30 @@ DiscoverPage {
             name: "now-uptodate"
             PropertyChanges { page.footerLabel: i18nc("@info", "Up to date") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "uptodate"
             PropertyChanges { page.footerLabel: i18nc("@info", "Up to date") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "medium"
             PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "low"
             PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "unknown"
             PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         }
     ]
