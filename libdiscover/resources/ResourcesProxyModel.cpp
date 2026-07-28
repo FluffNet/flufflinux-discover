@@ -137,8 +137,7 @@ void ResourcesProxyModel::setSortOrder(Qt::SortOrder sortOrder)
 
 void ResourcesProxyModel::setSearch(const QString &_searchText)
 {
-    // 1-character searches are painfully slow. >= 2 chars are fine, though
-    const QString searchText = _searchText.size() <= 1 ? QString() : _searchText;
+    const QString searchText = _searchText.trimmed();
 
     if (m_filters.search != searchText) {
         m_filters.search = searchText;

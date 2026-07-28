@@ -91,6 +91,7 @@ Kirigami.GlobalDrawer {
             page: window.leftPage
 
             onCurrentSearchTextChanged: {
+                const preserveSearchFocus = searchField.activeFocus
                 var curr = window.leftPage;
 
                 if (pageStack.depth > 1) {
@@ -106,9 +107,11 @@ Kirigami.GlobalDrawer {
                     }
                 } else {
                     curr.search = currentSearchText;
-                    curr.forceActiveFocus()
                 }
                 drawer.currentSearchText = currentSearchText
+                if (preserveSearchFocus) {
+                    Qt.callLater(() => searchField.forceActiveFocus())
+                }
             }
 
             Keys.onDownPressed: featuredActionListItem.forceActiveFocus(Qt.TabFocusReason)

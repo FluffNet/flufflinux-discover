@@ -1711,6 +1711,14 @@ void triage(FlatpakResource *resource,
         return;
     }
 
+    if (filter.search.size() == 1) {
+        if (resource->name().startsWith(filter.search, Qt::CaseInsensitive)
+            || resource->appstreamId().startsWith(filter.search, Qt::CaseInsensitive)) {
+            prioritary += resource;
+        }
+        return;
+    }
+
     if (filter.search.isEmpty() || matchById) {
         rest += resource;
     } else if (resource->name().contains(filter.search, Qt::CaseInsensitive)) {
@@ -1960,7 +1968,9 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
 
                 for (const auto &source : flatpakSources) {
                     if (source->m_pool) {
-                        if (!filter.search.isEmpty()) {
+                        if (filter.search.size() == 1) {
+                            futures.insert(source, source->m_pool->components());
+                        } else if (!filter.search.isEmpty()) {
                             futures.insert(source, source->m_pool->search(filter.search));
                         } else if (filter.category) {
                             futures.insert(source,
@@ -1983,6 +1993,10 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                     QVector<StreamResult> rest(_rest), prioritary(_prioritary);
                     for (const auto [source, future] : futures.asKeyValueRange()) {
                         for (const auto &component : future.result()) {
+                            if (filter.search.size() == 1 && !component.name().startsWith(filter.search, Qt::CaseInsensitive)
+                                && !component.id().startsWith(filter.search, Qt::CaseInsensitive)) {
+                                continue;
+                            }
                             triage(self->resourceForComponent(component, source), prioritary, rest, filter, true);
                         }
                     }
