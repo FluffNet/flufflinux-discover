@@ -46,18 +46,6 @@ msgid ""
 "packages/extra/x86_64/discover/'>%1's packaging for Discover</link>"
 msgstr ""
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -80,11 +68,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1 ကိုမဖွင့်နိုင်ခဲ့ပါ"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "စနပ် ထောက်ပံမှု တပ်ဆင်ပါ"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -156,11 +139,6 @@ msgstr "ရရှိနိုင်သော ထုံးနည်းမျာ�
 msgid "Search string."
 msgstr "စာသား ရှာဖွေမည်။"
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "အသုံးပြုသူတုံ့ပြန်ချက်အတွက် ရရှိနိုင်သော ရွေးချယ်စရာများ ပြမည်"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -201,11 +179,6 @@ msgstr "အရည်အသွေးစိတ်ချရမှု၊ ဒီဇ�
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "ဒန်လိန်နာတာသရာဂျန်ဆန်"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "ကေနယူးစတပ်ဖ်"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -509,7 +482,6 @@ msgstr "အကဲဖြတ်ချက် ရေးသွင်းပါ"
 
 #: discover/qml/ApplicationPage.qml:716
 #, fuzzy, kde-format
-#| msgid "Submit usage information"
 msgctxt "@title:window"
 msgid "License Information"
 msgstr "အသုံးပြုအချက်အလက််များ ပေးပို့မည်"
@@ -836,8 +808,8 @@ msgstr "အပ်ဒိတ်များ ရရှိနေပါပြီ"
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Updates are available"
-msgid "Updates available"
-msgstr "အပ်ဒိတ်များ ရရှိနေပါပြီ"
+msgid "App updates available"
+msgstr "အက်ပ်အပ်ဒိတ်များ ရနိုင်ပါသည်"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -861,14 +833,14 @@ msgstr "&Iတပ်ဆင်ပြီး"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "အက်ပ်အပ်ဒိတ်များ (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "အပ်ဒိတ်များ"
+msgid "&App updates"
+msgstr "အက်ပ်အပ်ဒိတ်များ"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -955,65 +927,6 @@ msgstr ""
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr ""
-
-#: discover/qml/Feedback.qml:14
-#, fuzzy, kde-format
-#| msgid "Submit usage information"
-msgid "Submit Usage Information"
-msgstr "အသုံးပြုအချက်အလက််များ ပေးပို့မည်"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"ကျွန်ုပ်တို့အနေဖြင့် အသုံးပြုသူများ၏လိုလားချက်များကို သိရှိရန် အမည်ဖျောက်ထားသော အသုံးပြုအချက်အလက်များကို "
-"ကေဒီအီးသို့ ပေးပို့ပါ။ ပိုမိုသိလိုပါက https://kde.org/privacypolicy-apps.php သို့သွားပါ။"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "အသုံးပြုအချက်အလက််များ ပေးပို့နေသည်"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "ပြင်ဆင်မည်"
-
-#: discover/qml/Feedback.qml:24
-#, fuzzy, kde-format
-#| msgid "Configure feedback…"
-msgid "Configure Feedback…"
-msgstr "တုံ့ပြန်ချက်ပြင်ဆင်မည်…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Configure feedback…"
-msgid "Configure Updates…"
-msgstr "တုံ့ပြန်ချက်ပြင်ဆင်မည်…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "ပါဝင်ကူညီမည်…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "သင့်တုံ့ပြန်ချက်များကို ကြိုဆိုပါသည်။"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "ပါဝင်ကူညီမည်…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1399,8 +1312,8 @@ msgstr "အုတ်မြစ်ပရိုဂရမ်များ မရှ�
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "အပ်ဒိတ်များ"
+msgid "App updates"
+msgstr "အက်ပ်အပ်ဒိတ်များ"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1474,37 +1387,6 @@ msgstr ""
 msgid "Select None"
 msgstr ""
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:294
-#, fuzzy, kde-format
-#| msgid "Restart Now"
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "ယခုချက်ချင်းပြန်စတင်မည်"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1551,8 +1433,8 @@ msgstr "အပ်ဒိတ်များရယူနေသည်…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "အပ်ဒိတ်များ"
+msgid "App updates"
+msgstr "အက်ပ်အပ်ဒိတ်များ"
 
 #: discover/qml/UpdatesPage.qml:670
 #, fuzzy, kde-format
@@ -1587,6 +1469,10 @@ msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "နောက်ဆုံးအကြိမ်အပ်ဒိတ်တင်ခဲ့သောအချိန်မသိ"
 
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "မူရင်း ရေးသားသူများ"
+
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "
 #~ "participate in surveys."
@@ -1610,11 +1496,6 @@ msgstr "နောက်ဆုံးအကြိမ်အပ်ဒိတ်တင
 #~| msgid "&Update (%1)"
 #~ msgid "&Updates (%1)"
 #~ msgstr "&Uအပ်ဒိတ် (%1)"
-
-#, fuzzy
-#~| msgid "Contribute…"
-#~ msgid "Contribute"
-#~ msgstr "ပါဝင်ကူညီမည်…"
 
 #~ msgid "Fetching &updates…"
 #~ msgstr "&uအပ်ဒိတ်များရယူနေသည်…"

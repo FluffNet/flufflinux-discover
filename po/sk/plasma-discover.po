@@ -60,24 +60,6 @@ msgstr ""
 "url='https://archlinux.org/packages/extra/x86_64/discover/'> tvorbu balíkov "
 "%1 pre Discover</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"Podpora pre správu balíkov zo zdroja %1 je neúplná; môžete naraziť na rôzne "
-"problémy. Nehlásajte chyby tímu KDE. Dôrazne sa odporúča odinštalovať balík "
-"<resource>packagekit-qt6</resource> a používať Discover iba na správu "
-"Flatpaks, Snaps a doplnkov.<para>Správcovia %1 odporúčajú namiesto toho "
-"používať nástroj príkazového riadku <command>pacman</command> na správu "
-"balíkov.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -101,11 +83,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "Nepodarilo sa otvoriť %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Uistite sa prosím, že je nainštalovaná podpora pre Snap"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -184,11 +161,6 @@ msgstr "Vypíše všetky dostupné podporné programy."
 msgid "Search string."
 msgstr "Vyhľadá reťazec."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Vypíše všetky možné voľby pre spätnú väzbu od používateľa"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -228,11 +200,6 @@ msgstr "Zabezpečenie kvality, dizajn a použiteľnosť"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -892,8 +859,8 @@ msgstr "Sú dostupné bezpečnostné aktualizácie"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Sú dostupné aktualizácie"
+msgid "App updates available"
+msgstr "Sú dostupné aktualizácie aplikácií"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -917,13 +884,13 @@ msgstr "Nainštalované"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Updates (Fetching…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Aktualizácie aplikácií (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "Updaty"
+msgid "&App updates"
+msgstr "Aktualizácie aplikácií"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1011,65 +978,6 @@ msgstr "Zobraziť technické podrobnosti"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Skopírovať do schránky"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Odoslať informácie o používaní"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Odošle anonymné údaje o používaní KDE aby sme mohli lepšie rozumieť našim "
-"používateľom. Pre viac informácií navštívte https://kde.org/privacypolicy-"
-"apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Odosielajú sa informácie o používaní..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Nastaviť"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Nastaviť spätnú väzbu..."
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "Nastaviť aktualizácie…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"Môžete pomôcť KDE vylepšiť Discover zdieľaním anonymných informácií o tom, "
-"ako ho používate."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Prispieť..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Tešíme sa na vašu spätnú väzbu!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Zúčastniť sa..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1460,8 +1368,8 @@ msgstr "Chýbajúce podporné programy"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Aktualizácie"
+msgid "App updates"
+msgstr "Aktualizácie aplikácií"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1535,36 +1443,6 @@ msgstr "Vybrať všetky"
 msgid "Select None"
 msgstr "Vybrať žiadne"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "aktualizácie nevybraté"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "Nerobiť nič"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Reštartovať teraz"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "Vypnúť"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "Ukončiť"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1610,8 +1488,8 @@ msgstr "Získavajú sa aktualizácie..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Aktualizácie"
+msgid "App updates"
+msgstr "Aktualizácie aplikácií"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1643,6 +1521,10 @@ msgstr "Mali by sa skontrolovať aktualizácie"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Čas poslednej aktualizácie je neznámy"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Pôvodní autori"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

@@ -31,8 +31,8 @@ msgstr "Biztonsági frissítések érhetők el"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Frissítések érhetők el"
+msgid "App updates available"
+msgstr "Alkalmazásfrissítések érhetők el"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -137,8 +137,8 @@ msgstr "rejtett"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Frissítések"
+msgid "App updates"
+msgstr "Alkalmazásfrissítések"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

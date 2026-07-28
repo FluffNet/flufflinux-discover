@@ -30,8 +30,8 @@ msgstr "Kullanılabilir güvenlik güncellemeleri var"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Kullanılabilir güncellemeler var"
+msgid "App updates available"
+msgstr "Uygulama güncellemeleri var"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -137,8 +137,8 @@ msgstr "gizli"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Güncellemeler"
+msgid "App updates"
+msgstr "Uygulama güncellemeleri"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

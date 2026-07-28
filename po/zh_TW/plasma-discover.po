@@ -58,23 +58,6 @@ msgstr ""
 "archlinux.org/packages/extra/x86_64/discover/'>%1 的 Discover 軟體包打包細節"
 "</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"對於來自 %1 的軟體包的管理的支援是不完整的，因此您可能會遇到一些問題。這個情"
-"況下請不要回報問題給 KDE。強烈建議解除安裝 <resource>packagekit-qt6</"
-"resource> 軟體包並只用 Discover 來管理 Flatpak、Snap 與附加功能軟體包。<para>"
-"%1 的維護者建議使用 <command>pacman</command> 命令列工具來管理軟體包，而不是"
-"使用 Discover。</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -96,11 +79,6 @@ msgstr "無法在無 Flatpak 後端 %1 情況下與 Flatpak 資源互動。請�
 #, kde-format
 msgid "Could not open %1"
 msgstr "無法開啟 %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "請再度確認已安裝 Snap 支援。"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -171,11 +149,6 @@ msgstr "列出所有可用的後端介面。"
 msgid "Search string."
 msgstr "搜尋字串。"
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "列出能用於使用者回饋的選項"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -215,11 +188,6 @@ msgstr "品質保證、設計與可用性"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -852,8 +820,8 @@ msgstr "有可用的安全性更新"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "有可用的更新"
+msgid "App updates available"
+msgstr "有可用的應用程式更新"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -877,13 +845,13 @@ msgstr "已安裝(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "取得更新中(&U)…"
+msgid "&App updates (Fetching…)"
+msgstr "正在取得應用程式更新(&U)…"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "更新(&U)"
+msgid "&App updates"
+msgstr "應用程式更新(&U)"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -968,62 +936,6 @@ msgstr "檢視技術細節"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "複製到剪貼簿"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "提交使用量資訊"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"傳送匿名使用資訊給 KDE 團隊，以讓我們更貼近使用者的需求。請瀏覽 https://kde."
-"org/privacypolicy-apps.php 了解更多。"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "上傳使用量資訊…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "設定"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "設定回饋…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "設定更新…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr "您可以分享匿名使用資訊給 KDE 來幫助我們改善 Discover。"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "貢獻…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "我們期待您的回饋！"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "參與…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1411,8 +1323,8 @@ msgstr "缺乏的後端"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "應用程式更新"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1484,36 +1396,6 @@ msgstr "全部選取"
 msgid "Select None"
 msgstr "全部不選"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "更新完成後："
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "什麼都不做"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "重新開機"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "關機"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "離開"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1559,8 +1441,8 @@ msgstr "正在取得更新…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "應用程式更新"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1592,6 +1474,10 @@ msgstr "應該檢查更新"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "無法得知最近的一次更新時間"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "原始作者"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

@@ -55,12 +55,7 @@ Kirigami.Dialog {
         Kirigami.InlineMessage {
             id: reviewMightBeCrapWarning
 
-            readonly property bool packagedByDistro: ![
-                "flatpak-backend",
-                "snap-backend",
-                "kns-backend",
-                "fwupd-backend"
-            ].includes(reviewDialog.application.backend.name);
+            readonly property bool packagedByDistro: reviewDialog.application.backend.name !== "flatpak-backend";
             readonly property string appBugReportUrl: reviewDialog.application.bugURL.toString()
 
             Layout.fillWidth: true
@@ -90,10 +85,6 @@ Kirigami.Dialog {
             }
 
             visible: {
-                // The "improve your review" UI is app-specific and doesn't apply to KNS.
-                if (reviewDialog.application.backend.name === "kns-backend") {
-                    return false;
-                }
                 // Let people leave crappy reviews for proprietary apps, since trying to
                 // communicate with their devs to improve them is usually like screaming
                 // into the void.

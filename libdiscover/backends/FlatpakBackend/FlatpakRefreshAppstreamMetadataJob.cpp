@@ -41,19 +41,21 @@ void FlatpakRefreshAppstreamMetadataJob::run()
     g_autoptr(GError) localError = nullptr;
 
     gboolean changed = false;
-    if (!flatpak_installation_update_appstream_full_sync(m_installation.get(),
-                                                         flatpak_remote_get_name(m_remote.get()),
-                                                         nullptr,
-                                                         &FlatpakRefreshAppstreamMetadataJob::updateCallback,
-                                                         this,
-                                                         &changed,
-                                                         m_cancellable,
-                                                         &localError)) {
+    const bool succeeded = flatpak_installation_update_appstream_full_sync(m_installation.get(),
+                                                                            flatpak_remote_get_name(m_remote.get()),
+                                                                            nullptr,
+                                                                            &FlatpakRefreshAppstreamMetadataJob::updateCallback,
+                                                                            this,
+                                                                            &changed,
+                                                                            m_cancellable,
+                                                                            &localError);
+    if (!succeeded) {
         const QString error = localError ? QString::fromUtf8(localError->message) : QStringLiteral("<no error>");
         qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG).nospace()
             << "Failed to refresh appstream metadata for " << flatpak_remote_get_name(m_remote.get()) << ": " << error;
     }
     m_hasChanged = changed;
+    Q_EMIT sourceRefreshCompleted(succeeded);
     Q_EMIT jobRefreshAppstreamMetadataFinished(m_installation, m_remote, changed);
 }
 

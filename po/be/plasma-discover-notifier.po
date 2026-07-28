@@ -34,8 +34,8 @@ msgstr "Даступны абнаўленні бяспекі"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Даступны абнаўленні"
+msgid "App updates available"
+msgstr "Даступныя абнаўленні праграм"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -144,8 +144,8 @@ msgstr "схавана"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Абнаўленні"
+msgid "App updates"
+msgstr "Абнаўленні праграм"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

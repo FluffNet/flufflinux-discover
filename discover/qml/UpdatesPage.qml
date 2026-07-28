@@ -11,12 +11,17 @@ import org.kde.kitemmodels as KItemModels
 DiscoverPage {
     id: page
 
-    title: i18n("Updates")
+    title: i18n("App updates")
 
     property string footerLabel: ""
     property int footerProgress: 0
     property bool busy: false
     readonly property string name: title
+    readonly property string isolatedLastUpdate: "\u2066" + DiscoverApp.AppUpdateSettings.lastSuccessfulUpdate + "\u2069"
+    readonly property string isolatedRelativeLastUpdate: "\u2066" + DiscoverApp.AppUpdateSettings.relativeLastSuccessfulUpdate + "\u2069"
+    readonly property string lastUpdateSummary: DiscoverApp.AppUpdateSettings.hasLastSuccessfulUpdate
+        ? i18n("Apps last updated: %1 (%2)", isolatedLastUpdate, isolatedRelativeLastUpdate)
+        : i18n("Apps have not been updated yet")
 
     Discover.ResourcesUpdatesModel {
         id: resourcesUpdatesModel
@@ -27,6 +32,18 @@ DiscoverPage {
         onIsProgressingChanged: {
             if (!isProgressing) {
                 resourcesUpdatesModel.prepare()
+            }
+        }
+        onIsFetchingChanged: {
+            if (!isFetching) {
+                DiscoverApp.AppUpdateSettings.reloadUpdateHistory()
+            }
+        }
+        onFinished: {
+            if (errorMessages.length === 0) {
+                DiscoverApp.AppUpdateSettings.recordUpdateSuccess()
+            } else {
+                DiscoverApp.AppUpdateSettings.recordUpdateFailure(errorMessages.join("\n"))
             }
         }
 
@@ -60,7 +77,7 @@ DiscoverPage {
                         Layout.fillWidth: true
                         Layout.maximumWidth: Math.round(page.width * 0.75)
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
-                        text: i18n("There was an issue installing this update. Please try again later.")
+                        text: i18n("An error occurred while updating apps.")
                         wrapMode: Text.WordWrap
                     }
                     QQC2.Button {
@@ -182,12 +199,16 @@ DiscoverPage {
             inlineMessage: Discover.ResourcesModel.inlineMessage
         }
 
-        Kirigami.InlineMessage {
+        QQC2.Label {
             Layout.fillWidth: true
-            position: Kirigami.InlineMessage.Position.Header
-            visible: resourcesUpdatesModel.needsReboot && page.state !== "fetching" && page.state !== "reboot"
-            text: i18nc("@info", "A pending update will be installed when restarting the system.")
-            icon.name: "system-reboot-update"
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.topMargin: Kirigami.Units.smallSpacing
+            Layout.bottomMargin: Kirigami.Units.smallSpacing
+            visible: updateModel.hasUpdates && !resourcesUpdatesModel.isFetching
+            text: page.lastUpdateSummary
+            wrapMode: Text.WordWrap
+            color: Kirigami.Theme.disabledTextColor
         }
 
         Repeater {
@@ -269,36 +290,6 @@ DiscoverPage {
                     onClicked: { updateModel.uncheckAll(); }
                 }
 
-                RowLayout {
-                    visible: resourcesUpdatesModel.isProgressing
-                    spacing: Kirigami.Units.smallSpacing
-
-                    Layout.fillWidth: true
-
-                    Layout.leftMargin: Kirigami.Units.largeSpacing
-                    Layout.rightMargin: Kirigami.Units.largeSpacing
-
-                    RowLayout {
-                        visible: resourcesUpdatesModel.isProgressing
-                        spacing: Kirigami.Units.smallSpacing
-                        Layout.fillWidth: true
-
-                        QQC2.Label {
-                            text: i18nc("@info After updates complete, shut down/restart/quit", "After updates complete:")
-                        }
-
-                        QQC2.ComboBox {
-                            id: actionAfterUpdateCombo
-                            model: [
-                                i18nc("@item:inlistbox after updates complete, do nothing", "Do nothing"),
-                                i18nc("@item:inlistbox after updates complete, restart", "Restart"),
-                                i18nc("@item:inlistbox after updates complete, shut down", "Shut down"),
-                                i18nc("@item:inlistbox after updates complete, quit", "Quit")
-                            ]
-                        }
-                    }
-                }
-
                 QQC2.Label {
                     Layout.fillWidth: true
                     Layout.rightMargin: Kirigami.Units.largeSpacing
@@ -330,14 +321,6 @@ DiscoverPage {
         parent: page
         anchors.fill: parent
 
-        Kirigami.Action {
-            id: promptRestartAction
-            icon.name: "system-reboot-update"
-            text: i18nc("@action:button", "Restart and Install Updates")
-            visible: false
-            onTriggered: app.promptReboot()
-        }
-
         Kirigami.LoadingPlaceholder {
             id: statusLabel
 
@@ -362,7 +345,7 @@ DiscoverPage {
                 visible: text.length > 0
                 opacity: 0.75
 
-                text: Discover.ResourcesModel.remainingDescription
+                text: page.busy ? Discover.ResourcesModel.remainingDescription : page.lastUpdateSummary
 
                 horizontalAlignment: Qt.AlignHCenter
                 wrapMode: Text.WordWrap
@@ -601,43 +584,14 @@ DiscoverPage {
         }
     }
 
-    readonly property alias secSinceUpdate: resourcesUpdatesModel.secsToLastUpdate
-    property string previousState: ""
-    property bool updateTriggered: false
-
     state:  ( resourcesUpdatesModel.isProgressing        ? "progressing"
             : resourcesUpdatesModel.isFetching           ? "fetching"
             : updateModel.hasUpdates                     ? "has-updates"
-            : resourcesUpdatesModel.needsReboot          ? "reboot"
-            : secSinceUpdate < 0                         ? "unknown"
-            : secSinceUpdate === 0                       ? "now-uptodate"
-            : secSinceUpdate < 1000 * 60 * 60 * 24       ? "uptodate"
-            : secSinceUpdate < 1000 * 60 * 60 * 24 * 7   ? "medium"
-            :                                              "low"
+            : DiscoverApp.AppUpdateSettings.checkedThisSession ? "now-uptodate"
+            : !DiscoverApp.AppUpdateSettings.hasLastSuccessfulUpdate ? "unknown"
+            : DiscoverApp.AppUpdateSettings.lastUpdateOlderThanWeek ? "medium"
+            : "uptodate"
             )
-
-    onStateChanged: {
-        const prev = previousState
-        previousState = state
-        if (prev === "progressing") {
-            updateTriggered = true
-        }
-
-        const option = actionAfterUpdateCombo.currentIndex
-        if (state === "reboot") {
-            if (resourcesUpdatesModel.readyToReboot) {
-                if (option === 1) {
-                    app.rebootNow()
-                } else if (option === 2) {
-                    app.shutdownNow()
-                } else if (option === 3) {
-                    app.reconsiderQuit()
-                }
-            }
-        } else if (updateTriggered && option === 3) {
-            app.reconsiderQuit()
-        }
-    }
 
     states: [
         State {
@@ -657,7 +611,7 @@ DiscoverPage {
         },
         State {
             name: "has-updates"
-            PropertyChanges { page.title: i18nc("@info", "Updates") }
+            PropertyChanges { page.title: i18nc("@info", "App updates") }
             // On mobile, we want "Update" to be the primary action so it's in
             // the center, but on desktop this feels a bit awkward and it would
             // be better to have "Update" be the right-most action
@@ -665,46 +619,33 @@ DiscoverPage {
             PropertyChanges { statusLabel.visible: false }
         },
         State {
-            name: "reboot"
-            PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { page.footerLabel: i18nc("@info", "Updates will be installed after the system is restarted") }
-            PropertyChanges { statusLabel.helpfulAction: promptRestartAction }
-            PropertyChanges { statusLabel.explanation: i18nc("@info", "You can keep using the system if you're not ready to restart yet.") }
-            PropertyChanges { statusLabel.progressBar.visible: false }
-        },
-        State {
             name: "now-uptodate"
             PropertyChanges { page.footerLabel: i18nc("@info", "Up to date") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "uptodate"
             PropertyChanges { page.footerLabel: i18nc("@info", "Up to date") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "medium"
-            PropertyChanges { page.title: i18nc("@info", "Up to date") }
+            PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "low"
-            PropertyChanges { page.title: i18nc("@info", "Should check for updates") }
+            PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "unknown"
-            PropertyChanges { page.title: i18nc("@info", "Time of last update unknown") }
+            PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
             PropertyChanges { statusLabel.progressBar.visible: false }
         }
     ]

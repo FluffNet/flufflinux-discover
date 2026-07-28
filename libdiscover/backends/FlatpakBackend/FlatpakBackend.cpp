@@ -19,6 +19,7 @@
 #include <appstream/OdrsReviewsBackend.h>
 #include <resources/SourcesModel.h>
 #include <resources/StandardBackendUpdater.h>
+#include <UpdateState.h>
 #include <utils.h>
 #include <utilscoro.h>
 
@@ -42,6 +43,7 @@
 #include <QFileInfo>
 #include <QFutureWatcher>
 #include <QNetworkAccessManager>
+#include <QProcess>
 #include <QSettings>
 #include <QTemporaryFile>
 #include <QTextStream>
@@ -50,9 +52,11 @@
 #include <QtConcurrentRun>
 
 #include <QRegularExpression>
+#include <QScopeGuard>
 #include <glib.h>
 
 #include <Category/Category.h>
+#include <algorithm>
 #include <optional>
 #include <set>
 #include <sys/stat.h>
@@ -81,6 +85,24 @@ public:
         : m_backend(backend)
     {
         connect(m_backend->m_updater, &StandardBackendUpdater::settingUpChanged, this, &ProgressCollector::progressChanged);
+    }
+
+    ~ProgressCollector() override
+    {
+        for (auto job : std::as_const(m_jobs)) {
+            job->cancel();
+        }
+
+        for (auto job : std::as_const(m_jobs)) {
+            if (job->wait(2000)) {
+                delete job;
+            } else {
+                // Deleting a running QThread is unsafe. At process shutdown it is
+                // better to let the operating system reclaim this short-lived job.
+                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Flatpak metadata refresh did not stop before shutdown";
+            }
+        }
+        m_jobs.clear();
     }
 
     void add(FlatpakRefreshAppstreamMetadataJob *job)
@@ -301,6 +323,157 @@ static FlatpakResource::Id idForInstalledRef(FlatpakInstalledRef *ref, const QSt
     return {appId, branch, arch};
 }
 
+static QString flatpakNameFromId(const QString &id)
+{
+    QStringView name(id);
+    const qsizetype firstSlash = name.indexOf(QLatin1Char('/'));
+    if (firstSlash >= 0) {
+        name = name.sliced(firstSlash + 1);
+        const qsizetype secondSlash = name.indexOf(QLatin1Char('/'));
+        if (secondSlash >= 0) {
+            name = name.first(secondSlash);
+        }
+    }
+
+    return name.toString();
+}
+
+struct FlatpakExclusionRule {
+    QString id;
+    QString pacmanPackage;
+    bool enabled = true;
+};
+
+static bool isPacmanPackageInstalled(const QString &packageName)
+{
+    static const QRegularExpression validPackageName(QStringLiteral(R"(^[-a-zA-Z0-9@._+:]+$)"));
+    if (!validPackageName.match(packageName).hasMatch()) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring invalid pacman package name in exclusions:" << packageName;
+        return false;
+    }
+
+    QProcess pacman;
+    pacman.start(QStringLiteral("/usr/bin/pacman"), {QStringLiteral("-Qq"), packageName}, QIODevice::ReadOnly);
+    if (!pacman.waitForStarted(1000)) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Could not start pacman while evaluating exclusion for" << packageName;
+        return false;
+    }
+    if (!pacman.waitForFinished(3000)) {
+        pacman.kill();
+        pacman.waitForFinished();
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Timed out checking installed pacman package" << packageName;
+        return false;
+    }
+
+    return pacman.exitStatus() == QProcess::NormalExit && pacman.exitCode() == 0;
+}
+
+static const QList<FlatpakExclusionRule> &excludedFlatpakRules()
+{
+    static const QList<FlatpakExclusionRule> rules = [] {
+        QList<FlatpakExclusionRule> result;
+        QFile file(QStringLiteral("/etc/discover/exclusions.conf"));
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Could not read Flatpak exclusions from" << file.fileName();
+            return result;
+        }
+
+        QTextStream stream(&file);
+        static const QRegularExpression ruleExpression(QStringLiteral("^(\\S+?)(?:\\s+-p\\(\"([^\"]+)\"\\))?$"));
+        while (!stream.atEnd()) {
+            const QString line = stream.readLine().trimmed();
+            if (line.isEmpty() || line.startsWith(QLatin1Char('#'))) {
+                continue;
+            }
+
+            const QRegularExpressionMatch match = ruleExpression.match(line);
+            if (!match.hasMatch()) {
+                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring malformed Flatpak exclusion rule:" << line;
+                continue;
+            }
+
+            QString id = match.captured(1);
+            static constexpr QLatin1StringView appstreamPrefix("appstream://");
+            if (id.startsWith(appstreamPrefix, Qt::CaseInsensitive)) {
+                id.remove(0, appstreamPrefix.size());
+            }
+            const QString pacmanPackage = match.captured(2);
+            result.append({id, pacmanPackage, pacmanPackage.isEmpty() || isPacmanPackageInstalled(pacmanPackage)});
+        }
+        return result;
+    }();
+
+    return rules;
+}
+
+static bool isExcludedFlatpakId(const QString &id)
+{
+    const QString name = flatpakNameFromId(id);
+    return std::ranges::any_of(excludedFlatpakRules(), [&name](const FlatpakExclusionRule &rule) {
+        if (!rule.enabled) {
+            return false;
+        }
+        if (rule.id.endsWith(QLatin1Char('*'))) {
+            return name.startsWith(QStringView(rule.id).chopped(1), Qt::CaseInsensitive);
+        }
+        return name.compare(rule.id, Qt::CaseInsensitive) == 0;
+    });
+}
+
+static bool isExcludedFlatpakResource(const FlatpakResource *resource)
+{
+    return resource && (isExcludedFlatpakId(resource->flatpakName()) || isExcludedFlatpakId(resource->appstreamId()));
+}
+
+struct SpecialSearchQuery {
+    QList<QRegularExpression> required;
+    QList<QRegularExpression> excluded;
+
+    [[nodiscard]] bool matches(FlatpakResource *resource) const
+    {
+        const QString searchableText =
+            resource->name() + QLatin1Char('\n') + resource->comment() + QLatin1Char('\n') + resource->appstreamId();
+        return std::ranges::all_of(required, [&searchableText](const QRegularExpression &expression) {
+                   return searchableText.contains(expression);
+               })
+            && std::ranges::none_of(excluded, [&searchableText](const QRegularExpression &expression) {
+                   return searchableText.contains(expression);
+               });
+    }
+};
+
+static bool usesSpecialSearchSyntax(const QString &search)
+{
+    return search.contains(QLatin1Char('"')) || search.contains(QLatin1Char('*'))
+        || QRegularExpression(QStringLiteral(R"((^|\s)-[^\s-])")).match(search).hasMatch();
+}
+
+static SpecialSearchQuery parseSpecialSearch(const QString &search)
+{
+    SpecialSearchQuery query;
+    static const QRegularExpression tokenExpression(QStringLiteral(R"((-?)("[^"]*"|\S+))"));
+    auto matches = tokenExpression.globalMatch(search);
+
+    while (matches.hasNext()) {
+        const QRegularExpressionMatch match = matches.next();
+        const bool exclude = !match.captured(1).isEmpty();
+        QString token = match.captured(2);
+        if (token.size() >= 2 && token.startsWith(QLatin1Char('"')) && token.endsWith(QLatin1Char('"'))) {
+            token = token.sliced(1, token.size() - 2);
+        }
+        if (token.isEmpty()) {
+            continue;
+        }
+
+        QString pattern = QRegularExpression::escape(token);
+        pattern.replace(QStringLiteral("\\*"), QStringLiteral(".*"));
+        QRegularExpression expression(pattern, QRegularExpression::CaseInsensitiveOption);
+        (exclude ? query.excluded : query.required).append(std::move(expression));
+    }
+
+    return query;
+}
+
 static std::optional<AppStream::Metadata> metadataFromBytes(GBytes *appstreamGz, GCancellable *cancellable)
 {
     g_autoptr(GError) localError = nullptr;
@@ -320,7 +493,8 @@ static std::optional<AppStream::Metadata> metadataFromBytes(GBytes *appstreamGz,
 
     appstream = g_input_stream_read_bytes(streamData, 0x100000, cancellable, &localError);
     if (!appstream) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to extract appstream metadata from bundle:" << localError->message;
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+            << "Failed to extract appstream metadata from bundle:" << (localError ? localError->message : "unknown Flatpak error");
         return {};
     }
 
@@ -352,12 +526,32 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
 
     // Load flatpak installation
     if (!setupFlatpakInstallations(&error)) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to setup flatpak installations:" << error->message;
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+            << "Failed to setup Flatpak installations:"
+            << (error ? error->message : "no Flatpak installations are available");
     } else {
         m_sources = new FlatpakSourcesBackend(m_installations, this);
-        loadAppsFromAppstreamData();
-
         SourcesModel::global()->addSourcesBackend(m_sources);
+        // Keep the backend in its loading state across the queued initial
+        // source discovery. Individual source loads hold their own references
+        // until their AppStream data is ready.
+        acquireFetching(true);
+        QTimer::singleShot(0, this, [this] {
+            loadAppsFromAppstreamData();
+            // Cached metadata is enough to populate the UI. Network refreshes
+            // start only after the initial pools are ready so Home is never
+            // delayed. Manual mode performs this launch-time check only when
+            // update history is absent or older than one month.
+            const KConfigGroup updates(KSharedConfig::openConfig(QStringLiteral("PlasmaDiscoverUpdates")), QStringLiteral("Global"));
+            const bool automatic = updates.readEntry(QStringLiteral("UseUnattendedUpdates"), true);
+            const QDateTime lastSuccess = UpdateState::read().lastSuccess;
+            const bool staleManualHistory = !automatic
+                && (!lastSuccess.isValid() || lastSuccess.addMonths(1) < QDateTime::currentDateTimeUtc());
+            if ((automatic && m_refreshStaleAppstream) || staleManualHistory) {
+                connect(this, &FlatpakBackend::initialized, m_checkForUpdatesTimer, qOverload<>(&QTimer::start), Qt::UniqueConnection);
+            }
+            acquireFetching(false);
+        });
     }
 
     connect(m_reviews.data(), &OdrsReviewsBackend::ratingsReady, this, [this] {
@@ -381,10 +575,10 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
 FlatpakBackend::~FlatpakBackend()
 {
     g_cancellable_cancel(m_cancellable);
-    if (!m_threadPool.waitForDone(200)) {
-        qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "could not kill them all" << m_threadPool.activeThreadCount();
-    }
     m_threadPool.clear();
+    // Running jobs use installation objects and the shared cancellable. Wait
+    // until cancellation has propagated before releasing those dependencies.
+    m_threadPool.waitForDone();
 
     for (auto installation : std::as_const(m_installations)) {
         g_object_unref(installation);
@@ -400,7 +594,6 @@ bool FlatpakBackend::isValid() const
 
 class FlatpakFetchRemoteResourceJob : public QNetworkAccessManager
 {
-    Q_OBJECT
 public:
     FlatpakFetchRemoteResourceJob(const QUrl &url, ResultsStream *stream, FlatpakBackend *backend)
         : QNetworkAccessManager(backend)
@@ -723,6 +916,10 @@ void FlatpakBackend::addAppFromFlatpakBundle(const QUrl &url, ResultsStream *str
         qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to load bundle:" << localError->message;
         return;
     }
+    if (isExcludedFlatpakId(QString::fromUtf8(flatpak_ref_get_name(FLATPAK_REF(bundleRef))))) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring excluded Flatpak bundle" << url;
+        return;
+    }
 
     gsize len = 0;
     g_autoptr(GBytes) metadata = flatpak_bundle_ref_get_metadata(bundleRef);
@@ -922,6 +1119,12 @@ void FlatpakBackend::addAppFromFlatpakRef(const QUrl &url, ResultsStream *stream
     const bool isRuntime = settings.value(QLatin1StringView("Flatpak Ref/IsRuntime")).toBool();
     g_autoptr(GError) error = nullptr;
 
+    if (isExcludedFlatpakId(name)) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring excluded Flatpak ref" << name;
+        stream->finish();
+        return;
+    }
+
     // If we already added the remote, just go with it
     if (auto source = findSourceUrl(preferredInstallation(), refurl)) {
         const QString ref = composeRef(isRuntime, name, branch);
@@ -1082,7 +1285,7 @@ bool FlatpakBackend::loadAppsFromAppstreamData(FlatpakInstallation *flatpakInsta
     g_autoptr(GError) error = nullptr;
     g_autoptr(GPtrArray) remotes = flatpak_installation_list_remotes(flatpakInstallation, m_cancellable, &error);
     if (!remotes) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "failed to list remotes" << error->message;
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "failed to list remotes" << (error ? error->message : "unknown Flatpak error");
         return false;
     }
 
@@ -1100,14 +1303,24 @@ void FlatpakBackend::loadRemote(FlatpakInstallation *installation, FlatpakRemote
     Q_ASSERT(!m_refreshAppstreamMetadataJobs.contains(remote));
     m_refreshAppstreamMetadataJobs.insert(remote);
 
+    if (!fileTimestamp) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "No AppStream timestamp available for" << flatpak_remote_get_name(remote);
+        checkForRemoteUpdates(installation, remote);
+        return;
+    }
+
     g_autofree char *path_str = g_file_get_path(fileTimestamp);
     QFileInfo fileInfo(QFile::decodeName(path_str));
-    if (!fileInfo.exists() || fileInfo.lastModified().toUTC().secsTo(QDateTime::currentDateTimeUtc()) > 21600) {
-        // Refresh appstream metadata in case they have never been refreshed or the cache is older than 6 hours
+    if (!fileInfo.exists()) {
+        // There is no local catalog to display, so the initial refresh must
+        // finish before this source can be used.
         checkForRemoteUpdates(installation, remote);
     } else {
         auto source = integrateRemote(installation, remote);
         Q_ASSERT(findSource(installation, QString::fromUtf8(flatpak_remote_get_name(remote))) == source);
+        if (fileInfo.lastModified().toUTC().secsTo(QDateTime::currentDateTimeUtc()) > 21600) {
+            m_refreshStaleAppstream = true;
+        }
     }
 }
 
@@ -1265,13 +1478,18 @@ bool FlatpakBackend::setupFlatpakInstallations(GError **error)
         const QString path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1String("/discover-flatpak-test");
         qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "running flatpak backend on test mode" << path;
         g_autoptr(GFile) file = g_file_new_for_path(QFile::encodeName(path).constData());
-        m_installations << flatpak_installation_new_for_path(file, true, m_cancellable, error);
-        return m_installations.constLast() != nullptr;
+        auto installation = flatpak_installation_new_for_path(file, true, m_cancellable, error);
+        if (installation) {
+            m_installations << installation;
+            return true;
+        }
+        return false;
     }
 
     g_autoptr(GPtrArray) installations = flatpak_get_system_installations(m_cancellable, error);
-    if (*error) {
+    if (error && *error) {
         qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to call flatpak_get_system_installations:" << (*error)->message;
+        g_clear_error(error);
     }
     for (uint i = 0; installations && i < installations->len; i++) {
         auto installation = FLATPAK_INSTALLATION(g_ptr_array_index(installations, i));
@@ -1281,6 +1499,8 @@ bool FlatpakBackend::setupFlatpakInstallations(GError **error)
 
     if (auto user = flatpak_installation_new_user(m_cancellable, error)) {
         m_installations << user;
+    } else if (error && *error) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to initialize the user Flatpak installation:" << (*error)->message;
     }
 
     return !m_installations.isEmpty();
@@ -1472,13 +1692,25 @@ void FlatpakBackend::updateAppState(FlatpakResource *resource)
 
 void FlatpakBackend::acquireFetching(bool f)
 {
+    const bool wasFetching = isFetching();
+
     if (f) {
         m_isFetching++;
     } else {
+        Q_ASSERT(m_isFetching > 0);
+        if (m_isFetching == 0) {
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Unbalanced Flatpak fetching state";
+            return;
+        }
         m_isFetching--;
     }
 
+    if (wasFetching != isFetching()) {
+        Q_EMIT fetchingChanged();
+    }
+
     if (!f && m_isFetching == 0) {
+        m_isInitialized = true;
         Q_EMIT contentsChanged();
         Q_EMIT initialized();
     }
@@ -1593,6 +1825,10 @@ void triage(FlatpakResource *resource,
             const AbstractResourcesBackend::Filters &filter,
             bool filtered)
 {
+    if (isExcludedFlatpakResource(resource)) {
+        return;
+    }
+
     const bool matchById = resource->appstreamId().compare(filter.search, Qt::CaseInsensitive) == 0;
     // Note: FlatpakResource can not have type == System
     if (resource->type() == AbstractResource::ApplicationSupport && filter.state != AbstractResource::Upgradeable && !matchById) {
@@ -1608,6 +1844,14 @@ void triage(FlatpakResource *resource,
     }
 
     if (!filter.mimetype.isEmpty() && !resource->mimetypes().contains(filter.mimetype)) {
+        return;
+    }
+
+    if (filter.search.size() == 1) {
+        if (resource->name().startsWith(filter.search, Qt::CaseInsensitive)
+            || resource->appstreamId().startsWith(filter.search, Qt::CaseInsensitive)) {
+            prioritary += resource;
+        }
         return;
     }
 
@@ -1663,6 +1907,10 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 const auto refArch = flatpak_ref_get_arch(ref);
                 const auto refBranch = flatpak_ref_get_branch(ref);
 
+                if (isExcludedFlatpakId(QString::fromUtf8(refName))) {
+                    co_return;
+                }
+
                 // need to issue the search of installed refs too
                 // it can happen that a ref is present because it's installed but not part of the appstream metadata anymore
                 for (auto installation : std::as_const(installations)) {
@@ -1705,6 +1953,14 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 FLATPAK_BACKEND_GUARD
 
                 const auto ret = co_await self->listInstalledRefsForUpdate();
+                auto refsCleanup = qScopeGuard([&ret] {
+                    for (const auto &[installation, refs] : ret.asKeyValueRange()) {
+                        g_object_unref(installation);
+                        for (const auto ref : refs) {
+                            g_object_unref(ref);
+                        }
+                    }
+                });
 
                 FLATPAK_BACKEND_CHECK
 
@@ -1714,6 +1970,9 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                     for (const auto ref : refs) {
                         bool fresh = false;
                         const QLatin1String id(flatpak_ref_get_name(FLATPAK_REF(ref)));
+                        if (isExcludedFlatpakId(QString::fromLatin1(id.data(), id.size()))) {
+                            continue;
+                        }
                         if (isFlatpakSubRef(id)) {
                             const QByteArray parentId(id.constData(), id.lastIndexOf(QLatin1Char('.')));
 
@@ -1749,9 +2008,10 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                                     continue;
                                 }
                             } else {
-                                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to get parent ref" << parentId << "for subref" << id //
-                                                                           << "\n  AppError:" << appError->message //
-                                                                           << "\n  RuntimeError:" << runtimeError->message;
+                                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                                    << "Failed to get parent ref" << parentId << "for subref" << id //
+                                    << "\n  AppError:" << (appError ? appError->message : "not available") //
+                                    << "\n  RuntimeError:" << (runtimeError ? runtimeError->message : "not available");
                             }
                         }
                         auto resource = self->getAppForInstalledRef(installation, ref, &fresh);
@@ -1768,10 +2028,6 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                         FLATPAK_BACKEND_YIELD
                     }
 
-                    g_object_unref(installation);
-                    for (const auto &ref : refs) {
-                        g_object_unref(ref);
-                    }
                 }
 
                 FLATPAK_BACKEND_CHECK
@@ -1787,6 +2043,8 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 FLATPAK_BACKEND_GUARD
                 const auto installations = self->m_installations;
                 QVector<StreamResult> resources;
+                const bool specialSearch = usesSpecialSearchSyntax(filter.search);
+                const SpecialSearchQuery specialQuery = specialSearch ? parseSpecialSearch(filter.search) : SpecialSearchQuery{};
 
                 for (auto installation : std::as_const(installations)) {
                     FLATPAK_BACKEND_YIELD
@@ -1803,6 +2061,9 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                         FLATPAK_BACKEND_YIELD;
 
                         FlatpakRef *ref = FLATPAK_REF(g_ptr_array_index(refs, i));
+                        if (isExcludedFlatpakId(QString::fromUtf8(flatpak_ref_get_name(ref)))) {
+                            continue;
+                        }
                         if (isFlatpakSubRef(QLatin1String(flatpak_ref_get_name(ref)))) {
                             continue;
                         }
@@ -1812,7 +2073,10 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                         if (!resource) {
                             continue;
                         }
-                        if (!filter.search.isEmpty() && !resource->name().contains(filter.search, Qt::CaseInsensitive)
+                        if (specialSearch && !specialQuery.matches(resource)) {
+                            continue;
+                        }
+                        if (!specialSearch && !filter.search.isEmpty() && !resource->name().contains(filter.search, Qt::CaseInsensitive)
                             && !resource->appstreamId().contains(filter.search, Qt::CaseInsensitive)) {
                             continue;
                         }
@@ -1842,10 +2106,18 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 QVector<StreamResult> prioritary, rest;
                 QMap<QSharedPointer<FlatpakSource>, QFuture<AppStream::ComponentBox>> futures;
                 QList<FlatpakResource *> unpooled;
+                const bool specialSearch = usesSpecialSearchSyntax(filter.search);
+                const SpecialSearchQuery specialQuery = specialSearch ? parseSpecialSearch(filter.search) : SpecialSearchQuery{};
+                auto triageFilter = filter;
+                if (specialSearch) {
+                    triageFilter.search.clear();
+                }
 
                 for (const auto &source : flatpakSources) {
                     if (source->m_pool) {
-                        if (!filter.search.isEmpty()) {
+                        if (specialSearch || filter.search.size() == 1) {
+                            futures.insert(source, source->m_pool->components());
+                        } else if (!filter.search.isEmpty()) {
                             futures.insert(source, source->m_pool->search(filter.search));
                         } else if (filter.category) {
                             futures.insert(source,
@@ -1862,13 +2134,26 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 fw->setFuture(QtFuture::whenAll(futures.begin(), futures.end()));
                 FLATPAK_BACKEND_YIELD
                 for (auto r : std::as_const(unpooled)) {
-                    triage(r, prioritary, rest, filter, false);
+                    if (!specialSearch || specialQuery.matches(r)) {
+                        triage(r, prioritary, rest, triageFilter, false);
+                    }
                 }
-                connect(fw, &QFS::finished, stream, [self, futures, stream, _rest = rest, _prioritary = prioritary, filter, fw]() {
+                connect(fw,
+                        &QFS::finished,
+                        stream,
+                        [self, futures, stream, _rest = rest, _prioritary = prioritary, filter, triageFilter, specialSearch, specialQuery, fw]() {
                     QVector<StreamResult> rest(_rest), prioritary(_prioritary);
                     for (const auto [source, future] : futures.asKeyValueRange()) {
                         for (const auto &component : future.result()) {
-                            triage(self->resourceForComponent(component, source), prioritary, rest, filter, true);
+                            if (filter.search.size() == 1 && !component.name().startsWith(filter.search, Qt::CaseInsensitive)
+                                && !component.id().startsWith(filter.search, Qt::CaseInsensitive)) {
+                                continue;
+                            }
+                            auto *resource = self->resourceForComponent(component, source);
+                            if (specialSearch && !specialQuery.matches(resource)) {
+                                continue;
+                            }
+                            triage(resource, prioritary, rest, triageFilter, true);
                         }
                     }
 
@@ -1911,29 +2196,45 @@ QCoro::Task<QHash<FlatpakInstallation *, QList<FlatpakInstalledRef *>>> FlatpakB
         &m_threadPool,
         [](GCancellable *cancellable, QList<FlatpakInstallation *> installations) {
             QHash<FlatpakInstallation *, QVector<FlatpakInstalledRef *>> ret;
+            bool ownershipTransferred = false;
+            auto cleanup = qScopeGuard([&] {
+                if (ownershipTransferred) {
+                    return;
+                }
+                for (auto installation : std::as_const(installations)) {
+                    g_object_unref(installation);
+                }
+                for (const auto &refs : std::as_const(ret)) {
+                    for (auto ref : refs) {
+                        g_object_unref(ref);
+                    }
+                }
+            });
+
             if (g_cancellable_is_cancelled(cancellable)) {
                 qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Job cancelled";
                 return ret;
             }
 
             for (auto installation : std::as_const(installations)) {
+                auto &current = ret[installation];
                 g_autoptr(GError) localError = nullptr;
                 g_autoptr(GPtrArray) refs = flatpak_installation_list_installed_refs_for_update(installation, cancellable, &localError);
                 if (!refs) {
-                    qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to get list of installed refs for listing updates:" << localError->message;
+                    qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                        << "Failed to get list of installed refs for listing updates:"
+                        << (localError ? localError->message : "unknown Flatpak error");
                     continue;
                 }
                 if (g_cancellable_is_cancelled(cancellable)) {
                     qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Job cancelled";
-                    ret.clear();
-                    break;
+                    return decltype(ret){};
                 }
 
                 if (refs->len == 0) {
                     continue;
                 }
 
-                auto &current = ret[installation];
                 current.reserve(refs->len);
                 for (uint i = 0; i < refs->len; i++) {
                     FlatpakInstalledRef *ref = FLATPAK_INSTALLED_REF(g_ptr_array_index(refs, i));
@@ -1941,6 +2242,7 @@ QCoro::Task<QHash<FlatpakInstallation *, QList<FlatpakInstalledRef *>>> FlatpakB
                     current.append(ref);
                 }
             }
+            ownershipTransferred = true;
             return ret;
         },
         cancellable,
@@ -1958,17 +2260,39 @@ bool FlatpakBackend::isTracked(FlatpakResource *resource) const
 ResultsStream *FlatpakBackend::findResourceByPackageName(const QUrl &url)
 {
     if (url.scheme() == QLatin1String("appstream")) {
-        const auto appstreamIds = AppStreamUtils::appstreamIds(url);
+        auto appstreamIds = AppStreamUtils::appstreamIds(url);
         if (appstreamIds.isEmpty()) {
             Q_EMIT passiveMessage(i18n("Malformed appstream url '%1'", url.toDisplayString()));
+            return new ResultsStream(QStringLiteral("FlatpakStream-malformed-AppStreamUrl"), {});
+        }
+        appstreamIds.removeIf([](const QString &id) {
+            return isExcludedFlatpakId(id);
+        });
+        if (appstreamIds.isEmpty()) {
+            return new ResultsStream(QStringLiteral("FlatpakStream-excluded-AppStreamUrl"), {});
         } else {
             auto stream = new ResultsStream(QStringLiteral("FlatpakStream-AppStreamUrl"));
             auto f = [this, stream, appstreamIds] {
-                const auto pools = kTransform<QList<AppStream::ConcurrentPool *>>(m_flatpakSources, [](const auto &x) {
-                    return x->m_pool.get();
-                });
+                // Keep each source alive until its background lookup and
+                // continuation have both finished. The AppStream helper uses
+                // raw pool pointers internally, so taking pointers directly
+                // from m_flatpakSources allowed a concurrently unloaded
+                // source to destroy a pool while a worker was still using it.
+                QHash<AppStream::ConcurrentPool *, QSharedPointer<FlatpakSource>> sourcesByPool;
+                for (const auto &source : std::as_const(m_flatpakSources)) {
+                    if (source->m_pool) {
+                        sourcesByPool.insert(source->m_pool.get(), source);
+                    }
+                }
+                const QList<AppStream::ConcurrentPool *> pools = sourcesByPool.keys();
+                const QPointer<ResultsStream> streamGuard(stream);
+
                 AppStream::ConcurrentPool::componentsByNames(&m_threadPool, pools, appstreamIds)
-                    .then(this, [this, stream](const QMap<AppStream::ConcurrentPool *, QList<AppStream::Component>> &componentsList) {
+                    .then(this, [this, streamGuard, sourcesByPool](const QMap<AppStream::ConcurrentPool *, QList<AppStream::Component>> &componentsList) {
+                        if (!streamGuard) {
+                            return;
+                        }
+
                         QList<StreamResult> resourcesFound;
                         std::set<AbstractResource *> resources;
                         QVector<StreamResult> resourcesVector;
@@ -1980,11 +2304,18 @@ ResultsStream *FlatpakBackend::findResourceByPackageName(const QUrl &url)
                             if (!pool) {
                                 continue;
                             }
-                            const auto sourceIt = std::ranges::find_if(m_flatpakSources, [pool](const QSharedPointer<FlatpakSource> &s) -> bool {
-                                return s->m_pool.get() == pool;
-                            });
-                            Q_ASSERT(sourceIt != m_flatpakSources.end());
-                            const QSharedPointer<FlatpakSource> source = *sourceIt;
+                            const auto sourceIt = sourcesByPool.constFind(pool);
+                            if (sourceIt == sourcesByPool.cend()) {
+                                continue;
+                            }
+                            const QSharedPointer<FlatpakSource> source = sourceIt.value();
+                            if (!m_flatpakSources.contains(source)) {
+                                // The source was removed or refreshed while
+                                // this lookup was running. Its retained pool
+                                // was safe to finish, but its results are no
+                                // longer part of the active catalog.
+                                continue;
+                            }
                             resourcesFound << kTransform<QVector<StreamResult>>(components, [this, source](const AppStream::Component &comp) -> StreamResult {
                                 return {resourceForComponent(comp, source), comp.sortScore()};
                             });
@@ -1998,9 +2329,9 @@ ResultsStream *FlatpakBackend::findResourceByPackageName(const QUrl &url)
                         }
 
                         if (!resourcesVector.isEmpty()) {
-                            Q_EMIT stream->resourcesFound(resourcesVector);
+                            Q_EMIT streamGuard->resourcesFound(resourcesVector);
                         }
-                        stream->finish();
+                        streamGuard->finish();
                     });
             };
 
@@ -2057,6 +2388,10 @@ void FlatpakBackend::checkRepositories(const FlatpakJobTransaction::Repositories
     g_autoptr(GError) localError = nullptr;
     for (const auto &[installationPath, names] : repositories.asKeyValueRange()) {
         auto installation = flatpakInstallationByPath(installationPath);
+        if (!installation) {
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Could not find Flatpak installation" << installationPath;
+            continue;
+        }
         for (const auto &name : names) {
             if (g_autoptr(FlatpakRemote) remote =
                     flatpak_installation_get_remote_by_name(installation, name.toUtf8().constData(), m_cancellable, &localError)) {
@@ -2090,8 +2425,9 @@ FlatpakRemote *FlatpakBackend::installSource(FlatpakResource *resource)
 
     g_autoptr(GError) error = nullptr;
     if (!flatpak_installation_add_remote(preferredInstallation(), remote, false, cancellable, &error)) {
-        Q_EMIT passiveMessage(i18n("Failed to add source '%1': %2", resource->flatpakName(), QString::fromUtf8(error->message)));
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to add source" << resource->flatpakName() << error->message;
+        const QString errorMessage = error ? QString::fromUtf8(error->message) : i18n("An unknown Flatpak error occurred.");
+        Q_EMIT passiveMessage(i18n("Failed to add source '%1': %2", resource->flatpakName(), errorMessage));
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to add source" << resource->flatpakName() << errorMessage;
         return nullptr;
     }
     return remote;
@@ -2102,6 +2438,10 @@ Transaction *FlatpakBackend::installApplication(AbstractResource *app, const Add
     Q_UNUSED(addons);
 
     auto resource = qobject_cast<FlatpakResource *>(app);
+    if (isExcludedFlatpakResource(resource)) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Refusing to install excluded Flatpak" << resource->flatpakName();
+        return nullptr;
+    }
 
     if (resource->resourceType() == FlatpakResource::Source) {
         // Let source backend handle this
@@ -2200,6 +2540,14 @@ void FlatpakBackend::checkForRemoteUpdates(FlatpakInstallation *installation, Fl
     if (needsIntegration) {
         connect(job, &FlatpakRefreshAppstreamMetadataJob::jobRefreshAppstreamMetadataFinished, this, &FlatpakBackend::integrateRemote);
     }
+    connect(job, &FlatpakRefreshAppstreamMetadataJob::sourceRefreshCompleted, this, [](bool succeeded) {
+        if (succeeded) {
+            // A check is only considered complete when at least one configured
+            // Flatpak source actually answered. This runs on the backend's
+            // thread, keeping state writes serialized.
+            UpdateState::recordCheck();
+        }
+    });
     connect(job, &FlatpakRefreshAppstreamMetadataJob::finished, this, [this] {
         acquireFetching(false);
     });

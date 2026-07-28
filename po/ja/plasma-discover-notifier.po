@@ -31,8 +31,8 @@ msgstr "セキュリティの更新が利用可能です"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "更新が利用可能です"
+msgid "App updates available"
+msgstr "アプリのアップデートがあります"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "非表示"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "アプリのアップデート"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

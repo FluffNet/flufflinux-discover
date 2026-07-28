@@ -59,24 +59,6 @@ msgstr ""
 "archlinux.org/packages/extra/x86_64/discover/'>%1 の Discover パッケージをレ"
 "ビュー</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"%1 のパッケージを管理するためのサポートは不完全であり、様々な問題が発生する可"
-"能性があります。これらの問題についての KDE への報告はお控えください。"
-"<resource>packagekit-qt6</resource> パッケージをアンインストールして、"
-"Discover を Flatpak, Snap やアドオンの管理のみに使用することを強くおすすめし"
-"ます。<para>%1 のメンテナは <command>pacman</command> を使用したパッケージの"
-"管理を推奨しています。</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -100,11 +82,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1 を開けませんでした。"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Snap サポートがインストールされていることを確認してください"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -182,11 +159,6 @@ msgstr "利用可能なすべてのバックエンドを一覧表示します。
 msgid "Search string."
 msgstr "文字列を検索"
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "ユーザフィードバックのために利用可能なオプションをリスト"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -226,11 +198,6 @@ msgstr "品質保証、デザインとユーザビリティ"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -878,8 +845,8 @@ msgstr "セキュリティの更新が利用可能です"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "更新が利用可能です"
+msgid "App updates available"
+msgstr "アプリのアップデートがあります"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -905,13 +872,13 @@ msgstr "インストール済(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "更新(&U) (取得中...)"
+msgid "&App updates (Fetching…)"
+msgstr "アプリのアップデート(&U) (取得中...)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "更新(&U)"
+msgid "&App updates"
+msgstr "アプリのアップデート(&U)"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1000,65 +967,6 @@ msgstr "技術的な詳細を表示"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "クリップボードにコピー"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "使用状況に関する情報を提出する"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"匿名化された使用情報を KDE に送信します。これにより、私たちがユーザの皆様をよ"
-"りよく理解できるようになります。さらなる情報については、https://kde.org/"
-"privacypolicy-apps.php をご覧ください。"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "使用状況に関する情報を提出..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "設定"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "フィードバックを設定..."
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "更新を設定..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"使用状況に関する匿名の情報を共有していただくことで、KDE による Discover の改"
-"善に協力できます。"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "貢献する！"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "あなたからのフィードバックをお待ちしております！"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "参加..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1449,8 +1357,8 @@ msgstr "欠けているバックエンド"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "アプリのアップデート"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1526,36 +1434,6 @@ msgstr "すべて選択"
 msgid "Select None"
 msgstr "すべて選択解除"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "更新が完了した後:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "何もしない"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "再起動"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "シャットダウン"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "終了"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1601,8 +1479,8 @@ msgstr "更新を取得中..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "更新"
+msgid "App updates"
+msgstr "アプリのアップデート"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1634,3 +1512,21 @@ msgstr "更新の確認が必要です"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "最後の更新時刻は不明です"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "原作者"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "アプリの最終更新: %1（%2）"
+
+msgid "Apps have not been updated yet"
+msgstr "アプリはまだ更新されていません"
+
+msgid "An error occurred while updating apps."
+msgstr "アプリの更新中にエラーが発生しました。"
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "最近更新済み"

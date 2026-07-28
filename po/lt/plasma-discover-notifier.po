@@ -33,8 +33,8 @@ msgstr "Yra prieinami saugumo atnaujinimai"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Yra prieinami atnaujinimai"
+msgid "App updates available"
+msgstr "Yra programėlių atnaujinimų"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -139,8 +139,8 @@ msgstr "paslėpta"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Atnaujinimai"
+msgid "App updates"
+msgstr "Programėlių atnaujinimai"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

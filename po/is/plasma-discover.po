@@ -56,24 +56,6 @@ msgstr ""
 "url='https://archlinux.org/packages/extra/x86_64/discover/'>pakka fyrir "
 "Discover á %1</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"Stuðningur við umsjón með pökkum frá %1 er takmarkaður, hugsanlega lendir þú "
-"í ýmsum vandræðum. Ekki senda villuskýrslur til KDE. Það er sterklega mælt "
-"með þeí að fjarlægja pakkann <resource>packagekit-qt6</resource> og nota "
-"Discover eingöngu til að meðhöndla Flatpaks-pakka, Snaps-pakka og viðbætur."
-"<para> Umsjónaraðilar %1 mæla með því í staðinn að nota <command>pacman</"
-"command> á skipanalínunni til að hafa umsjón með pökkum.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -97,11 +79,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "Gat ekki opnað %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Gakktu úr skugga um að stuðningur við Snap sé uppsettur"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -175,11 +152,6 @@ msgstr "Telja upp alla tiltæka bakenda."
 msgid "Search string."
 msgstr "Leita að streng."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Birtir lista yfir tiltæka valkosti fyrir umsagnir notenda"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -219,11 +191,6 @@ msgstr "Gæðaprófun, hönnun og nothæfi"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -882,8 +849,8 @@ msgstr "Öryggisuppfærslur í boði"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Uppfærslur eru tiltækar"
+msgid "App updates available"
+msgstr "Forritauppfærslur í boði"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -907,13 +874,13 @@ msgstr "&Uppsett"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Uppfærslur (sæki…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Forritauppfærslur (sæki…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Uppfærslur"
+msgid "&App updates"
+msgstr "&Forritauppfærslur"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -999,63 +966,6 @@ msgstr "Sjá Tæknilegar upplýsingar"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Afrita á klippispjald"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Senda inn notkunarupplýsingar"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Sendir nafnlausar notkunarupplýsingar til KDE svo við fáum betri skilning á "
-"notendum okkar. Frekari upplýsingar er að finna á https://kde.org/"
-"privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Sendi inn notkunarupplýsingar..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Grunnstilla"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Grunnstilla umsagnir…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "Grunnstilla uppfærslur..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Leggja þitt af mörkum..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Við óskum eftir umsögnum frá þér!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Taka þátt..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1448,8 +1358,8 @@ msgstr "Bakendar sem vantar"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Uppfærslur"
+msgid "App updates"
+msgstr "Forritauppfærslur"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1523,36 +1433,6 @@ msgstr "Velja allt"
 msgid "Select None"
 msgstr "Velja ekkert"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "Eftir að uppfærslum er lokið:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "Gera ekkert"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Endurræsa"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "Slökkva á tölvunni"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "Hætta"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1598,8 +1478,8 @@ msgstr "Sæki uppfærslur..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Uppfærslur"
+msgid "App updates"
+msgstr "Forritauppfærslur"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1631,6 +1511,10 @@ msgstr "Ættir að athuga með uppfærslur"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Tími síðustu uppfærslu óþekktur"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Upprunalegir höfundar"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

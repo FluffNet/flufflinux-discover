@@ -71,7 +71,6 @@ class DISCOVERCOMMON_EXPORT ResourcesModel : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int updatesCount READ updatesCount NOTIFY updatesCountChanged)
-    Q_PROPERTY(bool hasSecurityUpdates READ hasSecurityUpdates NOTIFY updatesCountChanged)
     Q_PROPERTY(AbstractResourcesBackend *currentApplicationBackend READ currentApplicationBackend WRITE setCurrentApplicationBackend NOTIFY
                    currentApplicationBackendChanged)
     Q_PROPERTY(DiscoverAction *updateAction READ updateAction CONSTANT)
@@ -93,8 +92,6 @@ public:
     {
         return m_updatesCount.m_value;
     }
-    bool hasSecurityUpdates() const;
-
     bool isInitializing() const;
 
     Q_SCRIPTABLE bool isExtended(const QString &id);
@@ -161,7 +158,6 @@ private:
 
     bool m_isInitializing = true;
     QVector<AbstractResourcesBackend *> m_backends;
-    bool m_holdBackends = false;
     DiscoverAction *m_updateAction = nullptr;
     AbstractResourcesBackend *m_currentApplicationBackend;
 

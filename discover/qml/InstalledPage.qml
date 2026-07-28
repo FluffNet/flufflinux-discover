@@ -12,7 +12,6 @@ ApplicationsListPage {
     sortRole: DiscoverApp.DiscoverSettings.installedPageSorting
 
     name: i18n("Installed")
-    showRating: false
     showSize: true
     canNavigate: false
     canCategorize: true

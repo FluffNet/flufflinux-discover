@@ -22,6 +22,7 @@
 #include <QIcon>
 #include <QMetaProperty>
 #include <QThread>
+#include <QTimer>
 #include <ReviewsBackend/AbstractReviewsBackend.h>
 #include <ReviewsBackend/Rating.h>
 #include <Transaction/Transaction.h>
@@ -82,7 +83,7 @@ ResourcesModel::ResourcesModel(QObject *parent)
                   sum += backend->fetchingUpdatesProgress() * backend->fetchingUpdatesProgressWeight();
                   weights += backend->fetchingUpdatesProgressWeight();
               }
-              return sum / weights;
+              return weights > 0 ? sum / weights : 0;
           },
           [this](int progress) {
               Q_EMIT fetchingUpdatesProgressChanged(progress);
@@ -95,27 +96,30 @@ void ResourcesModel::init(bool load)
 {
     Q_ASSERT(QCoreApplication::instance()->thread() == QThread::currentThread());
 
-    if (load) {
-        registerAllBackends();
-    }
-
     m_updateAction = new DiscoverAction(this);
     m_updateAction->setIconName(QStringLiteral("system-software-update"));
     m_updateAction->setText(i18n("Refresh"));
+    m_updateAction->setEnabled(false);
     connect(this, &ResourcesModel::fetchingUpdatesProgressChanged, m_updateAction, [this](int fetchingProgress) {
         m_updateAction->setEnabled(fetchingProgress == 100);
     });
     connect(m_updateAction, &DiscoverAction::triggered, this, &ResourcesModel::checkForUpdates);
 
-    connect(QCoreApplication::instance(), &QCoreApplication::aboutToQuit, this, &QObject::deleteLater);
+    connect(QCoreApplication::instance(), &QCoreApplication::aboutToQuit, this, &ResourcesModel::destroyObject);
+
+    if (load) {
+        // Let the QML window finish construction before Flatpak performs its
+        // initial installation and metadata discovery.
+        QTimer::singleShot(0, this, &ResourcesModel::registerAllBackends);
+    }
 }
 
 ResourcesModel::ResourcesModel(const QString &backendName, QObject *parent)
     : ResourcesModel(parent)
 {
     s_self = this;
-    registerBackendByName(backendName);
     init(false);
+    registerBackendByName(backendName);
 }
 
 ResourcesModel::~ResourcesModel()
@@ -149,6 +153,7 @@ bool ResourcesModel::addResourcesBackend(AbstractResourcesBackend *backend)
 
     m_backends += backend;
     m_updatesCount.reevaluate();
+    m_fetchingUpdatesProgress.reevaluate();
 
     connect(backend, &AbstractResourcesBackend::contentsChanged, this, &ResourcesModel::callerContentsChanged);
     connect(backend, &AbstractResourcesBackend::allDataChanged, this, &ResourcesModel::updateCaller);
@@ -171,14 +176,21 @@ bool ResourcesModel::addResourcesBackend(AbstractResourcesBackend *backend)
 void ResourcesModel::callerContentsChanged()
 {
     AbstractResourcesBackend *backend = qobject_cast<AbstractResourcesBackend *>(sender());
+    if (!backend) {
+        qCWarning(LIBDISCOVER_LOG) << "Received a contents change from an unknown object";
+        return;
+    }
 
     if (!backend->isValid()) {
         qCWarning(LIBDISCOVER_LOG) << "Discarding invalid backend" << backend->name();
         int idx = m_backends.indexOf(backend);
         Q_ASSERT(idx >= 0);
         m_backends.removeAt(idx);
+        m_updatesCount.reevaluate();
+        m_fetchingUpdatesProgress.reevaluate();
         Q_EMIT backendsChanged();
         CategoryModel::global()->blacklistPlugin(backend->name());
+        disconnect(backend, nullptr, this, nullptr);
         backend->deleteLater();
         return;
     }
@@ -194,13 +206,6 @@ void ResourcesModel::updateCaller(const QVector<QByteArray> &properties)
 QVector<AbstractResourcesBackend *> ResourcesModel::backends() const
 {
     return m_backends;
-}
-
-bool ResourcesModel::hasSecurityUpdates() const
-{
-    return std::any_of(m_backends.constBegin(), m_backends.constEnd(), [](const AbstractResourcesBackend *backend) {
-        return backend->hasSecurityUpdates();
-    });
 }
 
 void ResourcesModel::installApplication(AbstractResource *app)
@@ -223,6 +228,11 @@ void ResourcesModel::registerAllBackends()
     DiscoverBackendsFactory f;
     addResourcesBackends(f.allBackends());
     m_isInitializing = false;
+    if (m_backends.isEmpty()) {
+        // Consumers waiting for initialization must also be notified when the
+        // only supported backend could not be loaded.
+        Q_EMIT backendsChanged();
+    }
 }
 
 void ResourcesModel::registerBackendByName(const QString &name)
@@ -289,7 +299,7 @@ void AggregatedResultsStream::emitResults()
 
 void AggregatedResultsStream::resourceDestruction(QObject *obj)
 {
-    for (auto it = m_results.begin(); it != m_results.end(); ++it) {
+    for (auto it = m_results.begin(); it != m_results.end();) {
         if (obj == it->resource) {
             it = m_results.erase(it);
         } else {
@@ -374,7 +384,7 @@ void ResourcesModel::initApplicationsBackend()
 QString ResourcesModel::applicationSourceName() const
 {
     KConfigGroup settings(KSharedConfig::openConfig(), u"ResourcesModel"_s);
-    return settings.readEntry<QString>("currentApplicationBackend", QStringLiteral("packagekit-backend"));
+    return settings.readEntry<QString>("currentApplicationBackend", QStringLiteral("flatpak-backend"));
 }
 
 QString ResourcesModel::distroName() const

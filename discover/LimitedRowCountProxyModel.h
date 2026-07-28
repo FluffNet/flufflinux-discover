@@ -39,6 +39,8 @@ protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
+    void invalidateRowFilter();
+
     int m_pageSize = 1;
     bool m_connected = false;
     QTimer m_invalidateTimer;

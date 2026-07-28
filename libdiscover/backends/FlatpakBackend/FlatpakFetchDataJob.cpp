@@ -37,7 +37,7 @@ FlatpakRemoteRef *findRemoteRef(FlatpakResource *app, GCancellable *cancellable)
 
 QByteArray fetchMetadata(FlatpakResource *app, GCancellable *cancellable)
 {
-    FlatpakRemoteRef *remoteRef = findRemoteRef(app, cancellable);
+    g_autoptr(FlatpakRemoteRef) remoteRef = findRemoteRef(app, cancellable);
     if (!remoteRef) {
         if (!g_cancellable_is_cancelled(cancellable)) {
             qCDebug(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "failed to find the remote" << app->name();
@@ -47,6 +47,10 @@ QByteArray fetchMetadata(FlatpakResource *app, GCancellable *cancellable)
     }
 
     g_autoptr(GBytes) data = flatpak_remote_ref_get_metadata(remoteRef);
+    if (!data) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to get metadata file: no metadata returned";
+        return {};
+    }
     gsize len = 0;
     auto buff = g_bytes_get_data(data, &len);
     const QByteArray metadataContent((const char *)buff, len);

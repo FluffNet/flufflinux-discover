@@ -41,6 +41,8 @@ class ProgressCollector;
 class FlatpakBackend : public AbstractResourcesBackend
 {
     Q_OBJECT
+    Q_PROPERTY(bool isFetching READ isFetching NOTIFY fetchingChanged)
+    Q_PROPERTY(bool isInitialized READ isInitialized NOTIFY initialized)
 public:
     explicit FlatpakBackend(QObject *parent = nullptr);
     ~FlatpakBackend();
@@ -54,7 +56,7 @@ public:
     int fetchingUpdatesProgress() const override;
     uint fetchingUpdatesProgressWeight() const override
     {
-        return 50; // Same as packagekit
+        return 50;
     }
 
     Transaction *installApplication(AbstractResource *app) override;
@@ -99,12 +101,17 @@ public:
     {
         return m_isFetching != 0;
     }
+    bool isInitialized() const
+    {
+        return m_isInitialized;
+    }
 
 private Q_SLOTS:
     void onFetchMetadataFinished(FlatpakResource *resource, const QByteArray &metadata);
     void onFetchSizeFinished(FlatpakResource *resource, guint64 downloadSize, guint64 installedSize);
 
 Q_SIGNALS: // for tests
+    void fetchingChanged();
     void initialized();
 
 private:
@@ -159,6 +166,8 @@ private:
     QVector<QSharedPointer<FlatpakSource>> m_flatpakSources;
     QVector<QSharedPointer<FlatpakSource>> m_flatpakLoadingSources;
     QSharedPointer<FlatpakSource> m_localSource;
+    bool m_isInitialized = false;
+    bool m_refreshStaleAppstream = false;
     QTimer *const m_checkForUpdatesTimer;
 
     friend class Utils::ProgressCollector;

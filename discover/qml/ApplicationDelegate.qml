@@ -21,7 +21,6 @@ BasicAbstractCard {
     required property int index
     required property Discover.AbstractResource application
 
-    property bool showRating: true
     property bool showSize: false
     property bool showInstallButton: !compact
 
@@ -107,7 +106,7 @@ BasicAbstractCard {
             }
         }
 
-        // Container for app name, ratings, and description
+        // Container for app name and description
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -128,48 +127,12 @@ BasicAbstractCard {
                 text: root.application.name
             }
 
-            // App rating, stars, and rating count
-            Loader {
-                id: ratingsLoader
-                readonly property bool ratingsSupported: root.application.backend.reviewsBackend?.isResourceSupported(root.application) ?? false
-                readonly property bool hasRatings: root.application.rating.ratingCount > 0
-                Layout.alignment: Qt.AlignVCenter
-                active: root.showRating && ratingsSupported
-                visible: active
-                sourceComponent: RowLayout {
-                    opacity: 0.75
-                    spacing: Kirigami.Units.smallSpacing
-
-                    // Rating
-                    QQC2.Label {
-                        visible: ratingsLoader.hasRatings
-                        text: visible ? (root.application.rating.rating / 2).toPrecision(2) : ""
-                        font.pointSize: Kirigami.Theme.smallFont.pointSize
-                        font.family: Kirigami.Theme.smallFont.family
-                        font.bold: true
-                        textFormat: Text.PlainText
-                    }
-                    Rating {
-                        padding: 0
-                        visible: ratingsLoader.hasRatings
-                        value: visible ? root.application.rating.rating : 0
-                        starSize: Kirigami.Theme.smallFont.pointSize
-                        precision: Rating.Precision.HalfStar
-                    }
-                    QQC2.Label {
-                        text: ratingsLoader.hasRatings > 0 ? "(" + root.application.rating.ratingCount + ")" : i18n("No ratings")
-                        font: Kirigami.Theme.smallFont
-                        textFormat: Text.PlainText
-                    }
-                }
-            }
-
             // App Description
             QQC2.Label {
                 id: appDescription
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
-                maximumLineCount: root.maximumLineCount - appName.lineCount - (root.showRating ? 1 : 0)
+                maximumLineCount: root.maximumLineCount - appName.lineCount
                 visible: maximumLineCount > 0
                 opacity: 0.75
                 wrapMode: Text.Wrap

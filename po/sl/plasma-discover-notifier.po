@@ -32,8 +32,8 @@ msgstr "Na voljo so varnostne posodobitve"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Na voljo so posodobitve"
+msgid "App updates available"
+msgstr "Na voljo so posodobitve programov"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "skrit"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Posodobitve"
+msgid "App updates"
+msgstr "Posodobitve programov"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

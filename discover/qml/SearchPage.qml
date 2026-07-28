@@ -47,6 +47,7 @@ ApplicationsListPage {
 
         onCurrentSearchTextChanged: {
             root.search = currentSearchText
+            Qt.callLater(() => searchField.forceActiveFocus())
         }
     }
 }

@@ -31,8 +31,8 @@ msgstr "Налични актуализации за сигурност"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Налични актуализации"
+msgid "App updates available"
+msgstr "Налични са актуализации на приложения"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "скрити"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Актуализации"
+msgid "App updates"
+msgstr "Актуализации на приложения"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

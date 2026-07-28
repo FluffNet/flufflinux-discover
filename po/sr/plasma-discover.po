@@ -47,18 +47,6 @@ msgid ""
 "packages/extra/x86_64/discover/'>%1's packaging for Discover</link>"
 msgstr ""
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -81,11 +69,6 @@ msgstr ""
 #| msgid "Couldn't open %1"
 msgid "Could not open %1"
 msgstr "Не могу да отворим %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr ""
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -161,11 +144,6 @@ msgstr "Наброји све доступне позадине."
 msgid "Search string."
 msgstr "Тражи у „%1“...|/|Тражи у „$[лок %1]“..."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -205,11 +183,6 @@ msgstr ""
 #: discover/main.cpp:131
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
-msgstr ""
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
 msgstr ""
 
 #: discover/main.cpp:139
@@ -854,8 +827,8 @@ msgstr ""
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Update All"
-msgid "Updates available"
-msgstr "Ажурирај све"
+msgid "App updates available"
+msgstr "Доступна су ажурирања програма"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -883,14 +856,14 @@ msgstr "Инсталирано"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Ажурирања програма (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Допуне"
+msgid "&App updates"
+msgstr "Ажурирања програма"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -976,63 +949,6 @@ msgstr ""
 #: discover/qml/DiscoverWindow.qml:443
 #, kde-format
 msgid "Copy to Clipboard"
-msgstr ""
-
-#: discover/qml/Feedback.qml:14
-#, fuzzy, kde-format
-#| msgid "More Information..."
-msgid "Submit Usage Information"
-msgstr "Више података..."
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-
-#: discover/qml/Feedback.qml:20
-#, fuzzy, kde-format
-#| msgid "More Information..."
-msgid "Submitting usage information…"
-msgstr "Више података..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr ""
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr ""
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, fuzzy, kde-format
-#| msgid "More..."
-msgid "Contribute…"
-msgstr "Више..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr ""
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
 msgstr ""
 
 #: discover/qml/InstallApplicationButton.qml:29
@@ -1433,8 +1349,8 @@ msgstr ""
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Допуне"
+msgid "App updates"
+msgstr "Ажурирања програма"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1506,36 +1422,6 @@ msgstr ""
 msgid "Select None"
 msgstr ""
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1585,8 +1471,8 @@ msgstr "Добављам допуне..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Допуне"
+msgid "App updates"
+msgstr "Ажурирања програма"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1621,6 +1507,10 @@ msgid "Time of last update unknown"
 msgstr ""
 
 #, fuzzy
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Оригинални аутори"
+
 #~| msgid "Update All"
 #~ msgid "Update from:"
 #~ msgstr "Ажурирај све"

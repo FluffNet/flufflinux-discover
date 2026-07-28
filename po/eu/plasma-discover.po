@@ -59,24 +59,6 @@ msgstr ""
 "archlinux.org/packages/extra/x86_64/discover/'>%1 Discover-rerako "
 "paketatzea</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"%1(e)ko paketeak kudeatzeko euskarria osatu gabe dago; arazo asko izan "
-"ditzakezu. Ez eman KDEri akatsen berri. Biziki gomendatzen "
-"da<resource>packagekit-qt6</resource> desinstalatzea eta Discover Flatpak, "
-"Snap, eta gehigarriak instalatzeko bakarrik erabiltzea.<para>%1 "
-"garatzaileek, paketeak kudeatzeko komando-lerroko <command>pacman</command> "
-"tresna erabiltzea gomendatzen dute.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -100,11 +82,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "Ezin da %1 ireki"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Mesedez, ziurtatu Snap euskarria instalatuta dagoela"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -180,12 +157,6 @@ msgstr "Zerrendatu bizkarraldeko erabilgarri guztiak."
 msgid "Search string."
 msgstr "Bilatu beharreko katea."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-"Erabiltzailearen atzera-elikaduraren aukera erabilgarriak zerrendatzen ditu"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -225,11 +196,6 @@ msgstr "Kalitate-bermatzea, diseinua eta erabilerraztasuna"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -887,8 +853,8 @@ msgstr "Segurtasun eguneratzeak erabilgarri"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Eguneratzeak erabilgarri"
+msgid "App updates available"
+msgstr "Aplikazioen eguneraketak eskuragarri"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -913,13 +879,13 @@ msgstr "&Instalatuta"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Eg&uneratzeak (Ekartzen…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Aplikazioen eguneraketak (Ekartzen…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "Eg&uneratzeak"
+msgid "&App updates"
+msgstr "&Aplikazioen eguneraketak"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1008,65 +974,6 @@ msgstr "Ikusi xehetasun teknikoak"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Kopiatu arbelera"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Bidali erabilerari buruzko informazioa"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Anonimo bilakatutako erabilerari buruzko informazioa bidaltzen du KDEra gure "
-"erabiltzaileak hobeto ulertze aldera. Informazio zabalagoa hemen, https://"
-"kde.org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Erabilerari buruzko informazioa bidaltzen…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Konfiguratu"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Konfiguratu atzeraelikadura…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "Konfiguratu eguneratzeak…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"KDEri Discover hobetzen lagun diezaiokezu haren erabilerari buruzko "
-"informazio anonimoa partekatuz."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Lagundu…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Zure atzeraelikadura jaso nahi genuke!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Parte hartu…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1462,8 +1369,8 @@ msgstr "Falta diren bizkarraldekoak"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Eguneratzeak"
+msgid "App updates"
+msgstr "Aplikazioen eguneraketak"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1536,36 +1443,6 @@ msgstr "Hautatu denak"
 msgid "Select None"
 msgstr "Bat ere ez hautatu"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "Eguneratzeak osatu ondoren:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "Ez egin ezer"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Berrabiarazi"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "Itzali"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "Irten"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1611,8 +1488,8 @@ msgstr "Eguneratzeak ekartzen…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Eguneratzeak"
+msgid "App updates"
+msgstr "Aplikazioen eguneraketak"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1645,6 +1522,10 @@ msgstr "Eguneratzeak dauden egiaztatu beharko litzateke"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Azken eguneratze ordua ezezaguna"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Jatorrizko egileak"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

@@ -24,9 +24,6 @@ class DISCOVERCOMMON_EXPORT ResourcesUpdatesModel : public QStandardItemModel
     Q_PROPERTY(QDateTime lastUpdate READ lastUpdate NOTIFY progressingChanged)
     Q_PROPERTY(qint64 secsToLastUpdate READ secsToLastUpdate NOTIFY progressingChanged)
     Q_PROPERTY(Transaction *transaction READ transaction NOTIFY progressingChanged)
-    Q_PROPERTY(bool needsReboot READ needsReboot NOTIFY needsRebootChanged)
-    Q_PROPERTY(bool readyToReboot READ readyToReboot)
-    Q_PROPERTY(bool useUnattendedUpdates READ useUnattendedUpdates NOTIFY useUnattendedUpdatesChanged)
     Q_PROPERTY(QStringList errorMessages READ errorMessages NOTIFY errorMessagesChanged)
 
     Q_MOC_INCLUDE("Transaction/Transaction.h")
@@ -48,10 +45,6 @@ public:
         return m_updaters;
     }
     Transaction *transaction() const;
-    bool needsReboot() const;
-    bool readyToReboot() const;
-    bool useUnattendedUpdates() const;
-
     /// @returns whether any of the aggregated updaters is fetching updates
     bool isFetching() const;
     QStringList errorMessages() const;
@@ -62,8 +55,6 @@ Q_SIGNALS:
     void finished();
     void resourceProgressed(AbstractResource *resource, qreal progress, AbstractBackendUpdater::State state);
     void passiveMessage(const QString &message);
-    void needsRebootChanged();
-    void useUnattendedUpdatesChanged();
     void fetchingUpdatesProgressChanged(int percent);
     void errorMessagesChanged();
     void fetchingChanged();
@@ -82,7 +73,6 @@ private:
 
     QVector<AbstractBackendUpdater *> m_updaters;
     bool m_lastIsProgressing;
-    bool m_offlineUpdates = false;
     QPointer<UpdateTransaction> m_transaction;
     QStringList m_errorMessages;
     bool m_fetching = true;

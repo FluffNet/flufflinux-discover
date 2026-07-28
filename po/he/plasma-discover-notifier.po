@@ -33,8 +33,8 @@ msgstr "עדכוני אבטחה זמינים"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "עדכונים זמינים"
+msgid "App updates available"
+msgstr "עדכוני יישומים זמינים"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -139,8 +139,8 @@ msgstr "מוסתר"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "עדכונים"
+msgid "App updates"
+msgstr "עדכוני יישומים"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

@@ -31,8 +31,8 @@ msgstr "Διαθέσιμες ενημερώσεις ασφαλείας"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Διαθέσιμες ενημερώσεις"
+msgid "App updates available"
+msgstr "Διαθέσιμες ενημερώσεις εφαρμογών"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -140,8 +140,8 @@ msgstr "κρυφό"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Ενημερώσεις"
+msgid "App updates"
+msgstr "Ενημερώσεις εφαρμογών"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

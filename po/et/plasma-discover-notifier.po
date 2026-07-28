@@ -30,8 +30,8 @@ msgstr "Saadaval on turvauuendused"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Saadaval on uuendused"
+msgid "App updates available"
+msgstr "Rakenduste uuendused on saadaval"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "peidetud"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Uuendused"
+msgid "App updates"
+msgstr "Rakenduste uuendused"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

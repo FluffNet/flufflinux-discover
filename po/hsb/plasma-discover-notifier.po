@@ -29,8 +29,8 @@ msgstr "Wěstotne aktualizowanja steja k dispoziciji"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Aktualizowanja steja k dispoziciji"
+msgid "App updates available"
+msgstr "Aktualizacije nałoženjow su k dispoziciji"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -137,8 +137,8 @@ msgstr "chowane"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Aktualizowanja"
+msgid "App updates"
+msgstr "Aktualizacije nałoženjow"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

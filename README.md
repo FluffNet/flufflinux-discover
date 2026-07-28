@@ -1,41 +1,95 @@
-# Discover
+# Fluff Linux Discover
 
-Discover helps you find and install applications, games, and tools. You can search or browse by category, and look at screenshots and read reviews to help you pick the perfect app.
+Fluff Linux Discover is the native KDE Plasma 6 application experience for
+Fluff Linux. It provides a focused and approachable way to find, install,
+remove, and update Flatpak applications.
 
-![Discover window](https://cdn.kde.org/screenshots/plasma-discover/plasma-discover.png)
+![Fluff Linux Discover home page](docs/screenshots/flufflinux-discover-home.png)
+
+This project is derived from KDE Discover and retains its familiar Plasma
+interface while adapting the experience for Fluff Linux.
 
 ## Features
 
-* Install and download software.
-* Manage software sources, e.g. Flatpak repositories.
-* Upgrade operating system software through PackageKit.
-* Find and install add-ons for Plasma.
+- Browse, search, install, launch, update, and remove Flatpak applications.
+- Fast startup using locally cached application metadata.
+- Manual or scheduled automatic app updates.
+- Support for public, private, and internal Flatpak sources.
+- Plasma theming, translations, and localization.
 
-## Support
+Fluff Linux Discover is intentionally Flatpak-only. System packages are updated
+through [Fluff Linux Update](https://github.com/FluffNet/flufflinux-update).
 
-If you have an issue with Discover, please [open a support thread on KDE Discuss](https://discuss.kde.org/c/help/6).
+## Build on Fluff Linux or Arch Linux
 
-## Building
+Install the build requirements:
 
-The easiest way to make changes and test Discover during development is to [build it with kde-builder](https://community.kde.org/Get_Involved/development).
-
-## Vendor Customization
-
-Want to change the apps featured in the Editor's Choice section? Add a configuration file named `/usr/share/discover/featuredurlrc` that points to a JSON file patterned off the default one present at https://autoconfig.kde.org/discover/featured-5.9.json:
-```toml
-[Software]
-FeaturedListingURL="https://your-url-here/file.json"
+```sh
+sudo pacman -S --needed base-devel cmake extra-cmake-modules ninja \
+    appstream-qt discount flatpak vulkan-headers \
+    karchive kcmutils kconfig kcoreaddons kcrash kdbusaddons ki18n \
+    kiconthemes kidletime kio kirigami kirigami-addons kitemmodels \
+    kjobwidgets knotifications kservice kstatusnotifieritem \
+    kwidgetsaddons kwindowsystem purpose qcoro qqc2-desktop-style \
+    qt6-5compat qt6-base qt6-declarative qt6-webview
 ```
 
-## Contributing
+Configure and compile:
 
-Like other projects in the KDE ecosystem, contributions are welcome from all. This repository is managed in [KDE Invent](https://invent.kde.org/plasma/discover), our GitLab instance.
+```sh
+cmake -S . -B build -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DKDE_INSTALL_LIBDIR=lib \
+    -DBUILD_TESTING=OFF
 
-* Want to contribute code? See the [GitLab wiki page](https://community.kde.org/Infrastructure/GitLab) for a tutorial on how to send a merge request.
-* Reporting a bug? Please submit it on the [KDE Bugtracking System](https://bugs.kde.org/enter_bug.cgi?format=guided&product=Discover). Please do not use the Issues
-  tab to report bugs.
-* Is there a part of Discover that's not translated? See the [Getting Involved in Translation wiki page](https://community.kde.org/Get_Involved/translation) to see how
-  you can help translate!
+cmake --build build
+```
 
-If you get stuck or need help with anything at all, head over to the [KDE New Contributors room](https://go.kde.org/matrix/#/#kde-welcome:kde.org) on Matrix. For questions about Discover, please ask in the [Plasma Discover room](https://go.kde.org/matrix/#/#plasma-discover:kde.org). See [Matrix](https://community.kde.org/Matrix) for more details.
+For a completely clean build, remove an older `build/` directory first.
 
+## Stage for packaging
+
+Fluff Linux packages are assembled from a fakeroot instead of being installed
+directly onto the build machine:
+
+```sh
+# `fakeroot/` becomes the package filesystem and can then be packaged together with the bundled `.PKGINFO` file.
+DESTDIR="$PWD/fakeroot" cmake --install build
+```
+
+Package contents will be staged below `fakeroot/`, beginning with
+`fakeroot/usr/` and `fakeroot/etc/`. This does not modify the host system.
+
+Use a clean `fakeroot/` for every package build. The package must use
+`fakeroot/usr/lib`, not `fakeroot/usr/lib64`.
+
+## Test locally
+
+Run Discover from the build tree:
+
+```sh
+./build/bin/plasma-discover
+```
+
+On a disposable development system, install and test the build with:
+
+```sh
+sudo cmake --install build
+kbuildsycoca6
+plasma-discover
+```
+
+## Reporting issues
+
+Report problems through the
+[Fluff Linux Discover issue tracker](https://github.com/FluffNet/flufflinux-discover/issues).
+
+## Upstream and license
+
+Fluff Linux Discover is derived from
+[KDE Discover](https://invent.kde.org/plasma/discover). KDE copyright notices,
+original authorship, and source history are preserved.
+
+Each source file remains governed by its SPDX license identifier. Complete
+license texts are available in [`LICENSES/`](LICENSES/).

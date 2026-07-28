@@ -29,8 +29,8 @@ msgstr "Навсозиҳои амниятӣ дастрасанд"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Навсозиҳо дастрасанд"
+msgid "App updates available"
+msgstr "Навсозиҳои барномаҳо дастрасанд"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -137,8 +137,8 @@ msgstr "ноаён"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Навсозиҳо"
+msgid "App updates"
+msgstr "Навсозиҳои барномаҳо"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

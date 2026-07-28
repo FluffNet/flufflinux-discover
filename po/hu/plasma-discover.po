@@ -59,23 +59,6 @@ msgstr ""
 "url='https://archlinux.org/packages/extra/x86_64/discover/'>%1 Discover "
 "csomagját</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"A(z) %1 csomagjai kezelésének támogatása nem teljes; számos problémát "
-"tapasztalhat. Ne jelentsen hibákat a KDE felé. Erősen ajánlott a "
-"<resource>packagekit-qt6</resource> csomag eltávolítása és a Discoverrel "
-"csak Flatpakot, Snapet és bővítményeket kezelni.<para>A(z) %1 karbantartók "
-"inkább a <command>pacman</command> csomagkezelő használatát ajánlják.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -99,11 +82,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "A(z) %1 nem nyitható meg"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Ellenőrizze, hogy a Snap támogatás telepítve van-e"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -182,11 +160,6 @@ msgstr "Az összes elérhető backend listázása."
 msgid "Search string."
 msgstr "Szöveg keresése."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Felsorolja a felhasználói visszajelzés lehetőségeit"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -226,11 +199,6 @@ msgstr "Minőségbiztosítás, design és használhatóság"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -888,8 +856,8 @@ msgstr "Biztonsági frissítések érhetők el"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Frissítések érhetők el"
+msgid "App updates available"
+msgstr "Alkalmazásfrissítések érhetők el"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -913,13 +881,13 @@ msgstr "&Telepített"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Fr&issítések (lekérés…)"
+msgid "&App updates (Fetching…)"
+msgstr "&Alkalmazásfrissítések (lekérés…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Frissítések"
+msgid "&App updates"
+msgstr "&Alkalmazásfrissítések"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1008,65 +976,6 @@ msgstr "Technikai részletek megtekintése"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Másolás a vágólapra"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Használati statisztikák elküldése"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Névtelen használati statisztikák küldése a KDE-nek, hogy jobban megérthessék "
-"a felhasználók szokásait. További információkért keresse fel a https://kde."
-"org/privacypolicy-apps.php oldalt."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Használati statisztikák küldése…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Beállítások"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Visszajelzés beállítása…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "Frissítések beállítása…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"Segíthet a KDE-nek a Discover fejlesztésében azzal, hogy névtelen adatokat "
-"oszt meg arról, hogyan használja az alkalmazást."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Hozzájárulás…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Kíváncsiak vagyunk a véleményére!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Részvétel…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1457,8 +1366,8 @@ msgstr "Hiányzó háttérprogramok"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Frissítések"
+msgid "App updates"
+msgstr "Alkalmazásfrissítések"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1535,36 +1444,6 @@ msgstr "Összes kijelölése"
 msgid "Select None"
 msgstr "Kijelölés megszüntetése"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "A frissítések befejezése után:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "Nincs művelet"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Újraindítás"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "Leállítás"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "Kilépés"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1610,8 +1489,8 @@ msgstr "Frissítések letöltése…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Frissítések"
+msgid "App updates"
+msgstr "Alkalmazásfrissítések"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1644,6 +1523,10 @@ msgstr "Frissítések keresése szükséges"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Az utolsó frissítés időpontja ismeretlen"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Eredeti szerzők"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

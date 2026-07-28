@@ -26,6 +26,7 @@ target_link_libraries(DiscoverNotifier
     KF6::IdleTime
 
     Discover::Notifiers
+    Discover::Common
 )
 
 ecm_qt_declare_logging_category(DiscoverNotifier

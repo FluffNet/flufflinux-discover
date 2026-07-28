@@ -56,24 +56,6 @@ msgstr ""
 "url='https://archlinux.org/packages/extra/x86_64/discover/'>%1 نىڭ  Discover "
 "بوغچىسى</link> نى تەكشۈرۈڭ"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"%1 ئارقىلىق يۇمشاق دېتال بوغچىسىنى ئورنىتىش ئىقتىدارىنىڭ قوللاش بۆلىكى تولۇق "
-"ئەمەس؛ شۇڭا بىر قىسىم مەسىلىگە يولۇقۇشىڭىز مۇمكىن. KDE غا كەمتۈك مەلۇم "
-"قىلماڭ. <resource>packagekit-qt6</resource> نى سۆكۈۋېتىپ ئۇنىڭ ئورنىغا "
-"Discover ئارقىلىق  Flatpaks، Snaps ۋە قوشۇلمىنى باشقۇرۇشىڭىزنى كۈچلۈك "
-"تەۋسىيە قىلىمىز.<para>%1 ئاسرىغۇچىلىرى ئىشلەتكۈچىلەرنىڭ <command>pacman</"
-"command> بۇيرۇق قۇرى قورالى ئارقىلىق بوغچا باشقۇرۇشىنى تەۋسىيە قىلىدۇ.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -97,11 +79,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1 نى ئاچالمىدى"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Snap قوللاشنىڭ ئورنىتىلغانلىقىنى جەزملەڭ"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -182,13 +159,6 @@ msgstr "ئىشلەتكىلى بولىدىغان بارلىق ئارقا ئۇچ �
 msgid "Search string."
 msgstr "ئىزدەيدىغان ھەرپ تىزىقى."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-"ئىشلەتكۈچى قايتۇرما ئىنكاسىنىڭ ئىشلەتكىلى بولىدىغان تاللانما تىزىمىنى "
-"كۆرسىتىدۇ"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -228,11 +198,6 @@ msgstr "يۇمشاق دېتال سۈپەت كاپالىتى، لايىھە ۋە 
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -905,8 +870,8 @@ msgstr "بىخەتەرلىك يېڭىلانمىسى بار"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "يېڭىلانما بار"
+msgid "App updates available"
+msgstr "ئەپ يېڭىلانمىلىرى بار"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -930,13 +895,13 @@ msgstr "ئورنىتىلغان(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "يېڭىلانما(&U)(ئېرىشىۋاتىدۇ…)"
+msgid "&App updates (Fetching…)"
+msgstr "ئەپ يېڭىلانمىلىرى(&U) (ئېرىشىۋاتىدۇ…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "يېڭىلانما(&U)"
+msgid "&App updates"
+msgstr "ئەپ يېڭىلانمىلىرى(&U)"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1022,63 +987,6 @@ msgstr "تېخنىكىلىق تەپسىلاتنى كۆرسەت"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "چاپلاش تاختىسىغا كۆچۈر"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "ئىشلىتىش ئۇچۇرىنى تاپشۇر"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"ئاتسىزلاشتۇرۇلغان ئىشلىتىش ئۇچۇرىنى KDE غا يوللاپ، ئىشلەتكۈچىلەرنىڭ "
-"ئېھتىياجىنى چۈشىنىشىمىزگە ياردەم بېرىدۇ. تېخىمۇ كۆپ ئۇچۇرنى https://kde.org/"
-"privacypolicy-apps.php دىن كۆرۈڭ."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "ئىشلىتىش ئۇچۇرىنى تاپشۇرۇۋاتىدۇ…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "سەپلە"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "قايتۇرما ئىنكاسىنى سەپلە…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "يېڭىلاشنى سەپلە…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "تۆھپە…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "قايتۇرما ئىنكاسىڭىزنى كۈتىمىز!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "قاتنىشاي…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1474,8 +1382,8 @@ msgstr "ئارقا ئۇچ كەم"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "يېڭىلانما"
+msgid "App updates"
+msgstr "ئەپ يېڭىلانمىلىرى"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1551,46 +1459,6 @@ msgstr "ھەممىنى تاللا"
 msgid "Select None"
 msgstr "ھەممىنى تاللىما"
 
-#: discover/qml/UpdatesPage.qml:287
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info on the completion of updates, the action that automatically happens "
-#| "after (e.g shut down)"
-#| msgid "After completing:"
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "تاماملانغاندىن كېيىن:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Do nothing"
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "ھېچقانداق قىلما"
-
-#: discover/qml/UpdatesPage.qml:294
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Restart"
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "قايتا قوزغات"
-
-#: discover/qml/UpdatesPage.qml:295
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Shut down"
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "تاقا"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1636,8 +1504,8 @@ msgstr "يېڭىلانمىغا ئېرىشىۋاتىدۇ…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "يېڭىلانما"
+msgid "App updates"
+msgstr "ئەپ يېڭىلانمىلىرى"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1671,6 +1539,10 @@ msgstr "يېڭىلانمىنى تەكشۈرۈش زۆرۈر"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "ئاخىرقى يېڭىلاش ۋاقتى نامەلۇم"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "ئەسلى ئاپتورلار"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

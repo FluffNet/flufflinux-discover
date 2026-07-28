@@ -29,8 +29,8 @@ msgstr "Säkerhetsuppdateringar är tillgängliga"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Uppdateringar tillgängliga"
+msgid "App updates available"
+msgstr "Programuppdateringar tillgängliga"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -135,8 +135,8 @@ msgstr "dold"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Uppdateringar"
+msgid "App updates"
+msgstr "Programuppdateringar"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

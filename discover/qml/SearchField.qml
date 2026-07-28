@@ -15,10 +15,10 @@ Kirigami.SearchField {
     // for appium tests
     objectName: "searchField"
 
-    // Search operations are network-intensive, so we can't have search-as-you-type.
-    // This means we should turn off auto-accept entirely, rather than having it on
-    // with a delay. The result just isn't good. See Bug 445142.
-    autoAccept: false
+    // The Flatpak catalog is already local, so update results as the user
+    // types instead of requiring Enter or imposing a delayed search.
+    autoAccept: true
+    delaySearch: false
 
     property QtObject page
     property string currentSearchText
@@ -26,8 +26,10 @@ Kirigami.SearchField {
     placeholderText: (!enabled || !page || page.hasOwnProperty("isHome") || window.leftPage.name.length === 0) ? i18n("Search…") : i18n("Search in '%1'…", window.leftPage.name)
 
     onAccepted: {
-        text = text.trim();
-        currentSearchText = text;
+        // Keep the user's text untouched while typing. Mutating the field to
+        // its trimmed form here made every trailing space disappear before
+        // the next word could be entered.
+        currentSearchText = text.trim();
     }
 
     function clearText() {

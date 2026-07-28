@@ -58,24 +58,6 @@ msgstr ""
 "> Skatiet <link url='https://archlinux.org/packages/extra/x86_64/"
 "discover/'>„%1“ pakotnes „Discover“ programmai</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"„%1“ atbalsts pakotņu pārvaldībai ir nepabeigts, tāpēc varat saskarties ar "
-"dažādām problēmām. Neziņojiet par šīm kļūdām KDE. Iesakām atinstalēt "
-"„<resource>packagekit-qt6</resource>“ pakotni un izmantot „Discover“, ai "
-"pārvaldītu „Flatpak“ un „Snap“ pakotnes un papildinājumus.<para>„%1“ "
-"uzturētāji ir ieteikuši tā vietā pakotņu pārvaldībai izmantot "
-"„<command>pacman</command>“ komandrindas rīku.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -99,11 +81,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "Neizdodas atvērt %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Pārliecinieties, ka ir instalēts „Snap“ atbalsts"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -180,11 +157,6 @@ msgstr "Visu pieejamo aizmugursistēmu saraksts."
 msgid "Search string."
 msgstr "Meklēšanas teksts."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Uzskaita pieejamās iespējas lietotāju atsauksmēm"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -224,11 +196,6 @@ msgstr "Kvalitātes nodrošināšana, dizains un lietojamība"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -905,8 +872,8 @@ msgstr "Ir pieejami drošības atjauninājumi"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Ir pieejami atjauninājumi"
+msgid "App updates available"
+msgstr "Pieejami lietotņu atjauninājumi"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -930,13 +897,13 @@ msgstr "&Instalētās"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&Atjauninājumi (ielādē)"
+msgid "&App updates (Fetching…)"
+msgstr "&Lietotņu atjauninājumi (ielādē)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "&Atjauninājumi"
+msgid "&App updates"
+msgstr "&Lietotņu atjauninājumi"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1023,63 +990,6 @@ msgstr "Skatīt tehnisko informāciju"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Kopēt uz starpliktuvi"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Nosūtīt lietošanas informāciju"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Nosūta anonimizētu lietošanas informāciju KDE projektam, kas izstrādātājiem "
-"ļaus labāk izprast mūsu lietotājus. Vairāk informācijas iegūstama https://"
-"kde.org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Tiek nosūtīta lietošanas informācija…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Konfigurēt"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Konfigurēt atgriezenisko saiti…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "Konfigurēt atjauninājumus…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Iesaistīties…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Vēlamies no jums saņemt atgriezenisko saiti!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Piedalīties…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1472,8 +1382,8 @@ msgstr "Trūkst aizmugursistēmu"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Atjauninājumi"
+msgid "App updates"
+msgstr "Lietotņu atjauninājumi"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1550,40 +1460,6 @@ msgstr "Atlasīt visus"
 msgid "Select None"
 msgstr "Neatlasīt nevienu"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:294
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Restart"
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Pārstartēt"
-
-#: discover/qml/UpdatesPage.qml:295
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Shut down"
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "Izslēgt"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1629,8 +1505,8 @@ msgstr "Meklē atjauninājumus…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Atjauninājumi"
+msgid "App updates"
+msgstr "Lietotņu atjauninājumi"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1662,6 +1538,10 @@ msgstr "Jāpārbauda atjauninājumi"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Pēdējās atjaunināšanas laiks nav zināms"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Sākotnējie autori"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

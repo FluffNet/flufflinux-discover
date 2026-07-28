@@ -55,12 +55,15 @@ if (NOT Flatpak_VERSION VERSION_LESS 1.1.2)
 endif()
 
 install(FILES flatpak-backend-categories.xml DESTINATION ${KDE_INSTALL_DATADIR}/libdiscover/categories)
+install(FILES exclusions.conf DESTINATION ${KDE_INSTALL_SYSCONFDIR}/discover)
 
 kcoreaddons_add_plugin(FlatpakNotifier SOURCES FlatpakNotifier.cpp INSTALL_NAMESPACE "discover-notifier")
 target_link_libraries(FlatpakNotifier
     PRIVATE
         Discover::Notifiers
+        Discover::Common
         Qt::Concurrent
+        KF6::ConfigCore
         PkgConfig::Flatpak
         libdiscover-backend-flatpak-logging-category
 

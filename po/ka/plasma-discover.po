@@ -56,24 +56,6 @@ msgstr ""
 "გადაავლეთ თვალი ბმულს <link url='https://archlinux.org/packages/extra/x86_64/"
 "discover/'>%1-ის პაკეტებისთვის Discover-ისთვის</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"%1-დან პაკეტების მართვის მხარდაჭერა დაუსრულებელია და შეიძლება, პრობლემებს "
-"წააწყდეთ. ნუ მისწერთ პრობლემების შესახებ KDE-ს. გირჩევთ, წაშალოთ პაკეტი "
-"<resource>packagekit-qt6</resource> და გამოიყენოთ Discover, რომ მართოთ "
-"Flatpak, Snap და დამატების პაკეტები.<para>%1-ის პროგრამისტები გირჩევენ, "
-"<command>pacman</command>-ის ბრძანების სტრქონის ბრძანებების გამოყენებას "
-"პაკეტების სამართავად.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -97,11 +79,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1-ის გახსნა შეუძლებელია"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "დარწმუნდით, რომ Snap-ის მხარდაჭერა დაყენებულია"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -177,11 +154,6 @@ msgstr "ხელმისაწვდომი უკანაბოლოე�
 msgid "Search string."
 msgstr "საძებნი სტრიქონი."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "მომხმარებლის უკუკავშირის ხელმისაწვდომი ვარიანტები"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -221,11 +193,6 @@ msgstr "დიზაინი და ხარისხის დამოწმ
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "დან ლაინირ თუთა იენსენი"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -879,8 +846,8 @@ msgstr "ხელმისაწვდომია უსაფრთოხე�
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "ხელმისაწვდომი განახლებები"
+msgid "App updates available"
+msgstr "აპების განახლებები ხელმისაწვდომია"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -904,13 +871,13 @@ msgstr "&დაყენებული"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&განახლებები (გამოთხოვა…)"
+msgid "&App updates (Fetching…)"
+msgstr "&აპების განახლებები (გამოთხოვა…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "განა&ხლებები"
+msgid "&App updates"
+msgstr "&აპების განახლებები"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -996,65 +963,6 @@ msgstr "იხილეთ ტექნიკური დეტალები"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "ბუფერში კოპირება"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "გამოყენების მონაცემების გადაცემა"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"KDE-სთვის მოხმარების ანონიმური მონაცემების გაგზავნა, რათა ჩვენი "
-"მომხმარებლების უკეთ გვესმოდეს. მეტი ინფორმაციისთვის იხილეთ https://kde.org/"
-"privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "გამოყენების ინფორმაციის გადაცემა…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "მორგება"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "უკუპასუხის მორგება…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "განახლებების მორგება…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"შეგიძლიათ, დაეხმაროთ KDE-ს Discover-ის გაუმჯობესებაში ანონიმური ინფორმაციის "
-"გაზიარებით, თუ როგორ იყენებთ მას."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "შემოწირულობა…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "ჩვენ ველოდებით თქვენს გამოხმაურებას!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "მონაწილეობის მიღება…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1444,8 +1352,8 @@ msgstr "უკანაბოლოები ხელმიუწვდომ�
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "განახლებები"
+msgid "App updates"
+msgstr "აპების განახლებები"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1518,36 +1426,6 @@ msgstr "ყველას მონიშვნა"
 msgid "Select None"
 msgstr "მონიშვნის მოხსნა"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "განახლების დასრულების შემდეგ:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "არაფრის გაკეთება"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "გადატვირთვა"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "გამორთვა"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "გასვლა"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1593,8 +1471,8 @@ msgstr "განახლებების გამოთხოვა…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "განახლებები"
+msgid "App updates"
+msgstr "აპების განახლებები"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1627,6 +1505,10 @@ msgstr "უნდა შემოწმდეს განახლებებ�
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "ბოლო განახლების თარიღი უცნობია"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "თავდაპირველი ავტორები"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

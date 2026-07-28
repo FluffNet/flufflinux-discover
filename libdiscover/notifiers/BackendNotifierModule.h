@@ -60,21 +60,13 @@ public:
     /*** @returns count of !security updates only. **/
     virtual bool hasUpdates() = 0;
 
-    /*** @returns count of security updates only. **/
-    virtual bool hasSecurityUpdates() = 0;
-
-    /** @returns whether the system changed in a way that needs to be rebooted. */
-    virtual bool needsReboot() const = 0;
-
 Q_SIGNALS:
     /**
      * This signal is emitted when any new updates are available.
      * @see recheckSystemUpdateNeeded
      */
     void foundUpdates();
-
-    /** Notifies that the system needs a reboot. @see needsReboot */
-    void needsRebootChanged();
+    void checkCompleted(bool hasConfiguredSources, bool hasReachableSources);
 
     /** notifies about an available upgrade */
     void foundUpgradeAction(UpgradeAction *action);

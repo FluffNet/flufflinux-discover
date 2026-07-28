@@ -31,10 +31,6 @@ msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
 #: libdiscover/appstream/AppStreamUtils.cpp:112
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:326
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:304
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:367
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:393
 #: libdiscover/UpdateModel/UpdateModel.cpp:123
 #: libdiscover/UpdateModel/UpdateModel.cpp:362
 #, kde-format
@@ -66,505 +62,331 @@ msgstr "Помилка під час надсилання даних рецен�
 msgid "Technical error message: %1"
 msgstr "Технічне повідомлення про помилку: %1"
 
-#: libdiscover/backends/AlpineApkBackend/AlpineApkAuthActionFactory.cpp:26
-#, kde-format
-msgid "Package management"
-msgstr "Керування пакунками"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkBackend.cpp:203
-#, kde-format
-msgid "Loading, please wait..."
-msgstr "Завантаження. Будь ласка, зачекайте…"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkBackend.cpp:289
-#, kde-format
-msgctxt "Root category name"
-msgid "Alpine Linux packages"
-msgstr "Пакунки Alpine Linux"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkBackend.cpp:458
-#, kde-format
-msgctxt "Backend plugin display name"
-msgid "Alpine APK"
-msgstr "Alpine APK"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkSourcesBackend.cpp:98
-#: libdiscover/backends/AlpineApkBackend/AlpineApkUpdater.cpp:272
-#, kde-format
-msgid "Authorization denied"
-msgstr "Відмовлено в уповноваженні"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkSourcesBackend.cpp:100
-#, kde-format
-msgid "Error: "
-msgstr "Помилка: "
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkSourcesBackend.cpp:133
-#, kde-format
-msgctxt "Adding repo"
-msgid ""
-"Enter Alpine repository URL, for example: http://dl-cdn.alpinelinux.org/"
-"alpine/edge/testing/"
-msgstr ""
-"Введіть адресу сховища Alpine. Приклад: http://dl-cdn.alpinelinux.org/alpine/"
-"edge/testing/"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkTransaction.cpp:77
-#, kde-format
-msgid "Error: Authorization denied"
-msgstr "Помилка: відмовлено в уповноваженні"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkTransaction.cpp:123
-#: libdiscover/backends/AlpineApkBackend/AlpineApkUpdater.cpp:283
-#, kde-format
-msgid "Error"
-msgstr "Помилка"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkUpdater.cpp:39
-#, kde-format
-msgid "Failed to open APK database!"
-msgstr "Не вдалося відкрити базу даних APK!"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkUpdater.cpp:44
-#, kde-format
-msgid "Failed to get a list of packages to upgrade!"
-msgstr "Не вдалося отримати список пакунків для оновлення!"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:4
-#, kde-format
-msgctxt "Category"
-msgid "Dummy Category"
-msgstr "Фіктивна категорія"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:11
-#, kde-format
-msgctxt "Category"
-msgid "dummy"
-msgstr "тест"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:18
-#, kde-format
-msgctxt "Category"
-msgid "dummy addons"
-msgstr "фіктивні додатки"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:26
-#, kde-format
-msgctxt "Category"
-msgid "dummy 1"
-msgstr "фіктивний 1"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:33
-#, kde-format
-msgctxt "Category"
-msgid "dummy with stuff"
-msgstr "фіктивний із вмістом"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:40
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:55
-#, kde-format
-msgctxt "Category"
-msgid "dummy 2.1"
-msgstr "фіктивний 2.1"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:48
-#, kde-format
-msgctxt "Category"
-msgid "dummy with quite some stuff"
-msgstr "фіктивний зі значним вмістом"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:64
-#, kde-format
-msgctxt "Category"
-msgid "dummy 3"
-msgstr "фіктивний 3"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:74
-#, kde-format
-msgctxt "Category"
-msgid "dummy 4"
-msgstr "фіктивний 4"
-
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:5
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:5
 #, kde-format
 msgctxt "Category"
 msgid "All Applications"
 msgstr "Всі програми"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:29
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:29
 #, kde-format
 msgctxt "Category"
 msgid "Utilities"
 msgstr "Інструменти"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:40
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:40
 #, kde-format
 msgctxt "Category"
 msgid "Accessibility"
 msgstr "Доступність"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:51
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:51
 #, kde-format
 msgctxt "Category"
 msgid "Development"
 msgstr "Розробка"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:60
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:60
 #, kde-format
 msgctxt "Category"
 msgid "Debugging"
 msgstr "Налагоджування"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:70
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:70
 #, kde-format
 msgctxt "Category"
 msgid "Graphic Interface Design"
 msgstr "Розробка графічних інтерфейсів"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:80
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:80
 #, kde-format
 msgctxt "Category"
 msgid "IDEs"
 msgstr "IDE"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:89
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:89
 #, kde-format
 msgctxt "Category"
 msgid "Localization"
 msgstr "Локалізація"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:99
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:99
 #, kde-format
 msgctxt "Category"
 msgid "Profiling"
 msgstr "Профілювання"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:108
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:108
 #, kde-format
 msgctxt "Category"
 msgid "Web Development"
 msgstr "Розробка вебсторінок"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:121
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:120
 #, kde-format
 msgctxt "Category"
 msgid "Education"
 msgstr "Освіта"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:131
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:130
 #, kde-format
 msgctxt "Category"
 msgid "Science & Math"
 msgstr "Наука і математика"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:140
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:139
 #, kde-format
 msgctxt "Category"
 msgid "Astronomy"
 msgstr "Астрономія"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:149
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:148
 #, kde-format
 msgctxt "Category"
 msgid "Biology"
 msgstr "Біологія"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:157
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:156
 #, kde-format
 msgctxt "Category"
 msgid "Chemistry"
 msgstr "Хімія"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:166
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:165
 #, kde-format
 msgctxt "Category"
 msgid "Computer Science and Robotics"
 msgstr "Комп’ютерні науки та робототехніка"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:177
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:176
 #, kde-format
 msgctxt "Category"
 msgid "Electronics"
 msgstr "Електроніка"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:186
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:185
 #, kde-format
 msgctxt "Category"
 msgid "Engineering"
 msgstr "Інженерна справа"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:195
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:194
 #, kde-format
 msgctxt "Category"
 msgid "Geography"
 msgstr "Географія"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:204
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:203
 #, kde-format
 msgctxt "Category"
 msgid "Geology"
 msgstr "Геологія"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:213
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:212
 #, kde-format
 msgctxt "Category"
 msgid "Mathematics"
 msgstr "Математика"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:224
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:223
 #, kde-format
 msgctxt "Category"
 msgid "Physics"
 msgstr "Фізика"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:235
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:234
 #, kde-format
 msgctxt "Category"
 msgid "Games"
 msgstr "Ігри"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:244
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:243
 #, kde-format
 msgctxt "Category"
 msgid "Arcade"
 msgstr "Аркади"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:253
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:252
 #, kde-format
 msgctxt "Category"
 msgid "Board Games"
 msgstr "Ігри на дошці"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:262
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:261
 #, kde-format
 msgctxt "Category"
 msgid "Card Games"
 msgstr "Карткові ігри"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:271
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:270
 #, kde-format
 msgctxt "Category"
 msgid "Puzzles"
 msgstr "Головоломки"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:280
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:279
 #, kde-format
 msgctxt "Category"
 msgid "Role Playing"
 msgstr "Рольові ігри"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:289
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:288
 #, kde-format
 msgctxt "Category"
 msgid "Simulation"
 msgstr "Імітатори"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:298
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:297
 #, kde-format
 msgctxt "Category"
 msgid "Strategy"
 msgstr "Стратегія"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:307
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:306
 #, kde-format
 msgctxt "Category"
 msgid "Sports"
 msgstr "Спорт"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:316
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:315
 #, kde-format
 msgctxt "Category"
 msgid "Action"
 msgstr "Екшн"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:325
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:324
 #, kde-format
 msgctxt "Category"
 msgid "Emulators"
 msgstr "Емулятори"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:334
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:333
 #, kde-format
 msgctxt "Category"
 msgid "Launchers"
 msgstr "Засоби запуску"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:343
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:342
 #, kde-format
 msgctxt "Category"
 msgid "Tools"
 msgstr "Інструменти"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:355
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:355
 #, kde-format
 msgctxt "Category"
 msgid "Graphics"
 msgstr "Графіка"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:363
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:363
 #, kde-format
 msgctxt "Category"
 msgid "3D"
 msgstr "Просторові"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:372
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:372
 #, kde-format
 msgctxt "Category"
 msgid "Drawing"
 msgstr "Малювання"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:384
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:384
 #, kde-format
 msgctxt "Category"
 msgid "Painting and Editing"
 msgstr "Малювання та редагування"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:397
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:397
 #, kde-format
 msgctxt "Category"
 msgid "Photography"
 msgstr "Фотографія"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:406
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:406
 #, kde-format
 msgctxt "Category"
 msgid "Publishing"
 msgstr "Видавнича справа"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:415
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:415
 #, kde-format
 msgctxt "Category"
 msgid "Scanning and OCR"
 msgstr "Сканування та розпізнавання"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:425
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:425
 #, kde-format
 msgctxt "Category"
 msgid "Viewers"
 msgstr "Переглядачі"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:437
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:437
 #, kde-format
 msgctxt "Category"
 msgid "Internet"
 msgstr "Інтернет"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:445
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:445
 #, kde-format
 msgctxt "Category"
 msgid "Chat"
 msgstr "Спілкування"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:455
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:455
 #, kde-format
 msgctxt "Category"
 msgid "File Sharing"
 msgstr "Спільний доступ до файлів"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:464
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:464
 #, kde-format
 msgctxt "Category"
 msgid "Mail"
 msgstr "Пошта"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:473
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:473
 #, kde-format
 msgctxt "Category"
 msgid "Web Browsers"
 msgstr "Переглядачі інтернету"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:485
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:485
 #, kde-format
 msgctxt "Category"
 msgid "Multimedia"
 msgstr "Звук та відео"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:494
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:494
 #, kde-format
 msgctxt "Category"
 msgid "Audio and Video Editors"
 msgstr "Редактори звуку та відео"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:503
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:503
 #, kde-format
 msgctxt "Category"
 msgid "Audio Players"
 msgstr "Програвачі звуку"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:524
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:524
 #, kde-format
 msgctxt "Category"
 msgid "Video Players"
 msgstr "Програвачі відео"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:542
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:542
 #, kde-format
 msgctxt "Category"
 msgid "CD and DVD"
 msgstr "КД і DVD"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:554
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:554
 #, kde-format
 msgctxt "Category"
 msgid "Office"
 msgstr "Офіс"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:564
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:564
 #, kde-format
 msgctxt "Category"
 msgid "System"
@@ -582,7 +404,6 @@ msgid "Local bundle"
 msgstr "Локальний пакунок"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakBackend.cpp:1963
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:852
 #, kde-format
 msgid "Malformed appstream url '%1'"
 msgstr "Помилкове форматування адреси appstream «%1»"
@@ -615,15 +436,12 @@ msgstr ""
 "іншого програмного забезпечення у цьому сховищі.</para>"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakResource.cpp:479
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:419
 #, kde-format
 msgctxt "@label app size"
 msgid "Unknown"
 msgstr "Невідомий"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakResource.cpp:535
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:467
-#: libdiscover/backends/PackageKitBackend/PackageKitSourcesBackend.cpp:70
 #, kde-format
 msgid "Failed to start '%1': %2"
 msgstr "Не вдалося запустити «%1»: %2"
@@ -649,7 +467,6 @@ msgid "Music"
 msgstr "Музика"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakResource.cpp:860
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:451
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -976,7 +793,7 @@ msgstr "%1 (користувач)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
 msgstr "Введіть адресу сховища Flatpak (*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
@@ -1077,1628 +894,20 @@ msgid "Clearing settings and user data…"
 msgstr "Вилучаємо параметри і дані користувача…"
 
 #: libdiscover/backends/FlatpakBackend/qml/PermissionsList.qml:26
-#: libdiscover/backends/PackageKitBackend/qml/PackageKitPermissions.qml:23
 #, kde-format
 msgctxt "Permission to access system resources and hardware devices"
 msgid "Permissions"
 msgstr "Права доступу"
 
 #: libdiscover/backends/FlatpakBackend/qml/PermissionsList.qml:76
-#: libdiscover/backends/SnapBackend/qml/PermissionsButton.qml:20
 #, kde-format
 msgid "Configure permissions…"
 msgstr "Налаштувати права доступу…"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "Оновлення мікропрограми"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"Для доступу до віддаленого сховища %1 вам слід погодитися із умовами "
-"ліцензування:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "Переглянути EULA"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Не вдалося увімкнути віддалене сховище %1: %2"
-
-#: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
-#, kde-format
-msgid "SteamOS"
-msgstr "SteamOS"
-
-#: libdiscover/backends/HoloBackend/HoloBackend.cpp:73
-#, kde-format
-msgid "Holo"
-msgstr "Holo"
-
-#: libdiscover/backends/HoloBackend/HoloBackend.cpp:113
-#, kde-format
-msgctxt "%1 is the pretty name of the distro e.g. Holo or SteamOS"
-msgid "Holo: Unable to query atomupd for %1 Updates..."
-msgstr "Holo: не вдалося опитати atomupd щодо оновлень %1…"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:64
-#, kde-format
-msgid ""
-"Unsupported question:\n"
-"%1"
-msgstr ""
-"Непідтримуване питання:\n"
-"%1"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:210
-#, kde-format
-msgid "Backend %1 took too long to initialize"
-msgstr "Ініціалізація модуля %1 триває надто довго"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:276
-#, kde-format
-msgid "Applications"
-msgstr "Програми"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:304
-#, kde-format
-msgid "Plasma Addons"
-msgstr "Додатки Плазми"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:304
-#, kde-format
-msgid "Application Addons"
-msgstr "Додатки програм"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:392
-#, kde-format
-msgid "Network error in backend %1: %2"
-msgstr "Помилка у роботі з мережею у модулі %1: %2"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:399
-#, kde-format
-msgid ""
-"Too many requests sent to the server for backend %1. Please try again in a "
-"few minutes."
-msgstr ""
-"До сервера надіслано надто багато запитів для модуля %1. Будь ласка, "
-"повторіть спробу за декілька хвилин."
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:402
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:408
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:413
-#, kde-format
-msgid "Invalid %1 backend, contact your distributor."
-msgstr ""
-"Некоректний модуль %1, повідомте про це розробникам вашого дистрибутива."
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:432
-#, kde-format
-msgid ""
-"Unable to complete the update of %1. You can try and perform this action "
-"through the Get Hot New Stuff dialog, which grants tighter control. The "
-"reported error was:\n"
-"%2"
-msgstr ""
-"Не вдалося завершити оновлення %1. ви можете спробувати виконати цю дію за "
-"допомогою діалогового вікна отримання нових матеріалів, яке надає точніші "
-"засоби керування. Повідомлення про помилку:\n"
-"%2"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:442
-#, kde-format
-msgid "Could not fetch screenshot for the entry %1 in backend %2"
-msgstr "Не вдалося отримати знімок вікна для запису %1 у модулі %2"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:446
-#, kde-format
-msgid "Unhandled error in %1 backend. Contact your distributor."
-msgstr ""
-"Непридатна до обробки помилка у модулі %1. Повідомте про це розробникам "
-"вашого дистрибутива."
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:570
-#, kde-format
-msgid "Wrong KNewStuff URI: %1"
-msgstr "Помилкова адреса KNewStuff: %1"
-
-#: libdiscover/backends/KNSBackend/KNSResource.cpp:169
-#, kde-format
-msgctxt "The name of the KDE Store"
-msgid "KDE Store"
-msgstr "Крамниця KDE"
-
-#: libdiscover/backends/KNSBackend/KNSReviews.cpp:146
-#, kde-format
-msgid "Log in information for %1"
-msgstr "Дані щодо входу для %1"
-
-#: libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp:268
-#, kde-format
-msgid "Cannot launch %1"
-msgstr "Не вдалося запустити %1"
-
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:575
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:621
-#, kde-format
-msgctxt "Category"
-msgid "Fonts"
-msgstr "Шрифти"
-
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:586
-#, kde-format
-msgctxt "Category"
-msgid "Hardware Drivers"
-msgstr "Драйвери обладнання"
-
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:597
-#, kde-format
-msgctxt "Category"
-msgid "Plasma Addons"
-msgstr "Додатки Плазми"
-
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:609
-#, kde-format
-msgctxt "Category"
-msgid "Plasma Widgets"
-msgstr "Віджети Плазми"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:331
-#, kde-format
-msgid "Please make sure that Appstream is properly set up on your system"
-msgstr ""
-"Будь ласка, переконайтеся, що у вашій системі належним чином налаштовано "
-"Appstream"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:367
-#, kde-format
-msgctxt "%1 is the date as formatted by the locale"
-msgid ""
-"Your operating system ended support on %1. Consider upgrading to a supported "
-"version."
-msgstr ""
-"Супровід вашої операційної системи припинено %1. Вам варто оновити систему "
-"до супроводжуваної версії."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:958
-#, kde-format
-msgid "Cannot remove '%1'"
-msgstr "Не вдалося вилучити «%1»"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:1042
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:365
-#, kde-format
-msgctxt "@info:status %1 is a new major version of the user's distro"
-msgid ""
-"<b>%1 is now available.</b>\n"
-"To be able to upgrade to this new version, first apply all available "
-"updates, and then restart the system."
-msgstr ""
-"<b>Випущено %1.</b>\n"
-"Щоб мати змогу оновитися до цієї нової версії, спочатку застосуйте усі "
-"оновлення і перезавантажте вашу систему."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:1051
-#, kde-format
-msgctxt "@action: button"
-msgid "Upgrade Now"
-msgstr "Оновити зараз"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:1073
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:375
-#, kde-format
-msgctxt "@info:status %1 is a new major version of the user's distro"
-msgid "%1 is now available."
-msgstr "Випущено %1."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:1200
-#, kde-format
-msgctxt "@info %2 is the name of the operating system"
-msgid ""
-"The PackageKit background service stopped unexpectedly.<nl/></nl/>Please "
-"<link url='%1'>report this issue to %2</link>"
-msgstr ""
-"Фонова служба PackageKit несподівано завершила роботу.<nl/></nl/>Будь ласка, "
-"<link url='%1'>повідомте про цю проблему %2</link>"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:18
-#, kde-format
-msgid "Out of memory"
-msgstr "Не вистачає пам'яті"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:20
-#, kde-format
-msgid "No network connection available"
-msgstr "З’єднання з мережею недоступне"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:22
-#, kde-format
-msgid "Operation not supported"
-msgstr "Дія не підтримується"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:25
-#, kde-format
-msgid "Internal error"
-msgstr "Внутрішня помилка"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:27
-#, kde-format
-msgid "Internal error: %1"
-msgstr "Внутрішня помилка: %1"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:31
-#, kde-format
-msgid "GPG failure"
-msgstr "Помилка GPG"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:33
-#, kde-format
-msgid "PackageID invalid"
-msgstr "Некоректний ідентифікатор пакунка"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:35
-#, kde-format
-msgid "Package not installed"
-msgstr "Пакунок не встановлено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:37
-#, kde-format
-msgid "Package not found"
-msgstr "Пакунок не знайдено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:39
-#, kde-format
-msgid "Package is already installed"
-msgstr "Пакунок вже встановлено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:41
-#, kde-format
-msgid "Package download failed"
-msgstr "Спроба отримання пакунка зазнала невдачі"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:43
-#, kde-format
-msgid "Package group not found"
-msgstr "Не вдалося знайти групи пакунка"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:45
-#, kde-format
-msgid "Package group list invalid"
-msgstr "Некоректний список груп пакунків"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:47
-#, kde-format
-msgid "Dependency resolution failed"
-msgstr "Не вдалося розв’язати залежності"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:49
-#, kde-format
-msgid "Filter invalid"
-msgstr "Некоректне фільтрування"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:51
-#, kde-format
-msgid "Failed while creating a thread"
-msgstr "Не вдалося створити потік виконання"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:53
-#, kde-format
-msgid "Transaction failure"
-msgstr "Помилка під час виконання дії"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:55
-#, kde-format
-msgid "Transaction canceled"
-msgstr "Дію скасовано"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:57
-#, kde-format
-msgid "No Cache available"
-msgstr "У кеші немає ніяких даних"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:59
-#, kde-format
-msgid "Cannot find repository"
-msgstr "Не вдалося знайти сховище"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:61
-#, kde-format
-msgid "Cannot remove system package"
-msgstr "Не можна вилучати пакунок, без якого система не працюватиме"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:63
-#, kde-format
-msgid "The PackageKit daemon has crashed"
-msgstr "Фонова служба PackageKit завершила роботу у аварійному режимі"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:65
-#, kde-format
-msgid "Initialization failure"
-msgstr "Помилка ініціалізації"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:67
-#, kde-format
-msgid "Failed to finalize transaction"
-msgstr "Не вдалося завершити виконання дії"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:69
-#, kde-format
-msgid "Config parsing failed"
-msgstr "Під час обробки файла налаштувань сталася помилка"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:71
-#, kde-format
-msgid "Cannot cancel transaction"
-msgstr "Не вдалося скасувати дію"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:73
-#, kde-format
-msgid "Cannot obtain lock"
-msgstr "Не вдалося встановити блокування"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:75
-#, kde-format
-msgid "No packages to update"
-msgstr "Немає пакунків для оновлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:77
-#, kde-format
-msgid "Cannot write repo config"
-msgstr "Не вдалося записати файл налаштувань сховища"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:79
-#, kde-format
-msgid "Local install failed"
-msgstr "Невдала спроба локального встановлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:81
-#, kde-format
-msgid "Bad GPG signature found"
-msgstr "Виявлено помилковий підпис GPG"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:83
-#, kde-format
-msgid "No GPG signature found"
-msgstr "Не виявлено підпису GPG"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:85
-#, kde-format
-msgid "Cannot install source package"
-msgstr "Не вдалося встановити пакунок з початковими кодами"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:87
-#, kde-format
-msgid "Repo configuration error"
-msgstr "Помилка у налаштуваннях сховища"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:89
-#, kde-format
-msgid "No license agreement"
-msgstr "Немає ліцензійної угоди"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:91
-#, kde-format
-msgid "File conflicts found"
-msgstr "Виявлено конфлікт файлів"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:93
-#, kde-format
-msgid "Package conflict found"
-msgstr "Виявлено конфлікт пакунків"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:95
-#, kde-format
-msgid "Repo not available"
-msgstr "Сховище недоступне"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:97
-#, kde-format
-msgid "Invalid package file"
-msgstr "Некоректний файл пакунка"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:99
-#, kde-format
-msgid "Package install blocked"
-msgstr "Встановлення пакунка заблоковано"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:101
-#, kde-format
-msgid "Corrupt package found"
-msgstr "Виявлено пошкоджений пакунок"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:103
-#, kde-format
-msgid "All packages already installed"
-msgstr "Усі пакунки вже встановлено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:105
-#, kde-format
-msgid "File not found"
-msgstr "Файл не знайдено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:107
-#, kde-format
-msgid "No more mirrors available"
-msgstr "Список дзеркал вичерпано"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:109
-#, kde-format
-msgid "No distro upgrade data"
-msgstr "Немає даних щодо оновлення дистрибутива"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:111
-#, kde-format
-msgid "Incompatible architecture"
-msgstr "Несумісні архітектури"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:113
-#, kde-format
-msgid "No space on device left"
-msgstr "На пристрої зберігання даних більше немає вільного місця"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:115
-#, kde-format
-msgid "A media change is required"
-msgstr "Слід змінити носій"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:117
-#, kde-format
-msgid "You have no authorization to execute this operation"
-msgstr "Вас не уповноважено на виконання цієї операції"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:119
-#, kde-format
-msgid "Update not found"
-msgstr "Оновлення не знайдено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:121
-#, kde-format
-msgid "Cannot install from unsigned repo"
-msgstr "Не можна виконувати встановлення з непідписаного сховища"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:123
-#, kde-format
-msgid "Cannot update from unsigned repo"
-msgstr "Не можна виконувати оновлення з непідписаного сховища"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:125
-#, kde-format
-msgid "Cannot get file list"
-msgstr "Не вдалося отримати список файлів"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:127
-#, kde-format
-msgid "Cannot get requires"
-msgstr "Не вдалося отримати список потрібних пакунків"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:129
-#, kde-format
-msgid "Cannot disable repository"
-msgstr "Не вдалося вимкнути сховище"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:131
-#, kde-format
-msgid "Restricted download detected"
-msgstr "Виявлено отримання даних з обмеженим використанням"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:133
-#, kde-format
-msgid "Package failed to configure"
-msgstr "Спроба налаштування пакунка зазнала невдачі"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:135
-#, kde-format
-msgid "Package failed to build"
-msgstr "Спроба збирання пакунка зазнала невдачі"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:137
-#, kde-format
-msgid "Package failed to install"
-msgstr "Спроба встановлення пакунка зазнала невдачі"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:139
-#, kde-format
-msgid "Package failed to remove"
-msgstr "Не вдалося вилучити пакунок"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:141
-#, kde-format
-msgid "Update failed due to running process"
-msgstr "Спроба оновлення зазнала невдачі через запущений процес"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:143
-#, kde-format
-msgid "The package database changed"
-msgstr "До бази даних пакунків внесено зміни"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:145
-#, kde-format
-msgid "The provided type is not supported"
-msgstr "Підтримки наданого типу не передбачено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:147
-#, kde-format
-msgid "Install root is invalid"
-msgstr "Некоректна коренева тека встановлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:149
-#, kde-format
-msgctxt ""
-"Failed to sync your Linux distro repositories or other sources of packages"
-msgid "Cannot fetch sources"
-msgstr "Не вдалося отримати початковий код"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:151
-#, kde-format
-msgid "Canceled priority"
-msgstr "Скасовано пріоритетність"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:153
-#, kde-format
-msgid "Unfinished transaction"
-msgstr "Незавершена дія"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:155
-#, kde-format
-msgid "Lock required"
-msgstr "Потрібне блокування"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:160
-#, kde-format
-msgid "Unknown error %1."
-msgstr "Невідома помилка %1."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:169
-#, kde-format
-msgid "'%1' was changed and suggests to be restarted."
-msgstr "До «%1» було внесено зміни, пропонуємо виконати перезавантаження."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:171
-#, kde-format
-msgid "A change by '%1' suggests your session to be restarted."
-msgstr "Після змін, внесених «%1», варто перезапустити сеанс користувача."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:173
-#, kde-format
-msgid ""
-"'%1' was updated for security reasons, a restart of the session is "
-"recommended."
-msgstr ""
-"«%1» було оновлено з міркувань забезпечення захисту системи. Рекомендуємо "
-"перезапустити ваш сеанс користувача, щоб внесені зміни набули чинності."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:175
-#, kde-format
-msgid ""
-"'%1' was updated for security reasons, a restart of the system is "
-"recommended."
-msgstr ""
-"«%1» було оновлено з міркувань забезпечення захисту системи. Рекомендуємо "
-"перезапустити вашу операційну систему, щоб внесені зміни набули чинності."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:180
-#, kde-format
-msgid "A change by '%1' suggests your system to be restarted."
-msgstr ""
-"Після змін, внесених «%1», варто перезапустити вашу операційну систему."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:188
-#, kde-format
-msgid "The application will have to be restarted."
-msgstr "Програму слід перезапустити."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:190
-#, kde-format
-msgid "The session will have to be restarted"
-msgstr "Сеанс користувача слід перезапустити."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:192
-#, kde-format
-msgid "The system will have to be restarted."
-msgstr "Систему слід перезапустити."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:194
-#, kde-format
-msgid "For security, the session will have to be restarted."
-msgstr "З міркувань безпеки сеанс користувача слід перезапустити."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:196
-#, kde-format
-msgid "For security, the system will have to be restarted."
-msgstr "З міркувань безпеки систему слід перезапустити."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:208
-#, kde-format
-msgid "Waiting…"
-msgstr "Очікуємо…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:210
-#, kde-format
-msgid "Refreshing Cache…"
-msgstr "Оновлюємо кеш…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:212
-#, kde-format
-msgid "Setup…"
-msgstr "Налаштовування…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:214
-#, kde-format
-msgid "Processing…"
-msgstr "Виконуємо обробку…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:216
-#, kde-format
-msgid "Remove…"
-msgstr "Вилучити…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:218
-#, kde-format
-msgid "Downloading…"
-msgstr "Отримання…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:220
-#, kde-format
-msgid "Installing…"
-msgstr "Встановлення…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:222
-#, kde-format
-msgid "Updating…"
-msgstr "Оновлення…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:224
-#, kde-format
-msgid "Cleaning up…"
-msgstr "Спорожнення…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:227
-#, kde-format
-msgid "Resolving dependencies…"
-msgstr "Розв’язання залежностей…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:229
-#, kde-format
-msgid "Checking signatures…"
-msgstr "Перевіряємо підписи…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:231
-#, kde-format
-msgid "Test committing…"
-msgstr "Перевіряємо можливість запису…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:233
-#, kde-format
-msgid "Committing…"
-msgstr "Надсилання…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:236
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:362
-#, kde-format
-msgid "Finished"
-msgstr "Завершено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:238
-#, kde-format
-msgid "Canceled"
-msgstr "Скасовано"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:240
-#, kde-format
-msgid "Waiting for lock…"
-msgstr "Очікуємо на блокування…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:242
-#, kde-format
-msgid "Waiting for authorization…"
-msgstr "Очікуємо на завершення розпізнавання…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:247
-#, kde-format
-msgid "Copying files…"
-msgstr "Копіювання файлів…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:250
-#, kde-format
-msgid "Unknown Status"
-msgstr "Невідомий стан"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:258
-#, kde-format
-msgid "We are waiting for something."
-msgstr "Очікуємо на подію."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:260
-#, kde-format
-msgid "Setting up transaction…"
-msgstr "Налаштовуємо параметри дії…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:262
-#, kde-format
-msgid "The transaction is currently working…"
-msgstr "Виконуємо обробку дії…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:264
-#, kde-format
-msgid "The transaction is currently removing packages…"
-msgstr "Вилучаємо пакунки…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:266
-#, kde-format
-msgid "The transaction is currently downloading packages…"
-msgstr "Отримуємо дані пакунків…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:268
-#, kde-format
-msgid "The transactions is currently installing packages…"
-msgstr "Встановлюємо пакунки…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:270
-#, kde-format
-msgid "The transaction is currently updating packages…"
-msgstr "Оновлюємо пакунки…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:272
-#, kde-format
-msgid "The transaction is currently cleaning up…"
-msgstr "Виконуємо вилучення непотрібних даних…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:275
-#, kde-format
-msgid ""
-"The transaction is currently resolving the dependencies of the packages it "
-"will install…"
-msgstr ""
-"Зараз виконується розв’язання залежностей пакунків, які буде встановлено…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:277
-#, kde-format
-msgid "The transaction is currently checking the signatures of the packages…"
-msgstr "Виконуємо перевірку підписів пакунків…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:279
-#, kde-format
-msgid ""
-"The transaction is currently testing the commit of this set of packages…"
-msgstr "Виконуємо перевірку можливості запису цього набору пакунків…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:281
-#, kde-format
-msgid "The transaction is currently committing its set of packages…"
-msgstr "Зараз виконується запис до системи набору пакунків…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:284
-#, kde-format
-msgid "The transaction has finished!"
-msgstr "Виконання дії завершено!"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:286
-#, kde-format
-msgid "The transaction was canceled"
-msgstr "Дію було скасовано"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:288
-#, kde-format
-msgid "The transaction is currently waiting for the lock…"
-msgstr "Виконується очікування на встановлення блокування…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:290
-#, kde-format
-msgid "Waiting for the user to authorize the transaction…"
-msgstr "Очікуємо на уповноваження від користувача на виконання дії…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:295
-#, kde-format
-msgid "The transaction is currently copying files…"
-msgstr "Зараз виконується дія з копіювання файлів…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:297
-#, kde-format
-msgid "Currently refreshing the repository cache…"
-msgstr "Зараз оновлюємо кеш сховищ…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:302
-#, kde-format
-msgid "Unknown status %1."
-msgstr "Невідомий стан %1."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:313
-#, kde-format
-msgctxt "update state"
-msgid "Stable"
-msgstr "Стабільний"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:315
-#, kde-format
-msgctxt "update state"
-msgid "Unstable"
-msgstr "Нестабільний"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:317
-#, kde-format
-msgctxt "update state"
-msgid "Testing"
-msgstr "Тестовий"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:328
 #: libdiscover/resources/AbstractResource.cpp:97
 #, kde-format
 msgid "Installed"
 msgstr "Встановлено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:330
-#, kde-format
-msgid "Not Installed"
-msgstr "Не встановлено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:332
-#, kde-format
-msgid "Low"
-msgstr "Низький"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:334
-#, kde-format
-msgid "Enhancement"
-msgstr "Поліпшення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:336
-#, kde-format
-msgid "Normal"
-msgstr "Звичайний"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:338
-#, kde-format
-msgid "Bugfix"
-msgstr "Виправлення вади"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:340
-#, kde-format
-msgid "Important"
-msgstr "Важливе"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:342
-#, kde-format
-msgid "Security"
-msgstr "Безпека"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:344
-#, kde-format
-msgid "Blocked"
-msgstr "Заблоковано"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:346
-#, kde-format
-msgid "Downloading"
-msgstr "Отримання"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:348
-#, kde-format
-msgid "Updating"
-msgstr "Оновлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:350
-#, kde-format
-msgid "Installing"
-msgstr "Встановлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:352
-#, kde-format
-msgid "Removing"
-msgstr "Вилучення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:354
-#, kde-format
-msgid "Cleanup"
-msgstr "Очищення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:356
-#, kde-format
-msgid "Obsoleting"
-msgstr "Робить застарілим"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:358
-#, kde-format
-msgid "Collection Installed"
-msgstr "Встановлена збірка"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:360
-#, kde-format
-msgid "Collection Available"
-msgstr "Доступна збірка"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:364
-#, kde-format
-msgid "Reinstalling"
-msgstr "Перевстановлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:366
-#, kde-format
-msgid "Downgrading"
-msgstr "Зниження версії"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:368
-#, kde-format
-msgid "Preparing"
-msgstr "Приготування"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:370
-#, kde-format
-msgid "Decompressing"
-msgstr "Розпакування"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:372
-#, kde-format
-msgid "Untrusted"
-msgstr "Не довірено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:374
-#, kde-format
-msgid "Trusted"
-msgstr "Надійний"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:376
-#, kde-format
-msgid "Unavailable"
-msgstr "Недоступний"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:380
-#, kde-format
-msgid "Critical"
-msgstr "Критичний"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:382
-#, kde-format
-msgid "Install"
-msgstr "Встановити"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:384
-#, kde-format
-msgid "Remove"
-msgstr "Вилучити"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:386
-#, kde-format
-msgid "Obsolete"
-msgstr "Застарілий"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:388
-#, kde-format
-msgid "Downgrade"
-msgstr "Понизити"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:132
-#, kde-format
-msgid "Failed Offline Update"
-msgstr "Не вдалося виконати автономне оновлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:133
-#, kde-format
-msgid ""
-"Failed to update %1 package\n"
-"%2"
-msgid_plural ""
-"Failed to update %1 packages\n"
-"%2"
-msgstr[0] ""
-"Не вдалося оновити %1 пакунок\n"
-"%2"
-msgstr[1] ""
-"Не вдалося оновити %1 пакунки\n"
-"%2"
-msgstr[2] ""
-"Не вдалося оновити %1 пакунків\n"
-"%2"
-msgstr[3] ""
-"Не вдалося оновити пакунок\n"
-"%2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:136
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:187
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Discover"
-msgstr "Відкрити Discover"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:141
-#, kde-format
-msgctxt "@action:button"
-msgid "Repair System"
-msgstr "Полагодити систему"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:146
-#, kde-format
-msgid "Repairing failed offline update"
-msgstr "Не вдалося виконати відновлення автономного оновлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:153
-#, kde-format
-msgid "Repair Failed"
-msgstr "Невдала спроба відновлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:155
-#, kde-kuit-format
-msgctxt ""
-"@info %1 is an error message and %3 is the name of the operating system"
-msgid "%1<nl/>Please <link url='%2'>report this error to %3</link>."
-msgstr "%1<nl/>Будь ласка, <link url='%2'>повідомте про цю помилку %3</link>."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:168
-#, kde-format
-msgid "Repaired Successfully"
-msgstr "Успішно відновлено"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:183
-#, kde-format
-msgid "Offline Updates"
-msgstr "Автономні оновлення"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:184
-#, kde-format
-msgid "Successfully updated %1 package"
-msgid_plural "Successfully updated %1 packages"
-msgstr[0] "Успішно оновлено %1 пакунок"
-msgstr[1] "Успішно оновлено %1 пакунки"
-msgstr[2] "Успішно оновлено %1 пакунків"
-msgstr[3] "Успішно оновлено %1 пакунок"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:192
-#, kde-format
-msgid "Unknown Source"
-msgstr "Невідоме джерело"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:340
-#, kde-format
-msgctxt "package-name (version)"
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:343
-#, kde-format
-msgctxt "comma separating package names"
-msgid ", "
-msgstr ", "
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:358
-#, kde-format
-msgid "Software verified by %1"
-msgstr "Програмне забезпечення перевірено %1"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:413
-#, kde-format
-msgid "Obsoletes:"
-msgstr "Робить застарілим:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:414
-#, kde-format
-msgid "Release Notes:"
-msgstr "Нотатки щодо випуску:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:415
-#, kde-format
-msgid "Update State:"
-msgstr "Стан оновлення:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:416
-#, kde-format
-msgid "Restart:"
-msgstr "Перезапуск:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:419
-#, kde-format
-msgid "Vendor:"
-msgstr "Виробник:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitSourcesBackend.cpp:105
-#, kde-format
-msgid "Repository URL:"
-msgstr "Адреса сховища:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:98
-#, kde-format
-msgctxt "distro upgrade: name version"
-msgid "%1 %2"
-msgstr "%1 %2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:100
-#, kde-format
-msgid "System upgrade"
-msgstr "Оновлення системи"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:191
-#, kde-format
-msgid "1 package will be upgraded"
-msgid_plural "%1 packages will be upgraded"
-msgstr[0] "Буде оновлено %1 пакунок"
-msgstr[1] "Буде оновлено %1 пакунки"
-msgstr[2] "Буде оновлено %1 пакунків"
-msgstr[3] "Буде оновлено %1 пакунок"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:203
-#, kde-format
-msgid "<h3>%1</h3>Upgrade to new version %2<br/>No release notes provided"
-msgstr ""
-"<h3>%1</h3>Оновлення до нової версії %2<br/>Нотаток щодо випуску не надано"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:205
-#, kde-format
-msgid ""
-"<h3>%1</h3>Upgrade to new version %2<br/>Release notes:<blockquote>%3</"
-"blockquote>"
-msgstr ""
-"<h3>%1</h3>Оновлення до нової версії %2<br/>Нотатки щодо випуску:<blockquote>"
-"%3</blockquote>"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:231
-#, kde-format
-msgid "Present"
-msgstr "Поточна"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:235
-#, kde-format
-msgid "Future"
-msgstr "Майбутня"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:380
-#, kde-format
-msgctxt "@info:status %1 is a formatted disk space string e.g. '240 MiB'"
-msgid "Not enough space to perform the update; only %1 of space are available."
-msgstr "Недостатньо вільного місця для виконання оновлення. Доступно лише %1."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:602
-#, kde-format
-msgid ""
-"This update cannot be completed as it would remove the following software "
-"which is critical to the system's operation:<nl/><ul><li>%1</li></ul><nl/>If "
-"you believe this is an error, please report it as a bug to the packagers of "
-"your distribution."
-msgstr ""
-"Це оновлення не може бути виконано, оскільки у його результаті буде вилучено "
-"таке програмне забезпечення, яке є критичним для роботи системи:<nl/><ul><li>"
-"%1</li></ul><nl/>Якщо ви вважаєте це помилкою, будь ласка, повідомте про "
-"неї, як про ваду, пакувальникам вашого дистрибутива."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:609
-#, kde-format
-msgid "Confirm Changes"
-msgstr "Підтвердити зміни"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:610
-#, kde-format
-msgid ""
-"The following packages will be removed by the update:<ul><li>%1</li></ul><br/"
-">in order to install:<ul><li>%2</li></ul>"
-msgstr ""
-"Під час оновлення буде вилучено такі пакунки:<ul><li>%1</li></ul><br/>для "
-"встановлення:<ul><li>%2</li></ul>"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:736
-#, kde-kuit-format
-msgctxt "@info"
-msgid "%1:<nl/><nl/>%2"
-msgstr "%1:<nl/><nl/>%2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:744
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:327
-#, kde-format
-msgid ""
-"Media Change of type '%1' is requested.\n"
-"%2"
-msgstr ""
-"Надіслано запит щодо зміни носія типу «%1».\n"
-"%2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:777
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:304
-#, kde-format
-msgid "Accept EULA"
-msgstr "Погодитися з EULA"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:778
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:305
-#, kde-format
-msgid ""
-"The package %1 and its vendor %2 require that you accept their license:\n"
-" %3"
-msgstr ""
-"Встановлення пакунка %1, відповідно до вимок постачальника %2, потребує "
-"підтвердження ліцензійної угоди:\n"
-" %3"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:928
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:344
-#, kde-format
-msgid "Missing signature for %1 in %2"
-msgstr "Немає підпису %1 у %2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:929
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:345
-#, kde-format
-msgid ""
-"Do you trust the following key?\n"
-"\n"
-"Url: %1\n"
-"User: %2\n"
-"Key: %3\n"
-"Fingerprint: %4\n"
-"Timestamp: %4\n"
-msgstr ""
-"Довіряєте такому ключу?\n"
-"\n"
-"Адреса: %1\n"
-"Користувач: %2\n"
-"Ключ: %3\n"
-"Відбиток: %4\n"
-"Часова позначка: %4\n"
-
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:201
-#, kde-format
-msgid ""
-"This action cannot be completed as it would remove the following software "
-"which is critical to the system's operation:<nl/><ul><li>%1</li></ul><nl/>If "
-"you believe this is an error, please report it as a bug to the packagers of "
-"your distribution."
-msgstr ""
-"Цю дію не може бути виконано, оскільки у його результаті буде вилучено таке "
-"програмне забезпечення, яке є критичним для роботи системи:<nl/><ul><li>%1</"
-"li></ul><nl/>Якщо ви вважаєте це помилкою, будь ласка, повідомте про неї, як "
-"про ваду, пакувальникам вашого дистрибутива."
-
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:214
-#, kde-format
-msgid "Confirm package removal"
-msgstr "Підтвердження вилучення пакунка"
-
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:215
-#, kde-format
-msgid ""
-"This action will also remove the following package:\n"
-"%2"
-msgid_plural ""
-"This action will also remove the following packages:\n"
-"%2"
-msgstr[0] ""
-"У результаті виконання цієї дії буде також вилучено такі пакунки:\n"
-"%2"
-msgstr[1] ""
-"У результаті виконання цієї дії буде також вилучено такі пакунки:\n"
-"%2"
-msgstr[2] ""
-"У результаті виконання цієї дії буде також вилучено такі пакунки:\n"
-"%2"
-msgstr[3] ""
-"У результаті виконання цієї дії буде також вилучено такий пакунок:\n"
-"%2"
-
-#: libdiscover/backends/PackageKitBackend/qml/DependenciesButton.qml:33
-#, kde-format
-msgid "Show Dependencies…"
-msgstr "Показати залежності…"
-
-#: libdiscover/backends/PackageKitBackend/qml/DependenciesButton.qml:43
-#, kde-format
-msgid "Dependencies for package: %1"
-msgstr "Залежності для пакунка: %1"
-
-#: libdiscover/backends/PackageKitBackend/qml/PackageKitPermissions.qml:31
-#, kde-format
-msgid "Full Access"
-msgstr "Повний доступ"
-
-#: libdiscover/backends/PackageKitBackend/qml/PackageKitPermissions.qml:32
-#, kde-format
-msgid "Can access everything on the system"
-msgstr "Може отримувати доступ до усього у системі"
-
-#: libdiscover/backends/RpmOstreeBackend/rpm-ostree-backend-categories.xml:4
-#, kde-format
-msgctxt "Category"
-msgid "Operating System"
-msgstr "Операційна система"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:172
-#, kde-format
-msgid ""
-"rpm-ostree backend: Multiple booted deployments found. Please file a bug."
-msgstr ""
-"Модуль rpm-ostree: знайдено декілька придатних до завантаження розгорнутих "
-"систем. Будь ласка, повідомте розробникам про цю ваду."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:184
-#, kde-format
-msgid "rpm-ostree backend: No booted deployment found. Please file a bug."
-msgstr ""
-"Модуль rpm-ostree: не знайдено придатних до завантаження розгорнутих систем. "
-"Будь ласка, повідомте розробникам про цю ваду."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:373
-#, kde-format
-msgctxt "@action: button"
-msgid "Begin Upgrade…"
-msgstr "Почати оновлення…"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:524
-#, kde-format
-msgid "You have pending updates for the current version. Proceeding anyway."
-msgstr "У черзі оновлень є оновлення поточної версії. Продовжуємо попри це."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:527
-#, kde-format
-msgid "Please update to the latest version before rebasing to a major version"
-msgstr ""
-"Будь ласка, виконайте оновлення до найсвіжішої версії до переходу до "
-"основної версії"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:535
-#, kde-format
-msgid "Missing remote ref for rebase operation. Please file a bug."
-msgstr ""
-"Не вистачає віддаленого сховища для дії з переходу на нову основну версію. "
-"Будь ласка, повідомте розробникам про цю ваду."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:301
-#, kde-format
-msgid "GPL and other licenses"
-msgstr "GPL та інші умови ліцензування"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:311
-#, kde-format
-msgid "Additional packages: "
-msgstr "Додаткові пакунки:"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:318
-#, kde-format
-msgid "Additional modules: "
-msgstr "Додаткові модулі:"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:325
-#, kde-format
-msgid "Local packages: "
-msgstr "Локальні пакунки:"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:332
-#, kde-format
-msgid "Replaced packages:"
-msgstr "Замінені пакунки:"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:339
-#, kde-format
-msgid "Removed packages:"
-msgstr "Вилучені пакунки:"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:346
-#, kde-format
-msgctxt "@label OS updater message"
-msgid ""
-"<br/>This version is pinned and won't be automatically removed on updates."
-msgstr ""
-"<br/>Цю версію пришпилено — її не буде автоматично вилучено при оновленні."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:360
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:373
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:391
-#, kde-format
-msgctxt "@label OS vendor"
-msgid "Fedora Project"
-msgstr "Проєкт Fedora"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:400
-#, kde-format
-msgid "Currently booted version (pinned)"
-msgstr "Поточна завантажена версія (пришпилена)"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:402
-#, kde-format
-msgid "Currently booted version"
-msgstr "Поточна завантажена версія"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:405
-#, kde-format
-msgid "Version that will be used after reboot"
-msgstr "Версія, яку буде використано після перезавантаження"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:407
-#, kde-format
-msgid "Fallback version (pinned)"
-msgstr "Резервна версія (пришпилена)"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:409
-#, kde-format
-msgid "Fallback version"
-msgstr "Резервна версія"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:40
-#, kde-format
-msgid ""
-"rpm-ostree backend: Error: No DBus interface provided. Please file a bug."
-msgstr ""
-"Модуль rpm-ostree: помилка: не надано інтерфейсу DBus. Будь ласка, повідомте "
-"про цю ваду розробникам."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:60
-#, kde-format
-msgid ""
-"rpm-ostree backend: Error: Can not start a transaction for resource with an "
-"invalid format. Please file a bug."
-msgstr ""
-"Модуль rpm-ostree: помилка: не вдалося розпочати дію для ресурсу з "
-"некоректним форматом. Будь ласка, повідомте про цю ваду розробникам."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:80
-#, kde-format
-msgid ""
-"rpm-ostree backend: Error: Can not rebase to an empty ref. Please file a bug."
-msgstr ""
-"Модуль rpm-ostree: помилка: не вдалося перенести на порожній еталон. Будь "
-"ласка, повідомте про цю ваду розробникам."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:98
-#, kde-format
-msgid ""
-"rpm-ostree backend: Error: Unknown operation requested. Please file a bug."
-msgstr ""
-"Модуль rpm-ostree: помилка: запит щодо невідомої дії. Будь ласка, повідомте "
-"про цю ваду розробникам."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:160
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:183
-#, kde-format
-msgid ""
-"rpm-ostree transaction failed with:\n"
-"%1"
-msgstr ""
-"Операція rpm-ostree зазнала невдачі:\n"
-"%1"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:244
-#, kde-format
-msgid "rpm-ostree backend: Error: Unknown resource format. Please file a bug."
-msgstr ""
-"Модуль rpm-ostree: помилка: невідомий формат ресурсу. Будь ласка, повідомте "
-"про цю ваду розробникам."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:366
-#, kde-format
-msgid ""
-"Cancelling rpm-ostree transaction. This may take some time. Please wait."
-msgstr ""
-"Скасовуємо операцію rpm-ostree. Дія може тривати досить довго. Будь ласка, "
-"зачекайте."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:395
-#, kde-format
-msgid "Checking for a system update"
-msgstr "Пошук оновлення системи"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:398
-#, kde-format
-msgid ""
-"Downloading system update. Please be patient as progress is not reported."
-msgstr ""
-"Отримуємо оновлення системи. Будь ласка, зачекайте, оскільки дані про поступ "
-"не надходитимуть."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:401
-#, kde-format
-msgid "Updating the system. Please be patient as progress is not reported."
-msgstr ""
-"Оновлюємо систему. Будь ласка, зачекайте, оскільки дані про поступ не "
-"надходитимуть."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:404
-#, kde-format
-msgid ""
-"Updating to the next major version. Please be patient as progress is not "
-"reported."
-msgstr ""
-"Оновлюємо систему до наступною основної версії. Будь ласка, зачекайте, "
-"оскільки дані про поступ не надходитимуть."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:407
-#, kde-format
-msgid "Operation in progress (started outside of Discover)"
-msgstr "Виконуємо дію (розпочато поза Discover)"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:413
-#, kde-format
-msgid "Unknown transaction type"
-msgstr "Невідомий тип дії"
-
-#: libdiscover/backends/SnapBackend/qml/ChannelsButton.qml:22
-#, kde-format
-msgid "Channel: %1"
-msgstr "Канал: %1"
-
-#: libdiscover/backends/SnapBackend/qml/ChannelsButton.qml:31
-#, kde-format
-msgid "Channels for %1"
-msgstr "Канали для %1"
-
-#: libdiscover/backends/SnapBackend/qml/ChannelsButton.qml:45
-#: libdiscover/backends/SnapBackend/SnapResource.cpp:384
-#, kde-format
-msgid "%1 - %2"
-msgstr "%1 – %2"
-
-#: libdiscover/backends/SnapBackend/qml/ChannelsButton.qml:57
-#, kde-format
-msgid "Switch"
-msgstr "Перемкнути"
-
-#: libdiscover/backends/SnapBackend/qml/PermissionsButton.qml:28
-#, kde-format
-msgid "Permissions for %1"
-msgstr "Права доступу для %1"
-
-#: libdiscover/backends/SnapBackend/SnapBackend.cpp:43
-#, kde-format
-msgid "Snap"
-msgstr "Snap"
-
-#: libdiscover/backends/SnapBackend/SnapResource.cpp:585
-#, kde-format
-msgid "Verified Publisher on snapcraft.io"
-msgstr "Перевірений видавець на snapcraft.io"
-
-#: libdiscover/backends/SnapBackend/SnapResource.cpp:587
-#, kde-format
-msgid "Starred Publisher on snapcraft.io"
-msgstr "Засвідчений визнанням видавець на snapcraft.io"
-
-#: libdiscover/backends/SnapBackend/SnapTransaction.cpp:57
-#, kde-format
-msgid ""
-"This Snap application is not compatible with security sandboxing and will "
-"have full access to this system. Install it anyway?"
-msgstr ""
-"Ця програма Snap є несумісною із безпечною ізоляцією у «пісочниці», вона "
-"матиме повний доступ до системи цього комп'ютера. Встановити її попри це?"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:149
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid "Failed to get appstream data for “%1”.<nl/><nl/>Error message: %2"
-msgstr ""
-"Не вдалося отримати дані appstream для «%1».<nl/><nl/>Повідомлення про "
-"помилку: %2"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:154
-#, kde-format
-msgctxt "@info:status"
-msgid "No appstream URLs found for target “%1”"
-msgstr "Не знайдено адрес appstream для цілі «%1»"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:165
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid ""
-"Failed to fetch the updates from <a href='%1'>%1</a>.<nl/><nl/>Error "
-"message: %2"
-msgstr ""
-"Не вдалося отримати оновлення з <a href='%1'>%1</a>.<nl/><nl/>Повідомлення "
-"про помилку: %2"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:178
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid "Failed to parse update metadata.<nl/><nl/>Error message: %1"
-msgstr ""
-"Не вдалося обробити метадані оновлення.<nl/><nl/>Повідомлення про помилку: %1"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:187
-#, kde-format
-msgctxt "@info:status"
-msgid "No components found in appstream metadata for target “%1”"
-msgstr "Не знайдено компонентів у метаданих appstream для цілі «%1»"
 
 #: libdiscover/DiscoverBackendsFactory.cpp:127
 #, kde-format
@@ -2787,8 +996,8 @@ msgstr "%1+"
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr "Оновлення"
+msgid "App updates"
+msgstr "Оновлення програм"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format
@@ -3108,24 +1317,6 @@ msgstr "Додатки"
 
 #~ msgid "Upgrade available"
 #~ msgstr "Доступне оновлення дистрибутива"
-
-#~ msgid "FWUPD ERROR ALREADY PENDING!"
-#~ msgstr "ПОМИЛКА FWUPD: ВЖЕ У ЧЕРЗІ ОБРОБКИ!"
-
-#~ msgid "FWUPD ERROR INVALID FILE"
-#~ msgstr "ПОМИЛКА FWUPD: НЕКОРЕКТНИЙ ФАЙЛ"
-
-#~ msgid "FWUPD ERROR NOT SUPPORTED"
-#~ msgstr "ПОМИЛКА FWUPD: НЕМАЄ ПІДТРИМКИ"
-
-#~ msgid "FWUPD ERROR AUTH FAILED"
-#~ msgstr "ПОМИЛКА FWUPD: НЕ ВДАЛОСЯ ПРОЙТИ РОЗПІЗНАВАННЯ"
-
-#~ msgid "FWUPD ERROR SIGNATURE INVALID"
-#~ msgstr "ПОМИЛКА FWUPD: НЕКОРЕКТНИЙ ПІДПИС"
-
-#~ msgid "FWUPD ERROR AC POWER REQUIRED"
-#~ msgstr "ПОМИЛКА FWUPD: ПОТРІБНЕ ЖИВЛЕННЯ ВІД ЕЛЕКТРОМЕРЕЖІ"
 
 #~ msgid "Restart is required"
 #~ msgstr "Потрібне перезавантаження"

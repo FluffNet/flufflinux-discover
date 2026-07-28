@@ -41,7 +41,6 @@ class DISCOVERCOMMON_EXPORT AbstractBackendUpdater : public QObject
     Q_PROPERTY(qreal progress READ progress NOTIFY progressChanged)
     Q_PROPERTY(bool isCancelable READ isCancelable NOTIFY cancelableChanged)
     Q_PROPERTY(bool isProgressing READ isProgressing NOTIFY progressingChanged)
-    Q_PROPERTY(bool needsReboot READ needsReboot NOTIFY needsRebootChanged)
     Q_PROPERTY(quint64 downloadSpeed READ downloadSpeed NOTIFY downloadSpeedChanged)
     Q_PROPERTY(QString errorMessage READ errorMessage NOTIFY errorMessageChanged)
     Q_PROPERTY(bool isFetchingUpdates READ isFetchingUpdates NOTIFY fetchingChanged)
@@ -125,11 +124,6 @@ public:
      */
     virtual quint64 downloadSpeed() const = 0;
 
-    void setNeedsReboot(bool enabled);
-    void enableReadyToReboot();
-
-    bool isReadyToReboot() const;
-    bool needsReboot() const;
 
     void setErrorMessage(const QString &errorMessage);
     QString errorMessage() const
@@ -137,7 +131,6 @@ public:
         return m_errorMessage;
     }
 
-    virtual void setOfflineUpdates(bool useOfflineUpdates);
     virtual bool isFetchingUpdates() const = 0;
 
 public Q_SLOTS:
@@ -222,11 +215,6 @@ Q_SIGNALS:
      */
     void distroErrorMessage(const QString &message);
 
-    /**
-     * emitted when the updater decides it needs to reboot
-     */
-    void needsRebootChanged();
-
     /** emitted when we find a new errorMessage to display */
     void errorMessageChanged();
 
@@ -234,7 +222,5 @@ Q_SIGNALS:
     void fetchingChanged();
 
 private:
-    bool m_needsReboot = false;
-    bool m_readyToReboot = false;
     QString m_errorMessage;
 };

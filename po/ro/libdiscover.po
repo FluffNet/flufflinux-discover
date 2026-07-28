@@ -29,10 +29,6 @@ msgid "Your emails"
 msgstr "sergiu@cip.md"
 
 #: libdiscover/appstream/AppStreamUtils.cpp:112
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:326
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:304
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:367
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:393
 #: libdiscover/UpdateModel/UpdateModel.cpp:123
 #: libdiscover/UpdateModel/UpdateModel.cpp:362
 #, kde-format
@@ -64,505 +60,331 @@ msgstr "Eroare la trimiterea recenziei: %1"
 msgid "Technical error message: %1"
 msgstr "Mesaj tehnic de eroare: %1"
 
-#: libdiscover/backends/AlpineApkBackend/AlpineApkAuthActionFactory.cpp:26
-#, kde-format
-msgid "Package management"
-msgstr "Gestiunea pachetelor"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkBackend.cpp:203
-#, kde-format
-msgid "Loading, please wait..."
-msgstr "Se încarcă, așteptați…"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkBackend.cpp:289
-#, kde-format
-msgctxt "Root category name"
-msgid "Alpine Linux packages"
-msgstr "Pachete Alpine Linux"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkBackend.cpp:458
-#, kde-format
-msgctxt "Backend plugin display name"
-msgid "Alpine APK"
-msgstr "Alpine APK"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkSourcesBackend.cpp:98
-#: libdiscover/backends/AlpineApkBackend/AlpineApkUpdater.cpp:272
-#, kde-format
-msgid "Authorization denied"
-msgstr "Autorizare refuzată"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkSourcesBackend.cpp:100
-#, kde-format
-msgid "Error: "
-msgstr "Eroare: "
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkSourcesBackend.cpp:133
-#, kde-format
-msgctxt "Adding repo"
-msgid ""
-"Enter Alpine repository URL, for example: http://dl-cdn.alpinelinux.org/"
-"alpine/edge/testing/"
-msgstr ""
-"Introduceți URL-ul depozitului Alpine, de exemplu: http://dl-cdn.alpinelinux."
-"org/alpine/edge/testing/"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkTransaction.cpp:77
-#, kde-format
-msgid "Error: Authorization denied"
-msgstr "Eroare: Autorizare refuzată"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkTransaction.cpp:123
-#: libdiscover/backends/AlpineApkBackend/AlpineApkUpdater.cpp:283
-#, kde-format
-msgid "Error"
-msgstr "Eroare"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkUpdater.cpp:39
-#, kde-format
-msgid "Failed to open APK database!"
-msgstr "Deschiderea bazei de date APK a eșuat!"
-
-#: libdiscover/backends/AlpineApkBackend/AlpineApkUpdater.cpp:44
-#, kde-format
-msgid "Failed to get a list of packages to upgrade!"
-msgstr "Nu s-a putut obține lista cu pachete de înnoit!"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:4
-#, kde-format
-msgctxt "Category"
-msgid "Dummy Category"
-msgstr "Categorie fictivă"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:11
-#, kde-format
-msgctxt "Category"
-msgid "dummy"
-msgstr "fictivă"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:18
-#, kde-format
-msgctxt "Category"
-msgid "dummy addons"
-msgstr "suplimente fictive"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:26
-#, kde-format
-msgctxt "Category"
-msgid "dummy 1"
-msgstr "fictivă 1"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:33
-#, kde-format
-msgctxt "Category"
-msgid "dummy with stuff"
-msgstr "fictivă cu chestii"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:40
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:55
-#, kde-format
-msgctxt "Category"
-msgid "dummy 2.1"
-msgstr "fictivă 2.1"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:48
-#, kde-format
-msgctxt "Category"
-msgid "dummy with quite some stuff"
-msgstr "fictivă cu multe chestii"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:64
-#, kde-format
-msgctxt "Category"
-msgid "dummy 3"
-msgstr "fictivă 3"
-
-#: libdiscover/backends/DummyBackend/dummy-backend-categories.xml:74
-#, kde-format
-msgctxt "Category"
-msgid "dummy 4"
-msgstr "fictivă 4"
-
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:5
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:5
 #, kde-format
 msgctxt "Category"
 msgid "All Applications"
 msgstr "Toate aplicațiile"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:29
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:29
 #, kde-format
 msgctxt "Category"
 msgid "Utilities"
 msgstr "Utilitare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:40
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:40
 #, kde-format
 msgctxt "Category"
 msgid "Accessibility"
 msgstr "Accesibilitate"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:51
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:51
 #, kde-format
 msgctxt "Category"
 msgid "Development"
 msgstr "Dezvoltare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:60
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:60
 #, kde-format
 msgctxt "Category"
 msgid "Debugging"
 msgstr "Depanare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:70
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:70
 #, kde-format
 msgctxt "Category"
 msgid "Graphic Interface Design"
 msgstr "Proiectarea interfețelor grafice"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:80
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:80
 #, kde-format
 msgctxt "Category"
 msgid "IDEs"
 msgstr "Medii integrate de dezvoltare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:89
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:89
 #, kde-format
 msgctxt "Category"
 msgid "Localization"
 msgstr "Localizare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:99
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:99
 #, kde-format
 msgctxt "Category"
 msgid "Profiling"
 msgstr "Profilare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:108
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:108
 #, kde-format
 msgctxt "Category"
 msgid "Web Development"
 msgstr "Dezvoltare web"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:121
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:120
 #, kde-format
 msgctxt "Category"
 msgid "Education"
 msgstr "Educație"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:131
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:130
 #, kde-format
 msgctxt "Category"
 msgid "Science & Math"
 msgstr "Știință și matematică"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:140
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:139
 #, kde-format
 msgctxt "Category"
 msgid "Astronomy"
 msgstr "Astronomie"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:149
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:148
 #, kde-format
 msgctxt "Category"
 msgid "Biology"
 msgstr "Biologie"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:157
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:156
 #, kde-format
 msgctxt "Category"
 msgid "Chemistry"
 msgstr "Chimie"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:166
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:165
 #, kde-format
 msgctxt "Category"
 msgid "Computer Science and Robotics"
 msgstr "Științe informatice și robotică"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:177
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:176
 #, kde-format
 msgctxt "Category"
 msgid "Electronics"
 msgstr "Electronică"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:186
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:185
 #, kde-format
 msgctxt "Category"
 msgid "Engineering"
 msgstr "Inginerie"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:195
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:194
 #, kde-format
 msgctxt "Category"
 msgid "Geography"
 msgstr "Geografie"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:204
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:203
 #, kde-format
 msgctxt "Category"
 msgid "Geology"
 msgstr "Geologie"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:213
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:212
 #, kde-format
 msgctxt "Category"
 msgid "Mathematics"
 msgstr "Matematică"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:224
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:223
 #, kde-format
 msgctxt "Category"
 msgid "Physics"
 msgstr "Fizică"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:235
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:234
 #, kde-format
 msgctxt "Category"
 msgid "Games"
 msgstr "Jocuri"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:244
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:243
 #, kde-format
 msgctxt "Category"
 msgid "Arcade"
 msgstr "Arcadă"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:253
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:252
 #, kde-format
 msgctxt "Category"
 msgid "Board Games"
 msgstr "Jocuri de table"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:262
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:261
 #, kde-format
 msgctxt "Category"
 msgid "Card Games"
 msgstr "Jocuri de cărți"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:271
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:270
 #, kde-format
 msgctxt "Category"
 msgid "Puzzles"
 msgstr "Puzzle"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:280
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:279
 #, kde-format
 msgctxt "Category"
 msgid "Role Playing"
 msgstr "Jocuri pe roluri"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:289
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:288
 #, kde-format
 msgctxt "Category"
 msgid "Simulation"
 msgstr "Simulare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:298
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:297
 #, kde-format
 msgctxt "Category"
 msgid "Strategy"
 msgstr "Strategie"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:307
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:306
 #, kde-format
 msgctxt "Category"
 msgid "Sports"
 msgstr "Sporturi"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:316
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:315
 #, kde-format
 msgctxt "Category"
 msgid "Action"
 msgstr "Acțiune"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:325
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:324
 #, kde-format
 msgctxt "Category"
 msgid "Emulators"
 msgstr "Emulatoare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:334
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:333
 #, kde-format
 msgctxt "Category"
 msgid "Launchers"
 msgstr "Lansatori"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:343
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:342
 #, kde-format
 msgctxt "Category"
 msgid "Tools"
 msgstr "Unelte"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:355
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:355
 #, kde-format
 msgctxt "Category"
 msgid "Graphics"
 msgstr "Grafică"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:363
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:363
 #, kde-format
 msgctxt "Category"
 msgid "3D"
 msgstr "3D"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:372
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:372
 #, kde-format
 msgctxt "Category"
 msgid "Drawing"
 msgstr "Desen"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:384
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:384
 #, kde-format
 msgctxt "Category"
 msgid "Painting and Editing"
 msgstr "Pictură și retușare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:397
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:397
 #, kde-format
 msgctxt "Category"
 msgid "Photography"
 msgstr "Fotografie"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:406
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:406
 #, kde-format
 msgctxt "Category"
 msgid "Publishing"
 msgstr "Publicistică"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:415
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:415
 #, kde-format
 msgctxt "Category"
 msgid "Scanning and OCR"
 msgstr "Scanare și recunoaștere optică"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:425
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:425
 #, kde-format
 msgctxt "Category"
 msgid "Viewers"
 msgstr "Vizualizare"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:437
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:437
 #, kde-format
 msgctxt "Category"
 msgid "Internet"
 msgstr "Internet"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:445
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:445
 #, kde-format
 msgctxt "Category"
 msgid "Chat"
 msgstr "Discuție"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:455
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:455
 #, kde-format
 msgctxt "Category"
 msgid "File Sharing"
 msgstr "Partajare de fișiere"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:464
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:464
 #, kde-format
 msgctxt "Category"
 msgid "Mail"
 msgstr "Poștă"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:473
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:473
 #, kde-format
 msgctxt "Category"
 msgid "Web Browsers"
 msgstr "Navigatoare web"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:485
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:485
 #, kde-format
 msgctxt "Category"
 msgid "Multimedia"
 msgstr "Multimedia"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:494
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:494
 #, kde-format
 msgctxt "Category"
 msgid "Audio and Video Editors"
 msgstr "Redactori audio și video"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:503
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:503
 #, kde-format
 msgctxt "Category"
 msgid "Audio Players"
 msgstr "Lectori audio"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:524
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:524
 #, kde-format
 msgctxt "Category"
 msgid "Video Players"
 msgstr "Lectori video"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:542
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:542
 #, kde-format
 msgctxt "Category"
 msgid "CD and DVD"
 msgstr "CD și DVD"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:554
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:554
 #, kde-format
 msgctxt "Category"
 msgid "Office"
 msgstr "Birou"
 
 #: libdiscover/backends/FlatpakBackend/flatpak-backend-categories.xml:564
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:564
 #, kde-format
 msgctxt "Category"
 msgid "System"
@@ -580,7 +402,6 @@ msgid "Local bundle"
 msgstr "Pachet local"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakBackend.cpp:1963
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:852
 #, kde-format
 msgid "Malformed appstream url '%1'"
 msgstr "URL appstream eronat „%1”"
@@ -613,15 +434,12 @@ msgstr ""
 "la instalarea acestei aplicații.</para>"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakResource.cpp:479
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:419
 #, kde-format
 msgctxt "@label app size"
 msgid "Unknown"
 msgstr "Necunoscută"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakResource.cpp:535
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:467
-#: libdiscover/backends/PackageKitBackend/PackageKitSourcesBackend.cpp:70
 #, kde-format
 msgid "Failed to start '%1': %2"
 msgstr "Pornirea „%1” a eșuat: %2"
@@ -647,7 +465,6 @@ msgid "Music"
 msgstr "Muzică"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakResource.cpp:860
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:451
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -970,8 +787,8 @@ msgstr "%1 (utilizator)"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakSourcesBackend.cpp:417
 #, kde-format
-msgid "Enter a Flatpak repository URI (*.flatpakrepo):"
-msgstr "Introduceți un URI de depozit Flatpak (*.flatpakrepo):"
+msgid "Enter a Flatpak repository URL (*.flatpakrepo):"
+msgstr "Introduceți un URL de depozit Flatpak (*.flatpakrepo):"
 
 #: libdiscover/backends/FlatpakBackend/FlatpakTransactionThread.cpp:35
 #, kde-format
@@ -1071,1609 +888,20 @@ msgid "Clearing settings and user data…"
 msgstr "Se șterg configurările și datele utilizatorului…"
 
 #: libdiscover/backends/FlatpakBackend/qml/PermissionsList.qml:26
-#: libdiscover/backends/PackageKitBackend/qml/PackageKitPermissions.qml:23
 #, kde-format
 msgctxt "Permission to access system resources and hardware devices"
 msgid "Permissions"
 msgstr "Permisiuni"
 
 #: libdiscover/backends/FlatpakBackend/qml/PermissionsList.qml:76
-#: libdiscover/backends/SnapBackend/qml/PermissionsButton.qml:20
 #, kde-format
 msgid "Configure permissions…"
 msgstr "Configurează permisiunile…"
 
-#: libdiscover/backends/FwupdBackend/FwupdBackend.cpp:493
-#: libdiscover/backends/FwupdBackend/FwupdResource.cpp:116
-#, kde-format
-msgid "Firmware Updates"
-msgstr "Actualizări de microcod"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:38
-#, kde-format
-msgid ""
-"The remote %1 require that you accept their license:\n"
-" %2"
-msgstr ""
-"Sursa distantă %1 vă cere să-i acceptați licența:\n"
-" %2"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:41
-#, kde-format
-msgid "Review EULA"
-msgstr "Consultă acordul"
-
-#: libdiscover/backends/FwupdBackend/FwupdSourcesBackend.cpp:137
-#, kde-format
-msgid "Could not enable remote %1: %2"
-msgstr "Nu s-a putut adăuga sursa %1: %2"
-
-#: libdiscover/backends/HoloBackend/HoloBackend.cpp:71
-#, kde-format
-msgid "SteamOS"
-msgstr "SteamOS"
-
-#: libdiscover/backends/HoloBackend/HoloBackend.cpp:73
-#, kde-format
-msgid "Holo"
-msgstr "Holo"
-
-#: libdiscover/backends/HoloBackend/HoloBackend.cpp:113
-#, kde-format
-msgctxt "%1 is the pretty name of the distro e.g. Holo or SteamOS"
-msgid "Holo: Unable to query atomupd for %1 Updates..."
-msgstr "Holo: Nu se poate interoga „atomupd” pentru actualizări %1…"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:64
-#, kde-format
-msgid ""
-"Unsupported question:\n"
-"%1"
-msgstr ""
-"Întrebare nesusținută:\n"
-"%1"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:210
-#, kde-format
-msgid "Backend %1 took too long to initialize"
-msgstr "Platformei %1 i-a luat prea mult să se inițializeze"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:276
-#, kde-format
-msgid "Applications"
-msgstr "Aplicații"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:304
-#, kde-format
-msgid "Plasma Addons"
-msgstr "Suplimente Plasma"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:304
-#, kde-format
-msgid "Application Addons"
-msgstr "Suplimente pentru aplicații"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:392
-#, kde-format
-msgid "Network error in backend %1: %2"
-msgstr "Eroare de rețea în platforma %1: %2"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:399
-#, kde-format
-msgid ""
-"Too many requests sent to the server for backend %1. Please try again in a "
-"few minutes."
-msgstr ""
-"Prea multe cereri trimise la server pentru platforma %1. Reîncercați în "
-"câteva minute."
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:402
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:408
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:413
-#, kde-format
-msgid "Invalid %1 backend, contact your distributor."
-msgstr "Platformă %1 nevalidă, contactați-vă distribuitorul."
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:432
-#, kde-format
-msgid ""
-"Unable to complete the update of %1. You can try and perform this action "
-"through the Get Hot New Stuff dialog, which grants tighter control. The "
-"reported error was:\n"
-"%2"
-msgstr ""
-"Nu s-a putut finaliza actualizarea %1. Puteți încerca să efectuați această "
-"acțiune prin dialogul „Obține lucruri noi”, care oferă un control mai "
-"restrâns. Eroarea raportată a fost:\n"
-"%2"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:442
-#, kde-format
-msgid "Could not fetch screenshot for the entry %1 in backend %2"
-msgstr ""
-"Nu s-a putut prelua captura de ecran pentru înregistrarea %1 în platforma %2"
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:446
-#, kde-format
-msgid "Unhandled error in %1 backend. Contact your distributor."
-msgstr "Eroare neprevăzută în platforma %1. Contactați-vă distribuitorul."
-
-#: libdiscover/backends/KNSBackend/KNSBackend.cpp:570
-#, kde-format
-msgid "Wrong KNewStuff URI: %1"
-msgstr "URI KNewStuff greșit: %1"
-
-#: libdiscover/backends/KNSBackend/KNSResource.cpp:169
-#, kde-format
-msgctxt "The name of the KDE Store"
-msgid "KDE Store"
-msgstr "Magazin KDE"
-
-#: libdiscover/backends/KNSBackend/KNSReviews.cpp:146
-#, kde-format
-msgid "Log in information for %1"
-msgstr "Informații de autentificare pentru %1"
-
-#: libdiscover/backends/PackageKitBackend/AppPackageKitResource.cpp:268
-#, kde-format
-msgid "Cannot launch %1"
-msgstr "Nu se poate lansa %1"
-
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:575
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:621
-#, kde-format
-msgctxt "Category"
-msgid "Fonts"
-msgstr "Fonturi"
-
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:586
-#, kde-format
-msgctxt "Category"
-msgid "Hardware Drivers"
-msgstr "Driver-e pentru echipament"
-
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:597
-#, kde-format
-msgctxt "Category"
-msgid "Plasma Addons"
-msgstr "Suplimente Plasma"
-
-#: libdiscover/backends/PackageKitBackend/packagekit-backend-categories.xml:609
-#, kde-format
-msgctxt "Category"
-msgid "Plasma Widgets"
-msgstr "Controale grafice Plasma"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:331
-#, kde-format
-msgid "Please make sure that Appstream is properly set up on your system"
-msgstr "Asigurați-vă că Appstream e configurat corect în sistem"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:367
-#, kde-format
-msgctxt "%1 is the date as formatted by the locale"
-msgid ""
-"Your operating system ended support on %1. Consider upgrading to a supported "
-"version."
-msgstr ""
-"Sistemul acesta de operare a rămas fără suport pe %1. Luați în calcul "
-"înnoirea la o versiune susținută."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:958
-#, kde-format
-msgid "Cannot remove '%1'"
-msgstr "Nu se poate elimina „%1”"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:1042
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:365
-#, kde-format
-msgctxt "@info:status %1 is a new major version of the user's distro"
-msgid ""
-"<b>%1 is now available.</b>\n"
-"To be able to upgrade to this new version, first apply all available "
-"updates, and then restart the system."
-msgstr ""
-"<b>%1 e disponibil acum</b>\n"
-"Pentru a putea înnoi la noua versiune, asigurați-vă că ați aplicat toate "
-"actualizările disponibile, apoi reporniți sistemul."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:1051
-#, kde-format
-msgctxt "@action: button"
-msgid "Upgrade Now"
-msgstr "Înnoiește acum"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:1073
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:375
-#, kde-format
-msgctxt "@info:status %1 is a new major version of the user's distro"
-msgid "%1 is now available."
-msgstr "%1 e disponibil acum."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitBackend.cpp:1200
-#, kde-format
-msgctxt "@info %2 is the name of the operating system"
-msgid ""
-"The PackageKit background service stopped unexpectedly.<nl/></nl/>Please "
-"<link url='%1'>report this issue to %2</link>"
-msgstr ""
-"Serviciul de fundal PackageKit s-a oprit pe neașteptate.<nl/></nl/>Vă rugăm "
-"să <link url='%1'>raportați această problemă la %2</link>"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:18
-#, kde-format
-msgid "Out of memory"
-msgstr "Memorie insuficientă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:20
-#, kde-format
-msgid "No network connection available"
-msgstr "Nicio conexiune de rețea disponibilă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:22
-#, kde-format
-msgid "Operation not supported"
-msgstr "Operația nu este susținută"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:25
-#, kde-format
-msgid "Internal error"
-msgstr "Eroare internă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:27
-#, kde-format
-msgid "Internal error: %1"
-msgstr "Eroare internă: %1"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:31
-#, kde-format
-msgid "GPG failure"
-msgstr "Eșec GPG"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:33
-#, kde-format
-msgid "PackageID invalid"
-msgstr "PackageID nevalid"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:35
-#, kde-format
-msgid "Package not installed"
-msgstr "Pachetul nu e instalat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:37
-#, kde-format
-msgid "Package not found"
-msgstr "Pachetul nu a fost găsit"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:39
-#, kde-format
-msgid "Package is already installed"
-msgstr "Pachetul e instalat deja"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:41
-#, kde-format
-msgid "Package download failed"
-msgstr "Descărcarea pachetului a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:43
-#, kde-format
-msgid "Package group not found"
-msgstr "Grupul de pachete nu poate fi găsit"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:45
-#, kde-format
-msgid "Package group list invalid"
-msgstr "Grupul de pachete nu e valid"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:47
-#, kde-format
-msgid "Dependency resolution failed"
-msgstr "Rezolvarea dependențelor a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:49
-#, kde-format
-msgid "Filter invalid"
-msgstr "Filtru nevalid"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:51
-#, kde-format
-msgid "Failed while creating a thread"
-msgstr "Eșec la crearea unui fir de execuție"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:53
-#, kde-format
-msgid "Transaction failure"
-msgstr "Eroare de tranzacție"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:55
-#, kde-format
-msgid "Transaction canceled"
-msgstr "Tranzacție anulată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:57
-#, kde-format
-msgid "No Cache available"
-msgstr "Nicio prestocare disponibilă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:59
-#, kde-format
-msgid "Cannot find repository"
-msgstr "Depozitul nu poate fi găsit"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:61
-#, kde-format
-msgid "Cannot remove system package"
-msgstr "Nu se poate elimina pachetul de sistem"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:63
-#, kde-format
-msgid "The PackageKit daemon has crashed"
-msgstr "Demonul PackageKit a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:65
-#, kde-format
-msgid "Initialization failure"
-msgstr "Eroare de inițializare"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:67
-#, kde-format
-msgid "Failed to finalize transaction"
-msgstr "Finalizarea tranzacției a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:69
-#, kde-format
-msgid "Config parsing failed"
-msgstr "Parcurgerea configurărilor a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:71
-#, kde-format
-msgid "Cannot cancel transaction"
-msgstr "Tranzacția nu poate fi anulată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:73
-#, kde-format
-msgid "Cannot obtain lock"
-msgstr "Nu se poate obține lacătul"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:75
-#, kde-format
-msgid "No packages to update"
-msgstr "Niciun pachet de actualizat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:77
-#, kde-format
-msgid "Cannot write repo config"
-msgstr "Nu se poate scrie configurația depozitului"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:79
-#, kde-format
-msgid "Local install failed"
-msgstr "Instalarea locală a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:81
-#, kde-format
-msgid "Bad GPG signature found"
-msgstr "S-a găsit semnătură GPG greșită"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:83
-#, kde-format
-msgid "No GPG signature found"
-msgstr "Nu s-a găsit semnătura GPG"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:85
-#, kde-format
-msgid "Cannot install source package"
-msgstr "Pachetul-sursă nu poate fi instalat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:87
-#, kde-format
-msgid "Repo configuration error"
-msgstr "Eroare de configurare a depozitului"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:89
-#, kde-format
-msgid "No license agreement"
-msgstr "Fără acord de licență"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:91
-#, kde-format
-msgid "File conflicts found"
-msgstr "Au fost găsite conflicte de fișiere"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:93
-#, kde-format
-msgid "Package conflict found"
-msgstr "A fost găsit un conflict de pachete"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:95
-#, kde-format
-msgid "Repo not available"
-msgstr "Depozitul nu e disponibil"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:97
-#, kde-format
-msgid "Invalid package file"
-msgstr "Fișier cu pachet nevalid"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:99
-#, kde-format
-msgid "Package install blocked"
-msgstr "Instalare pachet blocată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:101
-#, kde-format
-msgid "Corrupt package found"
-msgstr "A fost găsit un pachet corupt"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:103
-#, kde-format
-msgid "All packages already installed"
-msgstr "Toate pachetele sunt instalate deja"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:105
-#, kde-format
-msgid "File not found"
-msgstr "Fișierul nu a fost găsit"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:107
-#, kde-format
-msgid "No more mirrors available"
-msgstr "Nu mai sunt oglinzi disponibile"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:109
-#, kde-format
-msgid "No distro upgrade data"
-msgstr "Nu sunt date despre înnoirea distribuției"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:111
-#, kde-format
-msgid "Incompatible architecture"
-msgstr "Arhitectură incompatibilă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:113
-#, kde-format
-msgid "No space on device left"
-msgstr "Nu a mai rămas loc pe dispozitiv"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:115
-#, kde-format
-msgid "A media change is required"
-msgstr "Este necesară o schimbare a mediului"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:117
-#, kde-format
-msgid "You have no authorization to execute this operation"
-msgstr "Nu aveți autorizare să executați această operație"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:119
-#, kde-format
-msgid "Update not found"
-msgstr "Actualizarea nu a fost găsită"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:121
-#, kde-format
-msgid "Cannot install from unsigned repo"
-msgstr "Nu se poate instala din depozit nesemnat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:123
-#, kde-format
-msgid "Cannot update from unsigned repo"
-msgstr "Nu se poate actualiza din depozit nesemnat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:125
-#, kde-format
-msgid "Cannot get file list"
-msgstr "Lista fișierelor nu poate fi obținută"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:127
-#, kde-format
-msgid "Cannot get requires"
-msgstr "Cerințele nu pot fi obținute"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:129
-#, kde-format
-msgid "Cannot disable repository"
-msgstr "Depozitul nu poate fi dezactivat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:131
-#, kde-format
-msgid "Restricted download detected"
-msgstr "A fost detectată o descărcare restricționată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:133
-#, kde-format
-msgid "Package failed to configure"
-msgstr "Configurarea pachetului a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:135
-#, kde-format
-msgid "Package failed to build"
-msgstr "Compilarea pachetului a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:137
-#, kde-format
-msgid "Package failed to install"
-msgstr "Instalarea pachetului a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:139
-#, kde-format
-msgid "Package failed to remove"
-msgstr "Eliminarea pachetului a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:141
-#, kde-format
-msgid "Update failed due to running process"
-msgstr "Actualizarea a eșuat din cauza unui proces ce rulează"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:143
-#, kde-format
-msgid "The package database changed"
-msgstr "Baza de date cu pachete s-a modificat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:145
-#, kde-format
-msgid "The provided type is not supported"
-msgstr "Tipul furnizat nu e susținut"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:147
-#, kde-format
-msgid "Install root is invalid"
-msgstr "Rădăcina instalării nu este validă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:149
-#, kde-format
-msgctxt ""
-"Failed to sync your Linux distro repositories or other sources of packages"
-msgid "Cannot fetch sources"
-msgstr "Nu se pot prelua sursele"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:151
-#, kde-format
-msgid "Canceled priority"
-msgstr "Prioritate anulată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:153
-#, kde-format
-msgid "Unfinished transaction"
-msgstr "Tranzacție nefinalizată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:155
-#, kde-format
-msgid "Lock required"
-msgstr "Lacăt necesar"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:160
-#, kde-format
-msgid "Unknown error %1."
-msgstr "Eroare necunoscută %1."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:169
-#, kde-format
-msgid "'%1' was changed and suggests to be restarted."
-msgstr "„%1” a fost modificat și sugerează să fie repornit."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:171
-#, kde-format
-msgid "A change by '%1' suggests your session to be restarted."
-msgstr "O modificare adusă de „%1” sugerează repornirea sesiunii."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:173
-#, kde-format
-msgid ""
-"'%1' was updated for security reasons, a restart of the session is "
-"recommended."
-msgstr ""
-"„%1” a fost modificat din motive de securitate, se recomandă repornirea "
-"sesiunii."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:175
-#, kde-format
-msgid ""
-"'%1' was updated for security reasons, a restart of the system is "
-"recommended."
-msgstr ""
-"„%1” a fost modificat din motive de securitate, se recomandă repornirea "
-"sistemului."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:180
-#, kde-format
-msgid "A change by '%1' suggests your system to be restarted."
-msgstr "O modificare adusă de „%1” sugerează repornirea sistemului."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:188
-#, kde-format
-msgid "The application will have to be restarted."
-msgstr "Aplicația va trebui repornită."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:190
-#, kde-format
-msgid "The session will have to be restarted"
-msgstr "Sesiunea va trebui repornită"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:192
-#, kde-format
-msgid "The system will have to be restarted."
-msgstr "Sistemul va trebui repornit."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:194
-#, kde-format
-msgid "For security, the session will have to be restarted."
-msgstr "Pentru securitate, sesiunea va trebui repornită."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:196
-#, kde-format
-msgid "For security, the system will have to be restarted."
-msgstr "Pentru securitate, sistemul va trebui repornit."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:208
-#, kde-format
-msgid "Waiting…"
-msgstr "Se așteaptă…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:210
-#, kde-format
-msgid "Refreshing Cache…"
-msgstr "Se împrospătează prestocarea…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:212
-#, kde-format
-msgid "Setup…"
-msgstr "Configurare…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:214
-#, kde-format
-msgid "Processing…"
-msgstr "Se prelucrează…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:216
-#, kde-format
-msgid "Remove…"
-msgstr "Elimină…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:218
-#, kde-format
-msgid "Downloading…"
-msgstr "Se descarcă…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:220
-#, kde-format
-msgid "Installing…"
-msgstr "Se instalează…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:222
-#, kde-format
-msgid "Updating…"
-msgstr "Se actualizează…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:224
-#, kde-format
-msgid "Cleaning up…"
-msgstr "Se curăță…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:227
-#, kde-format
-msgid "Resolving dependencies…"
-msgstr "Se rezolvă dependențe…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:229
-#, kde-format
-msgid "Checking signatures…"
-msgstr "Se verifică semnături…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:231
-#, kde-format
-msgid "Test committing…"
-msgstr "Se testează comiterea…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:233
-#, kde-format
-msgid "Committing…"
-msgstr "Se comite…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:236
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:362
-#, kde-format
-msgid "Finished"
-msgstr "Încheiat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:238
-#, kde-format
-msgid "Canceled"
-msgstr "Anulat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:240
-#, kde-format
-msgid "Waiting for lock…"
-msgstr "Se așteaptă lacătul…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:242
-#, kde-format
-msgid "Waiting for authorization…"
-msgstr "Se așteaptă autorizarea…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:247
-#, kde-format
-msgid "Copying files…"
-msgstr "Se copiază fișiere…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:250
-#, kde-format
-msgid "Unknown Status"
-msgstr "Stare necunoscută"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:258
-#, kde-format
-msgid "We are waiting for something."
-msgstr "Se așteaptă ceva."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:260
-#, kde-format
-msgid "Setting up transaction…"
-msgstr "Se configurează tranzacția…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:262
-#, kde-format
-msgid "The transaction is currently working…"
-msgstr "Tranzacția lucrează acum…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:264
-#, kde-format
-msgid "The transaction is currently removing packages…"
-msgstr "Tranzacția elimină pachete acum…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:266
-#, kde-format
-msgid "The transaction is currently downloading packages…"
-msgstr "Tranzacția descarcă pachete acum…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:268
-#, kde-format
-msgid "The transactions is currently installing packages…"
-msgstr "Tranzacția instalează pachete acum…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:270
-#, kde-format
-msgid "The transaction is currently updating packages…"
-msgstr "Tranzacția actualizează pachete acum…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:272
-#, kde-format
-msgid "The transaction is currently cleaning up…"
-msgstr "Tranzacția curăță acum…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:275
-#, kde-format
-msgid ""
-"The transaction is currently resolving the dependencies of the packages it "
-"will install…"
-msgstr "Tranzacția rezolvă acum dependențele pachetelor ce vor fi instalate…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:277
-#, kde-format
-msgid "The transaction is currently checking the signatures of the packages…"
-msgstr "Tranzacția verifică acum semnăturile pachetelor…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:279
-#, kde-format
-msgid ""
-"The transaction is currently testing the commit of this set of packages…"
-msgstr "Tranzacția testează acum comiterea acestui set de pachete…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:281
-#, kde-format
-msgid "The transaction is currently committing its set of packages…"
-msgstr "Tranzacția își comite acum setul de pachete…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:284
-#, kde-format
-msgid "The transaction has finished!"
-msgstr "Tranzacția s-a încheiat!"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:286
-#, kde-format
-msgid "The transaction was canceled"
-msgstr "Tranzacția a fost anulată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:288
-#, kde-format
-msgid "The transaction is currently waiting for the lock…"
-msgstr "Tranzacția așteaptă lacătul acum…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:290
-#, kde-format
-msgid "Waiting for the user to authorize the transaction…"
-msgstr "Se așteaptă ca utilizatorul să autorizeze tranzacția…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:295
-#, kde-format
-msgid "The transaction is currently copying files…"
-msgstr "Tranzacția copiază fișiere acum…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:297
-#, kde-format
-msgid "Currently refreshing the repository cache…"
-msgstr "Se împrospătează prestocarea depozitelor…"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:302
-#, kde-format
-msgid "Unknown status %1."
-msgstr "Stare necunoscută %1."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:313
-#, kde-format
-msgctxt "update state"
-msgid "Stable"
-msgstr "Stabil"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:315
-#, kde-format
-msgctxt "update state"
-msgid "Unstable"
-msgstr "Instabil"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:317
-#, kde-format
-msgctxt "update state"
-msgid "Testing"
-msgstr "Testare"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:328
 #: libdiscover/resources/AbstractResource.cpp:97
 #, kde-format
 msgid "Installed"
 msgstr "Instalat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:330
-#, kde-format
-msgid "Not Installed"
-msgstr "Neinstalat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:332
-#, kde-format
-msgid "Low"
-msgstr "Joasă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:334
-#, kde-format
-msgid "Enhancement"
-msgstr "Îmbunătățire"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:336
-#, kde-format
-msgid "Normal"
-msgstr "Normală"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:338
-#, kde-format
-msgid "Bugfix"
-msgstr "Corecție de erori"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:340
-#, kde-format
-msgid "Important"
-msgstr "Importantă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:342
-#, kde-format
-msgid "Security"
-msgstr "Securitate"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:344
-#, kde-format
-msgid "Blocked"
-msgstr "Blocată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:346
-#, kde-format
-msgid "Downloading"
-msgstr "Se descarcă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:348
-#, kde-format
-msgid "Updating"
-msgstr "Se actualizează"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:350
-#, kde-format
-msgid "Installing"
-msgstr "Se instalează"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:352
-#, kde-format
-msgid "Removing"
-msgstr "Se elimină"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:354
-#, kde-format
-msgid "Cleanup"
-msgstr "Se curăță"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:356
-#, kde-format
-msgid "Obsoleting"
-msgstr "Se învechește"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:358
-#, kde-format
-msgid "Collection Installed"
-msgstr "Colecție instalată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:360
-#, kde-format
-msgid "Collection Available"
-msgstr "Colecție disponibilă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:364
-#, kde-format
-msgid "Reinstalling"
-msgstr "Se reinstalează"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:366
-#, kde-format
-msgid "Downgrading"
-msgstr "Se retrogradează"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:368
-#, kde-format
-msgid "Preparing"
-msgstr "Se pregătește"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:370
-#, kde-format
-msgid "Decompressing"
-msgstr "Se decomprimă"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:372
-#, kde-format
-msgid "Untrusted"
-msgstr "Fără încredere"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:374
-#, kde-format
-msgid "Trusted"
-msgstr "De încredere"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:376
-#, kde-format
-msgid "Unavailable"
-msgstr "Indisponibil"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:380
-#, kde-format
-msgid "Critical"
-msgstr "Critic"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:382
-#, kde-format
-msgid "Install"
-msgstr "Instalare"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:384
-#, kde-format
-msgid "Remove"
-msgstr "Eliminare"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:386
-#, kde-format
-msgid "Obsolete"
-msgstr "Învechire"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitMessages.cpp:388
-#, kde-format
-msgid "Downgrade"
-msgstr "Retrogradare"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:132
-#, kde-format
-msgid "Failed Offline Update"
-msgstr "Actualizare offline eșuată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:133
-#, kde-format
-msgid ""
-"Failed to update %1 package\n"
-"%2"
-msgid_plural ""
-"Failed to update %1 packages\n"
-"%2"
-msgstr[0] ""
-"Actualizarea a eșuat pentru %1 pachet\n"
-"%2"
-msgstr[1] ""
-"Actualizarea a eșuat pentru %1 pachete\n"
-"%2"
-msgstr[2] ""
-"Actualizarea a eșuat pentru %1 de pachete\n"
-"%2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:136
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:187
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Discover"
-msgstr "Deschide Discover"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:141
-#, kde-format
-msgctxt "@action:button"
-msgid "Repair System"
-msgstr "Repară sistemul"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:146
-#, kde-format
-msgid "Repairing failed offline update"
-msgstr "Se repară actualizarea offline eșuată"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:153
-#, kde-format
-msgid "Repair Failed"
-msgstr "Repararea a eșuat"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:155
-#, kde-kuit-format
-msgctxt ""
-"@info %1 is an error message and %3 is the name of the operating system"
-msgid "%1<nl/>Please <link url='%2'>report this error to %3</link>."
-msgstr ""
-"%1<nl/>Vă rugăm să <link url='%2'>raportați această eroare la %3</link>."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:168
-#, kde-format
-msgid "Repaired Successfully"
-msgstr "Reparat cu succes"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:183
-#, kde-format
-msgid "Offline Updates"
-msgstr "Actualizări offline"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitNotifier.cpp:184
-#, kde-format
-msgid "Successfully updated %1 package"
-msgid_plural "Successfully updated %1 packages"
-msgstr[0] "Actualizarea a reușit pentru %1 pachet"
-msgstr[1] "Actualizarea a reușit pentru %1 pachete"
-msgstr[2] "Actualizarea a reușit pentru %1 de pachete"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:192
-#, kde-format
-msgid "Unknown Source"
-msgstr "Sursă necunoscută"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:340
-#, kde-format
-msgctxt "package-name (version)"
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:343
-#, kde-format
-msgctxt "comma separating package names"
-msgid ", "
-msgstr ", "
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:358
-#, kde-format
-msgid "Software verified by %1"
-msgstr "Program verificat de %1"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:413
-#, kde-format
-msgid "Obsoletes:"
-msgstr "Învechește:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:414
-#, kde-format
-msgid "Release Notes:"
-msgstr "Note de lansare:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:415
-#, kde-format
-msgid "Update State:"
-msgstr "Starea actualizării:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:416
-#, kde-format
-msgid "Restart:"
-msgstr "Repornește:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitResource.cpp:419
-#, kde-format
-msgid "Vendor:"
-msgstr "Vânzător:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitSourcesBackend.cpp:105
-#, kde-format
-msgid "Repository URL:"
-msgstr "URL depozit:"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:98
-#, kde-format
-msgctxt "distro upgrade: name version"
-msgid "%1 %2"
-msgstr "%1 %2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:100
-#, kde-format
-msgid "System upgrade"
-msgstr "Înnoirea sistemului"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:191
-#, kde-format
-msgid "1 package will be upgraded"
-msgid_plural "%1 packages will be upgraded"
-msgstr[0] "1 pachet va fi înnoit"
-msgstr[1] "%1 pachete vor fi înnoite"
-msgstr[2] "%1 de pachete vor fi înnoite"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:203
-#, kde-format
-msgid "<h3>%1</h3>Upgrade to new version %2<br/>No release notes provided"
-msgstr ""
-"<h3>%1</h3>Actualizează la noua versiune %2<br/>Nu au fost furnizate note de "
-"lansare"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:205
-#, kde-format
-msgid ""
-"<h3>%1</h3>Upgrade to new version %2<br/>Release notes:<blockquote>%3</"
-"blockquote>"
-msgstr ""
-"<h3>%1</h3>Actualizează la noua versiune %2<br/>Note de lansare:<blockquote>"
-"%3</blockquote>"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:231
-#, kde-format
-msgid "Present"
-msgstr "Prezent"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:235
-#, kde-format
-msgid "Future"
-msgstr "Viitor"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:380
-#, kde-format
-msgctxt "@info:status %1 is a formatted disk space string e.g. '240 MiB'"
-msgid "Not enough space to perform the update; only %1 of space are available."
-msgstr "Spațiu insuficient pentru actualizare. Numai %1 e disponibil."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:602
-#, kde-format
-msgid ""
-"This update cannot be completed as it would remove the following software "
-"which is critical to the system's operation:<nl/><ul><li>%1</li></ul><nl/>If "
-"you believe this is an error, please report it as a bug to the packagers of "
-"your distribution."
-msgstr ""
-"Această actualizare nu poate fi finalizată deoarece ar elimina următoarele "
-"programe critice pentru funcționarea sistemului:<nl/><ul><li>%1</li></ul><nl/"
-">Dacă credeți că aceasta e o greșeală, raportați-o ca defect "
-"împachetatorilor distribuției dumneavoastră."
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:609
-#, kde-format
-msgid "Confirm Changes"
-msgstr "Confirmă modificările"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:610
-#, kde-format
-msgid ""
-"The following packages will be removed by the update:<ul><li>%1</li></ul><br/"
-">in order to install:<ul><li>%2</li></ul>"
-msgstr ""
-"Următoarele pachete vor fi eliminate de către actualizare:<ul><li>%1</li></"
-"ul><br/>pentru a instala:<ul><li>%2</li></ul>"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:736
-#, kde-kuit-format
-msgctxt "@info"
-msgid "%1:<nl/><nl/>%2"
-msgstr "%1:<nl/><nl/>%2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:744
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:327
-#, kde-format
-msgid ""
-"Media Change of type '%1' is requested.\n"
-"%2"
-msgstr ""
-"Este cerută schimbarea mediului de tip „%1”.\n"
-"%2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:777
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:304
-#, kde-format
-msgid "Accept EULA"
-msgstr "Acceptă acordul"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:778
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:305
-#, kde-format
-msgid ""
-"The package %1 and its vendor %2 require that you accept their license:\n"
-" %3"
-msgstr ""
-"Pachetul %1 și vânzătorul acestuia %2 vă cer să le acceptați licența:\n"
-" %3"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:928
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:344
-#, kde-format
-msgid "Missing signature for %1 in %2"
-msgstr "Lipsește semnătura pentru %1 în %2"
-
-#: libdiscover/backends/PackageKitBackend/PackageKitUpdater.cpp:929
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:345
-#, kde-format
-msgid ""
-"Do you trust the following key?\n"
-"\n"
-"Url: %1\n"
-"User: %2\n"
-"Key: %3\n"
-"Fingerprint: %4\n"
-"Timestamp: %4\n"
-msgstr ""
-"Aveți încredere în următoarea cheie?\n"
-"\n"
-"URL: %1\n"
-"Utilizator: %2\n"
-"Cheie: %3\n"
-"Amprentă: %4\n"
-"Amprentă temporală: %4\n"
-
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:201
-#, kde-format
-msgid ""
-"This action cannot be completed as it would remove the following software "
-"which is critical to the system's operation:<nl/><ul><li>%1</li></ul><nl/>If "
-"you believe this is an error, please report it as a bug to the packagers of "
-"your distribution."
-msgstr ""
-"Această acțiune nu poate fi finalizată deoarece ar elimina următoarele "
-"programe critice pentru funcționarea sistemului:<nl/><ul><li>%1</li></ul><nl/"
-">Dacă credeți că aceasta e o greșeală, raportați-o ca defect "
-"împachetatorilor distribuției dumneavoastră."
-
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:214
-#, kde-format
-msgid "Confirm package removal"
-msgstr "Confirmă eliminarea pachetului"
-
-#: libdiscover/backends/PackageKitBackend/PKTransaction.cpp:215
-#, kde-format
-msgid ""
-"This action will also remove the following package:\n"
-"%2"
-msgid_plural ""
-"This action will also remove the following packages:\n"
-"%2"
-msgstr[0] ""
-"Această acțiune va elimina și următorul pachet:\n"
-"%2"
-msgstr[1] ""
-"Această acțiune va elimina și următoarele pachete:\n"
-"%2"
-msgstr[2] ""
-"Această acțiune va elimina și următoarele pachete:\n"
-"%2"
-
-#: libdiscover/backends/PackageKitBackend/qml/DependenciesButton.qml:33
-#, kde-format
-msgid "Show Dependencies…"
-msgstr "Arată dependențele…"
-
-#: libdiscover/backends/PackageKitBackend/qml/DependenciesButton.qml:43
-#, kde-format
-msgid "Dependencies for package: %1"
-msgstr "Dependențe pentru pachet: %1"
-
-#: libdiscover/backends/PackageKitBackend/qml/PackageKitPermissions.qml:31
-#, kde-format
-msgid "Full Access"
-msgstr "Acces deplin"
-
-#: libdiscover/backends/PackageKitBackend/qml/PackageKitPermissions.qml:32
-#, kde-format
-msgid "Can access everything on the system"
-msgstr "Poate accesa tot ce e în sistem"
-
-#: libdiscover/backends/RpmOstreeBackend/rpm-ostree-backend-categories.xml:4
-#, kde-format
-msgctxt "Category"
-msgid "Operating System"
-msgstr "Sistem de operare"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:172
-#, kde-format
-msgid ""
-"rpm-ostree backend: Multiple booted deployments found. Please file a bug."
-msgstr ""
-"Platforma rpm-ostree: Au fost găsite multiple implementări demarate. "
-"Raportați un defect."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:184
-#, kde-format
-msgid "rpm-ostree backend: No booted deployment found. Please file a bug."
-msgstr ""
-"Platforma rpm-ostree: Nu a fost găsită nicio implementare demarată. "
-"Raportați un defect."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:373
-#, kde-format
-msgctxt "@action: button"
-msgid "Begin Upgrade…"
-msgstr "Începe înnoirea…"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:524
-#, kde-format
-msgid "You have pending updates for the current version. Proceeding anyway."
-msgstr ""
-"Sunt actualizări în așteptare pentru versiunea actuală. Se continuă oricum."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:527
-#, kde-format
-msgid "Please update to the latest version before rebasing to a major version"
-msgstr ""
-"Actualizați la cea mai recentă versiune înainte de a schimba baza la altă "
-"versiune majoră."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeBackend.cpp:535
-#, kde-format
-msgid "Missing remote ref for rebase operation. Please file a bug."
-msgstr ""
-"Lipsește referința distantă pentru operația de schimbare a bazei. Raportați "
-"un defect."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:301
-#, kde-format
-msgid "GPL and other licenses"
-msgstr "GPL și alte licențe"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:311
-#, kde-format
-msgid "Additional packages: "
-msgstr "Pachete suplimentare: "
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:318
-#, kde-format
-msgid "Additional modules: "
-msgstr "Module suplimentare: "
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:325
-#, kde-format
-msgid "Local packages: "
-msgstr "Pachete locale: "
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:332
-#, kde-format
-msgid "Replaced packages:"
-msgstr "Pachete înlocuite:"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:339
-#, kde-format
-msgid "Removed packages:"
-msgstr "Pachete eliminate:"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:346
-#, kde-format
-msgctxt "@label OS updater message"
-msgid ""
-"<br/>This version is pinned and won't be automatically removed on updates."
-msgstr ""
-"<br/>Această versiune e fixată și nu va fi eliminată automat la actualizări."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:360
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:373
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:391
-#, kde-format
-msgctxt "@label OS vendor"
-msgid "Fedora Project"
-msgstr "Proiectul Fedora"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:400
-#, kde-format
-msgid "Currently booted version (pinned)"
-msgstr "Versiunea demarată acum (fixat)"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:402
-#, kde-format
-msgid "Currently booted version"
-msgstr "Versiunea demarată acum"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:405
-#, kde-format
-msgid "Version that will be used after reboot"
-msgstr "Versiunea ce va fi folosită după repornire"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:407
-#, kde-format
-msgid "Fallback version (pinned)"
-msgstr "Versiunea de rezervă (fixat)"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeResource.cpp:409
-#, kde-format
-msgid "Fallback version"
-msgstr "Versiunea de rezervă"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:40
-#, kde-format
-msgid ""
-"rpm-ostree backend: Error: No DBus interface provided. Please file a bug."
-msgstr ""
-"Platforma rpm-ostree: Eroare: Nu a fost furnizată nicio interfață DBus. "
-"Raportați un defect."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:60
-#, kde-format
-msgid ""
-"rpm-ostree backend: Error: Can not start a transaction for resource with an "
-"invalid format. Please file a bug."
-msgstr ""
-"Platforma rpm-ostree: Eroare: Nu se poate porni tranzacția pentru resursă cu "
-"format nevalid. Raportați un defect."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:80
-#, kde-format
-msgid ""
-"rpm-ostree backend: Error: Can not rebase to an empty ref. Please file a bug."
-msgstr ""
-"Platforma rpm-ostree: Eroare: Nu se poate schimba baza la o referință goală. "
-"Raportați un defect."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:98
-#, kde-format
-msgid ""
-"rpm-ostree backend: Error: Unknown operation requested. Please file a bug."
-msgstr ""
-"Platforma rpm-ostree: Eroare: Operație necunoscută cerută. Raportați un "
-"defect."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:160
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:183
-#, kde-format
-msgid ""
-"rpm-ostree transaction failed with:\n"
-"%1"
-msgstr ""
-"Tranzacția rpm-ostree a eșuat cu:\n"
-"%1"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:244
-#, kde-format
-msgid "rpm-ostree backend: Error: Unknown resource format. Please file a bug."
-msgstr ""
-"Platforma rpm-ostree: Eroare: Format de resursă necunoscut. Raportați un "
-"defect."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:366
-#, kde-format
-msgid ""
-"Cancelling rpm-ostree transaction. This may take some time. Please wait."
-msgstr "Se anulează tranzacția rpm-ostree. Aceasta poate dura, așteptați."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:395
-#, kde-format
-msgid "Checking for a system update"
-msgstr "Se caută o actualizare de sistem"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:398
-#, kde-format
-msgid ""
-"Downloading system update. Please be patient as progress is not reported."
-msgstr ""
-"Se descarcă actualizarea de sistem. Aveți răbdare, progresul nu e raportat."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:401
-#, kde-format
-msgid "Updating the system. Please be patient as progress is not reported."
-msgstr "Se actualizează sistemul. Aveți răbdare, progresul nu e raportat."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:404
-#, kde-format
-msgid ""
-"Updating to the next major version. Please be patient as progress is not "
-"reported."
-msgstr ""
-"Se actualizează la următoarea versiune majoră. Aveți răbdare, progresul nu e "
-"raportat."
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:407
-#, kde-format
-msgid "Operation in progress (started outside of Discover)"
-msgstr "Operațiune în curs (pornită din afara Discover)"
-
-#: libdiscover/backends/RpmOstreeBackend/RpmOstreeTransaction.cpp:413
-#, kde-format
-msgid "Unknown transaction type"
-msgstr "Tip de tranzacție necunoscut"
-
-#: libdiscover/backends/SnapBackend/qml/ChannelsButton.qml:22
-#, kde-format
-msgid "Channel: %1"
-msgstr "Canal: %1"
-
-#: libdiscover/backends/SnapBackend/qml/ChannelsButton.qml:31
-#, kde-format
-msgid "Channels for %1"
-msgstr "Canale pentru %1"
-
-#: libdiscover/backends/SnapBackend/qml/ChannelsButton.qml:45
-#: libdiscover/backends/SnapBackend/SnapResource.cpp:384
-#, kde-format
-msgid "%1 - %2"
-msgstr "%1 - %2"
-
-#: libdiscover/backends/SnapBackend/qml/ChannelsButton.qml:57
-#, kde-format
-msgid "Switch"
-msgstr "Schimbă"
-
-#: libdiscover/backends/SnapBackend/qml/PermissionsButton.qml:28
-#, kde-format
-msgid "Permissions for %1"
-msgstr "Permisiuni pentru %1"
-
-#: libdiscover/backends/SnapBackend/SnapBackend.cpp:43
-#, kde-format
-msgid "Snap"
-msgstr "Snap"
-
-#: libdiscover/backends/SnapBackend/SnapResource.cpp:585
-#, kde-format
-msgid "Verified Publisher on snapcraft.io"
-msgstr "Editor verificat pe snapcraft.io"
-
-#: libdiscover/backends/SnapBackend/SnapResource.cpp:587
-#, kde-format
-msgid "Starred Publisher on snapcraft.io"
-msgstr "Editor apreciat pe snapcraft.io"
-
-#: libdiscover/backends/SnapBackend/SnapTransaction.cpp:57
-#, kde-format
-msgid ""
-"This Snap application is not compatible with security sandboxing and will "
-"have full access to this system. Install it anyway?"
-msgstr ""
-"Această aplicație Snap nu e compatibilă cu îngrădirea de securitate și va "
-"avea acces deplin la acest sistem. O instalați oricum?"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:149
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid "Failed to get appstream data for “%1”.<nl/><nl/>Error message: %2"
-msgstr ""
-"Obținerea datelor appstream pentru „%1” a eșuat.<nl/><nl/>Mesajul erorii: %2"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:154
-#, kde-format
-msgctxt "@info:status"
-msgid "No appstream URLs found for target “%1”"
-msgstr "Nu a fost găsit niciun URL appstream pentru ținta „%1”"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:165
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid ""
-"Failed to fetch the updates from <a href='%1'>%1</a>.<nl/><nl/>Error "
-"message: %2"
-msgstr ""
-"Obținerea actualizărilor de la <a href='%1'>%1</a> a eșuat.<nl/><nl/>Mesajul "
-"erorii: %2"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:178
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid "Failed to parse update metadata.<nl/><nl/>Error message: %1"
-msgstr ""
-"Parcurgerea metadatelor actualizării a eșuat.<nl/><nl/>Mesajul erorii: %1"
-
-#: libdiscover/backends/SystemdSysupdateBackend/SystemdSysupdateBackend.cpp:187
-#, kde-format
-msgctxt "@info:status"
-msgid "No components found in appstream metadata for target “%1”"
-msgstr "Nu au fost găsite componente în metadatele appstream pentru ținta „%1”"
 
 #: libdiscover/DiscoverBackendsFactory.cpp:127
 #, kde-format
@@ -2764,8 +992,8 @@ msgstr "%1+"
 
 #: libdiscover/resources/ResourcesUpdatesModel.cpp:112
 #, kde-format
-msgid "Updates"
-msgstr "Actualizări"
+msgid "App updates"
+msgstr "Actualizări de aplicații"
 
 #: libdiscover/Transaction/Transaction.cpp:133
 #, kde-format

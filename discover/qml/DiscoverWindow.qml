@@ -13,6 +13,9 @@ import org.kde.config as KConfig
 Kirigami.ApplicationWindow {
     id: window
 
+    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.childrenInherit: true
+
     property string currentTopLevel
 
     readonly property string topBrowsingComp: "BrowsingPage.qml"
@@ -53,14 +56,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    // This property is queried from C++, do not remove it
-    readonly property string describeSources: feedbackLoader.item?.describeDataSources ?? ""
-    Loader {
-        id: feedbackLoader
-        active: typeof DiscoverApp.UserFeedbackSettings !== "undefined"
-        source: "Feedback.qml"
-    }
-
     Kirigami.PagePool {
         id: globalPool
     }
@@ -93,13 +88,11 @@ Kirigami.ApplicationWindow {
     TopLevelPageData {
         id: updateAction
 
-        icon.name: Discover.ResourcesModel.updatesCount <= 0
-            ? "update-none"
-            : (Discover.ResourcesModel.hasSecurityUpdates ? "update-high" : "update-low")
+        icon.name: Discover.ResourcesModel.updatesCount <= 0 ? "update-none" : "update-low"
 
         text: Discover.ResourcesModel.fetchingUpdatesProgress !== 100
-            ? i18n("&Updates (Fetching…)")
-            : i18n("&Updates")
+            ? i18n("&App updates (Fetching…)")
+            : i18n("&App updates")
 
         component: topUpdateComp
         objectName: "update"

@@ -4,7 +4,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.discover as Discover
-import org.kde.kcmutils as KCMUtils
+import org.kde.discover.app as DiscoverApp
 import org.kde.kirigami as Kirigami
 import org.kde.kirigami.delegates as KD
 
@@ -16,17 +16,6 @@ DiscoverPage {
 
     clip: true
     title: i18n("Settings")
-
-    Kirigami.Action {
-        id: configureUpdatesAction
-        text: i18n("Configure Updates…")
-        displayHint: Kirigami.DisplayHint.AlwaysHide
-        onTriggered: {
-            KCMUtils.KCMLauncher.openSystemSettings("kcm_updates");
-        }
-    }
-
-    actions: feedbackLoader.item?.actions ?? [configureUpdatesAction]
 
     header: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
@@ -52,14 +41,25 @@ DiscoverPage {
         }
     }
 
-    ListView {
-        id: sourcesView
-        model: Discover.SourcesModel
-        Component.onCompleted: Qt.callLater(Discover.SourcesModel.showingNow)
-        currentIndex: -1
-        pixelAligned: true
-        section.property: "sourceName"
-        section.delegate: Kirigami.ListSectionHeader {
+    ColumnLayout {
+        anchors.fill: parent
+        spacing: Kirigami.Units.largeSpacing
+
+        ListView {
+            id: sourcesView
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.minimumHeight: Kirigami.Units.gridUnit * 8
+
+            model: Discover.SourcesModel
+            Component.onCompleted: Qt.callLater(Discover.SourcesModel.showingNow)
+            currentIndex: -1
+            pixelAligned: true
+            clip: true
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+            section.property: "sourceName"
+            section.delegate: Kirigami.ListSectionHeader {
             id: backendItem
 
             required property string section
@@ -102,18 +102,6 @@ DiscoverPage {
                     alignment: Qt.AlignRight
 
                     Kirigami.Action {
-                        id: isDefaultbackendLabelAction
-
-                        visible: backendItem.isDefault
-                        displayHint: Kirigami.DisplayHint.KeepVisible
-                        displayComponent: Kirigami.Heading {
-                            text: i18n("Default Source")
-                            level: 3
-                            font.weight: Font.Bold
-                        }
-                    }
-
-                    Kirigami.Action {
                         id: addSourceAction
                         text: i18n("Add Source…")
                         icon.name: "list-add"
@@ -154,7 +142,6 @@ DiscoverPage {
 
                     function mergeActions(moreActions) {
                         const actions = [
-                            isDefaultbackendLabelAction,
                             makeDefaultAction,
                             addSourceAction
                         ]
@@ -315,9 +302,9 @@ DiscoverPage {
             }
         }
 
-        footer: ColumnLayout {
-            spacing: 0
-            width: ListView.view.width
+            footer: ColumnLayout {
+                spacing: 0
+                width: ListView.view.width
 
             Kirigami.ListSectionHeader {
                 Layout.fillWidth: true
@@ -357,6 +344,71 @@ DiscoverPage {
                             application: delegate.model.application
                         }
                     }
+                }
+            }
+            }
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
+
+        Kirigami.FormLayout {
+            Layout.fillWidth: true
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
+
+            QQC2.ButtonGroup {
+                id: automaticUpdatesGroup
+            }
+
+            QQC2.RadioButton {
+                Kirigami.FormData.label: i18n("App updates")
+                text: i18nd("kcm_updates", "Manually")
+                QQC2.ButtonGroup.group: automaticUpdatesGroup
+                checked: !DiscoverApp.AppUpdateSettings.automaticUpdates
+                onClicked: DiscoverApp.AppUpdateSettings.automaticUpdates = false
+            }
+
+            RowLayout {
+                QQC2.RadioButton {
+                    text: i18nd("kcm_updates", "Automatically")
+                    QQC2.ButtonGroup.group: automaticUpdatesGroup
+                    checked: DiscoverApp.AppUpdateSettings.automaticUpdates
+                    onClicked: {
+                        if (DiscoverApp.AppUpdateSettings.updateInterval <= 0) {
+                            DiscoverApp.AppUpdateSettings.updateInterval = 24 * 60 * 60
+                        }
+                        DiscoverApp.AppUpdateSettings.automaticUpdates = true
+                    }
+                }
+            }
+
+            QQC2.ComboBox {
+                Kirigami.FormData.label: DiscoverApp.AppUpdateSettings.automaticUpdates
+                    ? i18ndc("kcm_updates", "@title:group", "Update frequency:")
+                    : i18ndc("kcm_updates", "@title:group", "Notification frequency:")
+
+                readonly property var frequencyOptions: [
+                    24 * 60 * 60,
+                    7 * 24 * 60 * 60,
+                    30 * 24 * 60 * 60,
+                    -1
+                ]
+                readonly property var frequencyLabels: [
+                    i18ndc("kcm_updates", "@item:inlistbox", "Daily"),
+                    i18ndc("kcm_updates", "@item:inlistbox", "Weekly"),
+                    i18ndc("kcm_updates", "@item:inlistbox", "Monthly"),
+                    i18ndc("kcm_updates", "@item:inlistbox", "Never")
+                ]
+
+                model: DiscoverApp.AppUpdateSettings.automaticUpdates
+                    ? frequencyLabels.slice(0, 3)
+                    : frequencyLabels
+                currentIndex: Math.max(0, frequencyOptions.indexOf(DiscoverApp.AppUpdateSettings.updateInterval))
+                onActivated: index => {
+                    DiscoverApp.AppUpdateSettings.updateInterval = frequencyOptions[index]
                 }
             }
         }

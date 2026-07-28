@@ -45,18 +45,6 @@ msgid ""
 "packages/extra/x86_64/discover/'>%1's packaging for Discover</link>"
 msgstr ""
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -77,11 +65,6 @@ msgstr ""
 #: discover/DiscoverObject.cpp:354
 #, kde-format
 msgid "Could not open %1"
-msgstr ""
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
 msgstr ""
 
 #: discover/DiscoverObject.cpp:422
@@ -153,11 +136,6 @@ msgstr ""
 msgid "Search string."
 msgstr ""
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -196,11 +174,6 @@ msgstr ""
 #: discover/main.cpp:131
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
-msgstr ""
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
 msgstr ""
 
 #: discover/main.cpp:139
@@ -828,8 +801,8 @@ msgstr "Aktualizowanja steja k dispoziciji"
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Updates are available"
-msgid "Updates available"
-msgstr "Aktualizowanja steja k dispoziciji"
+msgid "App updates available"
+msgstr "Aktualizacije nałoženjow su k dispoziciji"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -853,14 +826,14 @@ msgstr "&Instalowane"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Aktualizacije nałoženjow (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Aktualizowanja"
+msgid "&App updates"
+msgstr "Aktualizacije nałoženjow"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -945,63 +918,6 @@ msgstr ""
 #: discover/qml/DiscoverWindow.qml:443
 #, kde-format
 msgid "Copy to Clipboard"
-msgstr ""
-
-#: discover/qml/Feedback.qml:14
-#, fuzzy, kde-format
-#| msgid "More Information…"
-msgid "Submit Usage Information"
-msgstr "Wjace informacije..."
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr ""
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Připrawić"
-
-#: discover/qml/Feedback.qml:24
-#, fuzzy, kde-format
-#| msgid "Configure"
-msgid "Configure Feedback…"
-msgstr "Připrawić"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Configure"
-msgid "Configure Updates…"
-msgstr "Připrawić"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr ""
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr ""
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
 msgstr ""
 
 #: discover/qml/InstallApplicationButton.qml:29
@@ -1383,8 +1299,8 @@ msgstr "Backends faluja"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Aktualizowanja"
+msgid "App updates"
+msgstr "Aktualizacije nałoženjow"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1458,37 +1374,6 @@ msgstr ""
 msgid "Select None"
 msgstr ""
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:294
-#, fuzzy, kde-format
-#| msgid "Restart Now"
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Nětko znowa startować"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1535,8 +1420,8 @@ msgstr "Wobstaram aktualizowanja..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Aktualizowanja"
+msgid "App updates"
+msgstr "Aktualizacije nałoženjow"
 
 #: discover/qml/UpdatesPage.qml:670
 #, fuzzy, kde-format
@@ -1572,6 +1457,10 @@ msgid "Time of last update unknown"
 msgstr "Čas poslednjeho aktualizowanja njeznaty"
 
 #, fuzzy
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Prěnjotni awtorojo"
+
 #~| msgid "Update All"
 #~ msgid "Update from:"
 #~ msgstr "Wšitko wubrać"

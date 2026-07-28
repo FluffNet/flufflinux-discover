@@ -33,12 +33,9 @@ int main(int argc, char **argv)
     {
         QCommandLineParser parser;
         parser.addPositionalArgument(QStringLiteral("file"), i18n("File to which we'll export"));
-        DiscoverBackendsFactory::setupCommandLine(&parser);
         about.setupCommandLine(&parser);
         parser.process(app);
         about.processCommandLine(&parser);
-        DiscoverBackendsFactory::processCommandLine(&parser, false);
-
         if (parser.positionalArguments().count() != 1) {
             parser.showHelp(1);
         }

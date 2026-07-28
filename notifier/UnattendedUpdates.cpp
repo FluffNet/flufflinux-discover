@@ -27,13 +27,6 @@ void UnattendedUpdates::checkNewState()
 {
     using namespace std::chrono_literals;
 
-    // Only allow offline updating every 3h. It should keep some peace to our users, especially on rolling distros
-    const QDateTime updateableTime = m_notifier->settings()->lastUnattendedTrigger().addSecs(std::chrono::seconds(3h).count());
-    if (updateableTime > QDateTime::currentDateTimeUtc()) {
-        qDebug() << "skipping update, already updated on" << m_notifier->settings()->lastUnattendedTrigger().toString();
-        return;
-    }
-
     const bool doTrigger = m_notifier->isSystemUpdateable();
     if (doTrigger && !m_idleTimeoutId.has_value()) {
         qDebug() << "waiting for an idle moment";

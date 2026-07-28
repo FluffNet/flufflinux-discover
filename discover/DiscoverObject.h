@@ -49,7 +49,6 @@ public:
     Q_INVOKABLE QUrl searchUrl(const QString &searchText);
     Q_INVOKABLE QString mimeTypeComment(const QString &mimeTypeName);
 
-    QString describeSources() const;
     Q_SCRIPTABLE void restore();
     [[nodiscard]] InlineMessage *homePageMessage() const;
 
@@ -66,9 +65,6 @@ public Q_SLOTS:
     void openLocalPackage(const QUrl &localfile);
     void startHeadlessUpdate();
 
-    void promptReboot();
-    void rebootNow();
-    void shutdownNow();
     void reconsiderQuit();
 
 private Q_SLOTS:

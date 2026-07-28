@@ -32,8 +32,8 @@ msgstr "Випущено оновлення для забезпечення за
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "Доступні оновлення"
+msgid "App updates available"
+msgstr "Доступні оновлення програм"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -138,8 +138,8 @@ msgstr "прихований"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "Оновлення"
+msgid "App updates"
+msgstr "Оновлення програм"
 
 #: notifier/NotifierItem.cpp:36
 #, kde-format

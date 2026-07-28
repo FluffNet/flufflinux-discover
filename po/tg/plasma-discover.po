@@ -45,18 +45,6 @@ msgid ""
 "packages/extra/x86_64/discover/'>%1's packaging for Discover</link>"
 msgstr ""
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -79,11 +67,6 @@ msgstr ""
 #| msgid "Couldn't open %1"
 msgid "Could not open %1"
 msgstr "Кушодани %1 қатъ шуд"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr ""
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -154,11 +137,6 @@ msgstr ""
 msgid "Search string."
 msgstr ""
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -198,11 +176,6 @@ msgstr ""
 #: discover/main.cpp:131
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
-msgstr ""
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
 msgstr ""
 
 #: discover/main.cpp:139
@@ -507,7 +480,6 @@ msgstr "Баҳо диҳед"
 
 #: discover/qml/ApplicationPage.qml:716
 #, fuzzy, kde-format
-#| msgid "Submitting usage information..."
 msgctxt "@title:window"
 msgid "License Information"
 msgstr "Дар ҳоли пешниҳоди иттилооти истифодабарӣ..."
@@ -838,8 +810,8 @@ msgstr ""
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Update All"
-msgid "Updates available"
-msgstr "Ҳамаро навсозӣ кардан"
+msgid "App updates available"
+msgstr "Навсозиҳои барномаҳо дастрасанд"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -866,14 +838,14 @@ msgstr "Насбшуда"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Навсозиҳои барномаҳо (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Навсозиҳо"
+msgid "&App updates"
+msgstr "Навсозиҳои барномаҳо"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, fuzzy, kde-format
@@ -961,66 +933,6 @@ msgstr ""
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr ""
-
-#: discover/qml/Feedback.qml:14
-#, fuzzy, kde-format
-#| msgid "Submitting usage information..."
-msgid "Submit Usage Information"
-msgstr "Дар ҳоли пешниҳоди иттилооти истифодабарӣ..."
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-
-#: discover/qml/Feedback.qml:20
-#, fuzzy, kde-format
-#| msgid "Submitting usage information..."
-msgid "Submitting usage information…"
-msgstr "Дар ҳоли пешниҳоди иттилооти истифодабарӣ..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Танзимот"
-
-#: discover/qml/Feedback.qml:24
-#, fuzzy, kde-format
-#| msgid "Configure"
-msgid "Configure Feedback…"
-msgstr "Танзимот"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Configure"
-msgid "Configure Updates…"
-msgstr "Танзимот"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, fuzzy, kde-format
-#| msgid "More..."
-msgid "Contribute…"
-msgstr "Бештар..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr ""
-
-#: discover/qml/Feedback.qml:65
-#, fuzzy, kde-format
-#| msgid "Participate..."
-msgid "Participate…"
-msgstr "Иштирок кардан..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, fuzzy, kde-format
@@ -1419,8 +1331,8 @@ msgstr ""
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Навсозиҳо"
+msgid "App updates"
+msgstr "Навсозиҳои барномаҳо"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1492,37 +1404,6 @@ msgstr ""
 msgid "Select None"
 msgstr ""
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:294
-#, fuzzy, kde-format
-#| msgid "Restart"
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Аз нав оғоз кардан"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1571,8 +1452,8 @@ msgstr "Дар ҳоли бозёбии навсозиҳо..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Навсозиҳо"
+msgid "App updates"
+msgstr "Навсозиҳои барномаҳо"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1606,6 +1487,10 @@ msgid "Time of last update unknown"
 msgstr ""
 
 #, fuzzy
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Муаллифони аслӣ"
+
 #~| msgid "Update All"
 #~ msgid "Update from:"
 #~ msgstr "Ҳамаро навсозӣ кардан"

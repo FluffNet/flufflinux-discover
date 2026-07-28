@@ -54,18 +54,6 @@ msgstr ""
 "மேலாளியால் நிறுவ‍வும்.<nl/><nl/><link url='https://archlinux.org/packages/extra/"
 "x86_64/discover/'>டிஸ்கவருக்கு %1 வழங்கும் தொகுப்பை</link> பார்க்கவும்."
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -89,11 +77,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1 தனை திறக்க முடியவில்லை"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Snap ஆதரவு நிறுவப்பட்டுள்ளதா என்பதை சரிபாருங்கள்"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -168,11 +151,6 @@ msgstr "பயன்படுத்தக்கூடிய பின்னி�
 msgid "Search string."
 msgstr "தேடல் சரம்."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "பயனர் பின்னூட்டத்துக்கு உள்ள விருப்பத்தேர்வுகளை பட்டியலிடும்"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -212,11 +190,6 @@ msgstr "தரச்சோதனை, வடிவமைப்பு, மற்�
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "டான் லெய்னிர் டுர்துரா ஜென்சன்"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr ""
 
 #: discover/main.cpp:139
 #, kde-format
@@ -841,8 +814,8 @@ msgstr "பாதுகாப்பு புதுப்பிப்புக�
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "புதுப்பிப்புகள் உள்ளன"
+msgid "App updates available"
+msgstr "செயலி புதுப்பிப்புகள் கிடைக்கின்றன"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -866,13 +839,13 @@ msgstr "&நிறுவியுள்ளவை"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&புதுப்பிப்புகள் (பெறப்படுகின்றன…)"
+msgid "&App updates (Fetching…)"
+msgstr "&செயலி புதுப்பிப்புகள் (பெறப்படுகின்றன…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "புதுப்பிப்புகள்"
+msgid "&App updates"
+msgstr "செயலி புதுப்பிப்புகள்"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -957,63 +930,6 @@ msgstr "தொழிற்நுட்ப விவரங்களை காட�
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "பிடிப்புப்பலகைக்கு நகலெடு"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "பயன்பாட்டு விவரங்களை சமர்ப்பி"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"தன் பயனர்களை கே.டீ.யீ. நன்கு புரிந்துகொள்ள உதவும் (அடையாளங்காண பயன்படாத) விவரங்களை "
-"இத்தேர்வு அனுப்பும். மேலும் விவரங்களுக்கு https://kde.org/privacypolicy-apps.php "
-"என்ற இணையதளத்தை பார்க்கவும்."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "பயன்பாட்டு விவரங்கள் அனுப்பப்படுகின்றன…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "அமை"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "பின்னூட்டத்தை அமை…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "புதுப்பிப்புகளை அமையுங்கள்..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "பங்களி…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "உங்கள் கருத்துகளுக்காக காத்திருக்கிறோம்!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "பங்கேற்றுக்கொள்…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1407,8 +1323,8 @@ msgstr "இல்லாத பின்நிலைகள்"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "புதுப்பிப்புகள்"
+msgid "App updates"
+msgstr "செயலி புதுப்பிப்புகள்"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1484,36 +1400,6 @@ msgstr "அனைத்தையும் தேர்ந்தெடு"
 msgid "Select None"
 msgstr "ஒன்றையும் தேர்ந்தெடுக்க வேண்டாம்"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "புதுப்பிப்புகள் முடிந்தபின்:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "ஒன்றும் செய்யாதே"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "மீள்துவக்கு"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "கணினியை நிறுத்து"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "வெளியேறு"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1559,8 +1445,8 @@ msgstr "புதுப்பிப்புகளின் பட்டிய�
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "புதுப்பிப்புகள்"
+msgid "App updates"
+msgstr "செயலி புதுப்பிப்புகள்"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1592,6 +1478,10 @@ msgstr "புதுப்பிப்புகள் உள்ளனவா எ�
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "கடைசியாக புதுப்பித்த நேரம் தெரியாத‍து"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "மூல ஆசிரியர்கள்"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

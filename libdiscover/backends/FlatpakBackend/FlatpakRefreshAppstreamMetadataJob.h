@@ -17,12 +17,16 @@ public:
     GLibHolder(T *object)
         : m_object(object)
     {
-        g_object_ref(object);
+        if (m_object) {
+            g_object_ref(m_object);
+        }
     }
 
     ~GLibHolder()
     {
-        g_object_unref(m_object);
+        if (m_object) {
+            g_object_unref(m_object);
+        }
     }
 
     GLibHolder(const GLibHolder &other)
@@ -70,6 +74,7 @@ public:
 
 Q_SIGNALS:
     void progressChanged();
+    void sourceRefreshCompleted(bool succeeded);
     void jobRefreshAppstreamMetadataFinished(GLibHolder<FlatpakInstallation> installation, GLibHolder<FlatpakRemote> remote, bool changed);
 
 private:

@@ -31,8 +31,8 @@ msgstr "सुरक्षा अद्यतनं उपलब्धम्"
 
 #: notifier/DiscoverNotifier.cpp:365
 #, kde-format
-msgid "Updates available"
-msgstr "अद्यतनं उपलब्धम्"
+msgid "App updates available"
+msgstr "अनुप्रयोग-अद्यतनानि उपलब्धानि सन्ति"
 
 #: notifier/DiscoverNotifier.cpp:367
 #, kde-format
@@ -139,8 +139,8 @@ msgstr "अदृष्ट"
 
 #: notifier/NotifierItem.cpp:22 notifier/NotifierItem.cpp:23
 #, kde-format
-msgid "Updates"
-msgstr "अद्यतनाः"
+msgid "App updates"
+msgstr "अनुप्रयोग-अद्यतनानि"
 
 #: notifier/NotifierItem.cpp:36
 #, fuzzy, kde-format

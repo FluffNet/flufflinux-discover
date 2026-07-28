@@ -146,7 +146,7 @@ void FlatpakJobTransaction::finishTransaction(bool cancelled, const QString &err
         m_app->setState(AbstractResource::None);
     }
 
-    if (addedRepositories.isEmpty()) {
+    if (!addedRepositories.isEmpty()) {
         Q_EMIT repositoriesAdded(addedRepositories);
     }
 

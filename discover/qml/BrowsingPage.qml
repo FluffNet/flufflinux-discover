@@ -37,13 +37,17 @@ DiscoverPage {
         id: featuredModel
     }
 
+    readonly property bool backendIsInitializing: featuredModel.currentApplicationBackend !== null
+        && !featuredModel.currentApplicationBackend.isInitialized
+    readonly property bool isLoading: Discover.ResourcesModel.isInitializing || backendIsInitializing || featuredModel.isFetching
+
     Kirigami.LoadingPlaceholder {
-        visible: featuredModel.isFetching
+        visible: page.isLoading
         anchors.centerIn: parent
     }
 
     Loader {
-        active: !featuredModel.isFetching && [featuredModel, popRep, recentlyUpdatedRepeater, gamesRep, devRep].every((model) => model.count === 0)
+        active: !page.isLoading && [featuredModel, popRep, recentlyUpdatedRepeater, gamesRep, devRep].every((model) => model.count === 0)
 
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
@@ -163,11 +167,7 @@ DiscoverPage {
                 if (!backend) {
                     return [];
                 }
-                // TODO: Add packagekit-backend of rolling distros
-                return [
-                    "flatpak-backend",
-                    "snap-backend",
-                ].includes(backend.name);
+                return backend.name === "flatpak-backend";
             }
 
             DiscoverApp.LimitedRowCountProxyModel {

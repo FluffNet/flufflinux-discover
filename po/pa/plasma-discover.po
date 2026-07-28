@@ -48,18 +48,6 @@ msgid ""
 "packages/extra/x86_64/discover/'>%1's packaging for Discover</link>"
 msgstr ""
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -81,11 +69,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1 ਨੂੰ ਖੋਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਸਨੈਪ ਸਹਿਯੋਗ ਇੰਸਟਾਲ ਹੈ"
 
 #: discover/DiscoverObject.cpp:422
 #, fuzzy, kde-format
@@ -161,11 +144,6 @@ msgstr "ਸਾਰੇ ਉਪਲਬਧ ਬੈਕਐਂਡਾਂ ਦੀ ਸੂਚ�
 msgid "Search string."
 msgstr "ਖੋਜ ਸਤਰ।"
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr ""
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -206,11 +184,6 @@ msgstr "ਕੁਆਲਟੀ ਜਾਂਚ, ਡਿਜ਼ਾਇਨ ਅਤੇ ਵਰਤ�
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr ""
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -510,7 +483,6 @@ msgstr "ਸਮੱਗਰੀ ਰੇਟਿੰਗ"
 
 #: discover/qml/ApplicationPage.qml:716
 #, fuzzy, kde-format
-#| msgid "Submit usage information"
 msgctxt "@title:window"
 msgid "License Information"
 msgstr "ਵਰਤੋਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਭੇਜੋ"
@@ -839,8 +811,8 @@ msgstr "ਅੱਪਡੇਟ ਮੌਜੂਦ ਹਨ"
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
 #| msgid "Updates are available"
-msgid "Updates available"
-msgstr "ਅੱਪਡੇਟ ਮੌਜੂਦ ਹਨ"
+msgid "App updates available"
+msgstr "ਐਪ ਅੱਪਡੇਟ ਉਪਲਬਧ ਹਨ"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -864,14 +836,14 @@ msgstr "ਇੰਸਟਾਲ ਹਨ(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "ਐਪ ਅੱਪਡੇਟ (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "ਅੱਪਡੇਟ"
+msgid "&App updates"
+msgstr "ਐਪ ਅੱਪਡੇਟ"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -959,62 +931,6 @@ msgstr "ਤਕਨੀਕੀ ਵੇਰਵੇ ਵੇਖੋ"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
-
-#: discover/qml/Feedback.qml:14
-#, fuzzy, kde-format
-#| msgid "Submit usage information"
-msgid "Submit Usage Information"
-msgstr "ਵਰਤੋਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਭੇਜੋ"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "…ਵਰਤੋਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਭੇਜੀ ਜਾ ਰਹੀ ਹੈ"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "ਸੰਰਚਨਾ"
-
-#: discover/qml/Feedback.qml:24
-#, fuzzy, kde-format
-#| msgid "Configure feedback…"
-msgid "Configure Feedback…"
-msgstr "…ਫੀਡਬੈਕ ਦੀ ਸੰਰਚਨਾ"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "…ਅੱਪਡੇਟਾਂ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "…ਯੋਗਦਾਨ"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "ਅਸੀਂ ਤੁਹਾਡੇ ਸੁਝਾਅ ਦੀ ਉਡੀਕ ਵਿੱਚ ਹਾਂ!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "…ਹਿੱਸਾ ਲਵੋ"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1395,8 +1311,8 @@ msgstr "ਗੁੰਮ ਬੈਕਐਂਡ"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "ਅੱਪਡੇਟ"
+msgid "App updates"
+msgstr "ਐਪ ਅੱਪਡੇਟ"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1466,37 +1382,6 @@ msgstr "ਸਭ ਨੂੰ ਚੁਣੋ"
 msgid "Select None"
 msgstr "ਕਿਸੇ ਨੂੰ ਨਾ ਚੁਣੋ"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:294
-#, fuzzy, kde-format
-#| msgid "Restart Now"
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "ਹੁਣੇ ਮੁੜ-ਚਾਲੂ ਕਰੋ"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1547,8 +1432,8 @@ msgstr "…ਅੱਪਡੇਟ ਲਏ ਜਾ ਰਹੇ ਹਨ"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "ਅੱਪਡੇਟ"
+msgid "App updates"
+msgstr "ਐਪ ਅੱਪਡੇਟ"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1582,6 +1467,10 @@ msgid "Time of last update unknown"
 msgstr "ਆਖਰੀ ਅੱਪਡੇਟ ਦਾ ਸਮਾਂ ਪਤਾ ਨਹੀ ਹੈ"
 
 #, fuzzy
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "ਮੂਲ ਲੇਖਕ"
+
 #~| msgid "See more…"
 #~| msgid_plural "See more…"
 #~ msgctxt "Show all licenses of the package"

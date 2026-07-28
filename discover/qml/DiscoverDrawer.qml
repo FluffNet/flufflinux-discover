@@ -91,6 +91,7 @@ Kirigami.GlobalDrawer {
             page: window.leftPage
 
             onCurrentSearchTextChanged: {
+                const preserveSearchFocus = searchField.activeFocus
                 var curr = window.leftPage;
 
                 if (pageStack.depth > 1) {
@@ -106,9 +107,11 @@ Kirigami.GlobalDrawer {
                     }
                 } else {
                     curr.search = currentSearchText;
-                    curr.forceActiveFocus()
                 }
                 drawer.currentSearchText = currentSearchText
+                if (preserveSearchFocus) {
+                    Qt.callLater(() => searchField.forceActiveFocus())
+                }
             }
 
             Keys.onDownPressed: featuredActionListItem.forceActiveFocus(Qt.TabFocusReason)
@@ -151,15 +154,11 @@ Kirigami.GlobalDrawer {
                 Kirigami.Badge {
                     visible: Discover.ResourcesModel.updatesCount > 0
 
-                    type: Discover.ResourcesModel.hasSecurityUpdates
-                        ? Kirigami.Badge.Type.Warning
-                        : Kirigami.Badge.Type.Information
+                    type: Kirigami.Badge.Type.Information
 
                     text: Discover.ResourcesModel.updatesCount
 
-                    QQC2.ToolTip.text: Discover.ResourcesModel.hasSecurityUpdates
-                        ? i18n("Security updates available")
-                        : i18n("Updates available")
+                    QQC2.ToolTip.text: i18n("App updates available")
                     QQC2.ToolTip.visible: activeFocus || hovered
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 

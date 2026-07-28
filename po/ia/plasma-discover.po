@@ -55,24 +55,6 @@ msgstr ""
 "<command>pacman</command>.<nl/><nl/> Revide <link url='https://archlinux.org/"
 "packages/extra/x86_64/discover/'> le pacchettos  de %1 per Discover</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"Supporto per gerer pacchettos ex %1 es incomplete; tu poterea experentiar "
-"ulle numero de probemas.Non reporta bugs a KDE. Il es multo recommendate "
-"deinstallar le pacchetto <resource>packagekit-qt6</resource> e usar Discover "
-"solmente per gerer Flatpaks, Snaps, e Add-Ons.<para>%1 mantenitore "
-"recommendava in loco usar le instrumento in linea de commando "
-"<command>pacman</command> per gerer pacchettos.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -96,11 +78,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "Non pote aperir %1."
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Pro favor assecura te  que le supporto de Snap es installate"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -180,11 +157,6 @@ msgstr "Lista tote le retro-administrationes disponibile."
 msgid "Search string."
 msgstr "Cerca catena."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Lista le optiones disponibile per responsa al usator"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -225,11 +197,6 @@ msgstr "Assicuration de qualitate, Designo e Usabilitate"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -884,8 +851,8 @@ msgstr "Actualisationes de securitate disponibile"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "Actualisationes disponibile"
+msgid "App updates available"
+msgstr "Actualisationes de applicationes disponibile"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -909,13 +876,13 @@ msgstr "&Installate"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "Act&ualisationes (Reportante ...)"
+msgid "&App updates (Fetching…)"
+msgstr "&Actualisationes de applicationes (Reportante ...)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "Act&ualisationes"
+msgid "&App updates"
+msgstr "&Actualisationes de applicationes"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1004,65 +971,6 @@ msgstr "Vide le detalios technic"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Copia a area de transferentia"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "Submitte information de uso"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Invia information de uso ponite anonyme a KDE assi que kde pote meliormente "
-"comprender nostre usatores. Pro ulterior information vide httpS://kde.org/"
-"privacy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Submittente information de uso..."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Configura"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "Configura responsa de usator ..."
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "Configura actualisationes ..."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"Tu pote adjutar a KDE a meliorar Discover per compartir information  anonyme "
-"super como tu lo usa."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Contribue..."
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Nos cerca tu retorno!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Participa..."
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1456,8 +1364,8 @@ msgstr "Retro-administration mancante"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Actualisationes"
+msgid "App updates"
+msgstr "Actualisationes de applicationes"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1532,36 +1440,6 @@ msgstr "Selige toto"
 msgid "Select None"
 msgstr "Selige Nulle"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "Post actualisationes complete:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "Nihil Facer"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Re-starta"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "Arresto (shut down)"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "Quita"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1607,8 +1485,8 @@ msgstr "Reportante Actualisationes..."
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Actualisationes"
+msgid "App updates"
+msgstr "Actualisationes de applicationes"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1641,6 +1519,10 @@ msgstr "Deberea verificar actualisationes"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Tempore del ultime actualisation incognite"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Autores original"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

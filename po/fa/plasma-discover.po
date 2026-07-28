@@ -56,24 +56,6 @@ msgstr ""
 "دیدگاه کنید <link url='https://archlinux.org/packages/extra/x86_64/"
 "discover/'>.</link>"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"پشتیبانی از مدیریت بسته‌های %1 ناقص است؛ ممکن است هر تعداد مشکلی را تجربه "
-"کنید. اشکالات را به کی‌دی‌ای گزارش نکنید. بسیار پیشنهاد می‌شود بسته "
-"<resource>packagekit-qt6</resource> را پاک کنید و از فروشگاه تنها برای "
-"مدیریت فلت‌پک‌ها، اسنپ‌ها و افزونه‌ها استفاده کنید.<para>نگه‌دارندگان %1 به‌جای آن "
-"کار با ابزار خط فرمانی <command>pacman</command> را برای مدیریت بسته‌ها "
-"پیشنهاد می‌کنند.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -97,11 +79,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "نمی‌توان %1 را باز کرد"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "اطمینان حاصل کنید که پشتیبانی اسنپ نصب شده است"
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -176,11 +153,6 @@ msgstr "فهرست کردن همه پشتوانه‌های در دسترس."
 msgid "Search string."
 msgstr "متن جستجو."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "فهرست کردن گزینه‌های در دسترس برای بازخورد کاربر"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -221,11 +193,6 @@ msgstr "اطمینان از کیفیت، طراحی و کاربردپذیری"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -891,8 +858,8 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@action:button as in, 'update all items'"
 #| msgid "Update All"
-msgid "Updates available"
-msgstr "به‌روزرسانی همه"
+msgid "App updates available"
+msgstr "به‌روزرسانی‌های برنامه‌ها در دسترس است"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -916,14 +883,14 @@ msgstr "&نصب‌شده"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "&به‌روزرسانی‌ها (در حال دریافت…)"
+msgid "&App updates (Fetching…)"
+msgstr "&به‌روزرسانی‌های برنامه‌ها (در حال دریافت…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "به‌روزرسانی‌ها"
+msgid "&App updates"
+msgstr "به‌روزرسانی‌های برنامه‌ها"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -1008,62 +975,6 @@ msgstr "مشاهده جزئیات فنی"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "رونوشت به بریده‌دان"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "فرستاده اطلاعات مصرف"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"اطلاعات مصرف را ناشناس به کی‌دی‌ای میفرستد تا کاربران خود را بهتر بفهمیم. برای "
-"اطلاعات بیشتر به https://kde.org/privacypolicy-apps.php. مراجعه کنید."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "در حال فرستادن اطلاعات مصرف"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "پیکربندی"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "پیکربندی بازخورد…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "پیکربندی به‌روزرسانی‌ها…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "همکاری…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "مشتاق بازخوردتان هستیم!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "مشارکت…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1455,8 +1366,8 @@ msgstr "پشتوانه‌های گم‌شده"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "به‌روزرسانی‌ها"
+msgid "App updates"
+msgstr "به‌روزرسانی‌های برنامه‌ها"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1531,40 +1442,6 @@ msgstr "انتخاب همه"
 msgid "Select None"
 msgstr "انتخاب هیچ"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:294
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Restart"
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "باز راه‌اندازی"
-
-#: discover/qml/UpdatesPage.qml:295
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Shut down"
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "خاموش کردن"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1615,8 +1492,8 @@ msgstr "دریافت به‌روزرسانی‌ها…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "به‌روزرسانی‌ها"
+msgid "App updates"
+msgstr "به‌روزرسانی‌های برنامه‌ها"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1649,6 +1526,10 @@ msgstr "باید برای به‌روزرسانی‌ها بررسی شود"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "زمان آخرین به‌روزرسانی ناشناخته"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "نویسندگان اصلی"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

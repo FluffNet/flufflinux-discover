@@ -48,18 +48,6 @@ msgid ""
 "packages/extra/x86_64/discover/'>%1's packaging for Discover</link>"
 msgstr ""
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -83,11 +71,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "Kunne ikke åpne %1"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Kontroller at Snap-støtte er installert"
 
 #: discover/DiscoverObject.cpp:422
 #, fuzzy, kde-format
@@ -164,11 +147,6 @@ msgstr "List alle tilgjengelige baksystemer."
 msgid "Search string."
 msgstr "Søketekst"
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "Vis tilgjengelige valg for tilbakemeldinger"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -208,11 +186,6 @@ msgstr "Kvalitetskontroll, design og brukskvalitet"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -849,8 +822,8 @@ msgstr ""
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, fuzzy, kde-format
-msgid "Updates available"
-msgstr "Oppdater alle"
+msgid "App updates available"
+msgstr "Appoppdateringer er tilgjengelige"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -874,14 +847,14 @@ msgstr "&Installert"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr ""
+msgid "&App updates (Fetching…)"
+msgstr "Appoppdateringer (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
 #| msgid "Updates"
-msgid "&Updates"
-msgstr "Oppdateringer"
+msgid "&App updates"
+msgstr "Appoppdateringer"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -967,62 +940,6 @@ msgstr "Vis tekniske detaljer"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "Kopier til utklippstavla"
-
-#: discover/qml/Feedback.qml:14
-#, fuzzy, kde-format
-msgid "Submit Usage Information"
-msgstr "Send inn bruksinformasjon"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"Sender anonymisert bruksinformasjon til KDE, slik at vi kan forstå brukerene "
-"våre bedre. For mer informasjon, se https://kde.org/privacypolicy-apps.php."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "Sender inn bruksinformasjon …"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "Sett opp"
-
-#: discover/qml/Feedback.qml:24
-#, fuzzy, kde-format
-msgid "Configure Feedback…"
-msgstr "Sett opp tilbakemeldinger …"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "Sett opp oppdateringer …"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "Bidra …"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "Vi ønsker tilbakemelding fra deg!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "Delta …"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1401,8 +1318,8 @@ msgstr "Manglende baksystemer"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "Oppdateringer"
+msgid "App updates"
+msgstr "Appoppdateringer"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1473,36 +1390,6 @@ msgstr "Velg alt"
 msgid "Select None"
 msgstr "Fjern valg"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:294
-#, fuzzy, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "Start på nytt"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr ""
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr ""
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1549,8 +1436,8 @@ msgstr "Henter oppdateringer …"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "Oppdateringer"
+msgid "App updates"
+msgstr "Appoppdateringer"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1582,3 +1469,7 @@ msgstr "Se etter oppdateringer"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "Tid for sist oppdatering er ukjent"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "Opprinnelige forfattere"

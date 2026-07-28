@@ -56,23 +56,6 @@ msgstr ""
 "url='https://archlinux.org/packages/extra/x86_64/discover/'>%1의 Discover 패"
 "키지 정보</link> 탐색"
 
-#: discover/DiscoverObject.cpp:217
-#, kde-kuit-format
-msgctxt "@info:usagetip %1 is the distro name"
-msgid ""
-"Support for managing packages from %1 is incomplete; you may experience any "
-"number of problems. Do not report bugs to KDE. It is highly recommended to "
-"uninstall the <resource>packagekit-qt6</resource> package and use Discover "
-"only to manage Flatpaks, Snaps, and Add-Ons.<para>%1 maintainers recommended "
-"instead using the <command>pacman</command> command-line tool to manage "
-"packages.</para>"
-msgstr ""
-"%1 패키지 관리 지원은 아직 완전하지 않습니다. 여러 문제가 발생할 수도 있습니"
-"다. KDE에 버그를 보고하지 마십시오. <resource>packagekit-qt6</resource> 패키"
-"지를 삭제하고 Discover를 통해서 Flatpak, Snap, 추가 기능만을 관리하기를 추천"
-"합니다.<para>%1 관리자는 <command>pacman</command> 명령행 도구를 사용하여 패"
-"키지를 관리하기를 추천합니다.</para>"
-
 #: discover/DiscoverObject.cpp:306
 #, kde-format
 msgid "Could not find category '%1'"
@@ -96,11 +79,6 @@ msgstr ""
 #, kde-format
 msgid "Could not open %1"
 msgstr "%1을(를) 열 수 없음"
-
-#: discover/DiscoverObject.cpp:419
-#, kde-format
-msgid "Please make sure Snap support is installed"
-msgstr "Snap 지원 설치 상태를 확인하십시오."
 
 #: discover/DiscoverObject.cpp:422
 #, kde-format
@@ -174,11 +152,6 @@ msgstr "사용 가능한 백엔드를 표시합니다."
 msgid "Search string."
 msgstr "검색 문자열입니다."
 
-#: discover/main.cpp:42
-#, kde-format
-msgid "Lists the available options for user feedback"
-msgstr "사용자 피드백 옵션을 표시합니다"
-
 #: discover/main.cpp:43
 #, kde-format
 msgid "Starts an update automatically, headless"
@@ -218,11 +191,6 @@ msgstr "품질 검증, 디자인, 사용 편의성"
 #, kde-format
 msgid "Dan Leinir Turthra Jensen"
 msgstr "Dan Leinir Turthra Jensen"
-
-#: discover/main.cpp:132
-#, kde-format
-msgid "KNewStuff"
-msgstr "KNewStuff"
 
 #: discover/main.cpp:139
 #, kde-format
@@ -864,8 +832,8 @@ msgstr "보안 업데이트 사용 가능"
 
 #: discover/qml/DiscoverDrawer.qml:162
 #, kde-format
-msgid "Updates available"
-msgstr "업데이트 사용 가능"
+msgid "App updates available"
+msgstr "앱 업데이트 사용 가능"
 
 #: discover/qml/DiscoverWindow.qml:48
 #, kde-format
@@ -890,13 +858,13 @@ msgstr "설치됨(&I)"
 
 #: discover/qml/DiscoverWindow.qml:101
 #, kde-format
-msgid "&Updates (Fetching…)"
-msgstr "업데이트(가져오는 중…)(&U)"
+msgid "&App updates (Fetching…)"
+msgstr "앱 업데이트(가져오는 중…)(&U)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format
-msgid "&Updates"
-msgstr "업데이트(&U)"
+msgid "&App updates"
+msgstr "앱 업데이트(&U)"
 
 #: discover/qml/DiscoverWindow.qml:110
 #, kde-format
@@ -981,63 +949,6 @@ msgstr "기술 정보 보기"
 #, kde-format
 msgid "Copy to Clipboard"
 msgstr "클립보드에 복사"
-
-#: discover/qml/Feedback.qml:14
-#, kde-format
-msgid "Submit Usage Information"
-msgstr "사용 정보 제출"
-
-#: discover/qml/Feedback.qml:15
-#, kde-format
-msgid ""
-"Sends anonymized usage information to KDE so we can better understand our "
-"users. For more information see https://kde.org/privacypolicy-apps.php."
-msgstr ""
-"KDE에 익명화된 사용 정보를 보내서 사용자 이해를 도울 수 있습니다. 더 많은 정"
-"보를 보려면 https://kde.org/privacypolicy-apps.php 페이지를 참조하십시오."
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Submitting usage information…"
-msgstr "사용 정보 제출 중…"
-
-#: discover/qml/Feedback.qml:20
-#, kde-format
-msgid "Configure"
-msgstr "설정"
-
-#: discover/qml/Feedback.qml:24
-#, kde-format
-msgid "Configure Feedback…"
-msgstr "피드백 설정…"
-
-#: discover/qml/Feedback.qml:31 discover/qml/SourcesPage.qml:22
-#, kde-format
-msgid "Configure Updates…"
-msgstr "업데이트 설정…"
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid ""
-"You can help KDE improve Discover by sharing anonymous information on how "
-"you use it."
-msgstr ""
-"KDE에서 Discover를 개선할 수 있도록 사용 정보를 익명으로 공유할 수 있습니다."
-
-#: discover/qml/Feedback.qml:60
-#, kde-format
-msgid "Contribute…"
-msgstr "기여…"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "We are looking for your feedback!"
-msgstr "귀하의 피드백을 기다립니다!"
-
-#: discover/qml/Feedback.qml:65
-#, kde-format
-msgid "Participate…"
-msgstr "참여하기…"
 
 #: discover/qml/InstallApplicationButton.qml:29
 #, kde-format
@@ -1427,8 +1338,8 @@ msgstr "사용할 수 없는 백엔드"
 
 #: discover/qml/UpdatesPage.qml:14
 #, kde-format
-msgid "Updates"
-msgstr "업데이트"
+msgid "App updates"
+msgstr "앱 업데이트"
 
 #: discover/qml/UpdatesPage.qml:47
 #, kde-format
@@ -1501,36 +1412,6 @@ msgstr "모두 선택"
 msgid "Select None"
 msgstr "선택 해제"
 
-#: discover/qml/UpdatesPage.qml:287
-#, kde-format
-msgctxt "@info After updates complete, shut down/restart/quit"
-msgid "After updates complete:"
-msgstr "업데이트 완료 후:"
-
-#: discover/qml/UpdatesPage.qml:293
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, do nothing"
-msgid "Do nothing"
-msgstr "아무것도 안 함"
-
-#: discover/qml/UpdatesPage.qml:294
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, restart"
-msgid "Restart"
-msgstr "다시 시작"
-
-#: discover/qml/UpdatesPage.qml:295
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, shut down"
-msgid "Shut down"
-msgstr "컴퓨터 끄기"
-
-#: discover/qml/UpdatesPage.qml:296
-#, kde-format
-msgctxt "@item:inlistbox after updates complete, quit"
-msgid "Quit"
-msgstr "끝내기"
-
 #: discover/qml/UpdatesPage.qml:306
 #, kde-format
 msgid "Total size: %1"
@@ -1576,8 +1457,8 @@ msgstr "업데이트 가져오는 중…"
 #: discover/qml/UpdatesPage.qml:660
 #, kde-format
 msgctxt "@info"
-msgid "Updates"
-msgstr "업데이트"
+msgid "App updates"
+msgstr "앱 업데이트"
 
 #: discover/qml/UpdatesPage.qml:670
 #, kde-format
@@ -1609,6 +1490,10 @@ msgstr "업데이트 확인 여부"
 msgctxt "@info"
 msgid "Time of last update unknown"
 msgstr "마지막 업데이트 시간 알 수 없음"
+
+#: discover/qml/AboutPage.qml
+msgid "Original Authors"
+msgstr "원저자"
 
 #~ msgid ""
 #~ "You can help us improving this application by sharing statistics and "

@@ -23,7 +23,6 @@ ApplicationDelegate {
     property int maxUp: columns*2
     property int maxDown: columns*2
 
-    showRating: false
     showInstallButton: false
 
     // Don't let RowLayout affect parent GridLayout's decisions, or else it

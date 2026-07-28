@@ -15,7 +15,7 @@ LimitedRowCountProxyModel::LimitedRowCountProxyModel(QObject *object)
     // Compress events to avoid excessive filter runs
     m_invalidateTimer.setInterval(250ms);
     m_invalidateTimer.setSingleShot(true);
-    connect(&m_invalidateTimer, &QTimer::timeout, this, &LimitedRowCountProxyModel::invalidateRowsFilter);
+    connect(&m_invalidateTimer, &QTimer::timeout, this, &LimitedRowCountProxyModel::invalidateRowFilter);
 
     connect(this, &QSortFilterProxyModel::sourceModelChanged, this, [this] {
         if (!sourceModel()) {
@@ -32,7 +32,7 @@ LimitedRowCountProxyModel::LimitedRowCountProxyModel(QObject *object)
         connect(sourceModel(), &QAbstractItemModel::rowsInserted, &m_invalidateTimer, QOverload<>::of(&QTimer::start));
         connect(sourceModel(), &QAbstractItemModel::rowsRemoved, &m_invalidateTimer, QOverload<>::of(&QTimer::start));
         connect(sourceModel(), &QAbstractItemModel::modelReset, &m_invalidateTimer, QOverload<>::of(&QTimer::start));
-        invalidateRowsFilter();
+        invalidateRowFilter();
     });
 }
 
@@ -52,7 +52,13 @@ void LimitedRowCountProxyModel::setPageSize(int count)
     m_pageSize = count;
     Q_EMIT pageSizeChanged();
 
-    invalidateRowsFilter();
+    invalidateRowFilter();
+}
+
+void LimitedRowCountProxyModel::invalidateRowFilter()
+{
+    beginFilterChange();
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
 }
 
 bool LimitedRowCountProxyModel::filterAcceptsRow(int source_row, [[maybe_unused]] const QModelIndex &source_parent) const
