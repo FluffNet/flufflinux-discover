@@ -336,10 +336,49 @@ static QString flatpakNameFromId(const QString &id)
     return name.toString();
 }
 
-static const QStringList &excludedFlatpakRules()
+struct FlatpakExclusionRule {
+    QString id;
+    QString pacmanPackage;
+    bool enabled = true;
+};
+
+static bool isPacmanPackageInstalled(const QString &packageName)
 {
-    static const QStringList rules = [] {
-        QStringList result;
+    static const QRegularExpression validPackageName(QStringLiteral(R"(^[-a-zA-Z0-9@._+:]+$)"));
+    if (!validPackageName.match(packageName).hasMatch()) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring invalid pacman package name in exclusions:" << packageName;
+        return false;
+    }
+
+    const QDir localDatabase(QStringLiteral("/var/lib/pacman/local"));
+    const QStringList candidates =
+        localDatabase.entryList({packageName + QStringLiteral("-*")}, QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+    for (const QString &candidate : candidates) {
+        QFile description(localDatabase.filePath(candidate + QStringLiteral("/desc")));
+        if (!description.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            continue;
+        }
+
+        QTextStream stream(&description);
+        bool nextLineIsName = false;
+        while (!stream.atEnd()) {
+            const QString line = stream.readLine();
+            if (nextLineIsName) {
+                if (line == packageName) {
+                    return true;
+                }
+                break;
+            }
+            nextLineIsName = line == QLatin1StringView("%NAME%");
+        }
+    }
+    return false;
+}
+
+static const QList<FlatpakExclusionRule> &excludedFlatpakRules()
+{
+    static const QList<FlatpakExclusionRule> rules = [] {
+        QList<FlatpakExclusionRule> result;
         QFile file(QStringLiteral("/etc/discover/exclusions.conf"));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Could not read Flatpak exclusions from" << file.fileName();
@@ -347,11 +386,26 @@ static const QStringList &excludedFlatpakRules()
         }
 
         QTextStream stream(&file);
+        static const QRegularExpression ruleExpression(QStringLiteral(R"(^(\S+?)(?:\s+-p\("([^"]+)"\))?$)"));
         while (!stream.atEnd()) {
             const QString line = stream.readLine().trimmed();
-            if (!line.isEmpty() && !line.startsWith(QLatin1Char('#'))) {
-                result.append(line);
+            if (line.isEmpty() || line.startsWith(QLatin1Char('#'))) {
+                continue;
             }
+
+            const QRegularExpressionMatch match = ruleExpression.match(line);
+            if (!match.hasMatch()) {
+                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring malformed Flatpak exclusion rule:" << line;
+                continue;
+            }
+
+            QString id = match.captured(1);
+            static constexpr QLatin1StringView appstreamPrefix("appstream://");
+            if (id.startsWith(appstreamPrefix, Qt::CaseInsensitive)) {
+                id.remove(0, appstreamPrefix.size());
+            }
+            const QString pacmanPackage = match.captured(2);
+            result.append({id, pacmanPackage, pacmanPackage.isEmpty() || isPacmanPackageInstalled(pacmanPackage)});
         }
         return result;
     }();
@@ -362,11 +416,14 @@ static const QStringList &excludedFlatpakRules()
 static bool isExcludedFlatpakId(const QString &id)
 {
     const QString name = flatpakNameFromId(id);
-    return std::ranges::any_of(excludedFlatpakRules(), [&name](const QString &rule) {
-        if (rule.endsWith(QLatin1Char('*'))) {
-            return name.startsWith(QStringView(rule).chopped(1), Qt::CaseInsensitive);
+    return std::ranges::any_of(excludedFlatpakRules(), [&name](const FlatpakExclusionRule &rule) {
+        if (!rule.enabled) {
+            return false;
         }
-        return name.compare(rule, Qt::CaseInsensitive) == 0;
+        if (rule.id.endsWith(QLatin1Char('*'))) {
+            return name.startsWith(QStringView(rule.id).chopped(1), Qt::CaseInsensitive);
+        }
+        return name.compare(rule.id, Qt::CaseInsensitive) == 0;
     });
 }
 
@@ -2218,11 +2275,26 @@ ResultsStream *FlatpakBackend::findResourceByPackageName(const QUrl &url)
         } else {
             auto stream = new ResultsStream(QStringLiteral("FlatpakStream-AppStreamUrl"));
             auto f = [this, stream, appstreamIds] {
-                const auto pools = kTransform<QList<AppStream::ConcurrentPool *>>(m_flatpakSources, [](const auto &x) {
-                    return x->m_pool.get();
-                });
+                // Keep each source alive until its background lookup and
+                // continuation have both finished. The AppStream helper uses
+                // raw pool pointers internally, so taking pointers directly
+                // from m_flatpakSources allowed a concurrently unloaded
+                // source to destroy a pool while a worker was still using it.
+                QHash<AppStream::ConcurrentPool *, QSharedPointer<FlatpakSource>> sourcesByPool;
+                for (const auto &source : std::as_const(m_flatpakSources)) {
+                    if (source->m_pool) {
+                        sourcesByPool.insert(source->m_pool.get(), source);
+                    }
+                }
+                const QList<AppStream::ConcurrentPool *> pools = sourcesByPool.keys();
+                const QPointer<ResultsStream> streamGuard(stream);
+
                 AppStream::ConcurrentPool::componentsByNames(&m_threadPool, pools, appstreamIds)
-                    .then(this, [this, stream](const QMap<AppStream::ConcurrentPool *, QList<AppStream::Component>> &componentsList) {
+                    .then(this, [this, streamGuard, sourcesByPool](const QMap<AppStream::ConcurrentPool *, QList<AppStream::Component>> &componentsList) {
+                        if (!streamGuard) {
+                            return;
+                        }
+
                         QList<StreamResult> resourcesFound;
                         std::set<AbstractResource *> resources;
                         QVector<StreamResult> resourcesVector;
@@ -2234,11 +2306,18 @@ ResultsStream *FlatpakBackend::findResourceByPackageName(const QUrl &url)
                             if (!pool) {
                                 continue;
                             }
-                            const auto sourceIt = std::ranges::find_if(m_flatpakSources, [pool](const QSharedPointer<FlatpakSource> &s) -> bool {
-                                return s->m_pool.get() == pool;
-                            });
-                            Q_ASSERT(sourceIt != m_flatpakSources.end());
-                            const QSharedPointer<FlatpakSource> source = *sourceIt;
+                            const auto sourceIt = sourcesByPool.constFind(pool);
+                            if (sourceIt == sourcesByPool.cend()) {
+                                continue;
+                            }
+                            const QSharedPointer<FlatpakSource> source = sourceIt.value();
+                            if (!m_flatpakSources.contains(source)) {
+                                // The source was removed or refreshed while
+                                // this lookup was running. Its retained pool
+                                // was safe to finish, but its results are no
+                                // longer part of the active catalog.
+                                continue;
+                            }
                             resourcesFound << kTransform<QVector<StreamResult>>(components, [this, source](const AppStream::Component &comp) -> StreamResult {
                                 return {resourceForComponent(comp, source), comp.sortScore()};
                             });
@@ -2252,9 +2331,9 @@ ResultsStream *FlatpakBackend::findResourceByPackageName(const QUrl &url)
                         }
 
                         if (!resourcesVector.isEmpty()) {
-                            Q_EMIT stream->resourcesFound(resourcesVector);
+                            Q_EMIT streamGuard->resourcesFound(resourcesVector);
                         }
-                        stream->finish();
+                        streamGuard->finish();
                     });
             };
 

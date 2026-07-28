@@ -13,6 +13,7 @@ license = LGPL-2.0-or-later
 conflict = discover
 provides = discover
 replaces = discover
+backup = etc/discover/exclusions.conf
 
 depend = appstream-qt
 depend = discount
