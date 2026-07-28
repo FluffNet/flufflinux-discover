@@ -37,13 +37,16 @@ DiscoverPage {
         id: featuredModel
     }
 
+    readonly property bool backendIsFetching: featuredModel.currentApplicationBackend?.isFetching ?? true
+    readonly property bool isLoading: Discover.ResourcesModel.isInitializing || backendIsFetching || featuredModel.isFetching
+
     Kirigami.LoadingPlaceholder {
-        visible: featuredModel.isFetching
+        visible: page.isLoading
         anchors.centerIn: parent
     }
 
     Loader {
-        active: !featuredModel.isFetching && [featuredModel, popRep, recentlyUpdatedRepeater, gamesRep, devRep].every((model) => model.count === 0)
+        active: !page.isLoading && [featuredModel, popRep, recentlyUpdatedRepeater, gamesRep, devRep].every((model) => model.count === 0)
 
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)

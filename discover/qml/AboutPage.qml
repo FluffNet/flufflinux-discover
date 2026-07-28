@@ -78,6 +78,10 @@ FormCard.FormCardPage {
                     wrapMode: Text.WordWrap
                 }
 
+                Kirigami.Separator {
+                    Layout.fillWidth: true
+                }
+
                 RowLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
@@ -91,7 +95,7 @@ FormCard.FormCardPage {
 
                     QQC2.ToolButton {
                         text: i18n("Original Authors")
-                        icon.name: "information-symbolic"
+                        icon.name: "help-about"
                         display: QQC2.AbstractButton.IconOnly
                         onClicked: authorsDialog.open()
 

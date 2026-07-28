@@ -378,8 +378,13 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
     } else {
         m_sources = new FlatpakSourcesBackend(m_installations, this);
         SourcesModel::global()->addSourcesBackend(m_sources);
+        // Keep the backend in its loading state across the queued initial
+        // source discovery. Individual source loads hold their own references
+        // until their AppStream data is ready.
+        acquireFetching(true);
         QTimer::singleShot(0, this, [this] {
             loadAppsFromAppstreamData();
+            acquireFetching(false);
         });
     }
 
@@ -1508,6 +1513,8 @@ void FlatpakBackend::updateAppState(FlatpakResource *resource)
 
 void FlatpakBackend::acquireFetching(bool f)
 {
+    const bool wasFetching = isFetching();
+
     if (f) {
         m_isFetching++;
     } else {
@@ -1517,6 +1524,10 @@ void FlatpakBackend::acquireFetching(bool f)
             return;
         }
         m_isFetching--;
+    }
+
+    if (wasFetching != isFetching()) {
+        Q_EMIT fetchingChanged();
     }
 
     if (!f && m_isFetching == 0) {

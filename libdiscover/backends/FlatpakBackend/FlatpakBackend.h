@@ -41,6 +41,7 @@ class ProgressCollector;
 class FlatpakBackend : public AbstractResourcesBackend
 {
     Q_OBJECT
+    Q_PROPERTY(bool isFetching READ isFetching NOTIFY fetchingChanged)
 public:
     explicit FlatpakBackend(QObject *parent = nullptr);
     ~FlatpakBackend();
@@ -105,6 +106,7 @@ private Q_SLOTS:
     void onFetchSizeFinished(FlatpakResource *resource, guint64 downloadSize, guint64 installedSize);
 
 Q_SIGNALS: // for tests
+    void fetchingChanged();
     void initialized();
 
 private:
