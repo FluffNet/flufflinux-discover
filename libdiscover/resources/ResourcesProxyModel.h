@@ -190,6 +190,7 @@ private:
     QString m_categoryName;
 
     AbstractResourcesBackend::Filters m_filters;
+    QString m_relevanceSearch;
     QVariantList m_subcategories;
 
     QVector<StreamResult> m_displayedResources;

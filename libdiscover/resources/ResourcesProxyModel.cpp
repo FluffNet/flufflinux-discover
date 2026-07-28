@@ -9,6 +9,7 @@
 
 #include "libdiscover_debug.h"
 #include <QMetaProperty>
+#include <QRegularExpression>
 #include <cmath>
 #include <qnamespace.h>
 #include <utils.h>
@@ -42,6 +43,32 @@ const QHash<int, QByteArray> ResourcesProxyModel::s_roles = {{NameRole, "name"},
                                                              {SourceIconRole, "sourceIcon"},
                                                              {SizeRole, "size"},
                                                              {ReleaseDateRole, "releaseDate"}};
+
+static QString searchTextForRelevance(const QString &search)
+{
+    QStringList positiveTerms;
+    static const QRegularExpression tokenExpression(QStringLiteral("(-?)(\"[^\"]*\"|\\S+)"));
+    auto matches = tokenExpression.globalMatch(search);
+
+    while (matches.hasNext()) {
+        const QRegularExpressionMatch match = matches.next();
+        if (!match.captured(1).isEmpty()) {
+            continue;
+        }
+
+        QString term = match.captured(2);
+        if (term.size() >= 2 && term.startsWith(QLatin1Char('"')) && term.endsWith(QLatin1Char('"'))) {
+            term = term.sliced(1, term.size() - 2);
+        }
+        term.replace(QLatin1Char('*'), QLatin1Char(' '));
+        term = term.simplified();
+        if (!term.isEmpty()) {
+            positiveTerms.append(term);
+        }
+    }
+
+    return positiveTerms.join(QLatin1Char(' '));
+}
 
 int levenshteinDistance(QStringView source, QStringView target)
 {
@@ -141,6 +168,7 @@ void ResourcesProxyModel::setSearch(const QString &_searchText)
 
     if (m_filters.search != searchText) {
         m_filters.search = searchText;
+        m_relevanceSearch = searchTextForRelevance(searchText);
         invalidateFilter();
         Q_EMIT searchChanged(m_filters.search);
     }
@@ -592,15 +620,19 @@ QVariant ResourcesProxyModel::roleToValue(const StreamResult &result, int role) 
         const QString name = resource->name();
         const auto words = QStringView(name).split(QLatin1Char(' '));
         for (QStringView word : words) {
-            const qreal maxLength = std::max(word.length(), m_filters.search.length());
+            const qreal maxLength = std::max(word.length(), m_relevanceSearch.length());
+            if (maxLength == 0) {
+                continue;
+            }
             reverseDistance =
-                std::max(reverseDistance, (maxLength - std::min(reverseDistance, qreal(levenshteinDistance(word, m_filters.search)))) / maxLength * 10.0);
+                std::max(reverseDistance,
+                         (maxLength - std::min(reverseDistance, qreal(levenshteinDistance(word, m_relevanceSearch)))) / maxLength * 10.0);
         }
 
         qreal exactMatch = 0.0;
-        if (resource->name().toUpper() == m_filters.search.toUpper()) {
+        if (!m_relevanceSearch.isEmpty() && resource->name().compare(m_relevanceSearch, Qt::CaseInsensitive) == 0) {
             exactMatch = 10.0;
-        } else if (resource->name().contains(m_filters.search, Qt::CaseInsensitive)) {
+        } else if (!m_relevanceSearch.isEmpty() && resource->name().contains(m_relevanceSearch, Qt::CaseInsensitive)) {
             exactMatch = 5.0;
         }
         return qreal(result.sortScore) / 100 + rating + reverseDistance + exactMatch;
