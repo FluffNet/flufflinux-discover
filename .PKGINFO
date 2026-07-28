@@ -42,6 +42,7 @@ depend = kwidgetsaddons
 depend = kwindowsystem
 depend = libgcc
 depend = libstdc++
+depend = pacman
 depend = purpose
 depend = qcoro
 depend = qqc2-desktop-style

@@ -42,6 +42,7 @@
 #include <QFileInfo>
 #include <QFutureWatcher>
 #include <QNetworkAccessManager>
+#include <QProcess>
 #include <QSettings>
 #include <QTemporaryFile>
 #include <QTextStream>
@@ -350,29 +351,20 @@ static bool isPacmanPackageInstalled(const QString &packageName)
         return false;
     }
 
-    const QDir localDatabase(QStringLiteral("/var/lib/pacman/local"));
-    const QStringList candidates =
-        localDatabase.entryList({packageName + QStringLiteral("-*")}, QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
-    for (const QString &candidate : candidates) {
-        QFile description(localDatabase.filePath(candidate + QStringLiteral("/desc")));
-        if (!description.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            continue;
-        }
-
-        QTextStream stream(&description);
-        bool nextLineIsName = false;
-        while (!stream.atEnd()) {
-            const QString line = stream.readLine();
-            if (nextLineIsName) {
-                if (line == packageName) {
-                    return true;
-                }
-                break;
-            }
-            nextLineIsName = line == QLatin1StringView("%NAME%");
-        }
+    QProcess pacman;
+    pacman.start(QStringLiteral("/usr/bin/pacman"), {QStringLiteral("-Qq"), packageName}, QIODevice::ReadOnly);
+    if (!pacman.waitForStarted(1000)) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Could not start pacman while evaluating exclusion for" << packageName;
+        return false;
     }
-    return false;
+    if (!pacman.waitForFinished(3000)) {
+        pacman.kill();
+        pacman.waitForFinished();
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Timed out checking installed pacman package" << packageName;
+        return false;
+    }
+
+    return pacman.exitStatus() == QProcess::NormalExit && pacman.exitCode() == 0;
 }
 
 static const QList<FlatpakExclusionRule> &excludedFlatpakRules()
