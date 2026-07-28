@@ -32,7 +32,6 @@ DiscoverPage {
     property alias listHeader: appsView.header
     property alias listHeaderPositioning: appsView.headerPositioning
     property string sortProperty: "appsListPageSorting"
-    property bool showRating: true
     property bool showSize: false
     property bool searchPage: false
 
@@ -213,7 +212,6 @@ DiscoverPage {
         }
 
         delegate: ApplicationDelegate {
-            showRating: page.showRating
             showSize: page.showSize
         }
 

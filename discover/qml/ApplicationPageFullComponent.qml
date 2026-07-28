@@ -57,9 +57,9 @@ Kirigami.Padding {
 
             spacing: Kirigami.Units.largeSpacing
 
-            // Icon, name, author, rating
+            // Icon, name, and author
             RowLayout {
-                id: infoIconNameAuthorRatingLayout
+                id: infoIconNameAuthorLayout
                 spacing: Kirigami.Units.gridUnit
 
                 // Icon
@@ -134,20 +134,6 @@ Kirigami.Padding {
                         }
                     }
 
-                    // Rating
-                    RowLayout {
-                        visible: !fullComponent.isTechnicalPackage
-
-                        Rating {
-                            value: fullComponent.application.rating.rating
-                            starSize: appAuthor.font.pointSize
-                            precision: Rating.Precision.HalfStar
-                        }
-
-                        QQC2.Label {
-                            text: fullComponent.application.rating ? i18ncp("@info as in the number of ratings an application has", "%1 rating", "%1 ratings", fullComponent.application.rating.ratingCount) : i18nc("@info", "No ratings yet")
-                        }
-                    }
                 }
             }
 
