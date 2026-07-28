@@ -54,6 +54,7 @@
 #include <glib.h>
 
 #include <Category/Category.h>
+#include <algorithm>
 #include <optional>
 #include <set>
 #include <sys/stat.h>
@@ -320,10 +321,8 @@ static FlatpakResource::Id idForInstalledRef(FlatpakInstalledRef *ref, const QSt
     return {appId, branch, arch};
 }
 
-static bool isExcludedWineFlatpakId(const QString &id)
+static QString flatpakNameFromId(const QString &id)
 {
-    static constexpr QLatin1StringView wineId("org.winehq.wine");
-
     QStringView name(id);
     const qsizetype firstSlash = name.indexOf(QLatin1Char('/'));
     if (firstSlash >= 0) {
@@ -334,13 +333,95 @@ static bool isExcludedWineFlatpakId(const QString &id)
         }
     }
 
-    return name.compare(wineId, Qt::CaseInsensitive) == 0
-        || (name.startsWith(wineId, Qt::CaseInsensitive) && name.size() > wineId.size() && name.at(wineId.size()) == QLatin1Char('.'));
+    return name.toString();
 }
 
-static bool isExcludedWineResource(const FlatpakResource *resource)
+static const QStringList &excludedFlatpakRules()
 {
-    return resource && (isExcludedWineFlatpakId(resource->flatpakName()) || isExcludedWineFlatpakId(resource->appstreamId()));
+    static const QStringList rules = [] {
+        QStringList result;
+        QFile file(QStringLiteral("/etc/discover/exclusions.conf"));
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Could not read Flatpak exclusions from" << file.fileName();
+            return result;
+        }
+
+        QTextStream stream(&file);
+        while (!stream.atEnd()) {
+            const QString line = stream.readLine().trimmed();
+            if (!line.isEmpty() && !line.startsWith(QLatin1Char('#'))) {
+                result.append(line);
+            }
+        }
+        return result;
+    }();
+
+    return rules;
+}
+
+static bool isExcludedFlatpakId(const QString &id)
+{
+    const QString name = flatpakNameFromId(id);
+    return std::ranges::any_of(excludedFlatpakRules(), [&name](const QString &rule) {
+        if (rule.endsWith(QLatin1Char('*'))) {
+            return name.startsWith(QStringView(rule).chopped(1), Qt::CaseInsensitive);
+        }
+        return name.compare(rule, Qt::CaseInsensitive) == 0;
+    });
+}
+
+static bool isExcludedFlatpakResource(const FlatpakResource *resource)
+{
+    return resource && (isExcludedFlatpakId(resource->flatpakName()) || isExcludedFlatpakId(resource->appstreamId()));
+}
+
+struct SpecialSearchQuery {
+    QList<QRegularExpression> required;
+    QList<QRegularExpression> excluded;
+
+    [[nodiscard]] bool matches(const FlatpakResource *resource) const
+    {
+        const QString searchableText =
+            resource->name() + QLatin1Char('\n') + resource->comment() + QLatin1Char('\n') + resource->appstreamId();
+        return std::ranges::all_of(required, [&searchableText](const QRegularExpression &expression) {
+                   return searchableText.contains(expression);
+               })
+            && std::ranges::none_of(excluded, [&searchableText](const QRegularExpression &expression) {
+                   return searchableText.contains(expression);
+               });
+    }
+};
+
+static bool usesSpecialSearchSyntax(const QString &search)
+{
+    return search.contains(QLatin1Char('"')) || search.contains(QLatin1Char('*'))
+        || QRegularExpression(QStringLiteral(R"((^|\s)-[^\s-])")).match(search).hasMatch();
+}
+
+static SpecialSearchQuery parseSpecialSearch(const QString &search)
+{
+    SpecialSearchQuery query;
+    static const QRegularExpression tokenExpression(QStringLiteral(R"((-?)("[^"]*"|\S+))"));
+    auto matches = tokenExpression.globalMatch(search);
+
+    while (matches.hasNext()) {
+        const QRegularExpressionMatch match = matches.next();
+        const bool exclude = !match.captured(1).isEmpty();
+        QString token = match.captured(2);
+        if (token.size() >= 2 && token.startsWith(QLatin1Char('"')) && token.endsWith(QLatin1Char('"'))) {
+            token = token.sliced(1, token.size() - 2);
+        }
+        if (token.isEmpty()) {
+            continue;
+        }
+
+        QString pattern = QRegularExpression::escape(token);
+        pattern.replace(QStringLiteral("\\*"), QStringLiteral(".*"));
+        QRegularExpression expression(pattern, QRegularExpression::CaseInsensitiveOption);
+        (exclude ? query.excluded : query.required).append(std::move(expression));
+    }
+
+    return query;
 }
 
 static std::optional<AppStream::Metadata> metadataFromBytes(GBytes *appstreamGz, GCancellable *cancellable)
@@ -780,8 +861,8 @@ void FlatpakBackend::addAppFromFlatpakBundle(const QUrl &url, ResultsStream *str
         qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to load bundle:" << localError->message;
         return;
     }
-    if (isExcludedWineFlatpakId(QString::fromUtf8(flatpak_ref_get_name(FLATPAK_REF(bundleRef))))) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring excluded Wine Flatpak bundle" << url;
+    if (isExcludedFlatpakId(QString::fromUtf8(flatpak_ref_get_name(FLATPAK_REF(bundleRef))))) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring excluded Flatpak bundle" << url;
         return;
     }
 
@@ -983,8 +1064,8 @@ void FlatpakBackend::addAppFromFlatpakRef(const QUrl &url, ResultsStream *stream
     const bool isRuntime = settings.value(QLatin1StringView("Flatpak Ref/IsRuntime")).toBool();
     g_autoptr(GError) error = nullptr;
 
-    if (isExcludedWineFlatpakId(name)) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring excluded Wine Flatpak ref" << name;
+    if (isExcludedFlatpakId(name)) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring excluded Flatpak ref" << name;
         stream->finish();
         return;
     }
@@ -1689,7 +1770,7 @@ void triage(FlatpakResource *resource,
             const AbstractResourcesBackend::Filters &filter,
             bool filtered)
 {
-    if (isExcludedWineResource(resource)) {
+    if (isExcludedFlatpakResource(resource)) {
         return;
     }
 
@@ -1771,7 +1852,7 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 const auto refArch = flatpak_ref_get_arch(ref);
                 const auto refBranch = flatpak_ref_get_branch(ref);
 
-                if (isExcludedWineFlatpakId(QString::fromUtf8(refName))) {
+                if (isExcludedFlatpakId(QString::fromUtf8(refName))) {
                     co_return;
                 }
 
@@ -1834,7 +1915,7 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                     for (const auto ref : refs) {
                         bool fresh = false;
                         const QLatin1String id(flatpak_ref_get_name(FLATPAK_REF(ref)));
-                        if (isExcludedWineFlatpakId(QString::fromLatin1(id.data(), id.size()))) {
+                        if (isExcludedFlatpakId(QString::fromLatin1(id.data(), id.size()))) {
                             continue;
                         }
                         if (isFlatpakSubRef(id)) {
@@ -1907,6 +1988,8 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 FLATPAK_BACKEND_GUARD
                 const auto installations = self->m_installations;
                 QVector<StreamResult> resources;
+                const bool specialSearch = usesSpecialSearchSyntax(filter.search);
+                const SpecialSearchQuery specialQuery = specialSearch ? parseSpecialSearch(filter.search) : SpecialSearchQuery{};
 
                 for (auto installation : std::as_const(installations)) {
                     FLATPAK_BACKEND_YIELD
@@ -1923,7 +2006,7 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                         FLATPAK_BACKEND_YIELD;
 
                         FlatpakRef *ref = FLATPAK_REF(g_ptr_array_index(refs, i));
-                        if (isExcludedWineFlatpakId(QString::fromUtf8(flatpak_ref_get_name(ref)))) {
+                        if (isExcludedFlatpakId(QString::fromUtf8(flatpak_ref_get_name(ref)))) {
                             continue;
                         }
                         if (isFlatpakSubRef(QLatin1String(flatpak_ref_get_name(ref)))) {
@@ -1935,7 +2018,10 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                         if (!resource) {
                             continue;
                         }
-                        if (!filter.search.isEmpty() && !resource->name().contains(filter.search, Qt::CaseInsensitive)
+                        if (specialSearch && !specialQuery.matches(resource)) {
+                            continue;
+                        }
+                        if (!specialSearch && !filter.search.isEmpty() && !resource->name().contains(filter.search, Qt::CaseInsensitive)
                             && !resource->appstreamId().contains(filter.search, Qt::CaseInsensitive)) {
                             continue;
                         }
@@ -1965,10 +2051,16 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 QVector<StreamResult> prioritary, rest;
                 QMap<QSharedPointer<FlatpakSource>, QFuture<AppStream::ComponentBox>> futures;
                 QList<FlatpakResource *> unpooled;
+                const bool specialSearch = usesSpecialSearchSyntax(filter.search);
+                const SpecialSearchQuery specialQuery = specialSearch ? parseSpecialSearch(filter.search) : SpecialSearchQuery{};
+                auto triageFilter = filter;
+                if (specialSearch) {
+                    triageFilter.search.clear();
+                }
 
                 for (const auto &source : flatpakSources) {
                     if (source->m_pool) {
-                        if (filter.search.size() == 1) {
+                        if (specialSearch || filter.search.size() == 1) {
                             futures.insert(source, source->m_pool->components());
                         } else if (!filter.search.isEmpty()) {
                             futures.insert(source, source->m_pool->search(filter.search));
@@ -1987,9 +2079,14 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 fw->setFuture(QtFuture::whenAll(futures.begin(), futures.end()));
                 FLATPAK_BACKEND_YIELD
                 for (auto r : std::as_const(unpooled)) {
-                    triage(r, prioritary, rest, filter, false);
+                    if (!specialSearch || specialQuery.matches(r)) {
+                        triage(r, prioritary, rest, triageFilter, false);
+                    }
                 }
-                connect(fw, &QFS::finished, stream, [self, futures, stream, _rest = rest, _prioritary = prioritary, filter, fw]() {
+                connect(fw,
+                        &QFS::finished,
+                        stream,
+                        [self, futures, stream, _rest = rest, _prioritary = prioritary, filter, triageFilter, specialSearch, specialQuery, fw]() {
                     QVector<StreamResult> rest(_rest), prioritary(_prioritary);
                     for (const auto [source, future] : futures.asKeyValueRange()) {
                         for (const auto &component : future.result()) {
@@ -1997,7 +2094,11 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                                 && !component.id().startsWith(filter.search, Qt::CaseInsensitive)) {
                                 continue;
                             }
-                            triage(self->resourceForComponent(component, source), prioritary, rest, filter, true);
+                            auto *resource = self->resourceForComponent(component, source);
+                            if (specialSearch && !specialQuery.matches(resource)) {
+                                continue;
+                            }
+                            triage(resource, prioritary, rest, triageFilter, true);
                         }
                     }
 
@@ -2110,7 +2211,7 @@ ResultsStream *FlatpakBackend::findResourceByPackageName(const QUrl &url)
             return new ResultsStream(QStringLiteral("FlatpakStream-malformed-AppStreamUrl"), {});
         }
         appstreamIds.removeIf([](const QString &id) {
-            return isExcludedWineFlatpakId(id);
+            return isExcludedFlatpakId(id);
         });
         if (appstreamIds.isEmpty()) {
             return new ResultsStream(QStringLiteral("FlatpakStream-excluded-AppStreamUrl"), {});
@@ -2260,8 +2361,8 @@ Transaction *FlatpakBackend::installApplication(AbstractResource *app, const Add
     Q_UNUSED(addons);
 
     auto resource = qobject_cast<FlatpakResource *>(app);
-    if (isExcludedWineResource(resource)) {
-        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Refusing to install excluded Wine Flatpak" << resource->flatpakName();
+    if (isExcludedFlatpakResource(resource)) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Refusing to install excluded Flatpak" << resource->flatpakName();
         return nullptr;
     }
 

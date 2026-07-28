@@ -26,8 +26,10 @@ Kirigami.SearchField {
     placeholderText: (!enabled || !page || page.hasOwnProperty("isHome") || window.leftPage.name.length === 0) ? i18n("Search…") : i18n("Search in '%1'…", window.leftPage.name)
 
     onAccepted: {
-        text = text.trim();
-        currentSearchText = text;
+        // Keep the user's text untouched while typing. Mutating the field to
+        // its trimmed form here made every trailing space disappear before
+        // the next word could be entered.
+        currentSearchText = text.trim();
     }
 
     function clearText() {
