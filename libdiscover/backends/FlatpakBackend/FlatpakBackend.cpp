@@ -320,6 +320,29 @@ static FlatpakResource::Id idForInstalledRef(FlatpakInstalledRef *ref, const QSt
     return {appId, branch, arch};
 }
 
+static bool isExcludedWineFlatpakId(const QString &id)
+{
+    static constexpr QLatin1StringView wineId("org.winehq.wine");
+
+    QStringView name(id);
+    const qsizetype firstSlash = name.indexOf(QLatin1Char('/'));
+    if (firstSlash >= 0) {
+        name = name.sliced(firstSlash + 1);
+        const qsizetype secondSlash = name.indexOf(QLatin1Char('/'));
+        if (secondSlash >= 0) {
+            name = name.first(secondSlash);
+        }
+    }
+
+    return name.compare(wineId, Qt::CaseInsensitive) == 0
+        || (name.startsWith(wineId, Qt::CaseInsensitive) && name.size() > wineId.size() && name.at(wineId.size()) == QLatin1Char('.'));
+}
+
+static bool isExcludedWineResource(const FlatpakResource *resource)
+{
+    return resource && (isExcludedWineFlatpakId(resource->flatpakName()) || isExcludedWineFlatpakId(resource->appstreamId()));
+}
+
 static std::optional<AppStream::Metadata> metadataFromBytes(GBytes *appstreamGz, GCancellable *cancellable)
 {
     g_autoptr(GError) localError = nullptr;
@@ -757,6 +780,10 @@ void FlatpakBackend::addAppFromFlatpakBundle(const QUrl &url, ResultsStream *str
         qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Failed to load bundle:" << localError->message;
         return;
     }
+    if (isExcludedWineFlatpakId(QString::fromUtf8(flatpak_ref_get_name(FLATPAK_REF(bundleRef))))) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring excluded Wine Flatpak bundle" << url;
+        return;
+    }
 
     gsize len = 0;
     g_autoptr(GBytes) metadata = flatpak_bundle_ref_get_metadata(bundleRef);
@@ -955,6 +982,12 @@ void FlatpakBackend::addAppFromFlatpakRef(const QUrl &url, ResultsStream *stream
     const QString branch = settings.value(QLatin1StringView("Flatpak Ref/Branch")).toString();
     const bool isRuntime = settings.value(QLatin1StringView("Flatpak Ref/IsRuntime")).toBool();
     g_autoptr(GError) error = nullptr;
+
+    if (isExcludedWineFlatpakId(name)) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Ignoring excluded Wine Flatpak ref" << name;
+        stream->finish();
+        return;
+    }
 
     // If we already added the remote, just go with it
     if (auto source = findSourceUrl(preferredInstallation(), refurl)) {
@@ -1656,6 +1689,10 @@ void triage(FlatpakResource *resource,
             const AbstractResourcesBackend::Filters &filter,
             bool filtered)
 {
+    if (isExcludedWineResource(resource)) {
+        return;
+    }
+
     const bool matchById = resource->appstreamId().compare(filter.search, Qt::CaseInsensitive) == 0;
     // Note: FlatpakResource can not have type == System
     if (resource->type() == AbstractResource::ApplicationSupport && filter.state != AbstractResource::Upgradeable && !matchById) {
@@ -1726,6 +1763,10 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                 const auto refArch = flatpak_ref_get_arch(ref);
                 const auto refBranch = flatpak_ref_get_branch(ref);
 
+                if (isExcludedWineFlatpakId(QString::fromUtf8(refName))) {
+                    co_return;
+                }
+
                 // need to issue the search of installed refs too
                 // it can happen that a ref is present because it's installed but not part of the appstream metadata anymore
                 for (auto installation : std::as_const(installations)) {
@@ -1785,6 +1826,9 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                     for (const auto ref : refs) {
                         bool fresh = false;
                         const QLatin1String id(flatpak_ref_get_name(FLATPAK_REF(ref)));
+                        if (isExcludedWineFlatpakId(QString::fromLatin1(id.data(), id.size()))) {
+                            continue;
+                        }
                         if (isFlatpakSubRef(id)) {
                             const QByteArray parentId(id.constData(), id.lastIndexOf(QLatin1Char('.')));
 
@@ -1871,6 +1915,9 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
                         FLATPAK_BACKEND_YIELD;
 
                         FlatpakRef *ref = FLATPAK_REF(g_ptr_array_index(refs, i));
+                        if (isExcludedWineFlatpakId(QString::fromUtf8(flatpak_ref_get_name(ref)))) {
+                            continue;
+                        }
                         if (isFlatpakSubRef(QLatin1String(flatpak_ref_get_name(ref)))) {
                             continue;
                         }
@@ -2043,9 +2090,16 @@ bool FlatpakBackend::isTracked(FlatpakResource *resource) const
 ResultsStream *FlatpakBackend::findResourceByPackageName(const QUrl &url)
 {
     if (url.scheme() == QLatin1String("appstream")) {
-        const auto appstreamIds = AppStreamUtils::appstreamIds(url);
+        auto appstreamIds = AppStreamUtils::appstreamIds(url);
         if (appstreamIds.isEmpty()) {
             Q_EMIT passiveMessage(i18n("Malformed appstream url '%1'", url.toDisplayString()));
+            return new ResultsStream(QStringLiteral("FlatpakStream-malformed-AppStreamUrl"), {});
+        }
+        appstreamIds.removeIf([](const QString &id) {
+            return isExcludedWineFlatpakId(id);
+        });
+        if (appstreamIds.isEmpty()) {
+            return new ResultsStream(QStringLiteral("FlatpakStream-excluded-AppStreamUrl"), {});
         } else {
             auto stream = new ResultsStream(QStringLiteral("FlatpakStream-AppStreamUrl"));
             auto f = [this, stream, appstreamIds] {
@@ -2192,6 +2246,10 @@ Transaction *FlatpakBackend::installApplication(AbstractResource *app, const Add
     Q_UNUSED(addons);
 
     auto resource = qobject_cast<FlatpakResource *>(app);
+    if (isExcludedWineResource(resource)) {
+        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG) << "Refusing to install excluded Wine Flatpak" << resource->flatpakName();
+        return nullptr;
+    }
 
     if (resource->resourceType() == FlatpakResource::Source) {
         // Let source backend handle this
