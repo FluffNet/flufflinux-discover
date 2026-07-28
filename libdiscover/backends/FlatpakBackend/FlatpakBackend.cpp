@@ -378,7 +378,7 @@ static const QList<FlatpakExclusionRule> &excludedFlatpakRules()
         }
 
         QTextStream stream(&file);
-        static const QRegularExpression ruleExpression(QStringLiteral(R"RULE(^(\S+?)(?:\s+-p\("([^"]+)"\))?$)RULE"));
+        static const QRegularExpression ruleExpression(QStringLiteral("^(\\S+?)(?:\\s+-p\\(\"([^\"]+)\"\\))?$"));
         while (!stream.atEnd()) {
             const QString line = stream.readLine().trimmed();
             if (line.isEmpty() || line.startsWith(QLatin1Char('#'))) {
@@ -587,7 +587,6 @@ bool FlatpakBackend::isValid() const
 
 class FlatpakFetchRemoteResourceJob : public QNetworkAccessManager
 {
-    Q_OBJECT
 public:
     FlatpakFetchRemoteResourceJob(const QUrl &url, ResultsStream *stream, FlatpakBackend *backend)
         : QNetworkAccessManager(backend)
