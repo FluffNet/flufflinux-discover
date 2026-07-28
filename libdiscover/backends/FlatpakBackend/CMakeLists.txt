@@ -63,6 +63,7 @@ target_link_libraries(FlatpakNotifier
         Discover::Notifiers
         Discover::Common
         Qt::Concurrent
+        KF6::ConfigCore
         PkgConfig::Flatpak
         libdiscover-backend-flatpak-logging-category
 
