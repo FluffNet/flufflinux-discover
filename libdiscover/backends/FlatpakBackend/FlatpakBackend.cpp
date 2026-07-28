@@ -378,7 +378,7 @@ static const QList<FlatpakExclusionRule> &excludedFlatpakRules()
         }
 
         QTextStream stream(&file);
-        static const QRegularExpression ruleExpression(QStringLiteral(R"(^(\S+?)(?:\s+-p\("([^"]+)"\))?$)"));
+        static const QRegularExpression ruleExpression(QStringLiteral(R"RULE(^(\S+?)(?:\s+-p\("([^"]+)"\))?$)RULE"));
         while (!stream.atEnd()) {
             const QString line = stream.readLine().trimmed();
             if (line.isEmpty() || line.startsWith(QLatin1Char('#'))) {
@@ -428,7 +428,7 @@ struct SpecialSearchQuery {
     QList<QRegularExpression> required;
     QList<QRegularExpression> excluded;
 
-    [[nodiscard]] bool matches(const FlatpakResource *resource) const
+    [[nodiscard]] bool matches(FlatpakResource *resource) const
     {
         const QString searchableText =
             resource->name() + QLatin1Char('\n') + resource->comment() + QLatin1Char('\n') + resource->appstreamId();
