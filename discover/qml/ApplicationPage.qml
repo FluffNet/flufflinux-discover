@@ -47,7 +47,7 @@ DiscoverPage {
             case "non-free":
                 return Kirigami.Theme.neutralTextColor;
             case "proprietary":
-                return Kirigami.Theme.negativeTextColor
+                return Kirigami.Theme.textColor;
             case "unknown":
             default:
                 return Kirigami.Theme.neutralTextColor;
