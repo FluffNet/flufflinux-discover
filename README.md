@@ -1,47 +1,24 @@
-# Discover for Fluff Linux
+# Fluff Linux Discover
 
-Discover is the Fluff Linux application manager, based on KDE Discover. It
-provides a native Plasma 6 experience for finding, installing, removing, and
-updating applications.
+Fluff Linux Discover is the native KDE Plasma 6 application experience for
+Fluff Linux. It provides a focused and approachable way to find, install,
+remove, and update Flatpak applications.
 
-Version `26.8.1` is intentionally focused on Flatpak:
+![Fluff Linux Discover home page](docs/screenshots/flufflinux-discover-home.png)
 
-- Flatpak is the only application backend built by this repository.
-- App updates are provided only through Flatpak.
-- System package updates are handled by Fluff Linux Update.
-- Firmware updates are not part of Discover.
-- PackageKit, Snap, KNewStuff, rpm-ostree, systemd-sysupdate, Alpine APK, and
-  other software backends are not included.
+This project is derived from KDE Discover and retains its familiar Plasma
+interface while adapting the experience for Fluff Linux.
 
-Fluff Linux Discover uses `YY.M.REVISION` versioning. For example, `26.8.1`
-is the first revision released in August 2026. Revisions increase within the
-same month, and a new month starts again at revision `1`.
+## Features
 
-The interface follows the Plasma theme, uses Fluff Linux branding, and supports
-right-to-left layouts.
+- Browse, search, install, launch, update, and remove Flatpak applications.
+- Fast startup using locally cached application metadata.
+- Manual or scheduled automatic app updates.
+- Support for public, private, and internal Flatpak sources.
+- Plasma theming, translations, and localization.
 
-## App update behavior
-
-Automatic app updates use Discover's Plasma session notifier rather than a
-system-wide timer. Daily, weekly, and monthly intervals are persisted across
-login, sleep, and reboot. When an update is due, Discover checks each enabled
-Flatpak source independently, continues when at least one source is reachable,
-and waits for one minute of user inactivity before updating.
-
-Manual mode performs no background checks, notifications, or installations. If
-the last successful app update is more than one month old (or no history
-exists), opening Discover performs one update check without installing
-anything automatically.
-
-User-specific history and retry state are stored in:
-
-```text
-~/.local/state/flufflinux-discover/update-state.json
-```
-
-The last-update date changes only after a complete successful Flatpak update.
-Interrupted or failed updates retain the previous successful date and use
-bounded retry delays.
+Fluff Linux Discover is intentionally Flatpak-only. System packages are updated
+through [Fluff Linux Update](https://github.com/FluffNet/flufflinux-update).
 
 ## Build on Fluff Linux or Arch Linux
 
@@ -49,12 +26,12 @@ Install the build requirements:
 
 ```sh
 sudo pacman -S --needed base-devel cmake extra-cmake-modules ninja \
-    appstream-qt discount flatpak \
+    appstream-qt discount flatpak vulkan-headers \
     karchive kcmutils kconfig kcoreaddons kcrash kdbusaddons ki18n \
-    kiconthemes kidletime kio kirigami kirigami-addons kjobwidgets \
-    knotifications kservice kstatusnotifieritem \
+    kiconthemes kidletime kio kirigami kirigami-addons kitemmodels \
+    kjobwidgets knotifications kservice kstatusnotifieritem \
     kwidgetsaddons kwindowsystem purpose qcoro qqc2-desktop-style \
-    qt6-base qt6-declarative qt6-webview vulkan-headers
+    qt6-5compat qt6-base qt6-declarative qt6-webview
 ```
 
 Configure and compile:
@@ -65,80 +42,37 @@ cmake -S . -B build -G Ninja \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DKDE_INSTALL_LIBDIR=lib \
     -DBUILD_TESTING=OFF
+
 cmake --build build
 ```
 
-Flatpak and AppStream are required. Configuration stops with an error if the
-Flatpak development files are unavailable.
-
-If an older copy was built in the same directory, remove `build/` first. This
-is especially important after changing backend or translation resources.
+For a completely clean build, remove an older `build/` directory first.
 
 ## Stage for packaging
 
-Fluff Linux packages are assembled from a repository-local fake install root
-instead of being installed directly onto the build machine:
+Fluff Linux packages are assembled from a fakeroot instead of being installed
+directly onto the build machine:
 
 ```sh
-# fakeroot/ becomes the package filesystem and can be passed to the Fluff Linux packaging tools.
-DESTDIR="$PWD/fakeroot/" cmake --install build
+# `fakeroot/` becomes the package filesystem and can then be packaged together with the bundled `.PKGINFO` file.
+DESTDIR="$PWD/fakeroot" cmake --install build
 ```
 
-Everything that belongs in the package will be placed under:
+Package contents will be staged below `fakeroot/`, beginning with
+`fakeroot/usr/` and `fakeroot/etc/`. This does not modify the host system.
 
-```text
-fakeroot/
-├── etc/
-└── usr/
-```
-
-The exact directories present depend on the enabled components. This staging
-directory is only a packaging workspace; installing into it does not modify the
-host system.
-
-Use an empty staging directory for every package build so files removed by a
-newer version cannot remain in the finished package.
-
-## Verify the Flatpak-only build
-
-The staged backend directory should contain the Flatpak backend and no firmware,
-PackageKit, or Snap backend:
-
-```sh
-find "$PWD/fakeroot/usr" \
-    \( -iname '*flatpak*' -o -iname '*fwupd*' -o -iname '*packagekit*' -o -iname '*snap*' \) \
-    -print
-```
-
-The output may include Flatpak files only. Any fwupd, PackageKit, or Snap file
-indicates that the staging directory was not cleaned before installation.
-
-The package must use `fakeroot/usr/lib`, not `fakeroot/usr/lib64`.
-`/usr/lib64` is owned by `flufflinux-filesystem` and must not be included in
-this package.
-
-## License
-
-Fluff Linux Discover retains KDE Discover's upstream licensing. Each source
-file remains governed by its SPDX license identifier; the repository includes
-both GPL and LGPL components. Complete license texts are available in
-[`LICENSES/`](LICENSES/).
-
-The Fluff Linux package metadata identifies the package as
-`LGPL-2.0-or-later`, matching the official Arch Linux Discover package.
-Packaging installs the complete license set to
-`/usr/share/licenses/flufflinux-discover/`.
+Use a clean `fakeroot/` for every package build. The package must use
+`fakeroot/usr/lib`, not `fakeroot/usr/lib64`.
 
 ## Test locally
 
-The application can be launched from the build tree:
+Run Discover from the build tree:
 
 ```sh
 ./build/bin/plasma-discover
 ```
 
-To test the staged files as a system installation, use a disposable development
-system and install the build:
+On a disposable development system, install and test the build with:
 
 ```sh
 sudo cmake --install build
@@ -146,26 +80,16 @@ kbuildsycoca6
 plasma-discover
 ```
 
-Do not install development builds directly on production systems.
+## Reporting issues
 
-## Translations
+Report problems through the
+[Fluff Linux Discover issue tracker](https://github.com/FluffNet/flufflinux-discover/issues).
 
-Translations are stored below `po/<language>/` and installed automatically by
-the packaging step. The primary catalogs are:
+## Upstream and license
 
-- `plasma-discover.po` for the application interface.
-- `plasma-discover-notifier.po` for taskbar notifications.
-- `libdiscover.po` for shared application-management text.
-- `kcm_updates.po` for the app-update controls integrated into Discover Settings.
+Fluff Linux Discover is derived from
+[KDE Discover](https://invent.kde.org/plasma/discover). KDE copyright notices,
+original authorship, and source history are preserved.
 
-To verify the staged catalogs:
-
-```sh
-find "$PWD/fakeroot/usr/share/locale" \
-    -path '*/LC_MESSAGES/*.mo' -print
-```
-
-## Upstream
-
-This project is derived from [KDE Discover](https://invent.kde.org/plasma/discover).
-The upstream release history and copyright notices are preserved.
+Each source file remains governed by its SPDX license identifier. Complete
+license texts are available in [`LICENSES/`](LICENSES/).
