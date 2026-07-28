@@ -1885,3 +1885,17 @@ msgstr "המחברים המקוריים"
 #~| msgid "%1 (%2)"
 #~ msgid "Origin: %1 (%2)"
 #~ msgstr "%1 (%2)"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "היישומים עודכנו לאחרונה: %1 (%2)"
+
+msgid "Apps have not been updated yet"
+msgstr "היישומים עדיין לא עודכנו"
+
+msgid "An error occurred while updating apps."
+msgstr "אירעה שגיאה בעת עדכון היישומים."
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "עודכנו לאחרונה"

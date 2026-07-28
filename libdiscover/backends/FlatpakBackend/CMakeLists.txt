@@ -61,6 +61,7 @@ kcoreaddons_add_plugin(FlatpakNotifier SOURCES FlatpakNotifier.cpp INSTALL_NAMES
 target_link_libraries(FlatpakNotifier
     PRIVATE
         Discover::Notifiers
+        Discover::Common
         Qt::Concurrent
         PkgConfig::Flatpak
         libdiscover-backend-flatpak-logging-category

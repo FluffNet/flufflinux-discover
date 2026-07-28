@@ -66,6 +66,7 @@ Q_SIGNALS:
      * @see recheckSystemUpdateNeeded
      */
     void foundUpdates();
+    void checkCompleted(bool hasConfiguredSources, bool hasReachableSources);
 
     /** notifies about an available upgrade */
     void foundUpgradeAction(UpgradeAction *action);

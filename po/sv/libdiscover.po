@@ -2299,3 +2299,6 @@ msgstr "Tillägg"
 #~ msgctxt "@item:inlistbox PU architecture"
 #~ msgid "Power PC"
 #~ msgstr "Power PC"
+
+msgid "An error occurred while updating apps."
+msgstr "Ett fel uppstod när appar uppdaterades."

@@ -144,6 +144,12 @@ void StandardBackendUpdater::transactionRemoved(Transaction *t)
     }
 
     const bool found = fromOurBackend && m_pendingResources.remove(t->resource());
+    if (found && (t->status() == Transaction::DoneWithErrorStatus || t->status() == Transaction::CancelledStatus)) {
+        m_transactionFailed = true;
+        if (errorMessage().isEmpty()) {
+            setErrorMessage(i18n("An error occurred while updating apps."));
+        }
+    }
     if (found && !m_settingUp) {
         refreshProgress();
         if (m_pendingResources.isEmpty()) {
@@ -225,6 +231,8 @@ void StandardBackendUpdater::setProgress(qreal p)
 
 void StandardBackendUpdater::prepare()
 {
+    m_transactionFailed = false;
+    setErrorMessage({});
     m_lastUpdate = QDateTime::currentDateTime();
     m_toUpgrade = m_upgradeable;
 }
@@ -251,7 +259,9 @@ void StandardBackendUpdater::removeResources(const QList<AbstractResource *> &ap
 
 void StandardBackendUpdater::cleanup()
 {
-    m_lastUpdate = QDateTime::currentDateTime();
+    if (!m_transactionFailed) {
+        m_lastUpdate = QDateTime::currentDateTime();
+    }
     m_toUpgrade.clear();
     Q_EMIT progressingChanged(false);
 

@@ -2216,3 +2216,17 @@ msgstr "Ursprungliga upphovspersoner"
 
 #~ msgid "Upgrade"
 #~ msgstr "Uppgradera"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "Appar uppdaterades senast: %1 (%2)"
+
+msgid "Apps have not been updated yet"
+msgstr "Appar har inte uppdaterats ännu"
+
+msgid "An error occurred while updating apps."
+msgstr "Ett fel uppstod när appar uppdaterades."
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "Nyligen uppdaterad"

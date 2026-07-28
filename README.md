@@ -20,6 +20,29 @@ same month, and a new month starts again at revision `1`.
 The interface follows the Plasma theme, uses Fluff Linux branding, and supports
 right-to-left layouts.
 
+## App update behavior
+
+Automatic app updates use Discover's Plasma session notifier rather than a
+system-wide timer. Daily, weekly, and monthly intervals are persisted across
+login, sleep, and reboot. When an update is due, Discover checks each enabled
+Flatpak source independently, continues when at least one source is reachable,
+and waits for one minute of user inactivity before updating.
+
+Manual mode performs no background checks, notifications, or installations. If
+the last successful app update is more than one month old (or no history
+exists), opening Discover performs one update check without installing
+anything automatically.
+
+User-specific history and retry state are stored in:
+
+```text
+~/.local/state/flufflinux-discover/update-state.json
+```
+
+The last-update date changes only after a complete successful Flatpak update.
+Interrupted or failed updates retain the previous successful date and use
+bounded retry delays.
+
 ## Build on Fluff Linux or Arch Linux
 
 Install the build requirements:

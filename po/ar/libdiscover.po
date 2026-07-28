@@ -2335,3 +2335,6 @@ msgstr "الإضافات"
 
 #~ msgid "Install KNewStuff data in your system"
 #~ msgstr "ثبّت بيانات KNewStuff على نظامك"
+
+msgid "An error occurred while updating apps."
+msgstr "حدث خطأ أثناء تحديث التطبيقات."

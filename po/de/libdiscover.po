@@ -2945,3 +2945,6 @@ msgstr "Erweiterungen"
 #~ msgctxt "@info:status"
 #~ msgid "Checking: %1"
 #~ msgstr "Wird geprüft: %1"
+
+msgid "An error occurred while updating apps."
+msgstr "Beim Aktualisieren der Apps ist ein Fehler aufgetreten."

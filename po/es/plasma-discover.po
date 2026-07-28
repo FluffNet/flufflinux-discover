@@ -1526,3 +1526,17 @@ msgstr "Tiempo desconocido desde la última actualización"
 #: discover/qml/AboutPage.qml
 msgid "Original Authors"
 msgstr "Autores originales"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "Última actualización de las aplicaciones: %1 (%2)"
+
+msgid "Apps have not been updated yet"
+msgstr "Las aplicaciones aún no se han actualizado"
+
+msgid "An error occurred while updating apps."
+msgstr "Se produjo un error al actualizar las aplicaciones."
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "Actualizadas recientemente"

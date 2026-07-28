@@ -1516,3 +1516,17 @@ msgstr "最後の更新時刻は不明です"
 #: discover/qml/AboutPage.qml
 msgid "Original Authors"
 msgstr "原作者"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "アプリの最終更新: %1（%2）"
+
+msgid "Apps have not been updated yet"
+msgstr "アプリはまだ更新されていません"
+
+msgid "An error occurred while updating apps."
+msgstr "アプリの更新中にエラーが発生しました。"
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "最近更新済み"

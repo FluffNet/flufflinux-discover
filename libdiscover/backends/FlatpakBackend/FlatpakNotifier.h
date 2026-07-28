@@ -32,15 +32,14 @@ public:
 
         FlatpakNotifier *const m_notifier;
         bool m_hasUpdates = false;
-        bool m_checkInProgress = false;
-        bool m_recheckPending = false;
         GFileMonitor *m_monitor = nullptr;
         FlatpakInstallation *const m_installation;
     };
 
-    void onFetchUpdatesFinished(const std::shared_ptr<Installation> &flatpakInstallation, bool hasUpdates);
-    void loadRemoteUpdates(const std::shared_ptr<Installation> &installation);
+    void loadRemoteUpdates();
     void setupFlatpakInstallations();
     QList<std::shared_ptr<Installation>> m_installations;
     GCancellable *const m_cancellable;
+    bool m_checkInProgress = false;
+    bool m_recheckPending = false;
 };

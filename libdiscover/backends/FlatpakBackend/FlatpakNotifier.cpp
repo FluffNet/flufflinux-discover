@@ -7,9 +7,12 @@
 
 #include "FlatpakNotifier.h"
 #include "libdiscover_backend_flatpak_debug.h"
+#include <UpdateState.h>
 
 #include <glib.h>
 
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <QFutureWatcher>
 #include <QTimer>
 #include <QtConcurrentRun>
@@ -29,7 +32,7 @@ static void installationChanged(GFileMonitor *monitor, GFile *child, GFile *othe
 
     for (const auto &installation : notifier->m_installations) {
         if (installation->m_monitor == monitor) {
-            notifier->loadRemoteUpdates(installation);
+            notifier->recheckSystemUpdateNeeded();
             break;
         }
     }
@@ -39,11 +42,6 @@ FlatpakNotifier::FlatpakNotifier(QObject *parent)
     : BackendNotifierModule(parent)
     , m_cancellable(g_cancellable_new())
 {
-    QTimer *dailyCheck = new QTimer(this);
-    dailyCheck->setInterval(24h); // refresh at least once every day
-    connect(dailyCheck, &QTimer::timeout, this, &FlatpakNotifier::recheckSystemUpdateNeeded);
-    dailyCheck->start();
-
     g_autoptr(GError) error = nullptr;
     g_autoptr(GPtrArray) installations = flatpak_get_system_installations(m_cancellable, &error);
     if (error) {
@@ -85,70 +83,118 @@ FlatpakNotifier::~FlatpakNotifier()
 
 void FlatpakNotifier::recheckSystemUpdateNeeded()
 {
+    const KConfigGroup settings(KSharedConfig::openConfig(QStringLiteral("PlasmaDiscoverUpdates")), QStringLiteral("Global"));
+    const int interval = settings.readEntry(QStringLiteral("RequiredNotificationInterval"), 7 * 24 * 60 * 60);
+    if (!settings.readEntry(QStringLiteral("UseUnattendedUpdates"), true) || interval <= 0) {
+        return;
+    }
+    const UpdateState::State state = UpdateState::read();
+    const QDateTime next = state.nextScheduledUpdate.isValid()
+        ? state.nextScheduledUpdate
+        : (state.lastSuccess.isValid() ? state.lastSuccess.addSecs(interval) : QDateTime());
+    if (next.isValid() && next > QDateTime::currentDateTimeUtc()) {
+        return;
+    }
+
     setupFlatpakInstallations();
-
-    // Load updates from remote repositories
-    for (auto &installation : std::as_const(m_installations)) {
-        loadRemoteUpdates(installation);
-    }
+    loadRemoteUpdates();
 }
 
-void FlatpakNotifier::onFetchUpdatesFinished(const std::shared_ptr<Installation> &installation, bool hasUpdates)
+void FlatpakNotifier::loadRemoteUpdates()
 {
-    if (installation->m_hasUpdates == hasUpdates) {
-        return;
-    }
-    bool hadUpdates = this->hasUpdates();
-    installation->m_hasUpdates = hasUpdates;
-
-    if (hadUpdates != this->hasUpdates()) {
-        Q_EMIT foundUpdates();
-    }
-}
-
-void FlatpakNotifier::loadRemoteUpdates(const std::shared_ptr<Installation> &installation)
-{
-    Q_ASSERT(installation->m_installation);
-    if (installation->m_checkInProgress) {
-        installation->m_recheckPending = true;
+    if (m_checkInProgress) {
+        m_recheckPending = true;
         return;
     }
 
-    installation->m_checkInProgress = true;
-    auto fw = new QFutureWatcher<bool>(this);
-    connect(fw, &QFutureWatcher<bool>::finished, this, [this, installation, fw]() {
-        installation->m_checkInProgress = false;
-        onFetchUpdatesFinished(installation, fw->result());
+    struct CheckResult {
+        QList<bool> installationUpdates;
+        int configuredSources = 0;
+        int reachableSources = 0;
+    };
+
+    m_checkInProgress = true;
+    auto fw = new QFutureWatcher<CheckResult>(this);
+    const auto installations = m_installations;
+    connect(fw, &QFutureWatcher<CheckResult>::finished, this, [this, fw]() {
+        const CheckResult result = fw->result();
+        const bool previouslyHadUpdates = hasUpdates();
+        for (qsizetype i = 0; i < m_installations.size() && i < result.installationUpdates.size(); ++i) {
+            m_installations[i]->m_hasUpdates = result.installationUpdates[i];
+        }
+        m_checkInProgress = false;
         fw->deleteLater();
-        if (installation->m_recheckPending) {
-            installation->m_recheckPending = false;
-            loadRemoteUpdates(installation);
+        if (previouslyHadUpdates != hasUpdates()) {
+            Q_EMIT foundUpdates();
+        }
+        Q_EMIT checkCompleted(result.configuredSources > 0, result.reachableSources > 0);
+        if (m_recheckPending) {
+            m_recheckPending = false;
+            loadRemoteUpdates();
         }
     });
-    fw->setFuture(QtConcurrent::run([installation]() -> bool {
-        g_autoptr(GCancellable) cancellable = g_cancellable_new();
-        g_autoptr(GError) localError = nullptr;
-        g_autoptr(GPtrArray) fetchedUpdates = flatpak_installation_list_installed_refs_for_update(installation->m_installation, cancellable, &localError);
-        bool hasUpdates = false;
-
-        if (!fetchedUpdates) {
-            qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
-                << "Failed to get list of installed refs for listing updates:"
-                << (localError ? localError->message : "unknown Flatpak error");
-            return false;
-        }
-        for (uint i = 0; !hasUpdates && i < fetchedUpdates->len; i++) {
-            FlatpakInstalledRef *ref = FLATPAK_INSTALLED_REF(g_ptr_array_index(fetchedUpdates, i));
-            const QString refName = QString::fromUtf8(flatpak_ref_get_name(FLATPAK_REF(ref)));
-            // FIXME right now I can't think of any other filter than this, in FlatpakBackend updates are matched
-            // with apps so .Locale/.Debug subrefs are not shown and updated automatically. Also this will show
-            // updates for refs we don't show in Discover if appstream metadata or desktop file for them is not found
-            if (refName.endsWith(QLatin1String(".Locale")) || refName.endsWith(QLatin1String(".Debug"))) {
-                continue;
+    fw->setFuture(QtConcurrent::run([installations]() -> CheckResult {
+        CheckResult result;
+        result.installationUpdates.reserve(installations.size());
+        for (const auto &installation : installations) {
+            bool hasUpdates = false;
+            g_autoptr(GCancellable) cancellable = g_cancellable_new();
+            g_autoptr(GError) installedError = nullptr;
+            g_autoptr(GPtrArray) installedRefs =
+                flatpak_installation_list_installed_refs(installation->m_installation, cancellable, &installedError);
+            if (!installedRefs) {
+                qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                    << "Failed to list installed Flatpak refs:" << (installedError ? installedError->message : "unknown error");
             }
-            hasUpdates = true;
+            g_autoptr(GError) remotesError = nullptr;
+            g_autoptr(GPtrArray) remotes = flatpak_installation_list_remotes(installation->m_installation, cancellable, &remotesError);
+            for (uint i = 0; remotes && i < remotes->len; ++i) {
+                auto remote = FLATPAK_REMOTE(g_ptr_array_index(remotes, i));
+                if (flatpak_remote_get_disabled(remote)) {
+                    continue;
+                }
+                result.configuredSources++;
+                g_autoptr(GError) remoteError = nullptr;
+                const char *name = flatpak_remote_get_name(remote);
+                if (flatpak_installation_update_remote_sync(installation->m_installation, name, cancellable, &remoteError)) {
+                    result.reachableSources++;
+                    g_autoptr(GError) refsError = nullptr;
+                    g_autoptr(GPtrArray) remoteRefs =
+                        flatpak_installation_list_remote_refs_sync(installation->m_installation, name, cancellable, &refsError);
+                    if (!remoteRefs) {
+                        qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                            << "Unable to read Flatpak source" << name << ":" << (refsError ? refsError->message : "unknown error");
+                        continue;
+                    }
+                    for (uint installedIndex = 0; installedRefs && !hasUpdates && installedIndex < installedRefs->len; ++installedIndex) {
+                        auto installed = FLATPAK_INSTALLED_REF(g_ptr_array_index(installedRefs, installedIndex));
+                        if (g_strcmp0(flatpak_installed_ref_get_origin(installed), name) != 0) {
+                            continue;
+                        }
+                        const QString refName = QString::fromUtf8(flatpak_ref_get_name(FLATPAK_REF(installed)));
+                        if (refName.endsWith(QLatin1String(".Locale")) || refName.endsWith(QLatin1String(".Debug"))) {
+                            continue;
+                        }
+                        for (uint remoteIndex = 0; !hasUpdates && remoteIndex < remoteRefs->len; ++remoteIndex) {
+                            auto available = FLATPAK_REMOTE_REF(g_ptr_array_index(remoteRefs, remoteIndex));
+                            if (flatpak_ref_get_kind(FLATPAK_REF(installed)) == flatpak_ref_get_kind(FLATPAK_REF(available))
+                                && g_strcmp0(flatpak_ref_get_name(FLATPAK_REF(installed)), flatpak_ref_get_name(FLATPAK_REF(available))) == 0
+                                && g_strcmp0(flatpak_ref_get_arch(FLATPAK_REF(installed)), flatpak_ref_get_arch(FLATPAK_REF(available))) == 0
+                                && g_strcmp0(flatpak_ref_get_branch(FLATPAK_REF(installed)), flatpak_ref_get_branch(FLATPAK_REF(available))) == 0
+                                && g_strcmp0(flatpak_ref_get_commit(FLATPAK_REF(installed)), flatpak_ref_get_commit(FLATPAK_REF(available))) != 0) {
+                                hasUpdates = true;
+                            }
+                        }
+                    }
+                } else {
+                    qCWarning(LIBDISCOVER_BACKEND_FLATPAK_LOG)
+                        << "Unable to reach Flatpak source" << name << ":" << (remoteError ? remoteError->message : "unknown error");
+                }
+            }
+
+            result.installationUpdates.append(hasUpdates);
         }
-        return hasUpdates;
+        return result;
     }));
 }
 

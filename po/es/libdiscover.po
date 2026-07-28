@@ -1084,3 +1084,6 @@ msgstr "Complementos"
 #~ msgctxt "@info:status"
 #~ msgid "Starting"
 #~ msgstr "Empezando"
+
+msgid "An error occurred while updating apps."
+msgstr "Se produjo un error al actualizar las aplicaciones."

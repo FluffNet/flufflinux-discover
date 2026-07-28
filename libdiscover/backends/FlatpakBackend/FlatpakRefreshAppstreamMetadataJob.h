@@ -74,6 +74,7 @@ public:
 
 Q_SIGNALS:
     void progressChanged();
+    void sourceRefreshCompleted(bool succeeded);
     void jobRefreshAppstreamMetadataFinished(GLibHolder<FlatpakInstallation> installation, GLibHolder<FlatpakRemote> remote, bool changed);
 
 private:

@@ -19,6 +19,7 @@
 #include <appstream/OdrsReviewsBackend.h>
 #include <resources/SourcesModel.h>
 #include <resources/StandardBackendUpdater.h>
+#include <UpdateState.h>
 #include <utils.h>
 #include <utilscoro.h>
 
@@ -537,10 +538,16 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
         acquireFetching(true);
         QTimer::singleShot(0, this, [this] {
             loadAppsFromAppstreamData();
-            if (m_refreshStaleAppstream) {
-                // Cached metadata is enough to populate the UI. Refresh stale
-                // catalogs only after the initial pools have finished loading
-                // so network access never delays the Home page.
+            // Cached metadata is enough to populate the UI. Network refreshes
+            // start only after the initial pools are ready so Home is never
+            // delayed. Manual mode performs this launch-time check only when
+            // update history is absent or older than one month.
+            const KConfigGroup updates(KSharedConfig::openConfig(QStringLiteral("PlasmaDiscoverUpdates")), QStringLiteral("Global"));
+            const bool automatic = updates.readEntry(QStringLiteral("UseUnattendedUpdates"), true);
+            const QDateTime lastSuccess = UpdateState::read().lastSuccess;
+            const bool staleManualHistory = !automatic
+                && (!lastSuccess.isValid() || lastSuccess.addMonths(1) < QDateTime::currentDateTimeUtc());
+            if ((automatic && m_refreshStaleAppstream) || staleManualHistory) {
                 connect(this, &FlatpakBackend::initialized, m_checkForUpdatesTimer, qOverload<>(&QTimer::start), Qt::UniqueConnection);
             }
             acquireFetching(false);
@@ -2533,6 +2540,14 @@ void FlatpakBackend::checkForRemoteUpdates(FlatpakInstallation *installation, Fl
     if (needsIntegration) {
         connect(job, &FlatpakRefreshAppstreamMetadataJob::jobRefreshAppstreamMetadataFinished, this, &FlatpakBackend::integrateRemote);
     }
+    connect(job, &FlatpakRefreshAppstreamMetadataJob::sourceRefreshCompleted, this, [](bool succeeded) {
+        if (succeeded) {
+            // A check is only considered complete when at least one configured
+            // Flatpak source actually answered. This runs on the backend's
+            // thread, keeping state writes serialized.
+            UpdateState::recordCheck();
+        }
+    });
     connect(job, &FlatpakRefreshAppstreamMetadataJob::finished, this, [this] {
         acquireFetching(false);
     });

@@ -2246,3 +2246,17 @@ msgstr "Ursprüngliche Autoren"
 
 #~ msgid "Logout"
 #~ msgstr "Abmelden"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "Apps zuletzt aktualisiert: %1 (%2)"
+
+msgid "Apps have not been updated yet"
+msgstr "Apps wurden noch nicht aktualisiert"
+
+msgid "An error occurred while updating apps."
+msgstr "Beim Aktualisieren der Apps ist ein Fehler aufgetreten."
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "Kürzlich aktualisiert"

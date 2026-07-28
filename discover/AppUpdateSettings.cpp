@@ -5,6 +5,11 @@
 #include "AppUpdateSettings.h"
 
 #include <KConfigGroup>
+#include <KFormat>
+#include <KLocalizedString>
+#include <UpdateState.h>
+
+#include <algorithm>
 
 using namespace Qt::Literals;
 
@@ -20,6 +25,7 @@ AppUpdateSettings::AppUpdateSettings(QObject *parent)
     : QObject(parent)
     , m_config(KSharedConfig::openConfig(QLatin1String(configFile)))
     , m_watcher(KConfigWatcher::create(m_config))
+    , m_sessionStarted(QDateTime::currentDateTimeUtc())
 {
     KConfigGroup group = m_config->group(QLatin1String(configGroup));
     bool createdDefaults = false;
@@ -64,6 +70,70 @@ void AppUpdateSettings::setAutomaticUpdates(bool enabled)
 int AppUpdateSettings::updateInterval() const
 {
     return m_updateInterval;
+}
+
+bool AppUpdateSettings::hasLastSuccessfulUpdate() const
+{
+    return UpdateState::read().lastSuccess.isValid();
+}
+
+QString AppUpdateSettings::lastSuccessfulUpdate() const
+{
+    const QDateTime lastSuccess = UpdateState::read().lastSuccess;
+    return lastSuccess.isValid() ? lastSuccess.toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss t tt")) : QString();
+}
+
+QString AppUpdateSettings::relativeLastSuccessfulUpdate() const
+{
+    const QDateTime lastSuccess = UpdateState::read().lastSuccess;
+    return lastSuccess.isValid() ? KFormat().formatRelativeDateTime(lastSuccess.toLocalTime(), QLocale::LongFormat) : QString();
+}
+
+bool AppUpdateSettings::lastUpdateOlderThanWeek() const
+{
+    const QDateTime lastSuccess = UpdateState::read().lastSuccess;
+    return lastSuccess.isValid() && lastSuccess.addDays(7) < QDateTime::currentDateTimeUtc();
+}
+
+bool AppUpdateSettings::shouldCheckOnLaunch() const
+{
+    if (automaticUpdates()) {
+        return false;
+    }
+    const QDateTime lastSuccess = UpdateState::read().lastSuccess;
+    return !lastSuccess.isValid() || lastSuccess.addMonths(1) < QDateTime::currentDateTimeUtc();
+}
+
+bool AppUpdateSettings::checkedThisSession() const
+{
+    const QDateTime lastCheck = UpdateState::read().lastCheck;
+    return m_checkedThisSession || (lastCheck.isValid() && lastCheck >= m_sessionStarted);
+}
+
+void AppUpdateSettings::recordUpdateCheck()
+{
+    m_checkedThisSession = true;
+    UpdateState::recordCheck();
+    Q_EMIT updateHistoryChanged();
+}
+
+void AppUpdateSettings::recordUpdateSuccess()
+{
+    UpdateState::recordSuccess(automaticUpdates() ? updateInterval() : 0);
+    Q_EMIT updateHistoryChanged();
+}
+
+void AppUpdateSettings::recordUpdateFailure(const QString &error)
+{
+    const int retryDelays[] = {15 * 60, 60 * 60, 6 * 60 * 60};
+    const int retryIndex = std::min(UpdateState::read().retryCount, 2);
+    UpdateState::recordFailure(error, retryDelays[retryIndex]);
+    Q_EMIT updateHistoryChanged();
+}
+
+void AppUpdateSettings::reloadUpdateHistory()
+{
+    Q_EMIT updateHistoryChanged();
 }
 
 void AppUpdateSettings::setUpdateInterval(int seconds)

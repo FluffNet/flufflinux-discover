@@ -1276,3 +1276,6 @@ msgstr "תוספים"
 
 #~ msgid "%1 has been updated"
 #~ msgstr "%1 עודכן"
+
+msgid "An error occurred while updating apps."
+msgstr "אירעה שגיאה בעת עדכון היישומים."

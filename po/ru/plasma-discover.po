@@ -2245,3 +2245,17 @@ msgstr "Авторы оригинальной версии"
 
 #~ msgid "Sign in is required"
 #~ msgstr "Необходимо выполнить вход"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "Последнее обновление приложений: %1 (%2)"
+
+msgid "Apps have not been updated yet"
+msgstr "Приложения ещё не обновлялись"
+
+msgid "An error occurred while updating apps."
+msgstr "При обновлении приложений произошла ошибка."
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "Недавно обновлено"

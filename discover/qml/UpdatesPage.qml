@@ -17,6 +17,11 @@ DiscoverPage {
     property int footerProgress: 0
     property bool busy: false
     readonly property string name: title
+    readonly property string isolatedLastUpdate: "\u2066" + DiscoverApp.AppUpdateSettings.lastSuccessfulUpdate + "\u2069"
+    readonly property string isolatedRelativeLastUpdate: "\u2066" + DiscoverApp.AppUpdateSettings.relativeLastSuccessfulUpdate + "\u2069"
+    readonly property string lastUpdateSummary: DiscoverApp.AppUpdateSettings.hasLastSuccessfulUpdate
+        ? i18n("Apps last updated: %1 (%2)", isolatedLastUpdate, isolatedRelativeLastUpdate)
+        : i18n("Apps have not been updated yet")
 
     Discover.ResourcesUpdatesModel {
         id: resourcesUpdatesModel
@@ -27,6 +32,18 @@ DiscoverPage {
         onIsProgressingChanged: {
             if (!isProgressing) {
                 resourcesUpdatesModel.prepare()
+            }
+        }
+        onIsFetchingChanged: {
+            if (!isFetching) {
+                DiscoverApp.AppUpdateSettings.reloadUpdateHistory()
+            }
+        }
+        onFinished: {
+            if (errorMessages.length === 0) {
+                DiscoverApp.AppUpdateSettings.recordUpdateSuccess()
+            } else {
+                DiscoverApp.AppUpdateSettings.recordUpdateFailure(errorMessages.join("\n"))
             }
         }
 
@@ -60,7 +77,7 @@ DiscoverPage {
                         Layout.fillWidth: true
                         Layout.maximumWidth: Math.round(page.width * 0.75)
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
-                        text: i18n("There was an issue installing this update. Please try again later.")
+                        text: i18n("An error occurred while updating apps.")
                         wrapMode: Text.WordWrap
                     }
                     QQC2.Button {
@@ -180,6 +197,18 @@ DiscoverPage {
         DiscoverInlineMessage {
             Layout.fillWidth: true
             inlineMessage: Discover.ResourcesModel.inlineMessage
+        }
+
+        QQC2.Label {
+            Layout.fillWidth: true
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.topMargin: Kirigami.Units.smallSpacing
+            Layout.bottomMargin: Kirigami.Units.smallSpacing
+            visible: updateModel.hasUpdates && !resourcesUpdatesModel.isFetching
+            text: page.lastUpdateSummary
+            wrapMode: Text.WordWrap
+            color: Kirigami.Theme.disabledTextColor
         }
 
         Repeater {
@@ -555,16 +584,13 @@ DiscoverPage {
         }
     }
 
-    readonly property alias secSinceUpdate: resourcesUpdatesModel.secsToLastUpdate
-
     state:  ( resourcesUpdatesModel.isProgressing        ? "progressing"
             : resourcesUpdatesModel.isFetching           ? "fetching"
             : updateModel.hasUpdates                     ? "has-updates"
-            : secSinceUpdate < 0                         ? "unknown"
-            : secSinceUpdate === 0                       ? "now-uptodate"
-            : secSinceUpdate < 1000 * 60 * 60 * 24       ? "uptodate"
-            : secSinceUpdate < 1000 * 60 * 60 * 24 * 7   ? "medium"
-            :                                              "low"
+            : DiscoverApp.AppUpdateSettings.checkedThisSession ? "now-uptodate"
+            : !DiscoverApp.AppUpdateSettings.hasLastSuccessfulUpdate ? "unknown"
+            : DiscoverApp.AppUpdateSettings.lastUpdateOlderThanWeek ? "medium"
+            : "uptodate"
             )
 
     states: [
@@ -596,35 +622,35 @@ DiscoverPage {
             name: "now-uptodate"
             PropertyChanges { page.footerLabel: i18nc("@info", "Up to date") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
+            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "uptodate"
             PropertyChanges { page.footerLabel: i18nc("@info", "Up to date") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
+            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "medium"
-            PropertyChanges { page.title: i18nc("@info", "Up to date") }
+            PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
+            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "low"
-            PropertyChanges { page.title: i18nc("@info", "Should check for updates") }
+            PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
+            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         },
         State {
             name: "unknown"
-            PropertyChanges { page.title: i18nc("@info", "Time of last update unknown") }
+            PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
             PropertyChanges { page.actions: [refreshAction] }
-            PropertyChanges { statusLabel.explanation: "" }
+            PropertyChanges { statusLabel.explanation: page.lastUpdateSummary }
             PropertyChanges { statusLabel.progressBar.visible: false }
         }
     ]

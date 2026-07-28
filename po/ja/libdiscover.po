@@ -964,6 +964,9 @@ msgctxt "@label"
 msgid "Addons"
 msgstr "アドオン"
 
+msgid "An error occurred while updating apps."
+msgstr "アプリの更新中にエラーが発生しました。"
+
 #: libdiscover/resources/ResourcesProxyModel.cpp:565
 #, kde-format
 msgctxt "@label"

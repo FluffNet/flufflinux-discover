@@ -70,6 +70,7 @@ private:
     QSet<AbstractResource *> m_pendingResources;
     bool m_hasBeenPopulated = false;
     bool m_settingUp = false;
+    bool m_transactionFailed = false;
     qreal m_progress;
     QDateTime m_lastUpdate;
     QTimer m_timer;

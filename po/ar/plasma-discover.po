@@ -2067,3 +2067,17 @@ msgstr "المؤلفون الأصليون"
 
 #~ msgid "%1. %2"
 #~ msgstr "%1. %2"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "آخر تحديث للتطبيقات: %1 (%2)"
+
+msgid "Apps have not been updated yet"
+msgstr "لم تُحدَّث التطبيقات بعد"
+
+msgid "An error occurred while updating apps."
+msgstr "حدث خطأ أثناء تحديث التطبيقات."
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "حُدّثت مؤخرًا"

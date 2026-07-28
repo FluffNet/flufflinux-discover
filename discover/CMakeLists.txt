@@ -43,6 +43,7 @@ set_target_properties(plasma-discover PROPERTIES INSTALL_RPATH ${CMAKE_INSTALL_F
 
 target_link_libraries(plasma-discover PUBLIC
                                      KF6::Crash
+                                     KF6::CoreAddons
                                      KF6::DBusAddons
                                      KF6::I18n
                                      KF6::ConfigGui

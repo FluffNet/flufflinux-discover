@@ -79,6 +79,11 @@ Q_SIGNALS:
 private:
     void updateStatusNotifier();
     void refreshUnattended();
+    void scheduleNextEvaluation();
+    void evaluateAutomaticUpdates();
+    void handleCheckCompleted(bool hasConfiguredSources, bool hasReachableSources);
+    bool automaticUpdatesEnabled() const;
+    bool automaticUpdateDue() const;
 
     bool checkTriggerTimes(const QDateTime &lastTriggerTime) const;
     bool notifyAboutUpdates();
@@ -86,6 +91,7 @@ private:
 
     QList<BackendNotifierModule *> m_backends;
     QTimer m_timer;
+    QTimer m_scheduleTimer;
     bool m_hasUpdates = false;
     bool m_isBusy = false;
     QPointer<KNotification> m_updatesAvailableNotification;
@@ -94,4 +100,8 @@ private:
     QDateTime m_lastUpdate;
     std::unique_ptr<UpdatesSettings> m_settings;
     KConfig m_stateConfig;
+    bool m_checkInProgress = false;
+    bool m_hasConfiguredSources = false;
+    bool m_hasReachableSources = false;
+    bool m_sourceStateKnown = false;
 };

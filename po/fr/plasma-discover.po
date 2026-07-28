@@ -2254,3 +2254,17 @@ msgstr "Auteurs d’origine"
 
 #~ msgid "Sign in is required"
 #~ msgstr "Se connecter est nécessaire"
+
+#, kde-format
+msgid "Apps last updated: %1 (%2)"
+msgstr "Dernière mise à jour des applications : %1 (%2)"
+
+msgid "Apps have not been updated yet"
+msgstr "Les applications n’ont pas encore été mises à jour"
+
+msgid "An error occurred while updating apps."
+msgstr "Une erreur s’est produite lors de la mise à jour des applications."
+
+msgctxt "@info"
+msgid "Recently updated"
+msgstr "Mises à jour récemment"
