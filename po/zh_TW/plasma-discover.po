@@ -843,10 +843,6 @@ msgstr "搜尋(&S)"
 msgid "&Installed"
 msgstr "已安裝(&I)"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "正在取得應用程式更新(&U)…"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

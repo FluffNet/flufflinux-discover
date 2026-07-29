@@ -882,10 +882,6 @@ msgstr "Hľadať"
 msgid "&Installed"
 msgstr "Nainštalované"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Aktualizácie aplikácií (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

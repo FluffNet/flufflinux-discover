@@ -896,10 +896,6 @@ msgstr "&Ieškoti"
 msgid "&Installed"
 msgstr "Į&diegta"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Programėlių atnaujinimai (Gaunami…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

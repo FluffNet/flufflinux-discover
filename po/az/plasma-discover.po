@@ -934,10 +934,6 @@ msgstr "&Axtarış"
 msgid "&Installed"
 msgstr "&Quraşdırılan"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "Tətbiq yeniləmələri (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

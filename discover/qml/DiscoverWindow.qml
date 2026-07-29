@@ -90,9 +90,7 @@ Kirigami.ApplicationWindow {
 
         icon.name: Discover.ResourcesModel.updatesCount <= 0 ? "update-none" : "update-low"
 
-        text: Discover.ResourcesModel.fetchingUpdatesProgress !== 100
-            ? i18n("&App updates (Fetching…)")
-            : i18n("&App updates")
+        text: i18n("&App updates")
 
         component: topUpdateComp
         objectName: "update"

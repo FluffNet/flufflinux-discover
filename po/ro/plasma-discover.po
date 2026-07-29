@@ -886,10 +886,6 @@ msgstr "&Caută"
 msgid "&Installed"
 msgstr "&Instalat"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Actualizări de aplicații (se preiau…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

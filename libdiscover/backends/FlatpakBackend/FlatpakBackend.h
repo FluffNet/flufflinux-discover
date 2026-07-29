@@ -167,7 +167,7 @@ private:
     QVector<QSharedPointer<FlatpakSource>> m_flatpakLoadingSources;
     QSharedPointer<FlatpakSource> m_localSource;
     bool m_isInitialized = false;
-    bool m_refreshStaleAppstream = false;
+    bool m_updatesVerifiedThisSession = false;
     QTimer *const m_checkForUpdatesTimer;
 
     friend class Utils::ProgressCollector;

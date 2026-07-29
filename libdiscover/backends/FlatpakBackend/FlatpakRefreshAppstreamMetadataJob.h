@@ -71,6 +71,10 @@ public:
     {
         return m_hasChanged != 0;
     }
+    bool succeeded() const
+    {
+        return m_succeeded != 0;
+    }
 
 Q_SIGNALS:
     void progressChanged();
@@ -86,4 +90,5 @@ private:
     QAtomicInt m_progress = 0;
     QAtomicInt m_estimating = true;
     QAtomicInt m_hasChanged = false;
+    QAtomicInt m_succeeded = false;
 };

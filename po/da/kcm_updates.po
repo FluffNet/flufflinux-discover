@@ -24,12 +24,12 @@ msgstr "Opdatér software:"
 
 #: kcm/ui/main.qml:41
 #, kde-format
-msgid "Manually"
+msgid "Manual"
 msgstr "Manuelt"
 
 #: kcm/ui/main.qml:51
 #, kde-format
-msgid "Automatically"
+msgid "Automatic"
 msgstr "Automatisk"
 
 #: kcm/ui/main.qml:58
@@ -56,12 +56,6 @@ msgctxt "@title:group"
 msgid "Update frequency:"
 msgstr "Opdateringsfrekvens:"
 
-#: kcm/ui/main.qml:69
-#, kde-format
-msgctxt "@title:group"
-msgid "Notification frequency:"
-msgstr "Notifikationsfrekvens:"
-
 #: kcm/ui/main.qml:72
 #, kde-format
 msgctxt "@item:inlistbox"
@@ -79,12 +73,6 @@ msgstr "Ugentlig"
 msgctxt "@item:inlistbox"
 msgid "Monthly"
 msgstr "Månedlig"
-
-#: kcm/ui/main.qml:75
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Never"
-msgstr "Aldrig"
 
 #: kcm/ui/main.qml:119
 #, kde-format

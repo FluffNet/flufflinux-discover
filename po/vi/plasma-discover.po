@@ -825,10 +825,6 @@ msgstr "Tìm kiếm..."
 msgid "&Installed"
 msgstr "Đã cài "
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "Bản cập nhật ứng dụng (Đang tìm nạp…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

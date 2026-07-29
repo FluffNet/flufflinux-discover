@@ -114,9 +114,13 @@ public:
             if (std::ranges::all_of(m_jobs, [](FlatpakRefreshAppstreamMetadataJob *j) {
                     return j->isFinished();
                 })) {
-                if (std::ranges::any_of(m_jobs, [](FlatpakRefreshAppstreamMetadataJob *j) -> bool {
-                        return j->hasChanged();
+                if (std::ranges::any_of(m_jobs, [](FlatpakRefreshAppstreamMetadataJob *j) {
+                        return j->succeeded();
                     })) {
+                    // Never restore update candidates from an earlier session.
+                    // A list is trustworthy only after at least one configured
+                    // source has answered during this process.
+                    m_backend->m_updatesVerifiedThisSession = true;
                     m_backend->loadLocalUpdates();
                 }
                 qDeleteAll(m_jobs);
@@ -540,14 +544,16 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
             loadAppsFromAppstreamData();
             // Cached metadata is enough to populate the UI. Network refreshes
             // start only after the initial pools are ready so Home is never
-            // delayed. Manual mode performs this launch-time check only when
-            // update history is absent or older than one month.
+            // delayed. Launch-time checks are intentionally less frequent than
+            // the independent background update schedule.
             const KConfigGroup updates(KSharedConfig::openConfig(QStringLiteral("PlasmaDiscoverUpdates")), QStringLiteral("Global"));
             const bool automatic = updates.readEntry(QStringLiteral("UseUnattendedUpdates"), true);
             const QDateTime lastSuccess = UpdateState::read().lastSuccess;
-            const bool staleManualHistory = !automatic
-                && (!lastSuccess.isValid() || lastSuccess.addMonths(1) < QDateTime::currentDateTimeUtc());
-            if ((automatic && m_refreshStaleAppstream) || staleManualHistory) {
+            const QDateTime now = QDateTime::currentDateTimeUtc();
+            const bool shouldCheckOnLaunch = automatic
+                ? (!lastSuccess.isValid() || lastSuccess.addDays(8) < now)
+                : (lastSuccess.isValid() && lastSuccess.addMonths(1) < now);
+            if (shouldCheckOnLaunch) {
                 connect(this, &FlatpakBackend::initialized, m_checkForUpdatesTimer, qOverload<>(&QTimer::start), Qt::UniqueConnection);
             }
             acquireFetching(false);
@@ -1318,9 +1324,6 @@ void FlatpakBackend::loadRemote(FlatpakInstallation *installation, FlatpakRemote
     } else {
         auto source = integrateRemote(installation, remote);
         Q_ASSERT(findSource(installation, QString::fromUtf8(flatpak_remote_get_name(remote))) == source);
-        if (fileInfo.lastModified().toUTC().secsTo(QDateTime::currentDateTimeUtc()) > 21600) {
-            m_refreshStaleAppstream = true;
-        }
     }
 }
 
@@ -1948,6 +1951,9 @@ ResultsStream *FlatpakBackend::search(const AbstractResourcesBackend::Filters &f
     } else if (!filter.resourceUrl.isEmpty()) {
         return new ResultsStream(QStringLiteral("FlatpakStream-void"), {});
     } else if (filter.state == AbstractResource::Upgradeable) {
+        if (!m_updatesVerifiedThisSession) {
+            return new ResultsStream(QStringLiteral("FlatpakStream-upgradeable-unverified"), {});
+        }
         return deferredResultStream(u"FlatpakStream-upgradeable"_s, [this](ResultsStream *stream) -> QCoro::Task<> {
             return [](FlatpakBackend *self, ResultsStream *stream) -> QCoro::Task<> {
                 FLATPAK_BACKEND_GUARD

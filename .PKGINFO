@@ -2,7 +2,7 @@
 pkgname = flufflinux-discover
 pkgbase = flufflinux-discover
 xdata = pkgtype=pkg
-pkgver = 26.8.1-1
+pkgver = 26.8.1-2
 pkgdesc = Fluff Linux App Discovery software
 url = https://github.com/FluffNet/flufflinux-discover
 builddate = 1783537395

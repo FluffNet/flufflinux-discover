@@ -879,10 +879,6 @@ msgstr "K&eresés"
 msgid "&Installed"
 msgstr "&Telepített"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Alkalmazásfrissítések (lekérés…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

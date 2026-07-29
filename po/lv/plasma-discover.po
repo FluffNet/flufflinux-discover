@@ -895,10 +895,6 @@ msgstr "M&eklēt"
 msgid "&Installed"
 msgstr "&Instalētās"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Lietotņu atjauninājumi (ielādē)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

@@ -828,10 +828,6 @@ msgstr "തിരയുക"
 msgid "&Installed"
 msgstr "ഇൻസ്റ്റാളുചെയ്‌തു"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "ആപ്പ് അപ്ഡേറ്റുകൾ (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

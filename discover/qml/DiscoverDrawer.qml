@@ -134,19 +134,7 @@ Kirigami.GlobalDrawer {
             action: updateAction
             visible: enabled && drawer.wideScreen
 
-            stateObject: Discover.ResourcesModel.fetchingUpdatesProgress < 100 ? updatesIcon : updatesCountLabel
-
-            Component {
-                id: updatesIcon
-
-                Kirigami.Icon {
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "view-refresh"
-                    implicitWidth: Kirigami.Units.iconSizes.sizeForLabels
-                    implicitHeight: Kirigami.Units.iconSizes.sizeForLabels
-                }
-            }
+            stateObject: updatesCountLabel
 
             Component {
                 id: updatesCountLabel

@@ -842,10 +842,6 @@ msgstr "शोधा..."
 msgid "&Installed"
 msgstr "प्रतिष्ठापीत केलेले"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "ॲप अद्यतने (आणत आहे…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

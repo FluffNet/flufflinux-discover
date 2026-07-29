@@ -886,10 +886,6 @@ msgstr "Iskanje"
 msgid "&Installed"
 msgstr "Nameščeno"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "Posodobitve programov (Pridobivanje…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

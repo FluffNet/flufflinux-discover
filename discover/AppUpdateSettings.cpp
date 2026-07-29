@@ -95,15 +95,6 @@ bool AppUpdateSettings::lastUpdateOlderThanWeek() const
     return lastSuccess.isValid() && lastSuccess.addDays(7) < QDateTime::currentDateTimeUtc();
 }
 
-bool AppUpdateSettings::shouldCheckOnLaunch() const
-{
-    if (automaticUpdates()) {
-        return false;
-    }
-    const QDateTime lastSuccess = UpdateState::read().lastSuccess;
-    return !lastSuccess.isValid() || lastSuccess.addMonths(1) < QDateTime::currentDateTimeUtc();
-}
-
 bool AppUpdateSettings::checkedThisSession() const
 {
     const QDateTime lastCheck = UpdateState::read().lastCheck;

@@ -891,10 +891,6 @@ msgstr "&अन्वेषण"
 msgid "&Installed"
 msgstr "&स्थापित्"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&अनुप्रयोग-अद्यतनानि (आनयति…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

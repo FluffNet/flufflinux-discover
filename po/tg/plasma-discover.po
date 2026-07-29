@@ -836,10 +836,6 @@ msgstr "Ҷустуҷӯ"
 msgid "&Installed"
 msgstr "Насбшуда"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "Навсозиҳои барномаҳо (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
