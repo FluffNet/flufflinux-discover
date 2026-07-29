@@ -953,8 +953,8 @@ msgstr "Tarkista verkkoyhteys"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Virkistä"
+msgid "Check for app updates"
+msgstr "Tarkista sovelluspäivitykset"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

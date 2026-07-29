@@ -58,6 +58,7 @@ public:
     {
         return m_settings.get();
     }
+    int updateIntervalSeconds() const;
     void startUnattendedUpdates();
 
     QDateTime lastNotificationTime() const;

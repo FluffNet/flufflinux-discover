@@ -19,6 +19,7 @@
 #include <appstream/OdrsReviewsBackend.h>
 #include <resources/SourcesModel.h>
 #include <resources/StandardBackendUpdater.h>
+#include <UpdateConfig.h>
 #include <UpdateState.h>
 #include <utils.h>
 #include <utilscoro.h>
@@ -31,10 +32,8 @@
 #include <AppStreamQt/version.h>
 
 #include <KAboutData>
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <KSharedConfig>
 
 #include <QCoroCore>
 
@@ -45,6 +44,7 @@
 #include <QNetworkAccessManager>
 #include <QProcess>
 #include <QSettings>
+#include <QStandardPaths>
 #include <QTemporaryFile>
 #include <QTextStream>
 #include <QThread>
@@ -546,8 +546,7 @@ FlatpakBackend::FlatpakBackend(QObject *parent)
             // start only after the initial pools are ready so Home is never
             // delayed. Launch-time checks are intentionally less frequent than
             // the independent background update schedule.
-            const KConfigGroup updates(KSharedConfig::openConfig(QStringLiteral("PlasmaDiscoverUpdates")), QStringLiteral("Global"));
-            const bool automatic = updates.readEntry(QStringLiteral("UseUnattendedUpdates"), true);
+            const bool automatic = UpdateConfig::read().automaticUpdates;
             const QDateTime lastSuccess = UpdateState::read().lastSuccess;
             const QDateTime now = QDateTime::currentDateTimeUtc();
             const bool shouldCheckOnLaunch = automatic
@@ -2554,11 +2553,14 @@ void FlatpakBackend::checkForRemoteUpdates(FlatpakInstallation *installation, Fl
             UpdateState::recordCheck();
         }
     });
+    // The collector must process the final verified results before the last
+    // fetching reference is released. Otherwise contentsChanged is emitted
+    // once with an intermediate list and again with the final update list,
+    // making the update page visibly switch from results back to loading.
+    m_collector->add(job);
     connect(job, &FlatpakRefreshAppstreamMetadataJob::finished, this, [this] {
         acquireFetching(false);
     });
-
-    m_collector->add(job);
     acquireFetching(true);
     job->start();
 }

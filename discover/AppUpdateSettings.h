@@ -23,6 +23,8 @@ class AppUpdateSettings : public QObject
 public:
     explicit AppUpdateSettings(QObject *parent = nullptr);
 
+    static void ensureDefaultsExist();
+
     bool automaticUpdates() const;
     void setAutomaticUpdates(bool enabled);
 

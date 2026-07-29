@@ -973,8 +973,8 @@ msgstr "Проверьте подключение к Интернету"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Обновить список"
+msgid "Check for app updates"
+msgstr "Проверить обновления приложений"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

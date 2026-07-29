@@ -925,8 +925,8 @@ msgstr ""
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr ""
+msgid "Check for app updates"
+msgstr "အက်ပ်အပ်ဒိတ်များကို စစ်ဆေးပါ"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

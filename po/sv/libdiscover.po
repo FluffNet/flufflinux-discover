@@ -949,8 +949,8 @@ msgstr "Kontrollera Internetanslutning"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Uppdatera"
+msgid "Check for app updates"
+msgstr "Sök efter programuppdateringar"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

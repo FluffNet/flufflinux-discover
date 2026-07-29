@@ -948,8 +948,8 @@ msgstr "Sjå til at Internett-sambandet verkar"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Last om att"
+msgid "Check for app updates"
+msgstr "Sjå etter appoppdateringar"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

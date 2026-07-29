@@ -939,8 +939,8 @@ msgstr "कृपया अन्तर्जालसंपर्कस्य �
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "नवीकरणम्"
+msgid "Check for app updates"
+msgstr "अनुप्रयोग-अद्यतनानि परीक्ष्यन्ताम्"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

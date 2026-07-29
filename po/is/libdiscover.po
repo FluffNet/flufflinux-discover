@@ -948,8 +948,8 @@ msgstr "Athugaðu hvort þú sért með nettengingu"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Endurhlaða"
+msgid "Check for app updates"
+msgstr "Athuga með forritauppfærslur"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

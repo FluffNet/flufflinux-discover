@@ -7,6 +7,7 @@
 #include <KConfigGroup>
 #include <KFormat>
 #include <KLocalizedString>
+#include <UpdateConfig.h>
 #include <UpdateState.h>
 
 #include <algorithm>
@@ -17,8 +18,8 @@ namespace
 {
 constexpr auto configFile = "PlasmaDiscoverUpdates";
 constexpr auto configGroup = "Global";
-constexpr auto automaticUpdatesKey = "UseUnattendedUpdates";
-constexpr auto updateIntervalKey = "RequiredNotificationInterval";
+constexpr auto automaticUpdatesKey = "AutomaticUpdates";
+constexpr auto updateIntervalKey = "UpdateInterval";
 }
 
 AppUpdateSettings::AppUpdateSettings(QObject *parent)
@@ -27,19 +28,7 @@ AppUpdateSettings::AppUpdateSettings(QObject *parent)
     , m_watcher(KConfigWatcher::create(m_config))
     , m_sessionStarted(QDateTime::currentDateTimeUtc())
 {
-    KConfigGroup group = m_config->group(QLatin1String(configGroup));
-    bool createdDefaults = false;
-    if (!group.hasKey(automaticUpdatesKey)) {
-        group.writeEntry(automaticUpdatesKey, true);
-        createdDefaults = true;
-    }
-    if (!group.hasKey(updateIntervalKey)) {
-        group.writeEntry(updateIntervalKey, 7 * 24 * 60 * 60);
-        createdDefaults = true;
-    }
-    if (createdDefaults) {
-        m_config->sync();
-    }
+    ensureDefaultsExist();
 
     reload();
     connect(m_watcher.data(), &KConfigWatcher::configChanged, this, [this](const KConfigGroup &group, const QByteArrayList &names) {
@@ -48,6 +37,11 @@ AppUpdateSettings::AppUpdateSettings(QObject *parent)
             reload();
         }
     });
+}
+
+void AppUpdateSettings::ensureDefaultsExist()
+{
+    UpdateConfig::ensureAndMigrate();
 }
 
 bool AppUpdateSettings::automaticUpdates() const
@@ -61,8 +55,7 @@ void AppUpdateSettings::setAutomaticUpdates(bool enabled)
         return;
     }
 
-    m_config->group(QLatin1String(configGroup)).writeEntry(automaticUpdatesKey, enabled);
-    m_config->sync();
+    UpdateConfig::writeAutomaticUpdates(enabled, m_updateInterval);
     m_automaticUpdates = enabled;
     Q_EMIT automaticUpdatesChanged();
 }
@@ -133,17 +126,16 @@ void AppUpdateSettings::setUpdateInterval(int seconds)
         return;
     }
 
-    m_config->group(QLatin1String(configGroup)).writeEntry(updateIntervalKey, seconds);
-    m_config->sync();
+    UpdateConfig::writeUpdateInterval(seconds);
     m_updateInterval = seconds;
     Q_EMIT updateIntervalChanged();
 }
 
 void AppUpdateSettings::reload()
 {
-    const KConfigGroup group = m_config->group(QLatin1String(configGroup));
-    const bool automaticUpdates = group.readEntry(automaticUpdatesKey, true);
-    const int updateInterval = group.readEntry(updateIntervalKey, 7 * 24 * 60 * 60);
+    const UpdateConfig::Settings settings = UpdateConfig::read();
+    const bool automaticUpdates = settings.automaticUpdates;
+    const int updateInterval = settings.intervalSeconds;
 
     if (m_automaticUpdates != automaticUpdates) {
         m_automaticUpdates = automaticUpdates;

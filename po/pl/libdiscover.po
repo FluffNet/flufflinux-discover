@@ -956,8 +956,8 @@ msgstr "Sprawdź swoje połączenie"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Odśwież"
+msgid "Check for app updates"
+msgstr "Sprawdź aktualizacje aplikacji"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

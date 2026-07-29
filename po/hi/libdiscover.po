@@ -913,8 +913,8 @@ msgstr ""
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr ""
+msgid "Check for app updates"
+msgstr "ऐप अपडेट जाँचें"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

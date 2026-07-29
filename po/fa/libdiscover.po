@@ -939,8 +939,8 @@ msgstr "لطفاً اتصال اینترنت را بررسی کنید"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "تازه‌سازی"
+msgid "Check for app updates"
+msgstr "بررسی به‌روزرسانی برنامه‌ها"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

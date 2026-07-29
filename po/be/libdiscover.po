@@ -953,8 +953,8 @@ msgstr "Праверце злучэнне з інтэрнэтам"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Абнавіць"
+msgid "Check for app updates"
+msgstr "Праверыць абнаўленні праграм"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

@@ -920,8 +920,8 @@ msgstr "请检查网络连接"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "刷新"
+msgid "Check for app updates"
+msgstr "检查应用更新"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

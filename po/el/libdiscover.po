@@ -978,8 +978,8 @@ msgstr "Παρακαλώ βεβαιωθείτε ότι έχετε σύνδεση
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Ανανέωση"
+msgid "Check for app updates"
+msgstr "Έλεγχος για ενημερώσεις εφαρμογών"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

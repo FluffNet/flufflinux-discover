@@ -49,6 +49,8 @@ set(discovercommon_SRCS
     LazyIconResolver.cpp
     UpdateState.cpp
     UpdateState.h
+    UpdateConfig.cpp
+    UpdateConfig.h
 
     utils.h
     utilscoro.cpp

@@ -931,8 +931,8 @@ msgstr "נא לוודא שיש חיבור לאינטרנט"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "ריענון"
+msgid "Check for app updates"
+msgstr "בדיקת עדכוני יישומים"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

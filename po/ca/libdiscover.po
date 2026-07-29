@@ -959,8 +959,8 @@ msgstr "Comproveu la connectivitat amb Internet"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Actualitza la llista"
+msgid "Check for app updates"
+msgstr "Comprova si hi ha actualitzacions d'aplicacions"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format
