@@ -834,10 +834,6 @@ msgstr "ਖੋਜੋ(&S)"
 msgid "&Installed"
 msgstr "ਇੰਸਟਾਲ ਹਨ(&I)"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "ਐਪ ਅੱਪਡੇਟ (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

@@ -869,10 +869,6 @@ msgstr "&ძებნა"
 msgid "&Installed"
 msgstr "&დაყენებული"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&აპების განახლებები (გამოთხოვა…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

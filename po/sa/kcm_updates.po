@@ -26,12 +26,12 @@ msgstr "तन्त्रांश् अद्यतनं कुर्वन�
 
 #: kcm/ui/main.qml:41
 #, kde-format
-msgid "Manually"
+msgid "Manual"
 msgstr "हस्तचलितरूपेण"
 
 #: kcm/ui/main.qml:51
 #, kde-format
-msgid "Automatically"
+msgid "Automatic"
 msgstr "स्वतः"
 
 #: kcm/ui/main.qml:58
@@ -57,12 +57,6 @@ msgctxt "@title:group"
 msgid "Update frequency:"
 msgstr "अद्यतनस्य आवृत्तिः :"
 
-#: kcm/ui/main.qml:69
-#, kde-format
-msgctxt "@title:group"
-msgid "Notification frequency:"
-msgstr "अधिसूचनायाः आवृत्तिः :"
-
 #: kcm/ui/main.qml:72
 #, kde-format
 msgctxt "@item:inlistbox"
@@ -80,12 +74,6 @@ msgstr "साप्ताहिकम्"
 msgctxt "@item:inlistbox"
 msgid "Monthly"
 msgstr "मासिकम्"
-
-#: kcm/ui/main.qml:75
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Never"
-msgstr "कदापि न"
 
 #: kcm/ui/main.qml:119
 #, kde-format

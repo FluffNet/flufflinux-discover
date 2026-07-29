@@ -856,10 +856,6 @@ msgstr "찾기(&S)"
 msgid "&Installed"
 msgstr "설치됨(&I)"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "앱 업데이트(가져오는 중…)(&U)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

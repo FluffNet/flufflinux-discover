@@ -893,10 +893,6 @@ msgstr "ئىزدە(&S)"
 msgid "&Installed"
 msgstr "ئورنىتىلغان(&I)"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "ئەپ يېڭىلانمىلىرى(&U) (ئېرىشىۋاتىدۇ…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

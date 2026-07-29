@@ -831,10 +831,6 @@ msgstr "&Sရှာဖွေမည်"
 msgid "&Installed"
 msgstr "&Iတပ်ဆင်ပြီး"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "အက်ပ်အပ်ဒိတ်များ (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

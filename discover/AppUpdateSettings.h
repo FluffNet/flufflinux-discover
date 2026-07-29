@@ -18,7 +18,6 @@ class AppUpdateSettings : public QObject
     Q_PROPERTY(QString lastSuccessfulUpdate READ lastSuccessfulUpdate NOTIFY updateHistoryChanged)
     Q_PROPERTY(QString relativeLastSuccessfulUpdate READ relativeLastSuccessfulUpdate NOTIFY updateHistoryChanged)
     Q_PROPERTY(bool lastUpdateOlderThanWeek READ lastUpdateOlderThanWeek NOTIFY updateHistoryChanged)
-    Q_PROPERTY(bool shouldCheckOnLaunch READ shouldCheckOnLaunch NOTIFY updateHistoryChanged)
     Q_PROPERTY(bool checkedThisSession READ checkedThisSession NOTIFY updateHistoryChanged)
 
 public:
@@ -34,7 +33,6 @@ public:
     QString lastSuccessfulUpdate() const;
     QString relativeLastSuccessfulUpdate() const;
     bool lastUpdateOlderThanWeek() const;
-    bool shouldCheckOnLaunch() const;
     bool checkedThisSession() const;
 
     Q_INVOKABLE void recordUpdateCheck();

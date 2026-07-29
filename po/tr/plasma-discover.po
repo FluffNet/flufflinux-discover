@@ -880,10 +880,6 @@ msgstr "&Ara"
 msgid "&Installed"
 msgstr "&Kurulu"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Uygulama güncellemeleri (Getiriliyor…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

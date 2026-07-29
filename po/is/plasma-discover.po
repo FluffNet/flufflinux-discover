@@ -872,10 +872,6 @@ msgstr "&Leita"
 msgid "&Installed"
 msgstr "&Uppsett"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Forritauppfærslur (sæki…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

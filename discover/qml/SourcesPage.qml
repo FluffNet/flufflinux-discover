@@ -365,7 +365,7 @@ DiscoverPage {
 
             QQC2.RadioButton {
                 Kirigami.FormData.label: i18n("App updates")
-                text: i18nd("kcm_updates", "Manually")
+                text: i18nd("kcm_updates", "Manual")
                 QQC2.ButtonGroup.group: automaticUpdatesGroup
                 checked: !DiscoverApp.AppUpdateSettings.automaticUpdates
                 onClicked: DiscoverApp.AppUpdateSettings.automaticUpdates = false
@@ -373,7 +373,7 @@ DiscoverPage {
 
             RowLayout {
                 QQC2.RadioButton {
-                    text: i18nd("kcm_updates", "Automatically")
+                    text: i18nd("kcm_updates", "Automatic")
                     QQC2.ButtonGroup.group: automaticUpdatesGroup
                     checked: DiscoverApp.AppUpdateSettings.automaticUpdates
                     onClicked: {
@@ -386,26 +386,30 @@ DiscoverPage {
             }
 
             QQC2.ComboBox {
-                Kirigami.FormData.label: DiscoverApp.AppUpdateSettings.automaticUpdates
+                readonly property bool automaticUpdatesEnabled: DiscoverApp.AppUpdateSettings.automaticUpdates
+
+                // Keep this row in the layout so switching update modes never
+                // makes the settings panel jump or resize.
+                opacity: automaticUpdatesEnabled ? 1 : 0
+                enabled: automaticUpdatesEnabled
+                focusPolicy: automaticUpdatesEnabled ? Qt.StrongFocus : Qt.NoFocus
+                Accessible.ignored: !automaticUpdatesEnabled
+                Kirigami.FormData.label: automaticUpdatesEnabled
                     ? i18ndc("kcm_updates", "@title:group", "Update frequency:")
-                    : i18ndc("kcm_updates", "@title:group", "Notification frequency:")
+                    : ""
 
                 readonly property var frequencyOptions: [
                     24 * 60 * 60,
                     7 * 24 * 60 * 60,
-                    30 * 24 * 60 * 60,
-                    -1
+                    30 * 24 * 60 * 60
                 ]
                 readonly property var frequencyLabels: [
                     i18ndc("kcm_updates", "@item:inlistbox", "Daily"),
                     i18ndc("kcm_updates", "@item:inlistbox", "Weekly"),
-                    i18ndc("kcm_updates", "@item:inlistbox", "Monthly"),
-                    i18ndc("kcm_updates", "@item:inlistbox", "Never")
+                    i18ndc("kcm_updates", "@item:inlistbox", "Monthly")
                 ]
 
-                model: DiscoverApp.AppUpdateSettings.automaticUpdates
-                    ? frequencyLabels.slice(0, 3)
-                    : frequencyLabels
+                model: frequencyLabels
                 currentIndex: Math.max(0, frequencyOptions.indexOf(DiscoverApp.AppUpdateSettings.updateInterval))
                 onActivated: index => {
                     DiscoverApp.AppUpdateSettings.updateInterval = frequencyOptions[index]

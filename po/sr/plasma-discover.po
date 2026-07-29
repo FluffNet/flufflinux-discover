@@ -854,10 +854,6 @@ msgstr "Претрага"
 msgid "&Installed"
 msgstr "Инсталирано"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "Ажурирања програма (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

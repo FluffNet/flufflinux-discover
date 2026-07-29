@@ -877,10 +877,6 @@ msgstr "&Bilatu"
 msgid "&Installed"
 msgstr "&Instalatuta"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Aplikazioen eguneraketak (Ekartzen…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

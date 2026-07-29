@@ -881,10 +881,6 @@ msgstr "&جستجو"
 msgid "&Installed"
 msgstr "&نصب‌شده"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&به‌روزرسانی‌های برنامه‌ها (در حال دریافت…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format

@@ -811,10 +811,6 @@ msgstr ""
 msgid "&Installed"
 msgstr ""
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "Nuashonruithe aipeanna (Fetching…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, kde-format

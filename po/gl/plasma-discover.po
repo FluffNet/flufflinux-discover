@@ -906,10 +906,6 @@ msgstr "&Buscar"
 msgid "&Installed"
 msgstr "&Instalada"
 
-#: discover/qml/DiscoverWindow.qml:101
-#, kde-format
-msgid "&App updates (Fetching…)"
-msgstr "&Actualizacións de aplicacións (obtendo…)"
 
 #: discover/qml/DiscoverWindow.qml:102
 #, fuzzy, kde-format
