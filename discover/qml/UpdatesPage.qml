@@ -14,6 +14,8 @@ DiscoverPage {
     title: i18n("App updates")
 
     property string footerLabel: ""
+    property string footerIcon: ""
+    property string footerDescription: lastUpdateSummary
     property int footerProgress: 0
     property bool busy: false
     readonly property string name: title
@@ -329,6 +331,9 @@ DiscoverPage {
             y: (parent.height / 2) - (Kirigami.Units.gridUnit * 3)
 
             icon.name: {
+                if (page.footerIcon !== "") {
+                    return page.footerIcon
+                }
                 if (page.footerProgress === 0 && page.footerLabel !== "" && !page.busy) {
                     return "update-none"
                 } else {
@@ -345,7 +350,7 @@ DiscoverPage {
                 visible: text.length > 0
                 opacity: 0.75
 
-                text: page.busy ? Discover.ResourcesModel.remainingDescription : page.lastUpdateSummary
+                text: page.busy ? Discover.ResourcesModel.remainingDescription : page.footerDescription
 
                 horizontalAlignment: Qt.AlignHCenter
                 wrapMode: Text.WordWrap
@@ -644,7 +649,9 @@ DiscoverPage {
         },
         State {
             name: "unknown"
-            PropertyChanges { page.footerLabel: i18nc("@info", "Recently updated") }
+            PropertyChanges { page.footerLabel: i18n("Apps have not been updated yet") }
+            PropertyChanges { page.footerIcon: "dialog-information" }
+            PropertyChanges { page.footerDescription: "" }
             PropertyChanges { page.actions: [refreshAction] }
             PropertyChanges { statusLabel.progressBar.visible: false }
         }
