@@ -961,8 +961,8 @@ msgstr "Patikrinkite interneto ryšio jungiamumą"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Įkelti iš naujo"
+msgid "Check for app updates"
+msgstr "Tikrinti programų atnaujinimus"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

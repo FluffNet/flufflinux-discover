@@ -931,8 +931,8 @@ msgstr "இணைய இணைப்பை சரிபார்க்கவு�
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "புதுப்பி"
+msgid "Check for app updates"
+msgstr "செயலி புதுப்பிப்புகளைச் சரிபார்க்கவும்"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

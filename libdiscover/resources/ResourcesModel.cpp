@@ -98,7 +98,7 @@ void ResourcesModel::init(bool load)
 
     m_updateAction = new DiscoverAction(this);
     m_updateAction->setIconName(QStringLiteral("system-software-update"));
-    m_updateAction->setText(i18n("Refresh"));
+    m_updateAction->setText(i18n("Check for app updates"));
     m_updateAction->setEnabled(false);
     connect(this, &ResourcesModel::fetchingUpdatesProgressChanged, m_updateAction, [this](int fetchingProgress) {
         m_updateAction->setEnabled(fetchingProgress == 100);

@@ -6,6 +6,7 @@
 
 // #define QT_QML_DEBUG
 
+#include "AppUpdateSettings.h"
 #include "DiscoverObject.h"
 #include "DiscoverVersion.h"
 #include <DiscoverBackendsFactory.h>
@@ -167,6 +168,10 @@ int main(int argc, char **argv)
         if (parser->isSet(QStringLiteral("test"))) {
             QStandardPaths::setTestModeEnabled(true);
         }
+
+        // Create the default update policy during application startup rather
+        // than waiting for the Settings page to instantiate its QML singleton.
+        AppUpdateSettings::ensureDefaultsExist();
 
         auto service = new KDBusService(KDBusService::Unique | KDBusService::NoExitOnFailure, &app);
         if (service && !service->isRegistered()) {

@@ -919,8 +919,8 @@ msgstr ""
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr ""
+msgid "Check for app updates"
+msgstr "Aktualizacije nałoženjow přepruwować"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

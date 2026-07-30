@@ -955,8 +955,8 @@ msgstr "Будь ласка, перевірте працездатність і�
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Оновити"
+msgid "Check for app updates"
+msgstr "Перевірити оновлення програм"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

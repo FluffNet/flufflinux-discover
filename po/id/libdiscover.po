@@ -958,8 +958,8 @@ msgstr "Mohon memverifikasi konektivitas Internet"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Segarkan"
+msgid "Check for app updates"
+msgstr "Periksa pembaruan aplikasi"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

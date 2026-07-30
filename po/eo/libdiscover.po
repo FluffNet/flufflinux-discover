@@ -947,8 +947,8 @@ msgstr "Bonvolu kontroli interretan konekteblecon"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Refreŝigi"
+msgid "Check for app updates"
+msgstr "Kontroli pri aplikaĵaj ĝisdatigoj"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

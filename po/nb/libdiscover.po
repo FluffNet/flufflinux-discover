@@ -960,8 +960,8 @@ msgstr "Sjekk et Internetttilkoblingen fungerer"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Oppfrisk"
+msgid "Check for app updates"
+msgstr "Se etter appoppdateringer"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

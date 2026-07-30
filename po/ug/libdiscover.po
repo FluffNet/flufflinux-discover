@@ -947,8 +947,8 @@ msgstr "ئىنتېرنېت باغلىنىشىنى تەكشۈرۈڭ"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "يېڭىلا"
+msgid "Check for app updates"
+msgstr "ئەپ يېڭىلانمىلىرىنى تەكشۈرۈش"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

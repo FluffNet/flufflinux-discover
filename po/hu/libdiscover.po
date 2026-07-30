@@ -954,8 +954,8 @@ msgstr "Ellenőrizze az internetkapcsolatot"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Újratöltés"
+msgid "Check for app updates"
+msgstr "Alkalmazásfrissítések keresése"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

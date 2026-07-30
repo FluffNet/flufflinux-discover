@@ -960,8 +960,8 @@ msgstr "Mesedez, egiaztatu Interneteko konektibitatea"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Freskatu"
+msgid "Check for app updates"
+msgstr "Egiaztatu aplikazioen eguneratzeak"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

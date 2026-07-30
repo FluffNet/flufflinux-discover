@@ -927,8 +927,8 @@ msgstr "인터넷 연결 상태를 확인하십시오"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "새로 고침"
+msgid "Check for app updates"
+msgstr "앱 업데이트 확인"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

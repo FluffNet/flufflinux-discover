@@ -7,12 +7,11 @@
 
 #include "FlatpakNotifier.h"
 #include "libdiscover_backend_flatpak_debug.h"
+#include <UpdateConfig.h>
 #include <UpdateState.h>
 
 #include <glib.h>
 
-#include <KConfigGroup>
-#include <KSharedConfig>
 #include <QFutureWatcher>
 #include <QTimer>
 #include <QtConcurrentRun>
@@ -83,9 +82,9 @@ FlatpakNotifier::~FlatpakNotifier()
 
 void FlatpakNotifier::recheckSystemUpdateNeeded()
 {
-    const KConfigGroup settings(KSharedConfig::openConfig(QStringLiteral("PlasmaDiscoverUpdates")), QStringLiteral("Global"));
-    const int interval = settings.readEntry(QStringLiteral("RequiredNotificationInterval"), 7 * 24 * 60 * 60);
-    if (!settings.readEntry(QStringLiteral("UseUnattendedUpdates"), true) || interval <= 0) {
+    const UpdateConfig::Settings settings = UpdateConfig::read();
+    const int interval = settings.intervalSeconds;
+    if (!settings.automaticUpdates) {
         return;
     }
     const UpdateState::State state = UpdateState::read();

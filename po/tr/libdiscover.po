@@ -953,8 +953,8 @@ msgstr "Lütfen internet bağlantınızı doğrulayın"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Yenile"
+msgid "Check for app updates"
+msgstr "Uygulama güncellemelerini denetle"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

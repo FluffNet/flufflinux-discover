@@ -949,8 +949,8 @@ msgstr "გთხოვთ გადაამოწმოთ ინტერნ�
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "განახლება"
+msgid "Check for app updates"
+msgstr "აპების განახლებების შემოწმება"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

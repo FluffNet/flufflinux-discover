@@ -21,6 +21,7 @@
 #include <KIO/CommandLauncherJob>
 
 #include "../libdiscover/utils.h"
+#include "../libdiscover/UpdateConfig.h"
 #include "../libdiscover/UpdateState.h"
 #include "../libdiscover/UpdateModel/RefreshNotifierDBus.h"
 #include "Login1ManagerInterface.h"
@@ -37,6 +38,7 @@ DiscoverNotifier::DiscoverNotifier(const std::chrono::seconds &checkDelay, QObje
     : QObject(parent)
     , m_stateConfig(u"discovernotifierstaterc"_s, KConfig::SimpleConfig, QStandardPaths::GenericStateLocation)
 {
+    UpdateConfig::ensureAndMigrate();
     m_settings = std::make_unique<UpdatesSettings>();
     m_settingsWatcher = KConfigWatcher::create(m_settings->sharedConfig());
 
@@ -64,7 +66,8 @@ DiscoverNotifier::DiscoverNotifier(const std::chrono::seconds &checkDelay, QObje
         if (group.config()->name() != m_settings->config()->name() || group.name() != QLatin1String("Global")) {
             return;
         }
-        if (names.contains("UseUnattendedUpdates") || names.contains("RequiredNotificationInterval")) {
+        if (names.contains("AutomaticUpdates") || names.contains("UpdateInterval") || names.contains("UseUnattendedUpdates")
+            || names.contains("RequiredNotificationInterval")) {
             evaluateAutomaticUpdates();
             Q_EMIT stateChanged();
         }
@@ -141,14 +144,7 @@ bool DiscoverNotifier::checkTriggerTimes(const QDateTime &lastTriggerTime) const
         return false;
     }
 
-    if (m_settings->requiredNotificationInterval() < 0) {
-        qCDebug(NOTIFIER) << "Not triggering, requiredNotificationInterval is" << m_settings->requiredNotificationInterval();
-        return false;
-    }
-
-    // To configure to a random value, execute:
-    // kwriteconfig5 --file PlasmaDiscoverUpdates --group Global --key RequiredNotificationInterval 3600
-    const QDateTime earliestNextTriggerTime = lastTriggerTime.addSecs(m_settings->requiredNotificationInterval());
+    const QDateTime earliestNextTriggerTime = lastTriggerTime.addSecs(updateIntervalSeconds());
     if (earliestNextTriggerTime.isValid() && earliestNextTriggerTime > QDateTime::currentDateTimeUtc()) {
         qCDebug(NOTIFIER) << "Not triggering, earliestNextTriggerTime is" << earliestNextTriggerTime;
         return false;
@@ -317,7 +313,12 @@ void DiscoverNotifier::refreshUnattended()
 
 bool DiscoverNotifier::automaticUpdatesEnabled() const
 {
-    return m_settings && m_settings->useUnattendedUpdates() && m_settings->requiredNotificationInterval() > 0;
+    return m_settings && UpdateConfig::read().automaticUpdates;
+}
+
+int DiscoverNotifier::updateIntervalSeconds() const
+{
+    return UpdateConfig::read().intervalSeconds;
 }
 
 bool DiscoverNotifier::automaticUpdateDue() const
@@ -332,7 +333,7 @@ bool DiscoverNotifier::automaticUpdateDue() const
     if (!state.lastSuccess.isValid()) {
         return true;
     }
-    return state.lastSuccess.addSecs(m_settings->requiredNotificationInterval()) <= QDateTime::currentDateTimeUtc();
+    return state.lastSuccess.addSecs(updateIntervalSeconds()) <= QDateTime::currentDateTimeUtc();
 }
 
 void DiscoverNotifier::scheduleNextEvaluation()
@@ -345,7 +346,7 @@ void DiscoverNotifier::scheduleNextEvaluation()
     const UpdateState::State state = UpdateState::read();
     QDateTime next = state.nextScheduledUpdate;
     if (!next.isValid() && state.lastSuccess.isValid()) {
-        next = state.lastSuccess.addSecs(m_settings->requiredNotificationInterval());
+        next = state.lastSuccess.addSecs(updateIntervalSeconds());
     }
     if (!next.isValid() || next <= QDateTime::currentDateTimeUtc()) {
         m_scheduleTimer.start(1000);
@@ -403,7 +404,7 @@ void DiscoverNotifier::handleCheckCompleted(bool hasConfiguredSources, bool hasR
 
     UpdateState::recordCheck();
     if (!m_hasUpdates) {
-        UpdateState::recordNoUpdates(m_settings->requiredNotificationInterval());
+        UpdateState::recordNoUpdates(updateIntervalSeconds());
         m_unattended.reset();
         scheduleNextEvaluation();
         return;

@@ -941,8 +941,8 @@ msgstr "رجاء تأكد من الاتصال بالإنترنت"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "حدّث"
+msgid "Check for app updates"
+msgstr "تحقق من تحديثات التطبيقات"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format

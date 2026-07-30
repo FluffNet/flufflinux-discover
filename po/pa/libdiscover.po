@@ -936,8 +936,8 @@ msgstr "ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰ�
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "ਤਾਜ਼ਾ ਕਰੋ"
+msgid "Check for app updates"
+msgstr "ਐਪ ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

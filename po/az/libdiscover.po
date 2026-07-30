@@ -979,8 +979,8 @@ msgstr "Lütfən internet bağlantısını yoxlayın"
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr "Təzələmək"
+msgid "Check for app updates"
+msgstr "Tətbiq yeniləmələrini yoxlayın"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, fuzzy, kde-format

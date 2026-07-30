@@ -904,8 +904,8 @@ msgstr ""
 
 #: libdiscover/resources/ResourcesModel.cpp:104
 #, kde-format
-msgid "Refresh"
-msgstr ""
+msgid "Check for app updates"
+msgstr "Seiceáil le haghaidh nuashonruithe aipeanna"
 
 #: libdiscover/resources/ResourcesModel.cpp:405
 #, kde-format
