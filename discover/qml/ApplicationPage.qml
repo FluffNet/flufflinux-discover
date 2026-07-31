@@ -257,7 +257,7 @@ DiscoverPage {
             Layout.topMargin: -appInfo.topPadding
 
             flickable: appInfo.flickable
-            color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.1)
+            color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.2)
 
             fullComponent: ApplicationPageFullComponent {
                 application: appInfo.application
