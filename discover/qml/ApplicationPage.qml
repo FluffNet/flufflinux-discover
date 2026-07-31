@@ -216,11 +216,6 @@ DiscoverPage {
         }
     }
 
-    Kirigami.ImageColors {
-        id: appImageColorExtractor
-        source: appInfo.application.icon
-    }
-
     Kirigami.PromptDialog {
         id: shareSheet
         parent: applicationWindow().overlay
@@ -262,7 +257,7 @@ DiscoverPage {
             Layout.topMargin: -appInfo.topPadding
 
             flickable: appInfo.flickable
-            color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, appImageColorExtractor.dominant, 0.1)
+            color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.1)
 
             fullComponent: ApplicationPageFullComponent {
                 application: appInfo.application
